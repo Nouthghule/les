@@ -10,12 +10,12 @@ public static void main(String[] args){
 //	theBoss.add(lilEx);
 	Ex ex1 = new PlainEx(6);
 	Ex ex2 = new PlainEx(60);
-//	Ex ex2 = new ArgEx("c");
-//	Ex ex3 = new ArgEx("b").multi(new PlainEx(42));
+//	Ex ex2 = new VarEx("c");
+//	Ex ex3 = new VarEx("b").multi(new PlainEx(42));
 /*	Ex pipka = new MultiEx();
 	Ex evilEx = new MultiEx();
 	evilEx.multi(new PlainEx(40));
-	evilEx.multi(new ArgEx("z"));
+	evilEx.multi(new VarEx("z"));
 	
 	pipka.multi(new PlainEx(20));
 	pipka.multi(new PlainEx(24));
