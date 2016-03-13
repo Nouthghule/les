@@ -46,7 +46,7 @@ public final Ex copy(){
 protected Ex processCopy(Ex theCopy){
 	int i;
 	for(i=0; i<this.size();i++){
-		System.out.println("gonna append " + this.getSubEx(i).report() + " to " + theCopy.report());	
+//		System.out.println("gonna append " + this.getSubEx(i).report() + " to " + theCopy.report());	
 		theCopy.appendSubEx(this.getSubEx(i).copy());
 		} 	
 	theCopy.sort(); //also sets posInMasters

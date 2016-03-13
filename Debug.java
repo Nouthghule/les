@@ -3,18 +3,23 @@ import java.util.*;
 public class Debug{
 
 public static void main(String[] args){
+	System.out.print("><><><><><><><><><><>\n");
 	Ex theBoss = new BossEx();
 	
 	Ex ex1 = new AddEx();
 	ex1.add(new PlainEx(1));
 	ex1.add(new VarEx("f"));
 	
-	Ex ex2 = new MultiEx();
-	ex2.multi(new PlainEx(15));
+	MultiEx ex2 = new MultiEx();
+	ex2.multi(new PlainEx(2));
+	ex2.multi(new PlainEx(3));
+	ex2.multi(new PlainEx(2));
 	ex2.multi(new VarEx("t"));
+	ex2.multi(ex1.copy().add(new PlainEx(2)));
 
 	Ex ex3 = new DivEx();
 	ex3.multi(ex1.copy());
+	ex3.multi(new PlainEx(5));
 	ex3.div(new PlainEx(777));
 	ex3.div(new VarEx("b"));
 	
@@ -23,10 +28,13 @@ public static void main(String[] args){
 	theBoss.add(ex3);
 	theBoss.sort();
 	System.out.print(theBoss.report());
-	
-	Ex dolly = theBoss.copy();
-	System.out.print("Okay now, copied the expression.\n=====================\n");
+
+	MultiRes resolver = new MultiRes();
+	Ex dolly = resolver.execute(ex2);
+
+	System.out.print("=====================\n");
 	System.out.print(dolly.report());
+	System.out.print("\n\n");
 	}
 
 
