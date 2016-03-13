@@ -4,29 +4,23 @@ public class Debug{
 
 public static void main(String[] args){
 	Ex theBoss = new BossEx();
-//	theBoss.add(13);
-//	theBoss.add(-3);
-//	Ex lilEx = PlainEx.create(7);
-//	theBoss.add(lilEx);
-	Ex ex1 = new PlainEx(6);
-	Ex ex2 = new PlainEx(60);
-//	Ex ex2 = new VarEx("c");
-//	Ex ex3 = new VarEx("b").multi(new PlainEx(42));
-/*	Ex pipka = new MultiEx();
-	Ex evilEx = new MultiEx();
-	evilEx.multi(new PlainEx(40));
-	evilEx.multi(new VarEx("z"));
 	
-	pipka.multi(new PlainEx(20));
-	pipka.multi(new PlainEx(24));
-	pipka.multi(evilEx);
-	pipka.multi(new PlainEx(24));
-	pipka.multi(new PlainEx(24));
+	Ex ex1 = new AddEx();
+	ex1.add(new PlainEx(1));
+	ex1.add(new VarEx("f"));
 	
-	theBoss.add(pipka);
-*/	theBoss.add(ex1);
+	Ex ex2 = new MultiEx();
+	ex2.multi(new PlainEx(15));
+	ex2.multi(new VarEx("t"));
+
+	Ex ex3 = new DivEx();
+	ex3.multi(ex1.copy());
+	ex3.div(new PlainEx(777));
+	ex3.div(new VarEx("b"));
+	
+	theBoss.add(ex1);
 	theBoss.add(ex2);
-	//theBoss.add(ex3);
+	theBoss.add(ex3);
 	theBoss.sort();
 	System.out.print(theBoss.report());
 	

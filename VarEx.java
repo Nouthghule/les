@@ -21,7 +21,9 @@ public VarEx(){
 
 @Override
 protected Ex processCopy(Ex theCopy){
-	Var
+	VarEx rlCopy = (VarEx) theCopy;
+	rlCopy.unit = this.unit;
+	return rlCopy;
 	}
 ////////////////////////////////////////
 

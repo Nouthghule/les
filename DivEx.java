@@ -11,11 +11,9 @@ public  DivEx(){
 
 	Ex defEx1 = new PlainEx(1);
 	numerator = defEx1;
-	this.multi(defEx1);
 
 	Ex defEx2 = new PlainEx(1);
 	denominator = defEx2;
-	this.div(defEx2);
 
 	}
 /*
@@ -26,13 +24,23 @@ public static DivEx create(){
 //*//////////////////////////////////////////////////////////////////
 
 @Override
+public Ex processCopy(Ex argEx){
+	DivEx rlCopy = (DivEx) argEx;
+	rlCopy.multi(this.numerator.copy());
+	rlCopy.div(this.denominator.copy());
+	return rlCopy;
+	}
+
+///////////////////////////////////////////////
+
+@Override
 public void replaceTarget(Ex argEx, int pos){
 	argEx.master = this;
 	argEx.posInMaster = pos;
-	if(pos==1){
+	if(pos==0){
 		numerator = argEx;
 		}
-	else if(pos==0){
+	else if(pos==1){
 		denominator = argEx;
 		}
 	}
@@ -71,6 +79,7 @@ public int size(){
 
 @Override
 public void appendSubEx(Ex argEx){
+	//TODO decide if intended behavior
 	numerator.appendSubEx(argEx);
 	}
 
@@ -98,7 +107,7 @@ public Ex multi(ArrayList<Ex> argExList){
 @Override
 public Ex div(Ex argEx){
 	
-	if((denominator instanceof PlainEx)&&(denominator.reportForChecks().equals("1"))){
+	if(denominator.reportForChecks().equals("1")){
 		denominator = argEx;
 		argEx.posInMaster = 1;
 		argEx.master = this;
