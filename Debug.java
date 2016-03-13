@@ -9,9 +9,10 @@ public static void main(String[] args){
 //	Ex lilEx = PlainEx.create(7);
 //	theBoss.add(lilEx);
 	Ex ex1 = new PlainEx(6);
-	Ex ex2 = new ArgEx("c");
-	Ex ex3 = new ArgEx("b").multi(new PlainEx(42));
-	Ex pipka = new MultiEx();
+	Ex ex2 = new PlainEx(60);
+//	Ex ex2 = new ArgEx("c");
+//	Ex ex3 = new ArgEx("b").multi(new PlainEx(42));
+/*	Ex pipka = new MultiEx();
 	Ex evilEx = new MultiEx();
 	evilEx.multi(new PlainEx(40));
 	evilEx.multi(new ArgEx("z"));
@@ -23,9 +24,9 @@ public static void main(String[] args){
 	pipka.multi(new PlainEx(24));
 	
 	theBoss.add(pipka);
-	theBoss.add(ex1);
+*/	theBoss.add(ex1);
 	theBoss.add(ex2);
-	theBoss.add(ex3);
+	//theBoss.add(ex3);
 	theBoss.sort();
 	System.out.print(theBoss.report());
 	

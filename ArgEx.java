@@ -18,13 +18,12 @@ public ArgEx(String argUnit){
 public ArgEx(){
 	unit = "defUnit";
 	}
-/*
-public static ArgEx create(String argUnit){
-	ArgEx myEx = new ArgEx(argUnit);
-	return myEx;
-	}
 
-*/////////////////////////////////////////
+@Override
+protected Ex processCopy(Ex theCopy){
+	Var
+	}
+////////////////////////////////////////
 
 //TODO : decide how to handle comparing. (put after PlainEx, before anything else ?)
 
