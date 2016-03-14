@@ -64,6 +64,9 @@ public void wipe(){
 	exList.clear();
 	}
 
+//////////////////////////////////
+
+
 /*//////////////////////////////////////////////////////////////////
 TODO decide what to do with this
 public PlainEx getPlain(){
@@ -98,7 +101,7 @@ public Ex add(Ex argEx){
 	this.replaceSelf(newlyMade);
 	newlyMade.add(this);
 	newlyMade.add(argEx);
-	this.sort();
+	newlyMade.sort();
 	return newlyMade;
 	};
 
@@ -107,7 +110,7 @@ public Ex multi(Ex argEx){
 	this.replaceSelf(newlyMade);
 	newlyMade.multi(this);
 	newlyMade.multi(argEx);
-	this.sort();
+	newlyMade.sort();
 	return newlyMade;
 	}
 
@@ -116,7 +119,7 @@ public Ex div(Ex argEx){
 	this.replaceSelf(newlyMade);
 	newlyMade.multi(this);
 	newlyMade.div(argEx);
-	this.sort();
+	newlyMade.sort();
 	return newlyMade;
 	}
 
@@ -150,6 +153,7 @@ public Ex getSubEx(int index){
 public void appendSubEx(Ex argEx){
 	this.exList.add(argEx);
 	};
+
 
 /////////////////////////////////////////////////
 
