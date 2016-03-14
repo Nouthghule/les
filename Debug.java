@@ -6,9 +6,10 @@ public static void main(String[] args){
 	System.out.print("><><><><><><><><><><>\n");
 	Ex theBoss = new BossEx();
 	
-	Ex ex1 = new AddEx();
+	AddEx ex1 = new AddEx();
 	ex1.add(new PlainEx(1));
 	ex1.add(new VarEx("f"));
+	ex1.add(new PlainEx(6));
 	
 	MultiEx ex2 = new MultiEx();
 	ex2.multi(new PlainEx(2));
@@ -29,11 +30,14 @@ public static void main(String[] args){
 	theBoss.sort();
 	System.out.print(theBoss.report());
 
-	MultiRes resolver = new MultiRes();
-	Ex dolly = resolver.execute(ex2);
+	MultiCruncherPlain multiCrunchy = new MultiCruncherPlain();
+	multiCrunchy.crunch(ex2);
+	
+	AddCruncherPlain addCrunchy = new AddCruncherPlain();
+	addCrunchy.crunch(ex1);
 
 	System.out.print("=====================\n");
-	System.out.print(dolly.report());
+	System.out.print(theBoss.report());
 	System.out.print("\n\n");
 	}
 

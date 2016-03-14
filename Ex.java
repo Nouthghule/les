@@ -32,8 +32,9 @@ public void replaceTarget(Ex argEx, int pos){
 public final Ex copy(){
 	Ex copyOfThis;
 	try{
+		//TODO consider getting rid of reflection.
 		copyOfThis= this.getClass().getConstructor().newInstance();
-		}
+	}
 	catch(Exception e){
 		//TODO actually handle this ?	
 		System.out.println("Oops, exception <" + e.getClass().getName() + "> at copy() of " + this.report());
@@ -59,6 +60,9 @@ public Ex simplify(){
 	return this;
 	}
 
+public void wipe(){
+	exList.clear();
+	}
 
 /*//////////////////////////////////////////////////////////////////
 TODO decide what to do with this
@@ -171,17 +175,18 @@ public void sort(){
 //Important - Overwrite this if your method makes use of multiple arraylists !
 public String report(){
 	int i;
-	String statement = "(";
-	for(i=0;i<exList.size();i++){
-		if(exList.get(i).silent == false){
-			statement += exList.get(i).report();
-			if(i+1!=exList.size()){
-				statement += this.reportSeparator;
-					}
-				}
-		}
-	statement += ")";
+	if(!silent){
+		String statement = "(";
+		for(i=0;i<exList.size();i++){
+				statement += exList.get(i).report();
+				if(i+1!=exList.size()){
+					statement += this.reportSeparator;
+						}
+			}
+		statement += ")";
 	return statement;
+	}
+	return "";
 }
 
 //To be overriden and used in cases where non-changing output format is required.
