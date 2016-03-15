@@ -1,0 +1,64 @@
+><><><><><><><><><><>
+BossExpression : [((((1)*((1))/((20))*((3)+(g)))+((1)*(1)*((1))/((20))*((3)+(g)))+((1)*(1)*(6)*((1))/((20))*((3)+(g)))))]
+target subEx         =((1)*((1))/((20))*((3)+(g)))
+Target subEx times 1 =((1)*(1)*((1))/((20))*((3)+(g)))
+gonna crunch ((1)*(1)*((1))/((20))*((3)+(g)))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at ((1))/((20))
+Worklist size not > 0 (actually :  1 ) or ((1))/((20)) not a plainEx. Adding it.
+ looking at ((3)+(g))
+Worklist size not > 0 (actually :  2 ) or ((3)+(g)) not a plainEx. Adding it.
+ACPlain : END<<
+post crunch ((1)*((1))/((20))*((3)+(g)))
+target subEx         =((1)*(1)*((1))/((20))*((3)+(g)))
+Target subEx times 1 =((1)*(1)*(1)*((1))/((20))*((3)+(g)))
+gonna crunch ((1)*(1)*(1)*((1))/((20))*((3)+(g)))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at ((1))/((20))
+Worklist size not > 0 (actually :  1 ) or ((1))/((20)) not a plainEx. Adding it.
+ looking at ((3)+(g))
+Worklist size not > 0 (actually :  2 ) or ((3)+(g)) not a plainEx. Adding it.
+ACPlain : END<<
+post crunch ((1)*((1))/((20))*((3)+(g)))
+comparing(((1))/((20))*((3)+(g))) by (((1))/((20))*((3)+(g)))
+Replacing (1) by (2)
+target subEx         =((1)*(1)*(6)*((1))/((20))*((3)+(g)))
+Target subEx times 1 =((1)*(1)*(1)*(6)*((1))/((20))*((3)+(g)))
+gonna crunch ((1)*(1)*(1)*(6)*((1))/((20))*((3)+(g)))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (6)
+: It's a plainEx.
+: multiplied .(6) by (1)
+ looking at ((1))/((20))
+Worklist size not > 0 (actually :  1 ) or ((1))/((20)) not a plainEx. Adding it.
+ looking at ((3)+(g))
+Worklist size not > 0 (actually :  2 ) or ((3)+(g)) not a plainEx. Adding it.
+ACPlain : END<<
+post crunch ((6)*((1))/((20))*((3)+(g)))
+comparing(((1))/((20))*((3)+(g))) by (((1))/((20))*((3)+(g)))
+Replacing (2) by (8)
+=====================
+BossExpression : [((((8)*((1))/((20))*((3)+(g)))))]
+
+
