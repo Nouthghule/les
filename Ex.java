@@ -179,13 +179,18 @@ public void sort(){
 //Important - Overwrite this if your method makes use of multiple arraylists !
 public String report(){
 	int i;
-	if(!silent){
+	if(!silent){ //This check should be redundant.
+
 		String statement = "(";
 		for(i=0;i<exList.size();i++){
+			
+			if(!exList.get(i).silent){
+					
 				statement += exList.get(i).report();
 				if(i+1!=exList.size()){
-					statement += this.reportSeparator;
+				statement += this.reportSeparator;
 						}
+					}
 			}
 		statement += ")";
 	return statement;

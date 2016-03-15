@@ -9,21 +9,25 @@ public AddCruncherEqual(){
 
 public void crunch(AddEx targetEx){
 
-	MultiCruncherPlain cr = new MultiCruncherPlain();
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
 		Ex subEx = targetEx.getSubEx(i);
-		System.out.println(subEx.report());
+		System.out.println("target subEx         =" + subEx.report());
 		subEx.multi(new PlainEx(1)); //Make sure that each subEx has a plainEx multiplier
 		
 		//Get the resulting multiEx. Cannot just keep using subEx here as
 		//it is now inside the multiEx. 
 		// 13/3/16 - would be possilbe to use return value from .multi. Not using as not
 		//sure if it'll stay the way it is now (MultiEx)
-		System.out.println(targetEx.getSubEx(i).report());
+		System.out.println("Target subEx times 1 =" + targetEx.getSubEx(i).report());
 		MultiEx rlEx = (MultiEx) targetEx.getSubEx(i);
-
+		
+		//TODO make crunchers reusable (wipe list)
+		MultiCruncherPlain cr = new MultiCruncherPlain();
+		
+		System.out.println("gonna crunch " + rlEx.report());
 		cr.crunch(rlEx); //Make sure that there is only one plainEx in the multiEx
+		System.out.println("post crunch " + rlEx.report());
 
 		addToList(rlEx);
 		}
