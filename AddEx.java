@@ -16,7 +16,7 @@ public static AddEx create(){
 //*//////////////////////////////////////////////////////////////////
 
 @Override
-public Ex add(Ex argEx){
+public AddEx add(Ex argEx){
 	int i = exList.size();
 	if((i==1)&&(exList.get(0).reportForChecks().equals("0"))){
 		exList.remove(0);
@@ -29,7 +29,7 @@ public Ex add(Ex argEx){
 	}
 
 
-public Ex add(ArrayList<Ex> argExList){
+public AddEx add(ArrayList<Ex> argExList){
 	for(Ex theEx:argExList){
 		this.add(theEx);	
 		}

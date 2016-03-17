@@ -96,7 +96,7 @@ private int getPlainExCount(){
 
 //*/////////////////////////////////////////////////////////////////
 
-public Ex add(Ex argEx){
+public AddEx add(Ex argEx){
 	AddEx newlyMade = new AddEx();
 	this.replaceSelf(newlyMade);
 	newlyMade.add(this);
@@ -105,6 +105,8 @@ public Ex add(Ex argEx){
 	return newlyMade;
 	};
 
+//! DO NOT change return type to MultiEx. Multiplying a DivEx returns
+// a DivEx
 public Ex multi(Ex argEx){
 	MultiEx newlyMade = new MultiEx();
 	this.replaceSelf(newlyMade);
@@ -114,7 +116,7 @@ public Ex multi(Ex argEx){
 	return newlyMade;
 	}
 
-public Ex div(Ex argEx){
+public DivEx div(Ex argEx){
 	DivEx newlyMade = new DivEx();
 	this.replaceSelf(newlyMade);
 	newlyMade.multi(this);

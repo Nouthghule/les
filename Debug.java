@@ -31,13 +31,15 @@ public static void main(String[] args){
 	theBoss.add(nest);
 
 	theBoss.sort();
-	System.out.print(theBoss.report());
+	String oldRep = theBoss.report();
+	System.out.print(oldRep);
 
 	
 	AddCruncherEqual cry = new AddCruncherEqual();
 	cry.crunch(nest);
 	
 	
+	System.out.print(oldRep);
 	System.out.print("=====================\n");
 	System.out.print(theBoss.report());
 	System.out.print("\n\n");

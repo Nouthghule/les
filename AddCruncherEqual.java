@@ -4,6 +4,8 @@ public class AddCruncherEqual{
 	
 private ArrayList<Ex> workList = new ArrayList<Ex>();
 
+public boolean dontCycle = false;
+
 public AddCruncherEqual(){
 	}
 
@@ -20,15 +22,25 @@ public void crunch(AddEx targetEx){
 		// 13/3/16 - would be possilbe to use return value from .multi. Not using as not
 		//sure if it'll stay the way it is now (MultiEx)
 		System.out.println("Target subEx times 1 =" + targetEx.getSubEx(i).report());
-		MultiEx rlEx = (MultiEx) targetEx.getSubEx(i);
+		Ex rlEx = targetEx.getSubEx(i);
 		
 		//TODO make crunchers reusable (wipe list)
 		MultiCruncherPlain cr = new MultiCruncherPlain();
 		
 		System.out.println("gonna crunch " + rlEx.report());
-		cr.crunch(rlEx); //Make sure that there is only one plainEx in the multiEx
-		System.out.println("post crunch " + rlEx.report());
-
+		
+		try{
+			MultiEx thyEx = (MultiEx) rlEx;
+			cr.crunch(thyEx); //Make sure that there is only one plainEx in the multiEx
+			System.out.println("post crunch " + thyEx.report());
+		}
+		catch(Exception elf){
+			MultiEx thineEx = (MultiEx) rlEx.getSubEx(0);
+			cr.crunch(thineEx);
+			System.out.println("But it is not a multiEx. Redirected crunch to it's first subEx  " + thineEx.report());
+			}
+		
+		
 		addToList(rlEx);
 		}
 	
@@ -40,14 +52,14 @@ public void crunch(AddEx targetEx){
 
 
 
-public void addToList(MultiEx rlEx){
+public void addToList(Ex rlEx){
 	
 	String argReport = getReportWithoutFirst(rlEx);
 	int j;
 	boolean consumed = false;
 	
 	for(j=0;j<workList.size();j++){
-		MultiEx resident = (MultiEx) workList.get(j);
+		Ex resident = workList.get(j);
 		String residentReport = getReportWithoutFirst(resident);
 		
 			System.out.println("comparing" + residentReport + " by " + argReport);
@@ -55,12 +67,24 @@ public void addToList(MultiEx rlEx){
 		if(residentReport.equals(argReport)){
 			//The Exes are equal, ignoring PlainEx
 			
-			int result =  ( ((PlainEx)rlEx.getSubEx(0)).value + ((PlainEx)resident.getSubEx(0)).value );
-			PlainEx resultEx = new PlainEx(result);
+			System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ");
+			
+			if(dontCycle){
+				int result =  ( ((PlainEx)rlEx.getSubEx(0)).value + ((PlainEx)resident.getSubEx(0)).value );
+				PlainEx resultEx = new PlainEx(result);
+				//replace multiplier of the MultiEx in list by the result
+				System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
+				resident.getSubEx(0).replaceSelf(resultEx); 
+				}
+			else{
+				AddEx target = resident.getSubEx(0).add(rlEx.getSubEx(0));
+				AddCruncherEqual crunchy = new AddCruncherEqual();
+				crunchy.dontCycle = true; //<----
+				crunchy.crunch(target);
+			}
+			
+			System.out.println("--------------------------------------;; ");
 
-			//replace multiplier of the MultiEx in list by the result
-			System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
-			resident.getSubEx(0).replaceSelf(resultEx); 
 			consumed = true;
 			break;
 			}
@@ -72,7 +96,7 @@ public void addToList(MultiEx rlEx){
 	
 	}
 
-public String getReportWithoutFirst(MultiEx rlEx){
+public String getReportWithoutFirst(Ex rlEx){
 	rlEx.getSubEx(0).silent = true;
 	String report = rlEx.report();
 	rlEx.getSubEx(0).silent = false;

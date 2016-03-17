@@ -84,9 +84,7 @@ public void appendSubEx(Ex argEx){
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////
-/*
-Commenting out to make compatible with AddCruncherEqual
-TODO move this functionality into a cruncher
+
 @Override
 public Ex multi(Ex argEx){
 	if(numerator.reportForChecks().equals("1")){
@@ -106,10 +104,9 @@ public Ex multi(ArrayList<Ex> argExList){
 		}
 	return this;
 	}
-*/
 
 @Override
-public Ex div(Ex argEx){
+public DivEx div(Ex argEx){
 	
 	if(denominator.reportForChecks().equals("1")){
 		denominator = argEx;
@@ -122,7 +119,7 @@ public Ex div(Ex argEx){
 	return this;
 	}
 
-public Ex div(ArrayList<Ex> argExList){
+public DivEx div(ArrayList<Ex> argExList){
 	for(Ex theEx:argExList){
 		this.div(theEx);	
 		}
