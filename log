@@ -1,5 +1,12 @@
 ><><><><><><><><><><>
-BossExpression : [(((((1)*(6)*((3)+(g))))/((20))+(((3)+(g)))/((20))+(((3)+(g)))/((20))))]
+BossExpression : [(((((1)*(6)*((3)+(g))))/((20))+(((3)+(g)))/((20))+(((3)+(g)))/((20))+((1)*(24)*(v))+(v)))]
+Ex (((1)*(6)*((3)+(g))))/((20)) contains g !
+Ex (((3)+(g)))/((20)) contains g !
+Ex (((3)+(g)))/((20)) contains g !
+Ex ((1)*(24)*(v)) contains v !
+Ex (v) contains v !
+
+
 target subEx         =(((1)*(6)*((3)+(g))))/((20))
 Target subEx times 1 =(((1)*(1)*(6)*((3)+(g))))/((20))
 gonna crunch (((1)*(1)*(6)*((3)+(g))))/((20))
@@ -108,7 +115,79 @@ comparing(((3)+(g))) by (((3)+(g)))
 Replacing (1) by (8)
 --------------------------------------;; 
 --------------------------------------;; 
+target subEx         =((1)*(24)*(v))
+Target subEx times 1 =((1)*(1)*(24)*(v))
+gonna crunch ((1)*(1)*(24)*(v))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (24)
+: It's a plainEx.
+: multiplied .(24) by (1)
+ looking at (v)
+Worklist size not > 0 (actually :  1 ) or (v) not a plainEx. Adding it.
+ACPlain : END<<
+post crunch ((24)*(v))
+comparing()/((20)) by ((v))
+target subEx         =(v)
+Target subEx times 1 =((1)*(1)*(v))
+gonna crunch ((1)*(1)*(v))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (v)
+Worklist size not > 0 (actually :  1 ) or (v) not a plainEx. Adding it.
+ACPlain : END<<
+post crunch ((1)*(v))
+comparing()/((20)) by ((v))
+comparing((v)) by ((v))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+target subEx         =(1)
+Target subEx times 1 =((1)*(1)*(1))
+gonna crunch ((1)*(1)*(1))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ACPlain : END<<
+post crunch ((1))
+target subEx         =(24)
+Target subEx times 1 =((1)*(1)*(24))
+gonna crunch ((1)*(1)*(24))
+MCPlain : START crunch
+ looking at (1)
+Worklist size not > 0 (actually :  0 ) or (1) not a plainEx. Adding it.
+ looking at (1)
+: It's a plainEx.
+: multiplied .(1) by (1)
+ looking at (24)
+: It's a plainEx.
+: multiplied .(24) by (1)
+ACPlain : END<<
+post crunch ((24))
+comparing() by ()
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+Replacing (1) by (25)
+--------------------------------------;; 
+--------------------------------------;; 
+BossExpression : [(((((1)*(6)*((3)+(g))))/((20))+(((3)+(g)))/((20))+(((3)+(g)))/((20))+((1)*(24)*(v))+(v)))]
 =====================
-BossExpression : [((((((8)*((3)+(g)))))/((20))))]
+BossExpression : [((((((25)))*(v))+((((8)*((3)+(g)))))/((20))))]
+Ex ((((25)))*(v)) contains v !
+Ex ((((8)*((3)+(g)))))/((20)) contains g !
+Nest contains following variables :
+v
+g
 
 

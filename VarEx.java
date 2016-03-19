@@ -44,6 +44,32 @@ public int compareTo(Ex argEx){
 ////////////////////////////////////////
 
 @Override
+public boolean varContains(String argString){
+	if(unit.equals(argString)){
+		return true;
+		}
+	return false;
+	}
+
+@Override
+public int varDepth(String argString){
+	if(unit.equals(argString)){
+		return 0;
+		}
+	return -1;
+	}
+
+@Override
+public List<String> varList(){
+	List<String> list = new ArrayList<String>();
+	list.add(unit);
+	return list;
+	}
+
+//////////////////////////////////////
+
+
+@Override
 public Ex getSubEx(int index){
 	if(index==0){
 		return this;

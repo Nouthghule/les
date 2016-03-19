@@ -60,6 +60,54 @@ public String report(){
 ///////////////////////////////////////////////////////////////////////////////////////
 
 @Override
+public boolean varContains(String argString){
+	if(numerator.varContains(argString)||(denominator.varContains(argString))){
+		return true;
+		}
+	return false;
+	}
+
+@Override
+public int varDepth(String argString){
+	int depth = -2;
+	int tempDepth;
+
+	tempDepth = numerator.varDepth(argString);
+	if((tempDepth>depth)&&(tempDepth>-1)){
+		depth = tempDepth;
+		}	
+	tempDepth = denominator.varDepth(argString);
+	if((tempDepth>depth)&&(tempDepth>-1)){
+		depth = tempDepth;
+		}	
+	depth++;
+	return depth;
+	}
+
+@Override
+public List<String> varList(){
+        List<String> list = new ArrayList<String>();
+                
+	List<String> tempList = numerator.varList();
+               	for(String s : tempList){
+                        if(!list.contains(s)){
+                                list.add(s);
+                                }
+                        }
+        tempList = denominator.varList();
+	
+      		 for(String s : tempList){
+                        if(!list.contains(s)){
+                                list.add(s);
+                                }
+			}
+	return list;
+	}
+
+
+//////////////////////////////////////////////////////////////////////////ú
+
+@Override
 public Ex getSubEx(int index){
 	if(index==0){
 		return numerator;

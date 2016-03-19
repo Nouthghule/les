@@ -94,6 +94,47 @@ private int getPlainExCount(){
 
 //public abstract void reducePlains();
 
+*/
+/////////////////////////////////////////////////////////////////
+
+public boolean varContains(String argString){
+	
+	for(Ex e:exList){
+		if(e.varContains(argString)){
+		return true;
+			}
+		}
+	return false;
+	}
+
+public int varDepth(String argString){
+	//Return highest depth at which found or -1 if not found.
+	
+	int depth = -2;
+	int tempDepth;
+	for(Ex e : exList){	
+		tempDepth = e.varDepth(argString);
+		if((tempDepth>depth)&&(tempDepth>-1)){
+			depth = tempDepth;
+			}
+	}
+	
+	depth ++;
+	return depth;
+	}
+
+public List<String> varList(){
+	List<String> list = new ArrayList<String>();
+	for(Ex e : exList){
+		List<String> tempList = e.varList();
+		for(String s : tempList){
+			if(!list.contains(s)){
+				list.add(s);
+				}
+			}
+		}
+	return list;
+	}
 //*/////////////////////////////////////////////////////////////////
 
 public AddEx add(Ex argEx){
