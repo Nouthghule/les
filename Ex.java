@@ -6,7 +6,7 @@ public Ex master; //the Ex in which this Ex is nested.
 
 public int posInMaster = 0;
 
-public ArrayList<Ex> exList = new ArrayList<Ex>();
+protected  ArrayList<Ex> exList = new ArrayList<Ex>();
 
 protected String reportSeparator = "$";
 
@@ -96,6 +96,54 @@ private int getPlainExCount(){
 
 */
 /////////////////////////////////////////////////////////////////
+
+public ArrayList<Operator> propose(){
+	return propose(true);
+	}
+
+public ArrayList<Operator> propose(boolean isFirst){
+        ArrayList<Operator> fullList = new ArrayList<Operator>();
+        ArrayList<Operator> gottenList;
+        for(Ex e : exList){
+                gottenList = e.propose(false);
+                for(Operator op : gottenList){
+                        if(!fullList.contains(op)){
+                                fullList.add(op);
+                                }
+                        }
+                }
+	
+	gottenList = this.proposeCrunchers();
+        for(Operator ope : gottenList){
+        	if(!fullList.contains(ope)){
+        	fullList.add(ope);
+                     }
+		}
+		
+	if(isFirst){
+		gottenList = this.proposeAlterators();
+       		for(Operator oper : gottenList){
+        		if(!fullList.contains(oper)){
+        		fullList.add(oper);
+                	         }
+			}
+		}
+	
+	return fullList;
+        }
+	
+	
+
+public ArrayList<Operator> proposeCrunchers(){
+	ArrayList<Operator> crunchList = new ArrayList<Operator>();
+	return crunchList;
+	}
+public ArrayList<Operator> proposeAlterators(){
+	ArrayList<Operator> altList = new ArrayList<Operator>();
+	return altList;
+	}
+
+/////////////////////////////////////////////////////////////úúú
 
 public boolean varContains(String argString){
 	

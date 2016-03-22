@@ -42,4 +42,26 @@ public void appendSubEx(Ex argEx){
 	this.add(argEx);
 	}
 
+////////////////////////////////////////////////////////////////////////
+
+@Override
+public ArrayList<Operator> propose(boolean isFirst){
+	ArrayList<Operator> fullList = new ArrayList<Operator>();
+	ArrayList<Operator> gottenList;
+	for(Ex e : exList){
+		gottenList = e.propose(false);
+		for(Operator op : gottenList){
+			if(!fullList.contains(op)){
+				fullList.add(op);
+				}
+			}
+		}
+	
+	
+	
+	
+	}
+
+
+
 }
