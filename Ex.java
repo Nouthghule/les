@@ -194,7 +194,7 @@ public AddEx add(Ex argEx){
 	return newlyMade;
 	};
 
-//! DO NOT change return type to MultiEx. Multiplying a DivEx returns
+//! do NOT change return type to MultiEx. Multiplying a DivEx returns
 // a DivEx
 public Ex multi(Ex argEx){
 	MultiEx newlyMade = new MultiEx();
@@ -216,7 +216,45 @@ public DivEx div(Ex argEx){
 
 //------------------------------/
 
-public Ex add(int argNum){
+public AddEx add(ArrayList<Ex> arrList){
+	if(arrList.size() == 0){
+		AddEx substitute = this.add(0);
+		return substitute;
+		}
+	Ex ref = this;
+	for(Ex currEx : arrList){
+		ref = ref.add(currEx);	
+		}
+	return (AddEx)ref;
+	}
+
+//As above, do NOT change return type to MultiEx.
+public Ex multi(ArrayList<Ex> arrList){
+	if(arrList.size() == 0){
+		Ex substitute = this.multi(1);
+		return substitute;
+		}
+	Ex ref = this;
+	for(Ex currEx : arrList){
+		ref = ref.multi(currEx);	
+		}
+	return ref;
+}
+
+public DivEx div(ArrayList<Ex> arrList){
+	if(arrList.size() == 0){
+		DivEx substitute = this.div(1);
+		return substitute;
+		}
+	Ex ref = this;
+	for(Ex currEx : arrList){
+		ref = ref.div(currEx);	
+		}
+	return (DivEx)ref;
+}
+//------------------------------/
+
+public AddEx add(int argNum){
 	PlainEx madeEx = new PlainEx(argNum);
 	return add(madeEx);
 	}
@@ -226,7 +264,7 @@ public Ex multi(int argNum){
 	return multi(madeEx);
 	}
 
-public Ex div(int argNum){
+public DivEx div(int argNum){
 	PlainEx madeEx = new PlainEx(argNum);
 	return div(madeEx);
 	}

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AddCruncherEqual{
+public class AddCruncherEqual extends Cruncher{
 	
 private ArrayList<Ex> workList = new ArrayList<Ex>();
 
@@ -9,7 +9,11 @@ public boolean dontCycle = false;
 public AddCruncherEqual(){
 	}
 
-public void crunch(AddEx targetEx){
+public int crunch(Ex targetEx){
+	
+	if(!(targetEx instanceof AddEx)){
+		return 0;
+		}
 
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
@@ -47,6 +51,7 @@ public void crunch(AddEx targetEx){
 	
 	targetEx.wipe();
 	targetEx.add(workList);
+	return 1;
 	}
 
 

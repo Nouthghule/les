@@ -1,15 +1,19 @@
 import java.util.*;
 
-public class AddCruncherPlain{
+public class AddCruncherPlain extends Cruncher{
 	
 private ArrayList<Ex> workList = new ArrayList<Ex>();
 
 public AddCruncherPlain(){
 	}
 
-public void crunch(AddEx targetEx){
+@Override
+public int crunch(Ex targetEx){
 
 	int i,e;
+	if(!(targetEx instanceof AddEx)){
+		return 0;
+		}
 	for(i=0;i<targetEx.size();i++){
 			
 		
@@ -41,6 +45,7 @@ public void crunch(AddEx targetEx){
 	
 	targetEx.wipe();
 	targetEx.add(workList);
+	return 1;
 	}
 
 

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public abstract class Cruncher{
+public abstract class Cruncher extends Operator{
 	
 public ArrayList<Ex> workList = new ArrayList<Ex>();
 

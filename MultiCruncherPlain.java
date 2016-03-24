@@ -1,15 +1,19 @@
 import java.util.*;
 
-public class MultiCruncherPlain{
+public class MultiCruncherPlain extends Cruncher{
 	
 private ArrayList<Ex> workList = new ArrayList<Ex>();
 
 public MultiCruncherPlain(){
 	}
 
-public void crunch(MultiEx targetEx){
+public int crunch(Ex targetEx){
 	
 	System.out.println("MCPlain : START crunch"); 	
+	
+	if(!(targetEx instanceof MultiEx)){
+		return 0;
+		}
 
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
@@ -50,6 +54,7 @@ public void crunch(MultiEx targetEx){
 	targetEx.wipe();
 	targetEx.multi(workList);
 	System.out.println("ACPlain : END<<");
+	return 1;
 	}
 
 

@@ -59,7 +59,7 @@ public ArrayList<Operator> propose(boolean isFirst){
 	
 	
 	
-	
+	return fullList;	
 	}
 
 
