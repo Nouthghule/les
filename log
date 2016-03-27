@@ -92,6 +92,8 @@ MultiEx speaking. Adding this to my exlist : ((3)+(g))
 ===> ((1)*((3)+(g)))
 MCPlain : END<<
 post crunch ((1)*((3)+(g)))
+€€ unwrap speaking : gonna replace self [(g)] with (g)
+€€ unwrap speaking : gonna replace self [(((2)*((3)+(g))))] with ((2)*((3)+(g)))
 Okay,not gonna multi (((6)*((3)+(g))))/((20))by 1
 DivEx multi speaking. gonna multi my numerator ((6)*((3)+(g))) by (1)
 MultiEx speaking. Adding this to my exlist : (1)
@@ -174,12 +176,14 @@ MultiEx speaking. Adding this to my exlist : (24)
 ===> ((24))
 MCPlain : END<<
 post crunch ((24))
+€€ unwrap speaking : gonna replace self [((25))] with (25)
+€€ unwrap speaking : gonna replace self [((25))] with (25)
 BossExpression : [((0)+((((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v)))]
 =====================
-BossExpression : [((0)+(((((2)*((3)+(g)))))/((20))+((((25)))*(v))+(((6)*((3)+(g))))/((20))))]
-Ex ((((2)*((3)+(g)))))/((20)) contains g !
-Ex ((((25)))*(v)) contains v !
+BossExpression : [((0)+((((2)*((3)+(g))))/((20))+(((6)*((3)+(g))))/((20))+((25)*(v))))]
+Ex (((2)*((3)+(g))))/((20)) contains g !
 Ex (((6)*((3)+(g))))/((20)) contains g !
+Ex ((25)*(v)) contains v !
 Nest contains following variables :
 g
 v

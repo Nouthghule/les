@@ -63,11 +63,21 @@ public Ex simplify(){
 public void wipe(){
 	exList.clear();
 	}
+
+//remove redundant Exes (eg. (((2)+(1))) -> ((2)+(1))
+public void unwrap(){
+	if(this.size()==1){
+		System.out.println("€€ unwrap speaking : gonna replace self [" + this.report() +"] with " + getSubEx(0).report());
+		this.replaceSelf(this.getSubEx(0));	
+		}	
+	}
 ///-----------------
 
 public final void polish(){
-	
-	
+	for(Ex e : exList){
+		e.polish();
+		}
+	unwrap();
 	
 	}
 

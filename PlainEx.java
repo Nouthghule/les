@@ -63,16 +63,13 @@ public int compareTo(Ex argEx){
 
 @Override
 public Ex getSubEx(int index){
-	if(index==0){
-		return this;
-		}
 	System.out.println("Attempting to access " + index + ". element of PlainEx <" + this.report() + "> in {" + master.report() + "}");
 	return null;
 	}
 
 @Override
 public int size(){
-	return 1;
+	return 0;
 	}
 
 @Override

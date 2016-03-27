@@ -88,6 +88,7 @@ public void addToList(Ex rlEx){
 				AddCruncherEqual crunchy = new AddCruncherEqual();
 				crunchy.dontCycle = true; //<----
 				crunchy.crunch(target);
+				target.polish();
 			}
 			
 //			System.out.println("--------------------------------------;; ");
@@ -100,15 +101,15 @@ public void addToList(Ex rlEx){
 	if(!consumed){
 		workList.add(rlEx);
 		}
-	
+		
 	}
 
 public String getReportWithoutFirst(Ex rlEx){
 	if(rlEx.getSubEx(0) instanceof PlainEx){
-	rlEx.getSubEx(0).silent = true;
-	String report = rlEx.report();
-	rlEx.getSubEx(0).silent = false;
-	return report;
+		rlEx.getSubEx(0).silent = true;
+		String report = rlEx.report();
+		rlEx.getSubEx(0).silent = false;
+		return report;
 	}
 	return rlEx.report();
 	}
