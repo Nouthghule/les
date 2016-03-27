@@ -22,11 +22,11 @@ public Ex multi(Ex argEx){
 	TODO : make multiExes ignore 1s in their lists when reporting.
 	Commenting this back in because it fucks everything up either way
 	*/
-	System.out.println("MultiEx speaking. Adding this to my exlist : " + argEx.report());
+//	System.out.println("MultiEx speaking. Adding this to my exlist : " + argEx.report());
 	exList.add(argEx);
 	argEx.master = this;
 	this.sort();
-	System.out.println("===> " + this.report());
+//	System.out.println("===> " + this.report());
 	return this;
 	}
 
