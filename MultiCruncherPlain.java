@@ -12,17 +12,18 @@ public int crunch(Ex targetEx){
 	System.out.println("MCPlain : START crunch"); 	
 	
 	if(!(targetEx instanceof MultiEx)){
+		System.out.println(">>MCPlain : it ain't a MultiEx ! Returning 0."); 	
 		return 0;
 		}
 
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
 		
-		System.out.println(" looking at " + targetEx.getSubEx(i).report()); 	
+//		System.out.println(" looking at " + targetEx.getSubEx(i).report()); 	
 		if((workList.size()>0)&&(targetEx.getSubEx(i) instanceof PlainEx)){
 			PlainEx subEx = (PlainEx) targetEx.getSubEx(i);
 			boolean consumed = false;
-			System.out.println(": It's a plainEx."); 	
+//			System.out.println(": It's a plainEx."); 	
 			
 			for(e=0;e<workList.size();e++){
 				
@@ -30,7 +31,7 @@ public int crunch(Ex targetEx){
 					PlainEx alreadyEx = (PlainEx) workList.get(e);
 					int result = ((subEx.value) * (alreadyEx.value));
 					
-					System.out.println(": multiplied ." + subEx.report() + " by " + alreadyEx.report()); 	
+					System.out.println(">>MCPlain : multiplied " + subEx.report() + " by " + alreadyEx.report()); 	
 					PlainEx resultEx = new PlainEx(result);
 					workList.set(e, resultEx);
 					consumed = true;
@@ -39,21 +40,21 @@ public int crunch(Ex targetEx){
 				}
 				
 			if(!consumed){
-				System.out.println("not consumed. Adding " + subEx.report());
+				System.out.println(">>MCPlain : not consumed. Adding " + subEx.report());
 				workList.add(subEx);
 				}
 			}
 		else{
 			//When it is not a plainEx OR it is the first element
 			
-			System.out.println("Worklist size not > 0 (actually :  " + workList.size() + " ) or " + targetEx.getSubEx(i).report() + " not a plainEx. Adding it.");
+			System.out.println(">>MCPlain : Else ! Adding " + targetEx.getSubEx(i).report());
 			workList.add(targetEx.getSubEx(i));
 			}
 		}
 	
 	targetEx.wipe();
-	targetEx.multi(workList);
-	System.out.println("ACPlain : END<<");
+	targetEx.multi(workList); //This is a multiEx. Were it not, it'd return a zero at line 16
+	System.out.println("MCPlain : END<<");
 	return 1;
 	}
 

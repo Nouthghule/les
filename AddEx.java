@@ -5,8 +5,8 @@ public class AddEx extends Ex{
 ////////////////////////////////////////////////////////////////////
 public AddEx(){
 	reportSeparator = "+";
-	PlainEx initEx = new PlainEx(0);
-	this.add(initEx);
+	VoidEx initEx = new VoidEx();
+	exList.add(initEx);
 	}
 /*
 public static AddEx create(){
@@ -18,7 +18,7 @@ public static AddEx create(){
 @Override
 public AddEx add(Ex argEx){
 	int i = exList.size();
-	if((i==1)&&(exList.get(0).reportForChecks().equals("0"))){
+	if((i==1)&&(exList.get(0).report().equals("#VOID#"))){
 		exList.remove(0);
 		}
 	exList.add(argEx);

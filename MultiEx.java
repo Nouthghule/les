@@ -5,10 +5,6 @@ public class MultiEx extends Ex{
 ////////////////////////////////////////////////////////////////////
 public MultiEx(){
 	reportSeparator = "*";
-	if(exList.size()==0){
-		PlainEx initEx = new PlainEx(1);
-		this.multi(initEx);
-		}
 	}
 /*
 public static MultiEx create(){
@@ -22,13 +18,9 @@ public Ex multi(Ex argEx){
 	
 	/*
 	commenting this out as it causes trouble with AddCruncherEqual and is easy 
-	to miss.
+	to miss. 
 	TODO : make multiExes ignore 1s in their lists when reporting.
-	int i = exList.size();
-	
-	if((i==1)&&(exList.get(0).reportForChecks().equals("1"))){
-		exList.remove(0);
-		}
+	Commenting this back in because it fucks everything up either way
 	*/
 	exList.add(argEx);
 	argEx.master = this;

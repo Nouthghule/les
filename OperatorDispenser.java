@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 public class OperatorDispenser{
 	
@@ -8,7 +8,7 @@ public class OperatorDispenser{
 
 public static ArrayList<Operator> dispense(String id){
 
-	
+	return new ArrayList<Operator>();
 	
 	
 	}

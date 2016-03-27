@@ -17,40 +17,42 @@ public int crunch(Ex targetEx){
 
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
-		Ex subEx = targetEx.getSubEx(i);
-		System.out.println("target subEx         =" + subEx.report());
-		subEx.multi(new PlainEx(1)); //Make sure that each subEx has a plainEx multiplier
+		Ex rlEx = targetEx.getSubEx(i); //TODO replace comment refs to subEx with rlex
+//		System.out.println("target subEx         =" + subEx.report());
+		System.out.println("Okay,not gonna multi " + rlEx.report() + "by 1");
+		rlEx = rlEx.multi(new PlainEx(1)); //Make sure that each subEx has a plainEx multiplier
 		
 		//Get the resulting multiEx. Cannot just keep using subEx here as
 		//it is now inside the multiEx. 
 		// 13/3/16 - would be possilbe to use return value from .multi. Not using as not
 		//sure if it'll stay the way it is now (MultiEx)
-		System.out.println("Target subEx times 1 =" + targetEx.getSubEx(i).report());
-		Ex rlEx = targetEx.getSubEx(i);
+//		System.out.println("Target subEx times 1 =" + targetEx.getSubEx(i).report());
 		
 		//TODO make crunchers reusable (wipe list)
 		MultiCruncherPlain cr = new MultiCruncherPlain();
 		
-		System.out.println("gonna crunch " + rlEx.report());
+//		System.out.println("gonna crunch " + rlEx.report());
 		
-		try{
-			MultiEx thyEx = (MultiEx) rlEx;
-			cr.crunch(thyEx); //Make sure that there is only one plainEx in the multiEx
-			System.out.println("post crunch " + thyEx.report());
-		}
-		catch(Exception elf){
-			MultiEx thineEx = (MultiEx) rlEx.getSubEx(0);
-			cr.crunch(thineEx);
+		Ex thyEx = rlEx;
+		System.out.println("Crunching: " + thyEx.report());
+		int success = cr.crunch(thyEx); //Make sure that there is only one plainEx in the multiEx
+		System.out.println("post crunch " + thyEx.report());
+			
+		if(!(success>0)){
+			Ex thineEx = rlEx.getSubEx(0);
 			System.out.println("But it is not a multiEx. Redirected crunch to it's first subEx  " + thineEx.report());
-			}
-		
+			cr = new MultiCruncherPlain();
+			cr.crunch(thineEx);
+			System.out.println(">which is thus crunched into " + thineEx.report());
+		}
 		
 		addToList(rlEx);
 		}
-	
+
 	
 	targetEx.wipe();
 	targetEx.add(workList);
+	targetEx.sort();
 	return 1;
 	}
 
@@ -67,18 +69,18 @@ public void addToList(Ex rlEx){
 		Ex resident = workList.get(j);
 		String residentReport = getReportWithoutFirst(resident);
 		
-			System.out.println("comparing" + residentReport + " by " + argReport);
+//			System.out.println("comparing" + residentReport + " by " + argReport);
 
 		if(residentReport.equals(argReport)){
 			//The Exes are equal, ignoring PlainEx
 			
-			System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ");
+//			System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ");
 			
 			if(dontCycle){
 				int result =  ( ((PlainEx)rlEx.getSubEx(0)).value + ((PlainEx)resident.getSubEx(0)).value );
 				PlainEx resultEx = new PlainEx(result);
 				//replace multiplier of the MultiEx in list by the result
-				System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
+//				System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
 				resident.getSubEx(0).replaceSelf(resultEx); 
 				}
 			else{
@@ -88,7 +90,7 @@ public void addToList(Ex rlEx){
 				crunchy.crunch(target);
 			}
 			
-			System.out.println("--------------------------------------;; ");
+//			System.out.println("--------------------------------------;; ");
 
 			consumed = true;
 			break;
@@ -102,10 +104,13 @@ public void addToList(Ex rlEx){
 	}
 
 public String getReportWithoutFirst(Ex rlEx){
+	if(rlEx.getSubEx(0) instanceof PlainEx){
 	rlEx.getSubEx(0).silent = true;
 	String report = rlEx.report();
 	rlEx.getSubEx(0).silent = false;
-	return report;	
+	return report;
+	}
+	return rlEx.report();
 	}
 
 }

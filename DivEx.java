@@ -2,19 +2,11 @@ import java.util.*;
 
 public class DivEx extends Ex{
 
-private Ex numerator;
-private Ex denominator;
-
 ////////////////////////////////////////////////////////////////////
 public  DivEx(){
 	reportSeparator = "/";
-
-	Ex defEx1 = new PlainEx(1);
-	numerator = defEx1;
-
-	Ex defEx2 = new PlainEx(1);
-	denominator = defEx2;
-
+	exList.add(new VoidEx());
+	exList.add(new VoidEx());
 	}
 /*
 public static DivEx create(){
@@ -25,14 +17,17 @@ public static DivEx create(){
 
 @Override
 public Ex processCopy(Ex argEx){
+	Ex numerator = exList.get(0);	
+	Ex denominator = exList.get(1);	
+	
 	DivEx rlCopy = (DivEx) argEx;
-	rlCopy.multi(this.numerator.copy());
-	rlCopy.div(this.denominator.copy());
+	rlCopy.multi(numerator.copy());
+	rlCopy.div(denominator.copy());
 	return rlCopy;
 	}
 
 ///////////////////////////////////////////////
-
+/*
 @Override
 public void replaceTarget(Ex argEx, int pos){
 	argEx.master = this;
@@ -44,9 +39,18 @@ public void replaceTarget(Ex argEx, int pos){
 		denominator = argEx;
 		}
 	}
+*/
+
+@Override
+public void sort(){
+	exList.get(0).sort();
+	exList.get(1).sort();
+	}
 
 @Override
 public String report(){
+	Ex numerator = exList.get(0);	
+	Ex denominator = exList.get(1);	
 	String statement = "(";
 	statement += numerator.report();
 	statement += ")";
@@ -58,7 +62,7 @@ public String report(){
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////
-
+/*
 @Override
 public boolean varContains(String argString){
 	if(numerator.varContains(argString)||(denominator.varContains(argString))){
@@ -104,9 +108,9 @@ public List<String> varList(){
 	return list;
 	}
 
-
+*/
 //////////////////////////////////////////////////////////////////////////ú
-
+/*
 @Override
 public Ex getSubEx(int index){
 	if(index==0){
@@ -119,7 +123,7 @@ public Ex getSubEx(int index){
 		return null;
 		}
 	}
-
+*/
 @Override
 public int size(){
 	return 2;
@@ -127,6 +131,7 @@ public int size(){
 
 @Override
 public void appendSubEx(Ex argEx){
+	Ex numerator = exList.get(0);		
 	//TODO decide if intended behavior
 	numerator.appendSubEx(argEx);
 	}
@@ -135,14 +140,12 @@ public void appendSubEx(Ex argEx){
 
 @Override
 public Ex multi(Ex argEx){
-	if(numerator.reportForChecks().equals("1")){
-		numerator = argEx;
-		argEx.posInMaster = 0;
-		argEx.master = this;
+	Ex numerator = exList.get(0);	
+	if(numerator.report().equals("#VOID#")){
+		exList.set(0, argEx);
+		return this;
 		}
-	else{
-		numerator.multi(argEx);
-		}
+	numerator.multi(argEx);
 	return this;	
 	}
 
@@ -155,15 +158,12 @@ public Ex multi(ArrayList<Ex> argExList){
 
 @Override
 public DivEx div(Ex argEx){
-	
-	if(denominator.reportForChecks().equals("1")){
-		denominator = argEx;
-		argEx.posInMaster = 1;
-		argEx.master = this;
+	Ex denominator = exList.get(1);	
+	if(denominator.report().equals("#VOID#")){
+		exList.set(1, argEx);
+		return this;
 		}
-	else{
-		denominator.multi(argEx);
-		}
+	denominator.multi(argEx);
 	return this;
 	}
 

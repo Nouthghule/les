@@ -63,6 +63,13 @@ public Ex simplify(){
 public void wipe(){
 	exList.clear();
 	}
+///-----------------
+
+public final void polish(){
+	
+	
+	
+	}
 
 //////////////////////////////////
 
@@ -327,9 +334,5 @@ public String report(){
 	return "";
 }
 
-//To be overriden and used in cases where non-changing output format is required.
-public String reportForChecks(){
-	return this.report();
-}
 
 }

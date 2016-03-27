@@ -99,12 +99,6 @@ public String report(){
 	return statement;
 }
 
-@Override
-public String reportForChecks(){
-	String stableStatement = "";
-	stableStatement += unit;
-	return stableStatement;
-	}
 
 
 }

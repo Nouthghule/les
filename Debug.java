@@ -14,8 +14,10 @@ public static void main(String[] args){
 	tempMaster.add(subNest);
 	
 	subNest.add(new PlainEx(3));
+//	AlteratorAdd op = new AlteratorAdd((new VarEx("g")));
+//	op.execute(subNest);
 	subNest.add(new VarEx("g"));
-	
+
 	int a = subNest.posInMaster;
 	Ex master = subNest.master;
 
