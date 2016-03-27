@@ -209,6 +209,7 @@ public Ex multi(Ex argEx){
 	newlyMade.multi(this);
 	newlyMade.multi(argEx);
 	newlyMade.sort();
+	System.out.println("Ex.multi returning "+newlyMade.report());
 	return newlyMade;
 	}
 

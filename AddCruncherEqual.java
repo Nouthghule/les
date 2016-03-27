@@ -21,7 +21,7 @@ public int crunch(Ex targetEx){
 //		System.out.println("target subEx         =" + subEx.report());
 		System.out.println("Okay,not gonna multi " + rlEx.report() + "by 1");
 		rlEx = rlEx.multi(new PlainEx(1)); //Make sure that each subEx has a plainEx multiplier
-		
+		System.out.println("result : " + rlEx.report());
 		//Get the resulting multiEx. Cannot just keep using subEx here as
 		//it is now inside the multiEx. 
 		// 13/3/16 - would be possilbe to use return value from .multi. Not using as not

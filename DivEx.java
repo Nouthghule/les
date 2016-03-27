@@ -143,8 +143,11 @@ public Ex multi(Ex argEx){
 	Ex numerator = exList.get(0);	
 	if(numerator.report().equals("#VOID#")){
 		exList.set(0, argEx);
+		argEx.master = this;
+		argEx.posInMaster = 0;
 		return this;
 		}
+	System.out.println("DivEx multi speaking. gonna multi my numerator " + numerator.report() + " by " + argEx.report());
 	numerator.multi(argEx);
 	return this;	
 	}
@@ -161,6 +164,8 @@ public DivEx div(Ex argEx){
 	Ex denominator = exList.get(1);	
 	if(denominator.report().equals("#VOID#")){
 		exList.set(1, argEx);
+		argEx.master = this;
+		argEx.posInMaster = 1;
 		return this;
 		}
 	denominator.multi(argEx);
