@@ -1,14 +1,6 @@
 ><><><><><><><><><><>
 DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (6)
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> (((3)+(g)))
-MultiEx speaking. Adding this to my exlist : (6)
-===> ((6)*((3)+(g)))
 Ex.multi returning ((6)*((3)+(g)))
-MultiEx speaking. Adding this to my exlist : (24)
-===> ((24))
-MultiEx speaking. Adding this to my exlist : (v)
-===> ((24)*(v))
 Ex.multi returning ((24)*(v))
 BossExpression : [((0)+((((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v)))]
 Ex (((3)+(g)))/((20)) contains g !
@@ -18,172 +10,69 @@ Ex ((24)*(v)) contains v !
 Ex (v) contains v !
 
 
-Okay,not gonna multi (((3)+(g)))/((20))by 1
-DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> (((3)+(g)))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*((3)+(g)))
-Ex.multi returning ((1)*((3)+(g)))
-result : (((1)*((3)+(g))))/((20))
-Crunching: (((1)*((3)+(g))))/((20))
-MCPlain : START crunch
->>MCPlain : it ain't a MultiEx ! Returning 0.
-post crunch (((1)*((3)+(g))))/((20))
-But it is not a multiEx. Redirected crunch to it's first subEx  ((1)*((3)+(g)))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : Else ! Adding ((3)+(g))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> ((1)*((3)+(g)))
-MCPlain : END<<
->which is thus crunched into ((1)*((3)+(g)))
-Okay,not gonna multi (((3)+(g)))/((20))by 1
-DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> (((3)+(g)))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*((3)+(g)))
-Ex.multi returning ((1)*((3)+(g)))
-result : (((1)*((3)+(g))))/((20))
-Crunching: (((1)*((3)+(g))))/((20))
-MCPlain : START crunch
->>MCPlain : it ain't a MultiEx ! Returning 0.
-post crunch (((1)*((3)+(g))))/((20))
-But it is not a multiEx. Redirected crunch to it's first subEx  ((1)*((3)+(g)))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : Else ! Adding ((3)+(g))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> ((1)*((3)+(g)))
-MCPlain : END<<
->which is thus crunched into ((1)*((3)+(g)))
-Okay,not gonna multi ((1)*((3)+(g)))by 1
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(1)*((3)+(g)))
-result : ((1)*(1)*((3)+(g)))
-Crunching: ((1)*(1)*((3)+(g)))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (1) by (1)
->>MCPlain : Else ! Adding ((3)+(g))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> ((1)*((3)+(g)))
-MCPlain : END<<
-post crunch ((1)*((3)+(g)))
-Okay,not gonna multi ((1)*((3)+(g)))by 1
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(1)*((3)+(g)))
-result : ((1)*(1)*((3)+(g)))
-Crunching: ((1)*(1)*((3)+(g)))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (1) by (1)
->>MCPlain : Else ! Adding ((3)+(g))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> ((1)*((3)+(g)))
-MCPlain : END<<
-post crunch ((1)*((3)+(g)))
 €€ unwrap speaking : gonna replace self [(g)] with (g)
-€€ unwrap speaking : gonna replace self [(((2)*((3)+(g))))] with ((2)*((3)+(g)))
-Okay,not gonna multi (((6)*((3)+(g))))/((20))by 1
+€€ unwrap speaking : gonna replace self [(g)] with (g)
+€€ unwrap speaking : gonna replace self [(g)] with (g)
+€€ unwrap speaking : gonna replace self [(v)] with (v)
+€€ unwrap speaking : gonna replace self [(v)] with (v)
+Gonna crunch ((0)+(((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v))up real bad now.
+Ex.multi returning ((0)*(1))
+ŦŦŦ now going to add ((0)) to the list
+DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
+Ex.multi returning ((1)*((3)+(g)))
+ŦŦŦ now going to add (((1)*((3)+(g))))/((20)) to the list
+comparing() to ()/((20))
+DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
+Ex.multi returning ((1)*((3)+(g)))
+ŦŦŦ now going to add (((1)*((3)+(g))))/((20)) to the list
+comparing() to ()/((20))
+comparing()/((20)) to ()/((20))
+ŦŦŦ found it's equal without first : (((1)*((3)+(g))))/((20))
+ŦŦŦ created a target to crunch up : (((1)*((3)+(g)))+((1)*((3)+(g))))
+ŦŦŦ now going to add ((1)*((3)+(g))) to the list
+ŦŦŦ now going to add ((1)*((3)+(g))) to the list
+comparing(((3)+(g))) to (((3)+(g)))
+ŦŦŦ found it's equal without first : ((1)*((3)+(g)))
+Replacing (1) by (2)
+€€ unwrap speaking : gonna replace self [(g)] with (g)
 DivEx multi speaking. gonna multi my numerator ((6)*((3)+(g))) by (1)
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(6)*((3)+(g)))
-result : (((1)*(6)*((3)+(g))))/((20))
-Crunching: (((1)*(6)*((3)+(g))))/((20))
-MCPlain : START crunch
->>MCPlain : it ain't a MultiEx ! Returning 0.
-post crunch (((1)*(6)*((3)+(g))))/((20))
-But it is not a multiEx. Redirected crunch to it's first subEx  ((1)*(6)*((3)+(g)))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (6) by (1)
->>MCPlain : Else ! Adding ((3)+(g))
-MultiEx speaking. Adding this to my exlist : (6)
-===> ((6))
-MultiEx speaking. Adding this to my exlist : ((3)+(g))
-===> ((6)*((3)+(g)))
-MCPlain : END<<
->which is thus crunched into ((6)*((3)+(g)))
-Okay,not gonna multi ((24)*(v))by 1
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(24)*(v))
-result : ((1)*(24)*(v))
-Crunching: ((1)*(24)*(v))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (24) by (1)
->>MCPlain : Else ! Adding (v)
-MultiEx speaking. Adding this to my exlist : (24)
-===> ((24))
-MultiEx speaking. Adding this to my exlist : (v)
-===> ((24)*(v))
-MCPlain : END<<
-post crunch ((24)*(v))
-Okay,not gonna multi (v)by 1
-MultiEx speaking. Adding this to my exlist : (v)
-===> ((v))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(v))
+ŦŦŦ now going to add (((6)*((3)+(g))))/((20)) to the list
+comparing() to ()/((20))
+comparing()/((20)) to ()/((20))
+ŦŦŦ found it's equal without first : (((2)*((3)+(g))))/((20))
+ŦŦŦ created a target to crunch up : (((2)*((3)+(g)))+((6)*((3)+(g))))
+ŦŦŦ now going to add ((2)*((3)+(g))) to the list
+ŦŦŦ now going to add ((6)*((3)+(g))) to the list
+comparing(((3)+(g))) to (((3)+(g)))
+ŦŦŦ found it's equal without first : ((2)*((3)+(g)))
+Replacing (2) by (8)
+€€ unwrap speaking : gonna replace self [(g)] with (g)
+ŦŦŦ now going to add ((24)*(v)) to the list
+comparing() to ((v))
+comparing()/((20)) to ((v))
 Ex.multi returning ((1)*(v))
-result : ((1)*(v))
-Crunching: ((1)*(v))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : Else ! Adding (v)
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : (v)
-===> ((1)*(v))
-MCPlain : END<<
-post crunch ((1)*(v))
-Okay,not gonna multi (1)by 1
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(1))
+ŦŦŦ now going to add ((1)*(v)) to the list
+comparing() to ((v))
+comparing()/((20)) to ((v))
+comparing((v)) to ((v))
+ŦŦŦ found it's equal without first : ((24)*(v))
+ŦŦŦ created a target to crunch up : ((1)+(24))
 Ex.multi returning ((1)*(1))
-result : ((1)*(1))
-Crunching: ((1)*(1))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (1) by (1)
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1))
-MCPlain : END<<
-post crunch ((1))
-Okay,not gonna multi (24)by 1
-MultiEx speaking. Adding this to my exlist : (24)
-===> ((24))
-MultiEx speaking. Adding this to my exlist : (1)
-===> ((1)*(24))
+ŦŦŦ now going to add ((1)) to the list
 Ex.multi returning ((1)*(24))
-result : ((1)*(24))
-Crunching: ((1)*(24))
-MCPlain : START crunch
->>MCPlain : Else ! Adding (1)
->>MCPlain : multiplied (24) by (1)
-MultiEx speaking. Adding this to my exlist : (24)
-===> ((24))
-MCPlain : END<<
-post crunch ((24))
-€€ unwrap speaking : gonna replace self [((25))] with (25)
+ŦŦŦ now going to add ((24)) to the list
+comparing() to ()
+ŦŦŦ found it's equal without first : ((1))
+Replacing (1) by (25)
 €€ unwrap speaking : gonna replace self [((25))] with (25)
 BossExpression : [((0)+((((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v)))]
 =====================
-BossExpression : [((0)+((((2)*((3)+(g))))/((20))+(((6)*((3)+(g))))/((20))+((25)*(v))))]
-Ex (((2)*((3)+(g))))/((20)) contains g !
+BossExpression : [((((8)*((3)+(g))))/((20))+((0))+((25)*(v)))]
+Ex (((8)*((3)+(g))))/((20)) contains g !
+Ex (((1)*((3)+(g))))/((20)) contains g !
 Ex (((6)*((3)+(g))))/((20)) contains g !
 Ex ((25)*(v)) contains v !
+Ex (v) contains v !
 Nest contains following variables :
 g
 v

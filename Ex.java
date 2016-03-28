@@ -78,7 +78,7 @@ public final void polish(){
 		e.polish();
 		}
 	unwrap();
-	
+	sort();
 	}
 
 //////////////////////////////////
@@ -295,6 +295,10 @@ public int size(){
 
 public Ex getSubEx(int index){
 	return exList.get(index);
+	}
+
+public ArrayList<Ex> getSubExList(){
+	return exList;
 	}
 
 public void appendSubEx(Ex argEx){

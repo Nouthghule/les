@@ -43,6 +43,29 @@ public void appendSubEx(Ex argEx){
 	}
 
 ////////////////////////////////////////////////////////////////////////
+@Override
+public void unwrap(){
+	if(this.size()==1){
+		this.replaceSelf(this.getSubEx(0));
+		}
+	else{
+		ArrayList<Ex> toBeAdded = new ArrayList<Ex>();
+		Iterator iter = exList.iterator();
+		while(iter.hasNext()){
+			Ex currEx = (Ex) iter.next();
+			if(currEx instanceof AddEx){
+				iter.remove();
+				int i;
+				for(i=0;i<currEx.size();i++){
+					toBeAdded.add(currEx.getSubEx(i));
+					}
+				}
+			}
+		this.add(toBeAdded);
+		}
+	}
+
+///////////////////////////////////////////////////////////////////////
 
 @Override
 public ArrayList<Operator> propose(boolean isFirst){

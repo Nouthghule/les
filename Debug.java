@@ -52,7 +52,10 @@ public static void main(String[] args){
 		
 
 	AddCruncherEqual cry = new AddCruncherEqual();
-	cry.crunch(nest);
+	Ex victim = theBoss.getSubEx(0);
+	victim.polish();
+	System.out.println("Gonna crunch " + victim.report() + "up real bad now.");
+	cry.crunch(victim);
 	
 	
 	System.out.print(oldRep);
