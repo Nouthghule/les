@@ -69,35 +69,41 @@ Collections.sort(numeratorList);
 Collections.sort(denominatorList);
 
 int n,d;
-
+int na,da;
 //Check if there actuall is a plainEx
 if(numeratorList.get(0) instanceof PlainEx){
 	PlainEx pl = (PlainEx) numeratorList.get(0);
-	n = abs(pl.value);
+	n = pl.value;
+	na = abs(n);
 	}
 else{
 	//When no shortening took place & there was no plainEx
 	n = 1;
+	na = 1;
 	numeratorList.add(new PlainEx(n));
 	Collections.sort(numeratorList);
 	}
 if(denominatorList.get(0) instanceof PlainEx){
 	PlainEx pl = (PlainEx) denominatorList.get(0);
-	d = abs(pl.value);
+	d = pl.value;
+	da = abs(d);
 	}
 else{
 	//When no shortening took place & there was no plainEx
 	d = 1;
+	da = 1;
 	denominatorList.add(new PlainEx(d));
 	Collections.sort(denominatorList);
 	}
 	
-int gcd = gcd(n,d);
+int gcd = gcd(na,da);
 if(gcd != 1){
-
+	System.out.println("gonna divide " + n + "/" + gcd + " and " + d + "/" + gcd);
+	
 	n = n / gcd;
 	d = d / gcd;
-	
+	System.out.println(n +" and "+ d);
+
 	numeratorList.set(0, new PlainEx(n));
 	denominatorList.set(0, new PlainEx(d));
 	doneWork = true;

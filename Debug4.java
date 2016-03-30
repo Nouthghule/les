@@ -11,7 +11,7 @@ public static void main(String[] args){
 	kepler.multi(new VarEx("Pipka"));
 	kepler.multi(new VarEx("Pipka"));
 	System.out.println(nest.report());
-	kepler.div(new PlainEx(4));
+	kepler.div(new PlainEx(-4));
 	kepler.div(new VarEx("Pipka"));
 	String uno = nest.report();
 	
