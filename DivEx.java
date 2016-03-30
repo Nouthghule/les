@@ -177,6 +177,13 @@ public DivEx div(ArrayList<Ex> argExList){
 		this.div(theEx);	
 		}
 	return this;
+
 	}
 
+@Override
+public void wipe(){
+	exList.clear();
+	exList.add(new VoidEx());
+	exList.add(new VoidEx());
+	}
 }

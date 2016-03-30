@@ -1,7 +1,13 @@
 import java.util.*;
 
 public abstract class Cruncher extends Operator{
-	
+
+/**Names of Cruncher subclasses shall follow this simple pattern :
+[ex type]Cruncher[operation description]
+ommiting the square brackets, thus resulting in eg MultiCruncherPlain
+- a cruncher for MultiEx which multiplies the plainExes in it.
+*/
+
 public ArrayList<Ex> workList = new ArrayList<Ex>();
 
 @Override

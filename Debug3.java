@@ -12,6 +12,17 @@ public static void main(String[] args){
 	kepler.div(new VarEx("k"));
 	System.out.println(nest.report());
 
+	
+	Ex mae = new MultiEx();
+	mae.multi(new PlainEx(1));
+	mae.multi(new VarEx("x"));
+	mae.multi(new VarEx("x"));
+	
+	Cruncher crunchy = new MultiCruncherPlain();
+	crunchy.crunch(mae);
+
+	System.out.println(mae.report());
+	
 
 	}
 

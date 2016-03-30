@@ -15,7 +15,7 @@ public int crunch(Ex targetEx){
 //		System.out.println(">>MCPlain : it ain't a MultiEx ! Returning 0."); 	
 		return 0;
 		}
-
+	workList.clear();
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
 		
