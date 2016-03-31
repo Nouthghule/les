@@ -37,6 +37,30 @@ public Ex multi(ArrayList<Ex> argExList){
 	return this;
 	}
 
+public void unwrap(){
+        if(this.size()==1){
+                this.replaceSelf(this.getSubEx(0));
+                }
+        else{
+                ArrayList<Ex> toBeAdded = new ArrayList<Ex>();
+                Iterator iter = exList.iterator();
+                while(iter.hasNext()){
+                        Ex currEx = (Ex) iter.next();
+                        if(currEx instanceof MultiEx){
+                                iter.remove();
+                                int i;
+                                for(i=0;i<currEx.size();i++){
+                                        toBeAdded.add(currEx.getSubEx(i));
+                                        }
+                                }
+                        }
+                this.multi(toBeAdded);
+                }
+        }
+
+
+
+
 @Override
 public void appendSubEx(Ex argEx){
 	this.multi(argEx);
