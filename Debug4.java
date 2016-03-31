@@ -8,21 +8,18 @@ public static void main(String[] args){
 	System.out.println(nest.report());
 
 	kepler.multi(new PlainEx(20));
-	kepler.multi(new VarEx("Pipka"));
-	kepler.multi(new VarEx("Pipka"));
+	kepler.multi(new PlainEx(20));
 	System.out.println(nest.report());
-	kepler.div(new PlainEx(-4));
-	kepler.div(new VarEx("Pipka"));
+	kepler.div(new PlainEx(20));
+	kepler.div(new PlainEx(20));
 	String uno = nest.report();
 	
 	Cruncher crunchy = new DivCruncherSimplify();
 	System.out.println(crunchy.crunch(kepler));
 	String duo = nest.report();
 
-	
-
 	System.out.println("Input : " + uno);
-	System.out.println("=====================");
+	System.out.println("=======Simplifying fraction============");
 	System.out.println("Output : " + duo);
 
 	}

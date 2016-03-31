@@ -16,6 +16,7 @@ public boolean silent = false;
 
 public void replaceSelf(Ex argEx){
 	if(master==null){
+		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring.");
 		return;
 		}
 	master.replaceTarget(argEx, posInMaster);

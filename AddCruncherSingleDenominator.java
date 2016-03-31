@@ -1,6 +1,7 @@
 import java.util.*;
 
-public class AddCruncherSingleDenominator{
+public class AddCruncherSingleDenominator extends Cruncher{
+//TODO think of a name that is not ridiculously long
 
 protected ArrayList<Ex> workList = new ArrayList<Ex>();
 
@@ -11,7 +12,7 @@ if(!(targetEx instanceof AddEx)){
 	return 0;
 	}
 
-//workList = new ArrayList<Ex>();
+workList.clear();
 AddEx argEx = (AddEx) targetEx;
 ArrayList<Ex> subExList = argEx.getSubExList();
 
@@ -19,6 +20,36 @@ for(Ex exie : subExList){
 	addDenominatorFrom(exie);
 	}
 
+AddEx unitedNumerator = new AddEx();
+MultiEx unitedDenominator = (MultiEx)(new MultiEx()).multi(workList);
+unitedDenominator.polish();
+System.out.println("Constructed uniDenominator. it is " + unitedDenominator.report());
+Cruncher crunchy = new DivCruncherSimplify();
+
+for(Ex exie : subExList){
+	Ex theEx = exie.copy();
+	Ex multiBy = unitedDenominator.copy();
+	if(theEx instanceof DivEx){
+		DivEx holderEx = new DivEx();
+		holderEx.multi(multiBy);
+		holderEx.div(theEx.getSubEx(1));
+		System.out.println("Going to crunch " + holderEx.report());
+		crunchy.crunch(holderEx);
+		multiBy = holderEx.getSubEx(0);
+		theEx = theEx.getSubEx(0);
+		}
+	theEx = theEx.multi(multiBy);	
+	unitedNumerator.add(theEx);
+	}
+unitedDenominator.polish();
+unitedNumerator.polish();
+Ex newDiv = new DivEx();
+newDiv.multi(unitedNumerator);
+newDiv.div(unitedDenominator);
+System.out.println("Single denom replacing self @ " + targetEx.report() + " with " + newDiv.report());
+targetEx.replaceSelf(newDiv);
+return 1;
+//TODO consider whether it should return 0 here if no interesting changes took place(probably not)
 }
 
 private void addDenominatorFrom(Ex theEx){
@@ -31,8 +62,19 @@ else{
 	denominator = new PlainEx(1);
 	}
 
-//TODO 
-
+System.out.println("resident loop Start with denominator " + denominator.report());
+Cruncher crunchy = new DivCruncherSimplify();
+for(Ex resident : workList){
+	DivEx holderEx = new DivEx();
+	holderEx.multi(denominator);
+	holderEx.div(resident.copy());
+	System.out.println("Going to crunch : " + holderEx.report());
+	crunchy.crunch(holderEx);
+	denominator = holderEx.getSubEx(0);
+	System.out.println("denominator is : " + denominator.report());
+	}
+System.out.println("Resident loop end ! denominator is : " + denominator.report());
+workList.add(denominator);
 }
 
 }
