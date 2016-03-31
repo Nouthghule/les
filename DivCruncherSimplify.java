@@ -45,10 +45,8 @@ while(numIterator.hasNext()){
 		if(denEx.report().equals(numEx.report())){
 			numIterator.remove();
 			denIterator.remove();
-			if(!doneWork){
-				numIterator.add(new PlainEx(1));
-				denIterator.add(new PlainEx(1));
-				}
+			numIterator.add(new PlainEx(1));
+			denIterator.add(new PlainEx(1));
 			doneWork = true;
 			break;
 			}
@@ -59,8 +57,10 @@ while(numIterator.hasNext()){
 Cruncher crunchy = new MultiCruncherPlain();
 Ex tempA = (new MultiEx()).multi(numeratorList);
 Ex tempB = (new MultiEx()).multi(denominatorList);
+System.out.println(tempA.report() + "/" + tempB.report());
 crunchy.crunch(tempA);
 crunchy.crunch(tempB);
+System.out.println(tempA.report() + "/" + tempB.report());
 numeratorList = tempA.getSubExList();
 denominatorList = tempB.getSubExList();
 
