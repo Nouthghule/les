@@ -9,13 +9,13 @@ public static void main(String[] args){
 	nest.add(kepler);
 	System.out.println(nest.report());
 
-	kepler.multi(new PlainEx(104729));
+	kepler.multi(new PlainEx(23));
 	System.out.println(nest.report());
-	kepler.div(new PlainEx(47569));
+	kepler.div(new PlainEx(64));
 	
 	Ex galileo = new DivEx();
 	galileo.multi(new VarEx("g"));
-	galileo.div(new PlainEx(17));
+	galileo.div(new PlainEx(16));
 
 	Ex planc = new VarEx("p");
 

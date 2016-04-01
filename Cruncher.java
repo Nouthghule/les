@@ -22,7 +22,19 @@ public abstract int crunch(Ex targetEx);
 this value should be used to represent the complexity of the task
 */
 	
-	
+public int gcd(int a, int b) {
+    if (a == 0)
+        return b;
+
+    while (b != 0) {
+        if (a > b)
+            a = a - b;
+        else
+            b = b - a;
+    }
+
+    return a;
+}	
 
 
 

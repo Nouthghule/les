@@ -2,26 +2,30 @@
 public class Debug3{
 	
 public static void main(String[] args){
+	Ex overseer = new AddEx();
 	Ex nest = new AddEx();
-	Ex kepler = new DivEx();
+	overseer.add(nest);
+	Ex kepler = new MultiEx();
 	nest.add(kepler);
-	System.out.println(nest.report());
 
 	kepler.multi(new PlainEx(20));
-	System.out.println(nest.report());
-	kepler.div(new VarEx("k"));
-	System.out.println(nest.report());
+	kepler.multi(new VarEx("x"));
 
-	
 	Ex mae = new MultiEx();
-	mae.multi(new PlainEx(1));
+	nest.add(mae);
+	mae.multi(new PlainEx(2));
 	mae.multi(new VarEx("x"));
 	mae.multi(new VarEx("x"));
 	
-	Cruncher crunchy = new MultiCruncherPlain();
-	crunchy.crunch(mae);
+	Ex pluto = kepler.copy();
+	nest.add(pluto);
+	String oldie = nest.report();
+	Cruncher crunchy = new AddCruncherFactor();
+	crunchy.crunch(nest);
 
-	System.out.println(mae.report());
+	System.out.println(oldie);
+	System.out.println("========================");
+	System.out.println(overseer.report());
 	
 
 	}
