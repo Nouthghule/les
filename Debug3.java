@@ -27,7 +27,8 @@ public static void main(String[] args){
 	System.out.println(oldie);
 	System.out.println("========================");
 	System.out.println(overseer.report());
-	
+	nest.polish();	
+	System.out.println("Polished : " + overseer.report());
 
 	}
 
