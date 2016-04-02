@@ -13,11 +13,12 @@ public static void main(String[] args){
 
 	Ex mae = new MultiEx();
 	nest.add(mae);
-	mae.multi(new PlainEx(2));
+	mae.multi(new PlainEx(-2));
 	mae.multi(new VarEx("x"));
 	mae.multi(new VarEx("x"));
 	
 	Ex pluto = kepler.copy();
+	pluto.multi(new PlainEx(-1));
 	nest.add(pluto);
 	String oldie = nest.report();
 	Cruncher crunchy = new AddCruncherFactor();
