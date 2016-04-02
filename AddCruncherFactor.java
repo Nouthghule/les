@@ -54,23 +54,26 @@ if(negative>(i/2)){
 	}
 System.out.println("°= final gcd is " + cd );
 
-
+int workDone = 0;
 MultiEx factor = new MultiEx();
-factor.multi(inList);
-System.out.println("factor (before cd) is : " +factor.report());
-factor.multi(new PlainEx(cd));
-System.out.println("factor is : " +factor.report());
+if((cd!=1)||(inList.size()>0)){
+	workDone = 1;
+	factor.multi(inList);
+	System.out.println("factor (before cd) is : " +factor.report());
+	factor.multi(new PlainEx(cd));
+	System.out.println("factor is : " +factor.report());
 
-Cruncher cr = new DivCruncherSimplify();
-for(Ex e : sourceList){
-	e = e.div(factor.copy());
-	System.out.println("CruncherFactor : pre sub crunch : " + e.report());
-	cr.crunch(e);
-	}
+	Cruncher cr = new DivCruncherSimplify();
+	for(Ex e : sourceList){
+		e = e.div(factor.copy());
+		System.out.println("CruncherFactor : pre sub crunch : " + e.report());
+		cr.crunch(e);
+		}
 
 targetEx.multi(factor);
+}
 
-return 1; //TODO implement zero condition
+return workDone;
 
 }
 

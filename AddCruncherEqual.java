@@ -14,6 +14,7 @@ public int crunch(Ex targetEx){
 	if(!(targetEx instanceof AddEx)){
 		return 0;
 		}
+	workList.clear();
 
 	int i,e;
 	for(i=0;i<targetEx.size();i++){

@@ -19,10 +19,10 @@ public void replaceSelf(Ex argEx){
 		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring.");
 		return;
 		}
-	master.replaceTarget(argEx, posInMaster);
+	master.replaceTarget(posInMaster, argEx);
 	}
 
-public void replaceTarget(Ex argEx, int pos){
+public void replaceTarget(int pos, Ex argEx){
 	argEx.master = this;
 	argEx.posInMaster = pos;
 	exList.set(pos, argEx);

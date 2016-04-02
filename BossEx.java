@@ -18,11 +18,6 @@ public BossEx(){
 	subEx.master = this;
 }
 
-@Override 
-public void replaceTarget(Ex argEx,int pos){
-	subEx = argEx;
-	argEx.master = this;
-	}
 @Override
 public AddEx add(Ex argEx){
 	return subEx.add(argEx);
