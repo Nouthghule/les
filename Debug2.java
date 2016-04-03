@@ -5,24 +5,27 @@ public static void main(String[] args){
 
 Ex nest = new AddEx();
 
-Ex subNest = new AddEx();
-Ex altNest = new AddEx();
-
+Ex subNest = new MultiEx();
 nest.add(subNest);
-nest.add(altNest);
-
-subNest.add(new VarEx("Q"));
-subNest.add(new PlainEx(9));
 subNest.multi(new PlainEx(3));
+Ex quido = new AddEx();
+quido.add(new VarEx("a"));
+quido.add(new VarEx("b"));
+subNest.multi(quido);
+Ex charlie = new AddEx();
+charlie.add(new VarEx("b"));
+charlie.add(new VarEx("c"));
+subNest.multi(charlie);
+Ex fido = new AddEx();
+fido.add(new VarEx("g"));
+fido.add(new VarEx("y"));
+subNest.multi(fido);
+String bc = "before crunch : " + nest.report();
+Cruncher cr = new MultiCruncherExpand();
+cr. crunch(subNest);
 
-AlteratorAdd altA = new AlteratorAdd(new VarEx("Q")); 
-AlteratorAdd altB = new AlteratorAdd(new PlainEx(9)); 
-altA.execute(altNest);
-altB.execute(altNest);
-altNest.multi(new PlainEx(3));
-System.out.println("sub : " + subNest.report());
-System.out.println("alt : " + altNest.report());
-
+System.out.println(bc);
+System.out.println("==ééé==");
 System.out.println(nest.report());
 
 
