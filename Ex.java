@@ -84,82 +84,38 @@ public final void polish(){
 
 //////////////////////////////////
 
-
-/*//////////////////////////////////////////////////////////////////
-TODO decide what to do with this
-public PlainEx getPlain(){
-	if(this.getPlainExCount()==1){
-		for (Ex e : exList){
-			if(e instanceof PlainEx){
-				return e;
+public final ArrayList<Operator> suggest(boolean isFirst){
+	ArrayList<Operator> resultList = new ArrayList<Operator>();
+	for(Ex e : exList){
+		ArrayList<Operator> childList = e.suggest(false);
+		for(Operator o : childList){
+			if(!(resultList.contains(o))){
+				resultList.add(o);
 				}
 			}
-		return null;
 		}
-	this.reducePlains();
-	return this.getPlain();
-	}
 
-private int getPlainExCount(){
-	int count = 0;
-	for(Ex e : exList){
-		if(e instanceof PlainEx){
-			count++;
-			}
-		}
-	return count;
-	}
-
-//public abstract void reducePlains();
-
-*/
-/////////////////////////////////////////////////////////////////
-
-public ArrayList<Operator> propose(){
-	return propose(true);
-	}
-
-public ArrayList<Operator> propose(boolean isFirst){
-        ArrayList<Operator> fullList = new ArrayList<Operator>();
-        ArrayList<Operator> gottenList;
-        for(Ex e : exList){
-                gottenList = e.propose(false);
-                for(Operator op : gottenList){
-                        if(!fullList.contains(op)){
-                                fullList.add(op);
-                                }
-                        }
-                }
-	
-	gottenList = this.proposeCrunchers();
-        for(Operator ope : gottenList){
-        	if(!fullList.contains(ope)){
-        	fullList.add(ope);
-                     }
-		}
-		
+	ArrayList<Operator> myList;
 	if(isFirst){
-		gottenList = this.proposeAlterators();
-       		for(Operator oper : gottenList){
-        		if(!fullList.contains(oper)){
-        		fullList.add(oper);
-                	         }
+		myList = this.suggestChangers();
+		for(Operator o : myList){
+			if(!(resultList.contains(o))){
+				resultList.add(o);
+				}
 			}
 		}
 	
-	return fullList;
-        }
-	
-	
+	myList = this.suggestCrunchers();
+	for(Operator o : myList){
+		if(!(resultList.contains(o))){
+			resultList.add(o);
+			}
+		}
+	return resultList;
+	}
 
-public ArrayList<Operator> proposeCrunchers(){
-	ArrayList<Operator> crunchList = new ArrayList<Operator>();
-	return crunchList;
-	}
-public ArrayList<Operator> proposeAlterators(){
-	ArrayList<Operator> altList = new ArrayList<Operator>();
-	return altList;
-	}
+public abstract ArrayList<Operator> suggestCrunchers();
+public abstract ArrayList<Operator> suggestChangers();
 
 /////////////////////////////////////////////////////////////úúú
 
