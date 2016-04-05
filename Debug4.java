@@ -2,24 +2,30 @@
 public class Debug4{
 	
 public static void main(String[] args){
-	Ex nest = new AddEx();
+	Ex overseer = new AddEx();
+	Ex nest = new MultiEx();
+	overseer.add(nest);
 	Ex kepler = new DivEx();
-	nest.add(kepler);
-	System.out.println(nest.report());
 
-	kepler.multi(new PlainEx(20));
-	kepler.multi(new PlainEx(20));
-	System.out.println(nest.report());
 	kepler.div(new PlainEx(20));
-	kepler.div(new PlainEx(20));
+	Ex gutenberg = kepler.copy();
+	Ex zimmerman = kepler.copy();
+	gutenberg.div(new VarEx("bible, biatch"));
+	gutenberg.multi(new PlainEx(2));
+	kepler.multi(new VarEx("k"));
+	zimmerman.multi(new VarEx("z"));
+	nest.multi(kepler);
+	nest.multi(gutenberg);
+	nest.multi(zimmerman);
+	
 	String uno = nest.report();
 	
-	Cruncher crunchy = new DivCruncherSimplify();
-	System.out.println(crunchy.crunch(kepler));
+	Cruncher crunchy = new MultiCruncherDivs();
+	System.out.println(crunchy.crunch(nest));
 	String duo = nest.report();
 
 	System.out.println("Input : " + uno);
-	System.out.println("=======Simplifying fraction============");
+	System.out.println("===================");
 	System.out.println("Output : " + duo);
 
 	}
