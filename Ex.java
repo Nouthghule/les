@@ -97,7 +97,7 @@ public final ArrayList<Operator> suggest(boolean isFirst){
 
 	ArrayList<Operator> myList;
 	if(isFirst){
-		myList = this.suggestChangers();
+		myList = this.suggestAlterators();
 		for(Operator o : myList){
 			if(!(resultList.contains(o))){
 				resultList.add(o);
@@ -115,7 +115,7 @@ public final ArrayList<Operator> suggest(boolean isFirst){
 	}
 
 public abstract ArrayList<Operator> suggestCrunchers();
-public abstract ArrayList<Operator> suggestChangers();
+public abstract ArrayList<Operator> suggestAlterators();
 
 /////////////////////////////////////////////////////////////úúú
 
