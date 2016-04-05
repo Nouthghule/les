@@ -1,5 +1,5 @@
 
-public class VoidEx extends Ex{
+public class VoidEx extends TinyEx{
 
 @Override
 public String report(){

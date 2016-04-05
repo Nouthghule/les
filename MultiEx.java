@@ -67,4 +67,23 @@ public void appendSubEx(Ex argEx){
 	this.multi(argEx);
 	}
 
+///////////////////////////////////////////////////////
+
+@Override
+public ArrayList<Operator> suggestCrunchers(){
+        ArrayList<Operator> l = new ArrayList<Operator>();
+        l.add(new MultiCruncherPlain());
+        l.add(new MultiCruncherExpand());
+        l.add(new MultiCruncherDivs());
+        return l;
+        }
+@Override
+public ArrayList<Operator> suggestAlterators(){
+        ArrayList<Operator> l = new ArrayList<Operator>();
+        return l;
+        }
+
 }
+
+
+

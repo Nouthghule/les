@@ -68,23 +68,16 @@ public void unwrap(){
 ///////////////////////////////////////////////////////////////////////
 
 @Override
-public ArrayList<Operator> propose(boolean isFirst){
-	ArrayList<Operator> fullList = new ArrayList<Operator>();
-	ArrayList<Operator> gottenList;
-	for(Ex e : exList){
-		gottenList = e.propose(false);
-		for(Operator op : gottenList){
-			if(!fullList.contains(op)){
-				fullList.add(op);
-				}
-			}
-		}
-	
-	
-	
-	return fullList;	
+public ArrayList<Operator> suggestCrunchers(){
+	ArrayList<Operator> l = new ArrayList<Operator>();
+	l.add(new AddCruncherEqual());
+	l.add(new AddCruncherFactor());
+	l.add(new AddCruncherSingleDenominator());
+	return l;
 	}
-
-
-
+@Override
+public ArrayList<Operator> suggestAlterators(){
+	ArrayList<Operator> l = new ArrayList<Operator>();
+	return l;
+	}
 }

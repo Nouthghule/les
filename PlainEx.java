@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PlainEx extends Ex{
+public class PlainEx extends TinyEx{
 
 public Ex master; //the Ex in which this Ex is nested.
 

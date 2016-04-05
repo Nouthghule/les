@@ -200,4 +200,19 @@ public void wipe(){
 	exList.add(new VoidEx());
 	exList.add(new VoidEx());
 	}
+///////////////ú//úúúúúúúúúúúúúú///////
+
+@Override
+public ArrayList<Operator> suggestCrunchers(){
+        ArrayList<Operator> l = new ArrayList<Operator>();
+        l.add(new DivCruncherSimplify());
+        l.add(new DivCruncherEmergeDivs());
+        return l;
+        }
+@Override
+public ArrayList<Operator> suggestAlterators(){
+        ArrayList<Operator> l = new ArrayList<Operator>();
+        return l;
+        }
+
 }
