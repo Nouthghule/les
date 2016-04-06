@@ -39,6 +39,28 @@ public Ex multi(ArrayList<Ex> argExList){
 
 @Override
 public void unwrap(){
+	unwrapMe();
+	Iterator<Ex> i = exList.iterator();
+	Ex checkee;
+	while(this.size()>1){
+		if(i.hasNext()){
+			checkee =i.next();
+			if(checkee instanceof PlainEx){
+				if(((PlainEx)checkee).value==1){
+					i.remove();
+					}
+				}
+			}
+		else{
+			break;
+			}
+		}
+	if(this.size()==1){
+		unwrapMe();
+		}
+        }
+
+private void unwrapMe(){
         if(this.size()==1){
                 this.replaceSelf(this.getSubEx(0));
                 }
@@ -57,8 +79,7 @@ public void unwrap(){
                         }
                 this.multi(toBeAdded);
                 }
-        }
-
+	}
 
 
 

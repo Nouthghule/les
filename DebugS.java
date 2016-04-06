@@ -11,6 +11,7 @@ overseer.add(jack);
 jack.add((new VarEx("j")).multi(new PlainEx(7)));
 jack.add((new VarEx("p")).multi(new PlainEx(14)));
 jack.add(new PlainEx(49));
+jack.add(new PlainEx(21));
 
 String before = overseer.report();
 
@@ -24,6 +25,7 @@ for(Operator o : map){
 	Ex e = jack.copy();
 	master.add(e);
 	if(o.execute(e)>0){
+		master.polish();
 		jacksChildren.add(master.report());
 		jacksChildren.add("that was "+o );
 		}
@@ -31,7 +33,7 @@ for(Operator o : map){
 
 System.out.println("Before : " + before);
 for(String s : jacksChildren){
-System.out.println("And what about this ? : " + s);
+System.out.println("And how about this ? : " + s);
 }
 
 }	

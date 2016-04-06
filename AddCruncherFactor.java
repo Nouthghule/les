@@ -82,6 +82,7 @@ if((cd!=1)||(inList.size()>0)){
 		}
 
 targetEx.multi(factor);
+
 }
 
 return workDone;

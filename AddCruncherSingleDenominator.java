@@ -41,15 +41,18 @@ for(Ex exie : subExList){
 	theEx = theEx.multi(multiBy);	
 	unitedNumerator.add(theEx);
 	}
-unitedDenominator.polish();
-unitedNumerator.polish();
+
+
 Ex newDiv = new DivEx();
 newDiv.multi(unitedNumerator);
 newDiv.div(unitedDenominator);
+newDiv.polish();
+if((newDiv.getSubEx(1) instanceof PlainEx)&&(((PlainEx)newDiv.getSubEx(1)).value==1)){
+	return 0;	
+	}
 System.out.println("Single denom replacing self @ " + targetEx.report() + " with " + newDiv.report());
 targetEx.replaceSelf(newDiv);
 return 1;
-//TODO consider whether it should return 0 here if no interesting changes took place(probably not)
 }
 
 private void addDenominatorFrom(Ex theEx){

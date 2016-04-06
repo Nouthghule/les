@@ -46,7 +46,6 @@ public void replaceTarget(Ex argEx, int pos){
 
 @Override
 public void unwrap(){
-	super.unwrap();
 	if((getSubEx(1) instanceof PlainEx)&&(java.lang.Math.abs(((PlainEx)getSubEx(1)).value) == 1)){
 		MultiEx newOne = new MultiEx();
 		newOne.multi(this.getSubEx(0));

@@ -6,6 +6,8 @@ private ArrayList<Ex> workList = new ArrayList<Ex>();
 
 public boolean dontCycle = false;
 
+protected boolean workDone = false;
+
 public AddCruncherEqual(){
 	}
 
@@ -15,7 +17,7 @@ public int crunch(Ex targetEx){
 		return 0;
 		}
 	workList.clear();
-
+	workDone = false;
 	int i,e;
 	for(i=0;i<targetEx.size();i++){
 		Ex rlEx = targetEx.getSubEx(i); //TODO replace comment refs to subEx with rlex
@@ -50,7 +52,10 @@ public int crunch(Ex targetEx){
 
 		addToList(rlEx);
 		}
-
+	
+	if(!workDone){
+		return 0;
+		}
 	
 	targetEx.wipe();
 	targetEx.add(workList);
@@ -76,6 +81,7 @@ public void addToList(Ex rlEx){
 		System.out.println("comparing" + residentReport + " to " + argReport);
 		
 		if(residentReport.equals(argReport)){
+			workDone = true;
 			//The Exes are equal, ignoring PlainEx
 			System.out.println("ŦŦŦ found it's equal without first : " + resident.report());
 //			System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ");
