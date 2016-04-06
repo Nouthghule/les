@@ -212,7 +212,11 @@ public ArrayList<Operator> suggestCrunchers(){
 @Override
 public ArrayList<Operator> suggestAlterators(){
         ArrayList<Operator> l = new ArrayList<Operator>();
-        return l;
+        
+	Ex denominator = getSubEx(1).copy();
+	l.add(new AlteratorMulti(denominator));
+
+	return l;
         }
 
 }

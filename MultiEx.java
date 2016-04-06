@@ -80,7 +80,24 @@ public ArrayList<Operator> suggestCrunchers(){
 @Override
 public ArrayList<Operator> suggestAlterators(){
         ArrayList<Operator> l = new ArrayList<Operator>();
-        return l;
+	
+	List<String> vars = this.varList();
+
+	for(String var : vars){
+		Ex divBy = new MultiEx();
+		boolean change = false;
+		for(Ex e : exList){
+			if(!(e.varContains(var))){
+				divBy.multi(e);
+				change = true;
+				}
+			}
+		if(change){
+		l.add(new AlteratorDiv(divBy));
+		}
+		}
+
+	return l;
         }
 
 }

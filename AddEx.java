@@ -78,6 +78,28 @@ public ArrayList<Operator> suggestCrunchers(){
 @Override
 public ArrayList<Operator> suggestAlterators(){
 	ArrayList<Operator> l = new ArrayList<Operator>();
+	
+	List<String> vars = varList();
+
+	
+	for(String var : vars){
+                Ex substract = new AddEx();
+                boolean change = false;
+                for(Ex e : exList){
+                        if(!(e.varContains(var))){
+                                substract.add(e.copy().multi(new PlainEx(-1)));
+                                }
+			else{
+                                change = true;
+				/*Leaving this in for future - I may want to change the vars
+				arraylist before going through this (eg : only do it for x).
+				*/		
+				}
+                        }
+                if(change){
+                l.add(new AlteratorAdd(substract));
+                }
+                }
 	return l;
 	}
 }

@@ -26,31 +26,42 @@ for(Ex subEx : sourceList){
 	addToList(subEx);
 	}
 
+
+//Eliminate exes that are not in all.
 for(Ex e : inList){
 	if(isInAll(e)){
 		workList.add(e);
 		}
 	}
 
+inList = workList;
+
 //sort out plains
-int cd = plainList.get(0).value; //Starting this with 1 does not, for some arcane reason, work. Hence this daftness
-int negative = 0;
-if(cd<0){
-	cd = java.lang.Math.abs(cd);
-	negative ++;
-	}
-int i,b;
-for(i=1;i<plainList.size();i++){
-	b = plainList.get(i).value;
-	if(b<0){
-		b = java.lang.Math.abs(b);	
+int cd; 
+if(plainList.size()>1){
+	int negative = 0;
+	cd = plainList.get(0).value; //Starting this with 1 does not, for some arcane reason, work. Hence this daftness
+	if(cd<0){
+		cd = java.lang.Math.abs(cd);
 		negative ++;
 		}
-	System.out.println("° current gcd is " + cd + " calculating next from it and " + plainList.get(i).value + " (actually : "+b+")");
-	cd = gcd(cd,b);
+	int i,b;
+	for(i=1;i<plainList.size();i++){
+		b = plainList.get(i).value;
+		if(b<0){
+			b = java.lang.Math.abs(b);	
+			negative ++;
+			}
+		System.out.println("° current gcd is " + cd + " calculating next from it and " + plainList.get(i).value + " (actually : "+b+")");
+		cd = gcd(cd,b);
+		}
+	if(negative>(i/2)){
+		cd = cd * (-1);
 	}
-if(negative>(i/2)){
-	cd = cd * (-1);
+}
+else{
+	cd = 1;
+	//
 	}
 System.out.println("°= final gcd is " + cd );
 
