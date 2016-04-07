@@ -11,7 +11,7 @@ ommiting the square brackets, thus resulting in eg MultiCruncherPlain
 public ArrayList<Ex> workList = new ArrayList<Ex>();
 
 @Override
-public int execute(Ex targetEx){
+public int executeShallow(Ex targetEx){
 	return crunch(targetEx);
 	}
 

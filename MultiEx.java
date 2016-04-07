@@ -48,6 +48,12 @@ public void unwrap(){
 			if(checkee instanceof PlainEx){
 				if(((PlainEx)checkee).value==1){
 					i.remove();
+					this.updatePoses();
+					}
+				else if(((PlainEx)checkee).value==0){
+					exList.clear();
+					this.multi(checkee);
+					break;
 					}
 				}
 			}
@@ -55,14 +61,13 @@ public void unwrap(){
 			break;
 			}
 		}
-	if(this.size()==1){
-		unwrapMe();
-		}
+	unwrapMe();
         }
 
 private void unwrapMe(){
+              	System.out.println("{{{{{{{{{{{{unwrapMe multiEx : unwrapping " + this.report());
         if(this.size()==1){
-                this.replaceSelf(this.getSubEx(0));
+		this.replaceSelf(this.getSubEx(0));
                 }
         else{
                 ArrayList<Ex> toBeAdded = new ArrayList<Ex>();

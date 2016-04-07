@@ -25,6 +25,8 @@ for(Operator o : map){
 	Ex e = jack.copy();
 	master.add(e);
 	if(o.execute(e)>0){
+		System.out.println("←←←←←←←←←←←Master unwrap" + master.report());
+		master.polish();
 		master.polish();
 		jacksChildren.add(master.report());
 		jacksChildren.add("that was "+o );

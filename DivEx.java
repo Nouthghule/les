@@ -50,7 +50,6 @@ public void unwrap(){
 		MultiEx newOne = new MultiEx();
 		newOne.multi(this.getSubEx(0));
 		newOne.multi(this.getSubEx(1));
-		newOne.polish();
 		this.replaceSelf(newOne);
 		}
 	}

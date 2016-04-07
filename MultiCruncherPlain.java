@@ -8,7 +8,7 @@ public MultiCruncherPlain(){
 	}
 
 public int crunch(Ex targetEx){
-	
+	boolean workDone = false;	
 //	System.out.println("MCPlain : START crunch"); 	
 	
 	if(!(targetEx instanceof MultiEx)){
@@ -30,7 +30,7 @@ public int crunch(Ex targetEx){
 				if(workList.get(e) instanceof PlainEx){
 					PlainEx alreadyEx = (PlainEx) workList.get(e);
 					int result = ((subEx.value) * (alreadyEx.value));
-					
+					workDone = true;
 //					System.out.println(">>MCPlain : multiplied " + subEx.report() + " by " + alreadyEx.report()); 	
 					PlainEx resultEx = new PlainEx(result);
 					workList.set(e, resultEx);
@@ -51,11 +51,13 @@ public int crunch(Ex targetEx){
 			workList.add(targetEx.getSubEx(i));
 			}
 		}
-	
-	targetEx.wipe();
-	targetEx.multi(workList); //This is a multiEx. Were it not, it'd return a zero at line 16
-//	System.out.println("MCPlain : END<<");
-	return 1;
+	if(workDone){	
+		targetEx.wipe();
+		targetEx.multi(workList); //This is a multiEx. Were it not, it'd return a zero at line 16
+	//	System.out.println("MCPlain : END<<");
+		return 1;
+	}
+	return 0;
 	}
 
 

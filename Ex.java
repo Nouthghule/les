@@ -16,9 +16,10 @@ public boolean silent = false;
 
 public void replaceSelf(Ex argEx){
 	if(master==null){
-		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring.");
+		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : " + this.report());
 		return;
 		}
+		System.out.println("Replacing self in " + master.report() + "(I'm " + this.report());
 	master.replaceTarget(posInMaster, argEx);
 	}
 
@@ -26,6 +27,13 @@ public void replaceTarget(int pos, Ex argEx){
 	argEx.master = this;
 	argEx.posInMaster = pos;
 	exList.set(pos, argEx);
+	}
+
+public void updatePoses(){
+	int i;
+	for(i=0;i<this.size();i++){	
+		this.getSubEx(i).posInMaster = i;
+		}
 	}
 
 //-----------------------
