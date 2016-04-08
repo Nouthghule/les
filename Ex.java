@@ -38,7 +38,7 @@ public void updatePoses(){
 
 //-----------------------
 
-public final Ex copy(){
+public Ex copy(){
 	Ex copyOfThis;
 	try{
 		//TODO consider getting rid of reflection.
@@ -92,10 +92,10 @@ public final void polish(){
 
 //////////////////////////////////
 
-public final ArrayList<Operator> suggest(boolean isFirst){
+public ArrayList<Operator> suggest(){
 	ArrayList<Operator> resultList = new ArrayList<Operator>();
 	for(Ex e : exList){
-		ArrayList<Operator> childList = e.suggest(false);
+		ArrayList<Operator> childList = e.suggest();
 		for(Operator o : childList){
 			if(!(resultList.contains(o))){
 				resultList.add(o);
@@ -104,15 +104,6 @@ public final ArrayList<Operator> suggest(boolean isFirst){
 		}
 
 	ArrayList<Operator> myList;
-	if(isFirst){
-		myList = this.suggestAlterators();
-		for(Operator o : myList){
-			if(!(resultList.contains(o))){
-				resultList.add(o);
-				}
-			}
-		}
-	
 	myList = this.suggestCrunchers();
 	for(Operator o : myList){
 		if(!(resultList.contains(o))){
@@ -122,8 +113,8 @@ public final ArrayList<Operator> suggest(boolean isFirst){
 	return resultList;
 	}
 
-public abstract ArrayList<Operator> suggestCrunchers();
-public abstract ArrayList<Operator> suggestAlterators();
+public abstract ArrayList<Operator> suggestCrunchers(); //check implementation in EqEx before changing return type
+public abstract ArrayList<Alterator> suggestAlterators();
 
 /////////////////////////////////////////////////////////////úúú
 

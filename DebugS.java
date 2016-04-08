@@ -3,7 +3,7 @@ import java.util.*;
 public class DebugS{
 	
 public static void main(String[] args){	
-
+/*
 Ex overseer = new AddEx();
 
 Ex jack = new AddEx();
@@ -37,7 +37,7 @@ System.out.println("Before : " + before);
 for(String s : jacksChildren){
 System.out.println("And how about this ? : " + s);
 }
-
+*/
 }	
 
 }

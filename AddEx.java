@@ -76,8 +76,8 @@ public ArrayList<Operator> suggestCrunchers(){
 	return l;
 	}
 @Override
-public ArrayList<Operator> suggestAlterators(){
-	ArrayList<Operator> l = new ArrayList<Operator>();
+public ArrayList<Alterator> suggestAlterators(){
+	ArrayList<Alterator> l = new ArrayList<Alterator>();
 	
 	List<String> vars = varList();
 
