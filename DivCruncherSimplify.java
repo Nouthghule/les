@@ -57,10 +57,8 @@ while(numIterator.hasNext()){
 Cruncher crunchy = new MultiCruncherPlain();
 Ex tempA = (new MultiEx()).multi(numeratorList);
 Ex tempB = (new MultiEx()).multi(denominatorList);
-System.out.println(tempA.report() + "/" + tempB.report());
 crunchy.crunch(tempA);
 crunchy.crunch(tempB);
-System.out.println(tempA.report() + "/" + tempB.report());
 numeratorList = tempA.getSubExList();
 denominatorList = tempB.getSubExList();
 
@@ -98,17 +96,14 @@ else{
 	
 int gcd = gcd(na,da);
 if(gcd != 1){
-	System.out.println("gonna divide " + n + "/" + gcd + " and " + d + "/" + gcd);
 	
 	n = n / gcd;
 	d = d / gcd;
-	System.out.println(n +" and "+ d);
 
 	numeratorList.set(0, new PlainEx(n));
 	denominatorList.set(0, new PlainEx(d));
 	doneWork = true;
 	}
-	
 if(doneWork){
 	targetEx.wipe();
 	targetEx.multi(numeratorList);

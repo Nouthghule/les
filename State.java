@@ -14,11 +14,13 @@ public State(Ex theEx){
 	}
 
 public int propagate(){
+	System.out.println("I'm " + stateEx.report() + " and I'm about to propagate.");
 	ArrayList<Operator> suggestions = stateEx.suggest();
 	int fullOp = 0;
 	for(Operator o : suggestions){
 		Ex child = stateEx.copy();
 		int opVal = o.execute(child);
+		System.out.println("new child : " + child.report());
 		if(opVal>0){
 			child.polish();
 			State childState = new State(child);

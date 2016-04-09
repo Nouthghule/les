@@ -5,16 +5,16 @@ public class StateSearcher{
 
 protected State startingState;
 
-public ArrayList<State> open;
-public ArrayList<State> closed;
+public LinkedList<State> open;
+public LinkedList<State> closed;
 public String targetString = "Slepice";
 public int lookBackDistance = 3;
 
 public StateSearcher(State theState){
 startingState = theState;
 theState.parent = theState;
-open = new ArrayList<State>();
-closed = new ArrayList<State>();
+open = new LinkedList<State>();
+closed = new LinkedList<State>();
 }
 
 public State find(String str){
@@ -31,9 +31,8 @@ public State find(String str){
 	
 	while(open.size()>0){
 		generation ++;
-		System.out.println("=========================================Generation number " + generation  + " of opens ! ");
-		ListIterator<State> iter = open.listIterator();
-		State currState = iter.next();
+		System.out.println("=====================================number " + generation ) ;
+		State currState = open.remove();
 		System.out.println("CurrState is " + currState.stateEx.report());
 		System.out.println("It's hf is " + hf(currState));
 		if(hf(currState)==1){
@@ -48,7 +47,6 @@ public State find(String str){
 			}
 		System.out.println("It just propagated. Children : " +deb);
 		closed.add(currState);
-		iter.remove();
 		for(State s : temp){
 			System.out.println("Checking " + s.stateEx.report());
 			boolean isNew = true;

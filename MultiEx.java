@@ -55,8 +55,7 @@ public void unwrap(){
 		this.multi(e);
 		}
 	iter = exList.listIterator();
-	while(iter.hasNext()){
-		if(exList.size()>1){
+	while(iter.hasNext()&&(exList.size()>1)){
 			Ex sub = iter.next();
 			if(sub instanceof PlainEx){
 				PlainEx rlSub = (PlainEx) sub;
@@ -64,12 +63,12 @@ public void unwrap(){
 					iter.remove();	
 					}
 				}
-			}
+		}
+        if(this.size()==1){
+		this.replaceSelf(getSubEx(0));
 		}
 	}
 
-private void unwrapMe(){
-}
 
 @Override
 public void appendSubEx(Ex argEx){

@@ -51,6 +51,7 @@ public void unwrap(){
 		newOne.multi(this.getSubEx(0));
 		newOne.multi(this.getSubEx(1));
 		this.replaceSelf(newOne);
+		newOne.polish();
 		}
 	}
 @Override
