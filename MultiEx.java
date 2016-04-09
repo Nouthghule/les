@@ -39,54 +39,37 @@ public Ex multi(ArrayList<Ex> argExList){
 
 @Override
 public void unwrap(){
-	unwrapMe();
-	Iterator<Ex> i = exList.iterator();
-	Ex checkee;
-	while(this.size()>1){
-		if(i.hasNext()){
-			checkee =i.next();
-			if(checkee instanceof PlainEx){
-				if(((PlainEx)checkee).value==1){
-					i.remove();
-					this.updatePoses();
-					}
-				else if(((PlainEx)checkee).value==0){
-					exList.clear();
-					this.multi(checkee);
-					break;
+        if(this.size()==1){
+		this.replaceSelf(getSubEx(0));
+		}
+	ArrayList<Ex> submerged = new ArrayList<Ex>();
+	ListIterator<Ex> iter = exList.listIterator();
+	while (iter.hasNext()){
+		Ex e = iter.next();
+		if(e instanceof MultiEx){
+			submerged.add(e);
+			iter.remove();
+			}
+		}
+	for(Ex e : submerged){
+		this.multi(e);
+		}
+	iter = exList.listIterator();
+	while(iter.hasNext()){
+		if(exList.size()>1){
+			Ex sub = iter.next();
+			if(sub instanceof PlainEx){
+				PlainEx rlSub = (PlainEx) sub;
+				if(rlSub.value==1){
+					iter.remove();	
 					}
 				}
 			}
-		else{
-			break;
-			}
 		}
-	unwrapMe();
-        }
-
-private void unwrapMe(){
-              	System.out.println("{{{{{{{{{{{{unwrapMe multiEx : unwrapping " + this.report());
-        if(this.size()==1){
-		this.replaceSelf(this.getSubEx(0));
-                }
-        else{
-                ArrayList<Ex> toBeAdded = new ArrayList<Ex>();
-                Iterator iter = exList.iterator();
-                while(iter.hasNext()){
-                        Ex currEx = (Ex) iter.next();
-                        if(currEx instanceof MultiEx){
-                                iter.remove();
-                                int i;
-                                for(i=0;i<currEx.size();i++){
-                                        toBeAdded.add(currEx.getSubEx(i));
-                                        }
-                                }
-                        }
-                this.multi(toBeAdded);
-                }
 	}
 
-
+private void unwrapMe(){
+}
 
 @Override
 public void appendSubEx(Ex argEx){

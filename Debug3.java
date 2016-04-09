@@ -1,35 +1,30 @@
-
+import java.util.*;
 public class Debug3{
-	
+
 public static void main(String[] args){
-	Ex overseer = new AddEx();
-	Ex nest = new AddEx();
-	overseer.add(nest);
-	Ex kepler = new MultiEx();
-	nest.add(kepler);
 
-	kepler.multi(new PlainEx(20));
-	kepler.multi(new VarEx("x"));
+Ex left = new DivEx();
+left.multi(new VarEx("V"));
+left.div(new VarEx("R"));
 
-	Ex mae = new MultiEx();
-	nest.add(mae);
-	mae.multi(new PlainEx(-2));
-	mae.multi(new VarEx("x"));
-	mae.multi(new VarEx("x"));
-	
-	Ex pluto = kepler.copy();
-	pluto.multi(new PlainEx(-1));
-	nest.add(pluto);
-	String oldie = nest.report();
-	Cruncher crunchy = new AddCruncherFactor();
-	crunchy.crunch(nest);
+Ex right = new MultiEx();
+right.multi(new VarEx("t1"));
+right.multi(new VarEx("t2"));
 
-	System.out.println(oldie);
-	System.out.println("========================");
-	System.out.println(overseer.report());
-	nest.polish();	
-	System.out.println("Polished : " + overseer.report());
+EqEx equestria = new EqEx(left,right);
 
-	}
+String bc = equestria.report();
+System.out.println(equestria.subExTotal());
+System.out.println(bc);
 
+State startState = new State(equestria);
+
+/*
+startState.propagate();
+startState.children;
+*/
+System.out.println("This is what it started as :");
+System.out.println(bc);
+System.out.println("==And this is what we've thought of==");
+}
 }

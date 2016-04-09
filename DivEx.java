@@ -159,7 +159,6 @@ public Ex multi(Ex argEx){
 		argEx.posInMaster = 0;
 		return this;
 		}
-	System.out.println("DivEx multi speaking. gonna multi my numerator " + numerator.report() + " by " + argEx.report());
 	numerator.multi(argEx);
 	return this;	
 	}

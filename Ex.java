@@ -19,7 +19,6 @@ public void replaceSelf(Ex argEx){
 		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : " + this.report());
 		return;
 		}
-		System.out.println("Replacing self in " + master.report() + "(I'm " + this.report());
 	master.replaceTarget(posInMaster, argEx);
 	}
 
@@ -76,7 +75,6 @@ public void wipe(){
 //remove redundant Exes (eg. (((2)+(1))) -> ((2)+(1))
 public void unwrap(){
 	if(this.size()==1){
-		System.out.println("€€ unwrap speaking : gonna replace self [" + this.report() +"] with " + getSubEx(0).report());
 		this.replaceSelf(this.getSubEx(0));	
 		}	
 	}
@@ -158,6 +156,16 @@ public List<String> varList(){
 	}
 //*/////////////////////////////////////////////////////////////////
 
+public int subExTotal(){
+	int total = 1;
+	for(Ex e : exList){
+		total += e.subExTotal();
+		}
+	return total;
+	}
+
+///////////////////////////////////////////////////////////////////
+
 public AddEx add(Ex argEx){
 	AddEx newlyMade = new AddEx();
 	this.replaceSelf(newlyMade);
@@ -175,7 +183,6 @@ public Ex multi(Ex argEx){
 	newlyMade.multi(this);
 	newlyMade.multi(argEx);
 	newlyMade.sort();
-	System.out.println("Ex.multi returning "+newlyMade.report());
 	return newlyMade;
 	}
 
