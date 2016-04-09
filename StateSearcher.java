@@ -8,7 +8,7 @@ protected State startingState;
 public ArrayList<State> open;
 public ArrayList<State> closed;
 public String targetString = "Slepice";
-public int lookBackDistance = 2;
+public int lookBackDistance = 3;
 
 public StateSearcher(State theState){
 startingState = theState;
@@ -18,6 +18,7 @@ closed = new ArrayList<State>();
 }
 
 public State find(String str){
+	int generation = 0;
 	open.clear();
 	closed.clear();
 	startingState.children.clear();
@@ -29,7 +30,8 @@ public State find(String str){
 		}
 	
 	while(open.size()>0){
-		
+		generation ++;
+		System.out.println("=========================================Generation number " + generation  + " of opens ! ");
 		ListIterator<State> iter = open.listIterator();
 		State currState = iter.next();
 		System.out.println("CurrState is " + currState.stateEx.report());
@@ -73,7 +75,6 @@ public State find(String str){
 				System.out.println("Not adding it.");	
 				}
 			}
-		
 		}
 	System.out.println("No more opens.");
 	return startingState;
