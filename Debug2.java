@@ -3,11 +3,15 @@ public class Debug2{
 
 public static void main(String[] args){
 
-Ex left = new DivEx();
-left.multi(new VarEx("V"));
-left.div(new VarEx("R"));
 
-Ex right = new VarEx("I");
+
+Ex left = new AddEx();
+left.add((new VarEx("x")).multi(new PlainEx(20)));
+left.add((new VarEx("y")).multi(new PlainEx(-10)));
+
+Ex right = new DivEx();
+right.multi(new PlainEx(60));
+right.div(new PlainEx(20));
 
 EqEx equestria = new EqEx(left,right);
 String bc = equestria.report();

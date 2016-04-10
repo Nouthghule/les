@@ -88,16 +88,11 @@ public ArrayList<Alterator> suggestAlterators(){
                 for(Ex e : exList){
                         if(!(e.varContains(var))){
                                 substract.add(e.copy().multi(new PlainEx(-1)));
-                                }
-			else{
                                 change = true;
-				/*Leaving this in for future - I may want to change the vars
-				arraylist before going through this (eg : only do it for x).
-				*/		
-				}
+                                }
                         }
                 if(change){
-                l.add(new AlteratorAdd(substract));
+			l.add(new AlteratorAdd(substract));
                 }
                 }
 	return l;

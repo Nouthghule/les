@@ -39,33 +39,52 @@ public Ex multi(ArrayList<Ex> argExList){
 
 @Override
 public void unwrap(){
-        if(this.size()==1){
+        boolean isNull = false;
+	if(this.size()==1){
 		this.replaceSelf(getSubEx(0));
 		}
-	ArrayList<Ex> submerged = new ArrayList<Ex>();
-	ListIterator<Ex> iter = exList.listIterator();
-	while (iter.hasNext()){
-		Ex e = iter.next();
-		if(e instanceof MultiEx){
-			submerged.add(e);
-			iter.remove();
+	else{
+		ArrayList<Ex> submerged = new ArrayList<Ex>();
+		ListIterator<Ex> iter = exList.listIterator();
+		while (iter.hasNext()){
+			Ex e = iter.next();
+			if(e instanceof MultiEx){
+				submerged.add(e.copy());
+				iter.remove();
+				updatePoses();
+				System.out.println("MultiEx: submerged " + e.copy() + ", I'm now " + this.report());
+				}
+			}
+
+
+		for(Ex s : submerged){
+			ArrayList<Ex> submarines = s.getSubExList();
+			for(Ex sub : submarines){
+				this.multi(sub);
+				}
+			}
+
+
+		iter = exList.listIterator();
+		while(iter.hasNext()&&(exList.size()>1)){
+				Ex sub = iter.next();
+				if(sub instanceof PlainEx){
+					PlainEx rlSub = (PlainEx) sub;
+					if(rlSub.value==1){
+						iter.remove();	
+						}
+					if(rlSub.value==0){
+						isNull = true;
+						break;
+						}
+					}
+			}
+		if(this.size()==1){
+			this.replaceSelf(getSubEx(0));
 			}
 		}
-	for(Ex e : submerged){
-		this.multi(e);
-		}
-	iter = exList.listIterator();
-	while(iter.hasNext()&&(exList.size()>1)){
-			Ex sub = iter.next();
-			if(sub instanceof PlainEx){
-				PlainEx rlSub = (PlainEx) sub;
-				if(rlSub.value==1){
-					iter.remove();	
-					}
-				}
-		}
-        if(this.size()==1){
-		this.replaceSelf(getSubEx(0));
+	if(isNull){
+		this.replaceSelf(new PlainEx(0));	
 		}
 	}
 

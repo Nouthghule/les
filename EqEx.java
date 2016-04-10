@@ -22,6 +22,8 @@ public EqEx(int i){
 	}
 
 @Override
+public void sort(){} //Can afford to override like this because subExes get sorted anyway in polish.
+@Override
 public void unwrap(){}
 
 @Override

@@ -18,21 +18,30 @@ closed = new LinkedList<State>();
 }
 
 public State find(String str){
-	int generation = 0;
+	int stateNum = 0;
 	open.clear();
 	closed.clear();
 	startingState.children.clear();
 	open.add(startingState);
-	ArrayList<State> temp;
+	ArrayList<State> temp = new ArrayList<State>();
 	targetString = str;
 	if(!startingState.stateEx.varContains(targetString)){
 		return startingState;
 		}
 	
 	while(open.size()>0){
-		generation ++;
-		System.out.println("=====================================number " + generation ) ;
 		State currState = open.remove();
+		stateNum ++;
+		int gen =0;
+		State genState = currState;
+		while(true){
+			if(genState==startingState){
+				break;
+				}
+			gen ++;
+			genState = genState.parent;
+			}
+		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
 		System.out.println("CurrState is " + currState.stateEx.report());
 		System.out.println("It's hf is " + hf(currState));
 		if(hf(currState)==1){
@@ -40,14 +49,10 @@ public State find(String str){
 			}
 
 		currState.propagate();
-		temp = currState.children;
-		String deb = "<";
-		for(State s :temp){
-			deb+= s.stateEx.report() + " ; ";
-			}
-		System.out.println("It just propagated. Children : " +deb);
+		System.out.println("It just propagated. Gonna check it's children.");
 		closed.add(currState);
-		for(State s : temp){
+		ArrayList<State> newChildren = new ArrayList<State>();
+		for(State s : currState.children){
 			System.out.println("Checking " + s.stateEx.report());
 			boolean isNew = true;
 			for(State o : open){
@@ -62,17 +67,25 @@ public State find(String str){
 				}
 
 			if(isNew){
-				System.out.println("It's new.");
+//				System.out.println("It's new.");
 				}
 
 			if(isNew && didImprove(s,lookBackDistance)){
 				System.out.println("adding " + s.stateEx.report() + " to open.");
 				open.add(s);
+				newChildren.add(s);
 				}
 			else{
 				System.out.println("Not adding it.");	
 				}
 			}
+		
+		String deb = "Legit new children : <";
+		for(State s : newChildren){
+			deb+= s.stateEx.report() + " ; ";
+			}
+		deb+= ">";
+		System.out.println(deb);
 		}
 	System.out.println("No more opens.");
 	return startingState;

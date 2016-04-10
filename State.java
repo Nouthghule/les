@@ -18,11 +18,13 @@ public int propagate(){
 	ArrayList<Operator> suggestions = stateEx.suggest();
 	int fullOp = 0;
 	for(Operator o : suggestions){
+	System.out.println(o + " is messing around now.");
 		Ex child = stateEx.copy();
 		int opVal = o.execute(child);
-		System.out.println("new child : " + child.report());
 		if(opVal>0){
+			System.out.println(o + " has brought me a new dirty child : " + child.report());
 			child.polish();
+			System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);
 			childState.parent = this;
 			children.add(childState);

@@ -5,6 +5,7 @@ public Ex altEx;
 
 public Alterator(Ex argEx){
 	altEx = argEx;
+	System.out.println("I am " + this + " and I come to cleanse this land with " + argEx.report());
 	}
 	
 @Override

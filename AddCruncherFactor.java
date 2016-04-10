@@ -75,7 +75,8 @@ if((cd!=1)||(inList.size()>0)){
 	System.out.println("factor is : " +factor.report());
 
 	Cruncher cr = new DivCruncherSimplify();
-	for(Ex e : sourceList){
+	ArrayList<Ex> realSource = targetEx.getSubExList();
+	for(Ex e : realSource){
 		e = e.div(factor.copy());
 		System.out.println("CruncherFactor : pre sub crunch : " + e.report());
 		cr.crunch(e);
