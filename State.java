@@ -8,9 +8,12 @@ public State parent;
 
 public ArrayList<State> children;
 
+public Operator stateOp;
+
 public State(Ex theEx){
 	stateEx = theEx;
 	children = new ArrayList<State>();
+	stateOp = new DefOperator();
 	}
 
 public int propagate(){
@@ -23,9 +26,25 @@ public int propagate(){
 		int opVal = o.execute(child);
 		if(opVal>0){
 			System.out.println(o + " has brought me a new dirty child : " + child.report());
+			
+			String ancestry = "<< ";
+			int c;
+			State praetor = this.parent;
+			for(c=0;true;c++){
+				ancestry += praetor.stateEx.report();
+				ancestry += praetor.stateOp;
+				ancestry += "<< ";
+				if(praetor == praetor.parent){
+					break;
+					}
+				praetor = praetor.parent;
+				}
+			System.out.println("It's ancestry is : " + ancestry);
+
 			child.polish();
 			System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);
+			childState.stateOp = o;
 			childState.parent = this;
 			children.add(childState);
 			fullOp = fullOp + opVal;

@@ -50,15 +50,18 @@ public void unwrap(){
 		}
 	else{
 		ArrayList<Ex> toBeAdded = new ArrayList<Ex>();
-		Iterator iter = exList.iterator();
+		Iterator<Ex> iter = exList.listIterator();
 		while(iter.hasNext()){
-			Ex currEx = (Ex) iter.next();
+			Ex currEx = iter.next();
 			if(currEx instanceof AddEx){
 				iter.remove();
 				int i;
 				for(i=0;i<currEx.size();i++){
 					toBeAdded.add(currEx.getSubEx(i));
 					}
+				}
+			else if((currEx instanceof PlainEx)&&(((PlainEx)currEx).value==0)&&(exList.size()>1)){
+				iter.remove();
 				}
 			}
 		this.add(toBeAdded);
@@ -71,7 +74,7 @@ public void unwrap(){
 public ArrayList<Operator> suggestCrunchers(){
 	ArrayList<Operator> l = new ArrayList<Operator>();
 	l.add(new AddCruncherEqual());
-	l.add(new AddCruncherFactor());
+	//l.add(new AddCruncherFactor());
 	l.add(new AddCruncherSingleDenominator());
 	return l;
 	}
