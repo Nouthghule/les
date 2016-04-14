@@ -26,10 +26,10 @@ public void replaceTarget(int pos, Ex argEx){
 	argEx.master = this;
 	argEx.posInMaster = pos;
 	if(master == null){
-		System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
+//		System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 	else{
-		System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
+//		System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 	exList.set(pos, argEx);
 	}
@@ -87,7 +87,7 @@ public void unwrap(){
 ///-----------------
 
 public final void polish(){
-	System.out.println("ex polishing : " + this.report());
+	//System.out.println("ex polishing : " + this.report());
 	for(Ex e : exList){
 		e.polish();
 		}
@@ -161,6 +161,7 @@ public List<String> varList(){
 		}
 	return list;
 	}
+
 //*/////////////////////////////////////////////////////////////////
 
 public int subExTotal(){

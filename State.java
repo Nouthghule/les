@@ -10,10 +10,13 @@ public ArrayList<State> children;
 
 public Operator stateOp;
 
+public int hfVal;
+
 public State(Ex theEx){
 	stateEx = theEx;
 	children = new ArrayList<State>();
 	stateOp = new DefOperator();
+	hfVal = -777; //The most magic one of all.
 	}
 
 public int propagate(){

@@ -22,15 +22,20 @@ public State find(String str){
 	open.clear();
 	closed.clear();
 	startingState.children.clear();
+	startingState.hfVal = hf(startingState);
 	open.add(startingState);
 	ArrayList<State> temp = new ArrayList<State>();
 	targetString = str;
+
 	if(!startingState.stateEx.varContains(targetString)){
 		return startingState;
 		}
 	
 	while(open.size()>0){
-		State currState = open.remove();
+		State currState = findBest();
+		
+		closed.add(currState);
+		open.remove(currState);
 		stateNum ++;
 		int gen =0;
 		State genState = currState;
@@ -39,48 +44,41 @@ public State find(String str){
 				break;
 				}
 			gen ++;
+			if(gen==40){
+				return currState;
+				}
 			genState = genState.parent;
 			}
+
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
 		System.out.println("CurrState is " + currState.stateEx.report());
 		System.out.println("It's hf is " + hf(currState));
+		if(!currState.stateEx.varContains(targetString)){ //TODO REMOVE
+			System.out.println("Variable lost. It's parent is : " + currState.parent.stateEx.report());
+			System.out.println("It's parent's operator is : " + currState.parent.stateOp);
+			System.out.println("It's operator is : " + currState.stateOp);
+			System.out.println("Initiating debug crunch on father, using the cruncher");
+			System.out.println(currState.stateOp.execute(currState.parent.stateEx));
+			return currState;
+			}
 		if(hf(currState)==1){
 			return currState;
 			}
 
 		currState.propagate();
-		System.out.println("It just propagated. Gonna check it's children.");
-		closed.add(currState);
-		ArrayList<State> newChildren = new ArrayList<State>();
-		for(State s : currState.children){
-			System.out.println("Checking " + s.stateEx.report());
-			boolean isNew = true;
-			for(State o : open){
-				if(equalStates(o,s)){
-					isNew = false;
+		System.out.println("It just propagated.");
+		ArrayList<State> newChildren = currState.children;
+		for(State s : newChildren){
+			if(isNew(s)){
+				s.hfVal = hf(s);
+				if(s.hfVal==0){
+					return s;
 					}
-				}
-			for(State c : closed){
-				if(equalStates(c,s)){
-					isNew = false;
-					}
-				}
-
-			if(isNew){
-//				System.out.println("It's new.");
-				}
-
-			if(isNew && didImprove(s,lookBackDistance)){
-				System.out.println("adding " + s.stateEx.report() + " to open.");
 				open.add(s);
-				newChildren.add(s);
-				}
-			else{
-				System.out.println("Not adding it.");	
 				}
 			}
 		
-		String deb = "Legit new children : <";
+		String deb = "New children : <";
 		for(State s : newChildren){
 			deb+= s.stateEx.report() + " ; ";
 			}
@@ -100,8 +98,40 @@ public boolean equalStates(State x, State y){
 	return false;
 	}
 
-public int hf(State state){
-	return state.stateEx.varDepth(targetString);
+public boolean isNew(State x){
+	for(State s : closed){
+		if(equalStates(x,s)){
+			return false;
+			}	
+		}
+	for(State s : open){
+		if(equalStates(x,s)){
+			return false;
+			}
+	}
+	return true;
+	}
+
+public int hf(State argState){
+	int d = argState.stateEx.varDepth(targetString);
+	d --;
+	d = d*1000;
+	int complexity = argState.stateEx.subExTotal();
+	if(complexity>999){
+		complexity = 999;
+		}
+	d += complexity;
+	return d;
+	}
+
+public State findBest(){
+	State hen = open.get(0);
+	for(State x : open){
+		if (x.hfVal < hen.hfVal){
+			hen = x;
+		}
+	}		
+	return hen;
 	}
 
 public boolean didImprove(State theState, int lookBack){
