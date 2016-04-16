@@ -41,5 +41,17 @@ System.out.println("This is what it started as :");
 System.out.println(bc);
 System.out.println("==And this is what I've thought of==");
 System.out.println(foundState.stateEx.report());
+
+System.out.println("And this is how we got here : ");
+State papa = foundState;
+while(true){
+	System.out.println(papa.stateEx.report());
+	papa = papa.parent;
+	if(papa == startState){
+	System.out.println(papa.stateEx.report());
+		break;
+		}
+	}
+
 }
 }
