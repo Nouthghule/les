@@ -172,7 +172,7 @@ public Ex multi(ArrayList<Ex> argExList){
 	}
 
 @Override
-public DivEx div(Ex argEx){
+public Ex div(Ex argEx){
 	Ex denominator = exList.get(1);	
 	if(denominator.report().equals("#VOID#")){
 		exList.set(1, argEx);
@@ -184,7 +184,7 @@ public DivEx div(Ex argEx){
 	return this;
 	}
 
-public DivEx div(ArrayList<Ex> argExList){
+public Ex div(ArrayList<Ex> argExList){
 	for(Ex theEx:argExList){
 		this.div(theEx);	
 		}

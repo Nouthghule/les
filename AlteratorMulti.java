@@ -8,7 +8,11 @@ public AlteratorMulti(Ex argEx){
 
 @Override
 public int alter(Ex targetEx){
-	targetEx.multi(altEx);
+	Ex over = targetEx.multi(altEx.copy());
+	over.polish();
+	Cruncher cr = new MultiCruncherPlain();
+	cr.execute(over);
+
 	return 1;
 }
 

@@ -52,7 +52,7 @@ public void unwrap(){
 				submerged.add(e.copy());
 				iter.remove();
 				updatePoses();
-				System.out.println("MultiEx: submerged " + e.copy() + ", I'm now " + this.report());
+			//	System.out.println("MultiEx: submerged " + e.copy() + ", I'm now " + this.report());
 				}
 			}
 

@@ -24,11 +24,11 @@ public int propagate(){
 	ArrayList<Operator> suggestions = stateEx.suggest();
 	int fullOp = 0;
 	for(Operator o : suggestions){
-	System.out.println(o + " is messing around now.");
+	//System.out.println(o + " is messing around now.");
 		Ex child = stateEx.copy();
 		int opVal = o.execute(child);
 		if(opVal>0){
-			System.out.println(o + " has brought me a new dirty child : " + child.report());
+	//		System.out.println(o + " has brought me a new dirty child : " + child.report());
 			
 			String ancestry = "<< ";
 			int c;
@@ -42,10 +42,10 @@ public int propagate(){
 					}
 				praetor = praetor.parent;
 				}
-			System.out.println("It's ancestry is : " + ancestry);
+	//		System.out.println("It's ancestry is : " + ancestry);
 
 			child.polish();
-			System.out.println("I've polished the child and now it looks like this : " + child.report());
+	//		System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);
 			childState.stateOp = o;
 			childState.parent = this;

@@ -23,7 +23,7 @@ for(Ex exie : subExList){
 AddEx unitedNumerator = new AddEx();
 MultiEx unitedDenominator = (MultiEx)(new MultiEx()).multi(workList);
 unitedDenominator.polish();
-System.out.println("Constructed uniDenominator. it is " + unitedDenominator.report());
+//System.out.println("Constructed uniDenominator. it is " + unitedDenominator.report());
 Cruncher crunchy = new DivCruncherSimplify();
 
 for(Ex exie : subExList){
@@ -33,7 +33,7 @@ for(Ex exie : subExList){
 		DivEx holderEx = new DivEx();
 		holderEx.multi(multiBy);
 		holderEx.div(theEx.getSubEx(1));
-		System.out.println("Going to crunch " + holderEx.report());
+//		System.out.println("Going to crunch " + holderEx.report());
 		crunchy.crunch(holderEx);
 		multiBy = holderEx.getSubEx(0);
 		theEx = theEx.getSubEx(0);
@@ -50,7 +50,7 @@ newDiv.polish();
 if((newDiv.getSubEx(1) instanceof PlainEx)&&(((PlainEx)newDiv.getSubEx(1)).value==1)){
 	return 0;	
 	}
-System.out.println("Single denom replacing self @ " + targetEx.report() + " with " + newDiv.report());
+//System.out.println("Single denom replacing self @ " + targetEx.report() + " with " + newDiv.report());
 targetEx.replaceSelf(newDiv);
 return 1;
 }
@@ -65,18 +65,18 @@ else{
 	denominator = new PlainEx(1);
 	}
 
-System.out.println("resident loop Start with denominator " + denominator.report());
+//System.out.println("resident loop Start with denominator " + denominator.report());
 Cruncher crunchy = new DivCruncherSimplify();
 for(Ex resident : workList){
 	DivEx holderEx = new DivEx();
 	holderEx.multi(denominator);
 	holderEx.div(resident.copy());
-	System.out.println("Going to crunch : " + holderEx.report());
+//	System.out.println("Going to crunch : " + holderEx.report());
 	crunchy.crunch(holderEx);
 	denominator = holderEx.getSubEx(0);
-	System.out.println("denominator is : " + denominator.report());
+//	System.out.println("denominator is : " + denominator.report());
 	}
-System.out.println("Resident loop end ! denominator is : " + denominator.report());
+//System.out.println("Resident loop end ! denominator is : " + denominator.report());
 workList.add(denominator);
 }
 

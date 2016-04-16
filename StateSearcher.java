@@ -44,7 +44,7 @@ public State find(String str){
 				break;
 				}
 			gen ++;
-			if(gen==40){
+			if(gen==12){
 				return currState;
 				}
 			genState = genState.parent;
@@ -53,15 +53,12 @@ public State find(String str){
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
 		System.out.println("CurrState is " + currState.stateEx.report());
 		System.out.println("It's hf is " + hf(currState));
+		System.out.println("It's parent's operator is : " + currState.parent.stateOp);
+		System.out.println("It's operator is : " + currState.stateOp);
 		if(!currState.stateEx.varContains(targetString)){ //TODO REMOVE
 			System.out.println("Variable lost. It's parent is : " + currState.parent.stateEx.report());
-			System.out.println("It's parent's operator is : " + currState.parent.stateOp);
-			System.out.println("It's operator is : " + currState.stateOp);
 			System.out.println("Initiating debug crunch on father, using the cruncher");
 			System.out.println(currState.stateOp.execute(currState.parent.stateEx));
-			return currState;
-			}
-		if(hf(currState)==1){
 			return currState;
 			}
 
@@ -72,6 +69,7 @@ public State find(String str){
 			if(isNew(s)){
 				s.hfVal = hf(s);
 				if(s.hfVal==0){
+					System.out.println("Result found in children !");
 					return s;
 					}
 				open.add(s);
@@ -115,6 +113,9 @@ public boolean isNew(State x){
 public int hf(State argState){
 	int d = argState.stateEx.varDepth(targetString);
 	d --;
+	if(d==0){
+		return 0;
+		}
 	d = d*1000;
 	int complexity = argState.stateEx.subExTotal();
 	if(complexity>999){

@@ -2,27 +2,20 @@
 public class Debug4{
 	
 public static void main(String[] args){
-	Ex overseer = new AddEx();
-	Ex nest = new MultiEx();
-	overseer.add(nest);
-	Ex kepler = new DivEx();
-
-	kepler.div(new PlainEx(20));
-	Ex gutenberg = kepler.copy();
-	Ex zimmerman = kepler.copy();
-	gutenberg.div(new VarEx("bible, biatch"));
-	gutenberg.multi(new PlainEx(2));
-	kepler.multi(new VarEx("k"));
-	zimmerman.multi(new VarEx("z"));
-	nest.multi(kepler);
-	nest.multi(gutenberg);
-	nest.multi(zimmerman);
 	
-	String uno = nest.report();
+	Ex kepler = new MultiEx();
+	kepler.multi(new PlainEx(13));
+	kepler.multi(new VarEx("x"));
 	
-	Cruncher crunchy = new MultiCruncherDivs();
-	System.out.println(crunchy.crunch(nest));
-	String duo = nest.report();
+	Ex pluto = new PlainEx(26);
+	
+	Ex overseer = new EqEx(kepler,pluto);
+	
+	String uno = overseer.report();
+		
+	Operator a = new AlteratorMulti(new PlainEx(13));
+	a.execute(overseer);
+	String duo = overseer.report();
 
 	System.out.println("Input : " + uno);
 	System.out.println("===================");

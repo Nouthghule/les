@@ -29,10 +29,10 @@ public int crunch(Ex targetEx){
 				
 				if(workList.get(e) instanceof PlainEx){
 					PlainEx alreadyEx = (PlainEx) workList.get(e);
-					System.out.println("MCP : multi " + subEx.value + " by " + alreadyEx.value);
+//					System.out.println("MCP : multi " + subEx.value + " by " + alreadyEx.value);
 					int result = ((subEx.value) * (alreadyEx.value));
 					workDone = true;
-					System.out.println("MCP : result is " + result);
+//					System.out.println("MCP : result is " + result);
 //					System.out.println(">>MCPlain : multiplied " + subEx.report() + " by " + alreadyEx.report()); 	
 					PlainEx resultEx = new PlainEx(result);
 					workList.set(e, resultEx);

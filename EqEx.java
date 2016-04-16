@@ -75,13 +75,10 @@ return rlList;
 }
 
 @Override
-public AddEx add(Ex e){
+public Ex add(Ex e){
 	getSubEx(0).add(e.copy());
 	getSubEx(1).add(e.copy());
-	AddEx dirtyHotFix = new AddEx();
-	dirtyHotFix.add(this);
-	dirtyHotFix.add(new PlainEx(0));
-	return dirtyHotFix;
+	return this;
 	}
 
 
@@ -94,12 +91,9 @@ public Ex multi(Ex e){
 
 
 @Override
-public DivEx div(Ex e){
+public Ex div(Ex e){
 	getSubEx(0).div(e.copy());
 	getSubEx(1).div(e.copy());
-	DivEx dirtyHotFix = new DivEx();
-	dirtyHotFix.multi(this);
-	dirtyHotFix.div(new PlainEx(1));
-	return dirtyHotFix;
+	return this;
 	}
 }

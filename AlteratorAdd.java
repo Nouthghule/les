@@ -9,11 +9,11 @@ public AlteratorAdd(Ex argEx){
 @Override
 public int alter(Ex targetEx){
 	
-	AddEx afterAddition = targetEx.add(altEx);
-	System.out.println("@@@@@@@ alterator gonna equalcrunch " + afterAddition.report());	
-	afterAddition.polish();
-//	AddCruncherEqual crunchy = new AddCruncherEqual();
-//	int val = crunchy.crunch(afterAddition);
+	Ex over = targetEx.add(altEx.copy());
+	over.polish();
+	Cruncher cr = new AddCruncherEqual();
+	cr.execute(over);
+
 	return 1;
 	}
 

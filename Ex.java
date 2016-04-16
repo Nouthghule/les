@@ -174,7 +174,7 @@ public int subExTotal(){
 
 ///////////////////////////////////////////////////////////////////
 
-public AddEx add(Ex argEx){
+public Ex add(Ex argEx){
 	AddEx newlyMade = new AddEx();
 	this.replaceSelf(newlyMade);
 	newlyMade.add(this);
@@ -194,7 +194,7 @@ public Ex multi(Ex argEx){
 	return newlyMade;
 	}
 
-public DivEx div(Ex argEx){
+public Ex div(Ex argEx){
 	DivEx newlyMade = new DivEx();
 	this.replaceSelf(newlyMade);
 	newlyMade.multi(this);
@@ -205,9 +205,9 @@ public DivEx div(Ex argEx){
 
 //------------------------------/
 
-public AddEx add(ArrayList<Ex> arrList){
+public Ex add(ArrayList<Ex> arrList){
 	if(arrList.size() == 0){
-		AddEx substitute = this.add(0);
+		Ex substitute = this.add(0);
 		return substitute;
 		}
 	Ex ref = this;
@@ -230,9 +230,9 @@ public Ex multi(ArrayList<Ex> arrList){
 	return ref;
 }
 
-public DivEx div(ArrayList<Ex> arrList){
+public Ex div(ArrayList<Ex> arrList){
 	if(arrList.size() == 0){
-		DivEx substitute = this.div(1);
+		Ex substitute = this.div(1);
 		return substitute;
 		}
 	Ex ref = this;
@@ -243,7 +243,7 @@ public DivEx div(ArrayList<Ex> arrList){
 }
 //------------------------------/
 
-public AddEx add(int argNum){
+public Ex add(int argNum){
 	PlainEx madeEx = new PlainEx(argNum);
 	return add(madeEx);
 	}
@@ -253,7 +253,7 @@ public Ex multi(int argNum){
 	return multi(madeEx);
 	}
 
-public DivEx div(int argNum){
+public Ex div(int argNum){
 	PlainEx madeEx = new PlainEx(argNum);
 	return div(madeEx);
 	}

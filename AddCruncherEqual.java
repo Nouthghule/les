@@ -72,7 +72,7 @@ public void addToList(Ex rlEx){
 	int j;
 	boolean consumed = false;
 	
-	System.out.println("ŦŦŦ now going to add " + rlEx.report() + " to the list");
+//	System.out.println("ŦŦŦ now going to add " + rlEx.report() + " to the list");
 
 	for(j=0;j<workList.size();j++){
 		Ex resident = workList.get(j);
@@ -83,19 +83,19 @@ public void addToList(Ex rlEx){
 		if(residentReport.equals(argReport)){
 			workDone = true;
 			//The Exes are equal, ignoring PlainEx
-			System.out.println("ŦŦŦ found it's equal without first : " + resident.report());
+//			System.out.println("ŦŦŦ found it's equal without first : " + resident.report());
 //			System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ");
 			
 			if(dontCycle){
 				int result =  ( ((PlainEx)rlEx.getSubEx(0)).value + ((PlainEx)resident.getSubEx(0)).value );
 				PlainEx resultEx = new PlainEx(result);
 				//replace multiplier of the MultiEx in list by the result
-				System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
+//				System.out.println("Replacing " + resident.getSubEx(0).report() + " by " + resultEx.report());
 				resident.getSubEx(0).replaceSelf(resultEx); 
 				}
 			else{
-				AddEx target = resident.getSubEx(0).add(rlEx.getSubEx(0));
-				System.out.println("ŦŦŦ created a target to crunch up : " + target.report());
+				Ex target = resident.getSubEx(0).add(rlEx.getSubEx(0));
+//				System.out.println("ŦŦŦ created a target to crunch up : " + target.report());
 				AddCruncherEqual crunchy = new AddCruncherEqual();
 				crunchy.dontCycle = true; //<----
 				crunchy.crunch(target);

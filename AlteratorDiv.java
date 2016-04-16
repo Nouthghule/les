@@ -9,8 +9,11 @@ public AlteratorDiv(Ex argEx){
 @Override
 public int alter(Ex targetEx){
 	
-	targetEx.div(altEx);
-	
+	Ex over = targetEx.div(altEx.copy());
+	over.polish();
+	Cruncher cr = new DivCruncherSimplify();
+	cr.execute(over);
+
 	return 1;
 	}
 
