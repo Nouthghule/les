@@ -65,6 +65,9 @@ public void unwrap(){
 				}
 			}
 		this.add(toBeAdded);
+		if(this.size()==1){
+			this.replaceSelf(this.getSubEx(0));
+			}
 		}
 	}
 
@@ -87,14 +90,23 @@ public ArrayList<Alterator> suggestAlterators(){
 	
 	for(String var : vars){
                 Ex substract = new AddEx();
-                boolean change = false;
+		Ex varSubstract = new AddEx();
+                boolean changeA = false;
+                boolean changeB = false;
                 for(Ex e : exList){
-                        if(!(e.varContains(var))){
-                                substract.add(e.copy().multi(new PlainEx(-1)));
-                                change = true;
+                        if(e.varContains(var)){
+                                varSubstract.add(e.copy().multi(new PlainEx(-1)));
+				changeA = true;	
                                 }
+			else{
+                                substract.add(e.copy().multi(new PlainEx(-1)));
+                                changeB = true;
+				}
                         }
-                if(change){
+                if(changeA){
+			l.add(new AlteratorAdd(varSubstract));
+                }
+                if(changeB){
 			l.add(new AlteratorAdd(substract));
                 }
                 }

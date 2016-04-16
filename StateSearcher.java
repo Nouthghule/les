@@ -45,7 +45,7 @@ public State find(String str){
 				}
 			gen ++;
 			if(gen==12){
-				return currState;
+			//	return currState;
 				}
 			genState = genState.parent;
 			}
@@ -76,12 +76,18 @@ public State find(String str){
 				}
 			}
 		
-		String deb = "New children : <";
+		String deb = "New unique children : <";
+		String heb = "Children hfs : <";
 		for(State s : newChildren){
-			deb+= s.stateEx.report() + " ; ";
+			if(s.hfVal>-10){
+				deb+= s.stateEx.report() + " ; ";
+				heb+= s.hfVal + " ; ";
+				}
 			}
 		deb+= ">";
+		heb+= ">";
 		System.out.println(deb);
+		System.out.println(heb);
 		}
 	System.out.println("No more opens.");
 	return startingState;

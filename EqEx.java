@@ -56,6 +56,7 @@ ArrayList<Alterator> altList = new ArrayList<Alterator>();
 ArrayList<Alterator> a;
 boolean in;
 for(Ex e : exList){
+	System.out.println("EqEx : " + e.report() + " is suggesting alterators now.");
 	a = e.suggestAlterators();
 	for(Alterator alt : a){
 		in = false;
@@ -64,7 +65,9 @@ for(Ex e : exList){
 				in = true;
 				}
 			}
+		System.out.println(alt);
 		if(!in){
+			System.out.println("adding it.");
 			altList.add(alt);
 			}
 		}

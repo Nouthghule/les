@@ -24,7 +24,10 @@ public int propagate(){
 	ArrayList<Operator> suggestions = stateEx.suggest();
 	int fullOp = 0;
 	for(Operator o : suggestions){
-	//System.out.println(o + " is messing around now.");
+	System.out.println(o + " is messing around now.");
+		if(o instanceof Alterator){
+			System.out.println("It's altEx is " + ((Alterator)o).altEx.report());
+			}
 		Ex child = stateEx.copy();
 		int opVal = o.execute(child);
 		if(opVal>0){

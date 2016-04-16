@@ -53,6 +53,9 @@ public void unwrap(){
 		this.replaceSelf(newOne);
 		newOne.polish();
 		}
+	else if((getSubEx(0) instanceof PlainEx)&&(((PlainEx)getSubEx(0)).value == 0)){
+		this.replaceSelf(new PlainEx(0));
+		}
 	}
 @Override
 public void sort(){

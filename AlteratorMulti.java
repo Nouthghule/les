@@ -12,6 +12,8 @@ public int alter(Ex targetEx){
 	over.polish();
 	Cruncher cr = new MultiCruncherPlain();
 	cr.execute(over);
+	cr = new DivCruncherSimplify();
+	cr.execute(over);
 
 	return 1;
 }
