@@ -44,14 +44,18 @@ System.out.println(foundState.stateEx.report());
 
 System.out.println("And this is how we got here : ");
 State papa = foundState;
+LinkedList<String> as = new LinkedList<String>();
 while(true){
-	System.out.println(papa.stateEx.report());
+	as.add((papa.stateEx.report()));
 	papa = papa.parent;
 	if(papa == startState){
-	System.out.println(papa.stateEx.report());
+	as.add((papa.stateEx.report()));
 		break;
 		}
 	}
-
+int i;
+for(i=as.size()-1;i>=0;i--){
+	System.out.println(as.get(i));
+	}
 }
 }

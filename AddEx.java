@@ -4,7 +4,7 @@ public class AddEx extends Ex{
 
 ////////////////////////////////////////////////////////////////////
 public AddEx(){
-	reportSeparator = "+";
+	reportSeparator = '+';
 	VoidEx initEx = new VoidEx();
 	exList.add(initEx);
 	}

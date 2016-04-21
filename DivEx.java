@@ -4,7 +4,7 @@ public class DivEx extends Ex{
 
 ////////////////////////////////////////////////////////////////////
 public  DivEx(){
-	reportSeparator = "/";
+	reportSeparator = '/';
 	exList.add(new VoidEx());
 	exList.add(new VoidEx());
 	}
@@ -63,6 +63,7 @@ public void sort(){
 	getSubEx(1).sort();
 	}
 
+/*
 @Override
 public String report(){
 	Ex numerator = exList.get(0);	
@@ -76,7 +77,7 @@ public String report(){
 	statement += ")";
 	return statement;
 	}
-
+	*/
 ///////////////////////////////////////////////////////////////////////////////////////
 /*
 @Override

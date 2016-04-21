@@ -5,7 +5,7 @@ public class EqEx extends Ex{
 
 
 public EqEx(Ex left, Ex right){
-	reportSeparator = "=";
+	reportSeparator = '=';
 	exList.add(left);
 	exList.add(right);
 	left.posInMaster = 0;

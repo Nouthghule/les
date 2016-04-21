@@ -4,7 +4,7 @@ public class MultiEx extends Ex{
 
 ////////////////////////////////////////////////////////////////////
 public MultiEx(){
-	reportSeparator = "*";
+	reportSeparator = '*';
 	}
 /*
 public static MultiEx create(){

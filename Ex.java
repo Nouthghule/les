@@ -8,7 +8,7 @@ public int posInMaster = 0;
 
 protected  ArrayList<Ex> exList = new ArrayList<Ex>();
 
-protected String reportSeparator = "$";
+public char reportSeparator = '$';
 
 public boolean silent = false;
 
