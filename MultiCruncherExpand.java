@@ -5,6 +5,7 @@ public class MultiCruncherExpand extends Cruncher{
 public int crunch(Ex targetEx){	
 
 if (!(targetEx instanceof MultiEx)){
+	System.out.println("MCE target not multiex 0");
 	return 0;
 	}
 
@@ -22,6 +23,7 @@ for(Ex e : workList){
 	}
 
 if(addList.size()==0){
+	System.out.println("MCE addlist size 0");
 	return 0;
 	}
 

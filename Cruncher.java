@@ -11,8 +11,14 @@ ommiting the square brackets, thus resulting in eg MultiCruncherPlain
 public ArrayList<Ex> workList = new ArrayList<Ex>();
 
 @Override
-public int executeShallow(Ex targetEx){
-	return crunch(targetEx);
+public int execute(Ex targetEx){
+	ArrayList<Ex> subList = targetEx.getSubExList();
+	int i = 0;
+	for(Ex e : subList){
+		i+=execute(e);
+		}
+	i += this.crunch(targetEx);
+	return i;
 	}
 
 public abstract int crunch(Ex targetEx);

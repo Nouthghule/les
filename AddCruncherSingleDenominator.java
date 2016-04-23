@@ -9,6 +9,7 @@ protected ArrayList<Ex> workList = new ArrayList<Ex>();
 public int crunch(Ex targetEx){
 
 if(!(targetEx instanceof AddEx)){
+	System.out.println("ACSD 0 not addex " + targetEx.report());
 	return 0;
 	}
 
@@ -21,21 +22,31 @@ for(Ex exie : subExList){
 	}
 
 AddEx unitedNumerator = new AddEx();
-MultiEx unitedDenominator = (MultiEx)(new MultiEx()).multi(workList);
+Ex unitedDenominator = new MultiEx().multi(workList);
+AddEx holder = new AddEx();
+holder.add(unitedDenominator);
 unitedDenominator.polish();
-//System.out.println("Constructed uniDenominator. it is " + unitedDenominator.report());
+unitedDenominator = holder.getSubEx(0);
+System.out.println("ACSD polished unide is " + unitedDenominator.report());
 Cruncher crunchy = new DivCruncherSimplify();
 
 for(Ex exie : subExList){
 	Ex theEx = exie.copy();
+	theEx.polish();
 	Ex multiBy = unitedDenominator.copy();
 	if(theEx instanceof DivEx){
-		DivEx holderEx = new DivEx();
+		Ex holderEx = new DivEx();
 		holderEx.multi(multiBy);
 		holderEx.div(theEx.getSubEx(1));
 //		System.out.println("Going to crunch " + holderEx.report());
-		crunchy.crunch(holderEx);
-		multiBy = holderEx.getSubEx(0);
+		crunchy.execute(holderEx);
+		Ex overHolder = new AddEx();
+		overHolder.add(holderEx);
+		System.out.println("ACSD : holderEx past crunch is " + holderEx.report());
+		holderEx.polish();
+		holderEx = overHolder.getSubEx(0);
+		System.out.println("ACSD : holderEx polished is " + holderEx.report());
+		multiBy = holderEx;
 		theEx = theEx.getSubEx(0);
 		}
 	theEx = theEx.multi(multiBy);	
@@ -48,6 +59,7 @@ newDiv.multi(unitedNumerator);
 newDiv.div(unitedDenominator);
 newDiv.polish();
 if((newDiv.getSubEx(1) instanceof PlainEx)&&(((PlainEx)newDiv.getSubEx(1)).value==1)){
+	System.out.println("ACSD 0 deno is 1 of " + targetEx.report());
 	return 0;	
 	}
 //System.out.println("Single denom replacing self @ " + targetEx.report() + " with " + newDiv.report());

@@ -3,7 +3,7 @@ import java.util.*;
 public class DefOperator extends Operator {
 
 @Override
-public int executeShallow(Ex e){
+public int execute(Ex e){
 	return 0;
 	}
 

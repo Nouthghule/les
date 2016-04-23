@@ -9,10 +9,6 @@ public Alterator(Ex argEx){
 	
 @Override
 public int execute(Ex targetEx){
-	return executeShallow(targetEx);	
-	}
-@Override
-public int executeShallow(Ex targetEx){
 	return alter(targetEx);	
 	}
 

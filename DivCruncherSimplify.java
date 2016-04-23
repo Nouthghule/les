@@ -108,6 +108,7 @@ if(doneWork){
 	targetEx.wipe();
 	targetEx.multi(numeratorList);
 	targetEx.div(denominatorList);
+	
 
 	return 1;
 	}
