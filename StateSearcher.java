@@ -70,7 +70,9 @@ public State find(String str){
 				s.hfVal = hf(s);
 				if(s.hfVal==0){
 					System.out.println("Result found in children !");
+					s.stateEx.polish();
 					return s;
+					
 					}
 				open.add(s);
 				}
@@ -78,16 +80,20 @@ public State find(String str){
 		
 		String deb = "New unique children : <";
 		String heb = "Children hfs : <";
+		String opb = "Children ops : <";
 		for(State s : newChildren){
 			if(s.hfVal>-10){
 				deb+= s.stateEx.report() + " ; ";
 				heb+= s.hfVal + " ; ";
+				opb+= s.stateOp;
 				}
 			}
 		deb+= ">";
 		heb+= ">";
+		opb+= ">";
 		System.out.println(deb);
 		System.out.println(heb);
+		System.out.println(opb);
 		}
 	System.out.println("No more opens.");
 	return startingState;

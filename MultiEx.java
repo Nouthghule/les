@@ -45,6 +45,7 @@ public void unwrap(){
 		}
 	else{
 		ArrayList<Ex> submerged = new ArrayList<Ex>();
+		int minuses = 0;
 		ListIterator<Ex> iter = exList.listIterator();
 		while (iter.hasNext()){
 			Ex e = iter.next();
@@ -73,12 +74,22 @@ public void unwrap(){
 					if(rlSub.value==1){
 						iter.remove();	
 						}
-					if(rlSub.value==0){
+					else if(rlSub.value==-1){
+						iter.remove();
+						minuses++;
+						}
+					else if(rlSub.value==0){
 						isNull = true;
 						break;
 						}
 					}
 			}
+		
+		if(!(minuses%2==0)){
+			//Do this if an uneven number of -1s has been removed.
+			exList.add(new PlainEx(-1));
+			}
+
 		if(this.size()==1){
 			this.replaceSelf(getSubEx(0));
 			}

@@ -32,8 +32,7 @@ String msg = "Enter equation to be evalued or leave blank to use the pre-set " +
 
 while(true){
 System.out.println(msg);
-//String inEq = System.console().readLine();
-String inEq = "(((((3)*(x))/((x)+((-1)*(2))))+((1)/((x)+(3))))=(1))";
+String inEq = System.console().readLine();
 if(inEq.equals("")){
 	System.out.println("Okay. Using default one.");
 	break;
@@ -42,8 +41,7 @@ TextParser tp = new TextParser();
 Ex made = tp.parse(inEq);
 msg = "Is this equation equal to that which you desire ?[Y/n] " + made.report();
 System.out.println(msg);
-//String rply = System.console().readLine();
-String rply = "y";
+String rply = System.console().readLine();
 if(!rply.equals("n")){
 	System.out.println("Okay then !");
 	equestria = made;
@@ -56,8 +54,7 @@ System.out.println(bc);
 State startState = new State(equestria);
 StateSearcher searchie = new StateSearcher(startState);
 System.out.println("Enter desired variable");
-//String input = System.console().readLine();
-String input = "x";
+String input = System.console().readLine();
 State foundState = searchie.find(input);
 
 System.out.println("         <===o===>"        );

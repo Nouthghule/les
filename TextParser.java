@@ -20,6 +20,7 @@ boolean negateNext = false;
 for(i=0;i<inputString.length();i++){
 	char c = inputString.charAt(i);
 	switch(c){
+		case ' ' :	break;
 		case '(' :	System.out.println("TP:Start of new ex.");
 				DirtyEx nw = new DirtyEx();
 				currEx.add(nw);
@@ -34,8 +35,11 @@ for(i=0;i<inputString.length();i++){
 				currEx = (DirtyEx)currEx.master;
 				val = "";
 				break;
-		case '-' :	negateNext = true;
-				c = '+';
+		case '-' :	if(inputString.charAt(i+1)=='('){
+					negateNext = true;
+					c = '+';
+				}
+				
 		default	 :	System.out.println("TP:default " +c);
 				if(isSeparator(c)){
 					currEx.reportSeparator = c;
@@ -48,6 +52,22 @@ for(i=0;i<inputString.length();i++){
 	if(currEx!=overseer){
 		System.out.println("Warning ! TextParser did not end with overseer. Risk of ambiguity.");
 		}
+	
+	DirtyEx minusOne = new DirtyEx();
+	minusOne.value = "-1";
+	for(Ex e : toBeNegated){
+	/*	System.out.println(e.master.report());
+		Ex negated = new DirtyEx();
+		negated.reportSeparator = '*';
+		negated.add(e.copy());
+		negated.add(minusOne.copy());
+		e.replaceSelf(negated);
+		System.out.println(negated.master.report());
+	*/	
+		e.multi(new PlainEx(-1));
+		}
+
+
 	grandseer.getSubEx(0).polish();
 	Ex result = grandseer.getSubEx(0);
 	return result;
