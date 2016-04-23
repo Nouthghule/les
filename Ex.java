@@ -15,11 +15,11 @@ public boolean silent = false;
 /////////////////////////////////////////////////////////////////ú/
 
 public void replaceSelf(Ex argEx){
-	master.updatePoses();
 	if(master==null){
 		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : " + this.report());
 		return;
 		}
+	master.updatePoses();
 	master.replaceTarget(posInMaster, argEx);
 	}
 
