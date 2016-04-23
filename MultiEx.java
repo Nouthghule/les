@@ -87,7 +87,10 @@ public void unwrap(){
 		
 		if(!(minuses%2==0)){
 			//Do this if an uneven number of -1s has been removed.
-			exList.add(new PlainEx(-1));
+			Ex p = new PlainEx(-1);
+			exList.add(p);
+			p.master = this;
+			p.posInMaster = exList.size()-1;
 			}
 
 		if(this.size()==1){

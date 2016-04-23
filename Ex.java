@@ -15,6 +15,7 @@ public boolean silent = false;
 /////////////////////////////////////////////////////////////////ú/
 
 public void replaceSelf(Ex argEx){
+	master.updatePoses();
 	if(master==null){
 		System.out.println("Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : " + this.report());
 		return;
@@ -26,10 +27,10 @@ public void replaceTarget(int pos, Ex argEx){
 	argEx.master = this;
 	argEx.posInMaster = pos;
 	if(master == null){
-//		System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
+		System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 	else{
-//		System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
+		System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 	exList.set(pos, argEx);
 	}
@@ -87,12 +88,14 @@ public void unwrap(){
 ///-----------------
 
 public final void polish(){
-	//System.out.println("ex polishing : " + this.report());
+	String s = this.report();
+	System.out.println("ex polishing : " +s);
 	for(Ex e : exList){
 		e.polish();
 		}
-	unwrap();
-	sort();
+	this.unwrap();
+	this.sort();
+	System.out.println(s + " polished into " + this.report());
 	}
 
 //////////////////////////////////
