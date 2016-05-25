@@ -19,8 +19,8 @@ System.out.println("DCS start " + targetEx.report());
 
 boolean doneWork = false;
 
-Ex numSubEx = targetEx.getSubEx(0);
-Ex denSubEx = targetEx.getSubEx(1);
+Ex numSubEx = targetEx.getSubEx(0).copy();
+Ex denSubEx = targetEx.getSubEx(1).copy();
 
 if(numSubEx instanceof MultiEx){
 	numeratorList = numSubEx.getSubExList();
@@ -60,6 +60,7 @@ while(numIterator.hasNext()){
 Cruncher crunchy = new MultiCruncherPlain();
 Ex tempA = (new MultiEx()).multi(numeratorList);
 Ex tempB = (new MultiEx()).multi(denominatorList);
+System.out.println("DCS after crossout before single plain :" + tempA.report() + " / " + tempB.report()); 
 crunchy.crunch(tempA);
 crunchy.crunch(tempB);
 numeratorList = tempA.getSubExList();
@@ -68,6 +69,7 @@ denominatorList = tempB.getSubExList();
 //Get it into the first place
 Collections.sort(numeratorList);
 Collections.sort(denominatorList);
+System.out.println("DCS single plain :" + tempA.report() + " / " + tempB.report()); 
 
 int n,d;
 int na,da;
@@ -96,8 +98,9 @@ else{
 	denominatorList.add(new PlainEx(d));
 	Collections.sort(denominatorList);
 	}
-	
+
 int gcd = gcd(na,da);
+System.out.println("DCS computing gcd from " + na + " and " + da + " = " + gcd );
 if(gcd != 1){
 	
 	n = n / gcd;
@@ -116,7 +119,7 @@ if(doneWork){
 	return 1;
 	}
 
-System.out.println("DCS resulting " + targetEx.report());
+System.out.println("DCS ZERO return resulting " + targetEx.report());
 return 0;
 }
 
