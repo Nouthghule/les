@@ -96,8 +96,14 @@ public State find(String str){
 		System.out.println(heb);
 		System.out.println(opb);
 		}
+	
+	open = closed;
+	State bestState = findBest();
+
 	System.out.println("No more opens.");
-	return startingState;
+	System.out.println("Returning the best found state.");
+	
+	return bestState;
 	}
 
 public boolean equalStates(State x, State y){

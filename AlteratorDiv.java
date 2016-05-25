@@ -10,7 +10,9 @@ public AlteratorDiv(Ex argEx){
 public int alter(Ex targetEx){
 	
 	Ex over = targetEx.div(altEx.copy());
+	System.out.println("AD polishing " + over.report());
 	over.polish();
+	System.out.println("AD polished into " + over.report());
 	Cruncher cr = new DivCruncherSimplify();
 	cr.execute(over);
 

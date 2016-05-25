@@ -8,7 +8,7 @@ if(!(targetEx instanceof MultiEx)){
 	return 0;
 	}
 
-workList = targetEx.getSubExList();
+workList = targetEx.getSubExListCopy();
 
 Ex firstDiv = null;
 ListIterator<Ex> iter = workList.listIterator();
@@ -18,18 +18,32 @@ Ex e;
 while(iter.hasNext()){
 	e = iter.next();
 	if(e instanceof DivEx){
+		System.out.println("mcd e = " + e.report());
 		if(firstDiv == null){
-			firstDiv = e;
+			firstDiv = e.copy();
 			}
 		else{
-			firstDiv.multi(e.getSubEx(0));
-			firstDiv.div(e.getSubEx(1));
+			firstDiv.multi(e.getSubEx(0).copy());
+			firstDiv.div(e.getSubEx(1).copy());
 			}
 		iter.remove();
 		}
+		/*
+	else{
+		if(firstDiv == null){
+			firstDiv = e.copy();
+			}
+		else{
+			firstDiv.multi(e.copy());
+			}
+		}
+	*/
 	}
 
-	
+for(Ex g : workList){
+	System.out.println("mcd worklist " + g.report());
+	}
+
 
 if(firstDiv == null){
 	return 0;
@@ -37,9 +51,13 @@ if(firstDiv == null){
 
 System.out.println("mcd " + targetEx.report());
 targetEx.wipe();
-System.out.println("mcd " + targetEx.report());
+for(Ex g : workList){
+	System.out.println("mcd worklist " + g.report());
+	}
 targetEx.multi(workList);
+System.out.println("mcd " + targetEx.report());
 targetEx.multi(firstDiv);
+System.out.println("mcd " + targetEx.report());
 return 1;
 
 }

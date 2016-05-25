@@ -46,7 +46,7 @@ public int propagate(){
 				praetor = praetor.parent;
 				}
 	//		System.out.println("It's ancestry is : " + ancestry);
-
+			System.out.println("State polishing child : " + child.report());
 			child.polish();
 	//		System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);

@@ -15,6 +15,8 @@ if(!(targetEx instanceof DivEx)){
 numeratorList.clear();
 denominatorList.clear();
 
+System.out.println("DCS start " + targetEx.report());
+
 boolean doneWork = false;
 
 Ex numSubEx = targetEx.getSubEx(0);
@@ -43,6 +45,7 @@ while(numIterator.hasNext()){
 	while(denIterator.hasNext()){
 		Ex denEx = (Ex)denIterator.next();
 		if(denEx.report().equals(numEx.report())){
+			System.out.println("DCS crossing out " + denEx.report());
 			numIterator.remove();
 			denIterator.remove();
 			numIterator.add(new PlainEx(1));
@@ -108,11 +111,12 @@ if(doneWork){
 	targetEx.wipe();
 	targetEx.multi(numeratorList);
 	targetEx.div(denominatorList);
-	
-
+		
+	System.out.println("DCS resulting " + targetEx.report());
 	return 1;
 	}
 
+System.out.println("DCS resulting " + targetEx.report());
 return 0;
 }
 

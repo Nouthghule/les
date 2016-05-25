@@ -121,19 +121,26 @@ public ArrayList<Operator> suggestCrunchers(){
 @Override
 public ArrayList<Alterator> suggestAlterators(){
         ArrayList<Alterator> l = new ArrayList<Alterator>();
-	
+	System.out.println("MultiEx suggestAlts : " + this.report() + " suggesting now.");
 	List<String> vars = this.varList();
 
 	for(String var : vars){
+		Ex overseer = new AddEx();
 		Ex divBy = new MultiEx();
+		overseer.add(divBy);
+
 		boolean change = false;
 		for(Ex e : exList){
+			System.out.println("ME sA checking " + e.report());
 			if(!(e.varContains(var))){
 				divBy.multi(e);
 				change = true;
+				System.out.println("ME sA multied by " + e.report() + " into " + divBy.report());
 				}
 			}
 		if(change){
+		overseer.polish();
+		divBy = overseer.getSubEx(0);
 		l.add(new AlteratorDiv(divBy));
 		}
 		}

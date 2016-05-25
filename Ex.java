@@ -89,13 +89,13 @@ public void unwrap(){
 
 public final void polish(){
 	String s = this.report();
-	System.out.println("ex polishing : " +s);
+//	System.out.println("ex polishing : " +s);
 	for(Ex e : exList){
 		e.polish();
 		}
 	this.unwrap();
 	this.sort();
-	System.out.println(s + " polished into " + this.report());
+//	System.out.println(s + " polished into " + this.report());
 	}
 
 //////////////////////////////////
@@ -273,6 +273,14 @@ public Ex getSubEx(int index){
 
 public ArrayList<Ex> getSubExList(){
 	return exList;
+	}
+
+public ArrayList<Ex> getSubExListCopy(){
+	ArrayList<Ex> rl = new ArrayList<Ex>();
+	for(Ex e : exList){
+		rl.add(e.copy());
+		}
+	return rl;
 	}
 
 public void appendSubEx(Ex argEx){
