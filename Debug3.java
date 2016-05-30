@@ -2,39 +2,80 @@ import java.util.*;
 public class Debug3{
 
 public static void main(String[] args){
+String theEq = "((((((3)*(x))-(1))/(2))+(1))=((x)-(((2)-(x))/(3))))";
+String inVar = "x";
+Ex left = new AddEx();
+Ex l1 = new DivEx();
+l1.multi(new PlainEx(3));
+l1.div(new PlainEx(2));
+left.add(l1);
 
-Ex left = new DivEx();
-Ex subLeft = new AddEx();
-Ex subSubLeft = new MultiEx();
-Ex subSubSubLeft = new AddEx();
-subSubSubLeft.add(new PlainEx(10));
-subSubSubLeft.add(new PlainEx(10));
-subSubLeft.multi(subSubSubLeft);
-subSubLeft.multi(new PlainEx(3));
-subLeft.add(subSubLeft);
-subLeft.add(new PlainEx(5));
-left.multi(subLeft);
-left.div(new PlainEx(12));
+Ex l2 = new DivEx();
+Ex l2a = new AddEx();
+l2a.add(new PlainEx(10));
+l2a.add(new VarEx("x"));
+l2.multi(l2a);
+Ex l2b = new MultiEx();
+l2b.multi(new VarEx("x"));
+l2b.multi(new PlainEx(2));
+l2.div(l2b);
+l2.multi(new PlainEx(-1));
+left.add(l2);
 
-Ex right = new MultiEx();
-Ex subRight = new AddEx();
-subRight.add(new PlainEx(8));
-subRight.add(new PlainEx(16));
-right.multi(subRight);
-right.multi(new PlainEx(3));
+Ex right = new PlainEx(0);
 
-EqEx equestria = new EqEx(left,right);
+Ex equestria = new EqEx(left,right);
 
-System.out.println(equestria.report());
-Cruncher cr = new MultiCruncherExpand();
-cr.execute(equestria);
 
 String bc = equestria.report();
-System.out.println(equestria.subExTotal());
-System.out.println(bc);
 
+String msg = "Enter equation to be evalued or leave blank to use the pre-set " + bc;
+
+while(true){
+System.out.println(msg);
+String inEq = theEq;
+if(inEq.equals("")){
+	System.out.println("Okay. Using default one.");
+	break;
+	}
+TextParser tp = new TextParser();
+Ex made = tp.parse(inEq);
+msg = "Is this equation equal to that which you desire ?[Y/n] " + made.report();
+System.out.println(msg);
+	System.out.println("Okay then !");
+	equestria = made;
+	break;
+}
+bc = equestria.report();
+System.out.println(bc);
+State startState = new State(equestria);
+StateSearcher searchie = new StateSearcher(startState);
+System.out.println("Enter desired variable");
+String input = inVar;
+State foundState = searchie.find(input);
+
+System.out.println("         <===o===>"        );
+System.out.println("     <===============>"    );
+System.out.println(" <========================>");
 System.out.println("This is what it started as :");
 System.out.println(bc);
-System.out.println("==And this is what we've thought of==");
+System.out.println("==And this is what I've thought of==");
+System.out.println(foundState.stateEx.report());
+
+System.out.println("And this is how we got here : ");
+State papa = foundState;
+LinkedList<String> as = new LinkedList<String>();
+while(true){
+	as.add((papa.stateEx.report()));
+	papa = papa.parent;
+	if(papa == startState){
+	as.add((papa.stateEx.report()));
+		break;
+		}
+	}
+int i;
+for(i=as.size()-1;i>=0;i--){
+	System.out.println(as.get(i));
+	}
 }
 }

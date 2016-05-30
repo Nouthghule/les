@@ -45,7 +45,7 @@ public State find(String str){
 				}
 			gen ++;
 			if(gen==12){
-			//	return currState;
+				return currState;
 				}
 			genState = genState.parent;
 			}
