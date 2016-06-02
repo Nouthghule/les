@@ -3,58 +3,19 @@ public class Debug2{
 
 public static void main(String[] args){
 
-Ex left = new AddEx();
-Ex l1 = new DivEx();
-l1.multi(new PlainEx(3));
-l1.div(new PlainEx(2));
-left.add(l1);
 
-Ex l2 = new DivEx();
-Ex l2a = new AddEx();
-l2a.add(new PlainEx(10));
-l2a.add(new VarEx("x"));
-l2.multi(l2a);
-Ex l2b = new MultiEx();
-l2b.multi(new VarEx("x"));
-l2b.multi(new PlainEx(2));
-l2.div(l2b);
-l2.multi(new PlainEx(-1));
-left.add(l2);
+String inEq = args[0];
 
-Ex right = new PlainEx(0);
-
-Ex equestria = new EqEx(left,right);
-
-
-String bc = equestria.report();
-
-String msg = "Enter equation to be evalued or leave blank to use the pre-set " + bc;
-
-while(true){
-System.out.println(msg);
-String inEq = System.console().readLine();
-if(inEq.equals("")){
-	System.out.println("Okay. Using default one.");
-	break;
-	}
 TextParser tp = new TextParser();
 Ex made = tp.parse(inEq);
-msg = "Is this equation equal to that which you desire ?[Y/n] " + made.report();
-System.out.println(msg);
-String rply = System.console().readLine();
-if(!rply.equals("n")){
-	System.out.println("Okay then !");
-	equestria = made;
-	break;
-	}
-msg = "Please enter equation.";
-}
-bc = equestria.report();
+String bc =made.report();
 System.out.println(bc);
-State startState = new State(equestria);
+State startState = new State(made);
 StateSearcher searchie = new StateSearcher(startState);
-System.out.println("Enter desired variable");
-String input = System.console().readLine();
+String input = "x";
+if(args.length>1){
+	input = args[1];
+	}
 State foundState = searchie.find(input);
 
 System.out.println("         <===o===>"        );

@@ -71,7 +71,7 @@ protected Ex processCopy(Ex theCopy){
 
 //*/////////////////////////////////////////////////////////////////
 
-public Ex simplify(){
+public Ex simplify(){ //redundant ?
 	return this;
 	}
 
@@ -203,6 +203,23 @@ public Ex div(Ex argEx){
 	newlyMade.multi(this);
 	newlyMade.div(argEx);
 	newlyMade.sort();
+	return newlyMade;
+	}
+
+public Ex toPower(Ex argEx){
+	PowerEx newlyMade = new PowerEx();
+	this.replaceSelf(newlyMade);
+	newlyMade.replaceTarget(0,this);
+	newlyMade.replaceTarget(1,argEx);
+	newlyMade.sort();
+	return newlyMade;
+	}
+
+public Ex flip(){
+	DivEx newlyMade = new DivEx();
+	this.replaceSelf(newlyMade);
+	newlyMade.multi(new PlainEx(1));
+	newlyMade.div(this);
 	return newlyMade;
 	}
 

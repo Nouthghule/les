@@ -47,6 +47,8 @@ public void unwrap(){
 						System.out.println("DIRTYEX : Warning, creating binary ex ("+reportSeparator+")out of exList of size " + exList.size());
 						}
 					break;
+			case '^' : 	ne = new PowerEx(exList.get(0),exList.get(1));
+					break;	
 			case '=' :	ne = new EqEx(exList.get(0), exList.get(1));
 					if(exList.size()>2){
 						System.out.println("DIRTYEX : Warning, creating binary ex ("+reportSeparator+") out of exList of size " + exList.size());

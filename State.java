@@ -29,9 +29,11 @@ public int propagate(){
 			System.out.println("It's altEx is " + ((Alterator)o).altEx.report());
 			}
 		Ex child = stateEx.copy();
+		System.out.println("on child " + child.report());
 		int opVal = o.execute(child);
+		System.out.println("into val " + opVal);
 		if(opVal>0){
-	//		System.out.println(o + " has brought me a new dirty child : " + child.report());
+			System.out.println(o + " has brought me a new dirty child : " + child.report());
 			
 			String ancestry = "<< ";
 			int c;

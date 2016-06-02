@@ -197,6 +197,18 @@ public Ex div(ArrayList<Ex> argExList){
 	}
 
 @Override
+public Ex flip(){
+	Ex numerator = exList.get(0);
+	Ex denominator = exList.get(1);
+	exList.clear();
+	exList.add(denominator);
+	exList.add(numerator);
+	this.updatePoses();
+	return this;
+	}
+
+
+@Override
 public void wipe(){
 	exList.clear();
 	exList.add(new VoidEx());

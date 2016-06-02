@@ -74,7 +74,7 @@ for(i=0;i<inputString.length();i++){
 }
 
 public static boolean isSeparator(char s){
-	char[] sepArr = {'+','*','/','='}; //TODO remove magic
+	char[] sepArr = {'+','*','/','=','^'}; //TODO remove magic
 	for(char sep : sepArr){
 		if(s==sep){
 			return true;
