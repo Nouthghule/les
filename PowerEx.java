@@ -33,8 +33,12 @@ public ArrayList<Alterator> suggestAlterators(){
 	}
 
 @Override
-public void sort(){
-	return;
+public Ex processCopy(Ex theCopy){
+	Ex base = exList.get(0);
+	Ex power = exList.get(1);
+	theCopy.replaceTarget(0, base);
+	theCopy.replaceTarget(1, power);
+	return theCopy;
 	}
 
 }

@@ -64,7 +64,7 @@ protected Ex processCopy(Ex theCopy){
 	for(i=0; i<this.size();i++){
 //		System.out.println("gonna append " + this.getSubEx(i).report() + " to " + theCopy.report());	
 		theCopy.appendSubEx(this.getSubEx(i).copy());
-		} 	
+		} 	//!!obsolete (sorta), may fuck things up with #VOID#exes.
 	theCopy.sort(); //also sets posInMasters
 	return theCopy;
 	}
