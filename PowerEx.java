@@ -18,6 +18,18 @@ public PowerEx(Ex e, Ex p){
 	exList.add(e);
 	exList.add(p);
 	}
+@Override
+public Ex toPower(Ex e){
+	if(getSubEx(1) instanceof VoidEx){
+		replaceTarget(1, e);
+		return this;
+		}
+	if((e instanceof PlainEx)&&(((PlainEx)e).value==1)){
+		return this;
+		}
+	getSubEx(1).multi(e);
+	return this;
+	}
 
 @Override
 public ArrayList<Operator> suggestCrunchers(){
@@ -41,4 +53,8 @@ public Ex processCopy(Ex theCopy){
 	return theCopy;
 	}
 
+@Override
+public void sort(){
+	
+	}
 }

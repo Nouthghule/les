@@ -117,6 +117,7 @@ public ArrayList<Operator> suggestCrunchers(){
         l.add(new MultiCruncherExpand());
         l.add(new MultiCruncherDivs());
         l.add(new MultiCruncherNumerator());
+        l.add(new MultiCruncherPowerise());
         return l;
         }
 @Override

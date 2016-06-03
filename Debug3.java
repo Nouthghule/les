@@ -2,6 +2,9 @@ import java.util.*;
 public class Debug3{
 
 public static void main(String[] args){
+	Cruncher c;
+	c = new DivCruncherSimplifyNew();
+
 	TextParser tp = new TextParser();
 	
 	Ex e = tp.parse(args[0]);
@@ -10,8 +13,6 @@ public static void main(String[] args){
 	Ex overseer = new AddEx();
 	overseer.add(e);
 
-	Cruncher c;
-	c = new PowerCruncherExpand();
 
 	int i = c.execute(e);
 
