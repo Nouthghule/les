@@ -52,7 +52,8 @@ public int crunch(Ex targetEx){
 	//Also, all Exes under readyDivs multis are PowerExes.
 
 	boolean done = false;
-	Cruncher addy = new AddCruncherPlain();
+	Cruncher addy = new AddCruncherEqual();
+	//Cruncher multi = new MultiCruncherPlain();
 
 	for(Ex numEx : num){
 		System.out.println("DCSN new num " + numEx.report());
@@ -92,12 +93,12 @@ public int crunch(Ex targetEx){
 					}
 				if(c!=0){
 					System.out.println("MCSN adding to " +denEx.getSubEx(1).report() + " in "+denEx.master.report() +"  and "+  numEx.getSubEx(1).report() +"in"+numEx.master.report() +" ex " + ce.report()); 
-					denEx.getSubEx(1).add(ce.copy());
-					numEx.getSubEx(1).add(ce.copy());
+					System.out.println(denEx.getSubEx(1).add(ce.copy()).report());
+					System.out.println(numEx.getSubEx(1).add(ce.copy()).report());
 					addy.crunch(denEx.getSubEx(1));
 					addy.crunch(numEx.getSubEx(1));
-					denEx.polish();
-					numEx.polish();
+//					denEx.polish();
+//					numEx.polish();
 					done = true;
 					}
 				}

@@ -64,7 +64,14 @@ for(i=0;i<inputString.length();i++){
 		e.replaceSelf(negated);
 		System.out.println(negated.master.report());
 	*/	
-		e.multi(new PlainEx(-1));
+		System.out.println("Negating " + e.report());
+		if((e instanceof PlainEx)){
+			System.out.println("It's a plain");
+			((PlainEx)e).value=-((PlainEx)e).value;
+			}
+		else{
+			e.multi(new PlainEx(-1));
+			}
 		}
 
 

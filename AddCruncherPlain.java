@@ -9,7 +9,7 @@ public AddCruncherPlain(){
 
 @Override
 public int crunch(Ex targetEx){
-
+	workList.clear();
 	int i,e;
 	if(!(targetEx instanceof AddEx)){
 		return 0;

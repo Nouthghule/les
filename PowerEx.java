@@ -23,18 +23,23 @@ public PowerEx(Ex e){
 	}
 
 public PowerEx(Ex e, Ex p){
-	reportSeparator = '^';
-	e.master = this;
-	exList.add(e);
-	p.master = this;
-	exList.add(p);
-	updatePoses();
+	this(e);
+	this.toPower(p);
 	}
+
+@Override
+public void unwrap(){
+	if(((getSubEx(1) instanceof PlainEx)&&(((PlainEx)getSubEx(1)).value==0))||((getSubEx(0) instanceof PlainEx)&&(((PlainEx)getSubEx(0)).value==1))){
+		this.replaceSelf(new PlainEx(1));
+		}
+	}
+
+
 @Override
 public Ex toPower(Ex e){
-	if(getSubEx(1) instanceof VoidEx){
+	e.master = this;
+	if((getSubEx(1) instanceof VoidEx)||((getSubEx(1) instanceof PlainEx)&&(((PlainEx)getSubEx(1)).value==1))){
 		replaceTarget(1, e);
-		e.master = this;
 		return this;
 		}
 	if((e instanceof PlainEx)&&(((PlainEx)e).value==1)){

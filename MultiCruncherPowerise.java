@@ -37,7 +37,8 @@ public int crunch(Ex targetEx){
 			pw = e.copy();
 			}
 		else{
-			pw = new PowerEx(e.copy(), new PlainEx(power));
+			pw = new PowerEx(e.copy());
+			pw.toPower(new PlainEx(power));
 			}
 		result.multi(pw);
 		}
