@@ -10,12 +10,17 @@ public PowerEx(){
 public PowerEx(Ex e){
 	reportSeparator = '^';
 	exList.add(e);
-	exList.add(new PlainEx(1));
+	e.master = this;
+	Ex uno = new PlainEx(1);
+	uno.master = this;
+	exList.add(uno);
 	}
 
 public PowerEx(Ex e, Ex p){
 	reportSeparator = '^';
+	e.master = this;
 	exList.add(e);
+	p.master = this;
 	exList.add(p);
 	}
 @Override
