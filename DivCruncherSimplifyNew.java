@@ -8,51 +8,58 @@ public int crunch(Ex targetEx){
 		return 0;
 		}
 
-	Ex proxy = targetEx.copy();
-	
 	Cruncher cr = new PowerCruncherExpand();
 	MultiCruncherPowerise pw = new MultiCruncherPowerise();
-	pw.curbTriv = false;
+//	pw.curbTriv = false;
 	
-	Ex readyDiv = new DivEx();
-
+	ArrayList<Ex> num=new ArrayList<Ex>();
+	ArrayList<Ex> den=new ArrayList<Ex>();
+	
 	int i=0;
 	while(i<=1){
-		Ex pro = proxy.getSubEx(i);
-		readyDiv.replaceTarget(i, pro);
-		
+		Ex pro = targetEx.getSubEx(i).copy();
+		ArrayList<Ex> list = new ArrayList<Ex>();
+	
 		if(pro instanceof MultiEx){
-			ArrayList<Ex> elist = pro.getSubExList();
-			for(Ex e : elist){
-				cr.crunch(e);
-				}
+			cr.execute(pro);
 			pro.polish();
 			pw.execute(pro);
-			
+			System.out.println("DCSN list is subexlist of " + pro.report());
+			list = pro.getSubExList(); 
 			}
-		else{	
-			Ex m = new MultiEx();
-			pro.replaceSelf(m);
-			m.multi(pro);
+		else{
+			Ex holder = new AddEx();
+			holder.add(pro);
 			pro.toPower(new PlainEx(1));
+			pro = holder.getSubEx(0);
+			list.add(pro);
+			System.out.println("DCSN listadd" + pro.report());
+
 			}
+			
+		if(i==0){
+			num = list;
+			}
+		else{
+			den = list;
+			}		
+		
 
 		i++;
 		}
-	//System.out.println("DCSN " + readyDiv.report());
 	//ASSUMPTION : at this point there's a maximum of tow exes of each base (one in numerator, one in denominator).
-	//Also, all Exes under readyDiv are PowerExes.
+	//Also, all Exes under readyDivs multis are PowerExes.
 
-	ArrayList<Ex> num = readyDiv.getSubEx(0).getSubExList();
-	ArrayList<Ex> den = readyDiv.getSubEx(1).getSubExList();
 	boolean done = false;
 	Cruncher addy = new AddCruncherPlain();
 
 	for(Ex numEx : num){
+		System.out.println("DCSN new num " + numEx.report());
 		String baseRep = numEx.getSubEx(0).report();
 		
 		for(Ex denEx : den){
 			//TODO add condition to breakout and stop pointless loops once exhausted
+			System.out.println("DCSN new den " + denEx.report());
 			if(denEx.getSubEx(0).report().equals(baseRep)){
 				int c = 0;
 				Ex ce;
@@ -82,10 +89,11 @@ public int crunch(Ex targetEx){
 					ce.multi(new PlainEx(-1));
 					}
 				if(c!=0){
-					denEx.getSubEx(1).add(ce);
-					numEx.getSubEx(1).add(ce);
-					addy.crunch(denEx.getSubEx(1));
-					addy.crunch(numEx.getSubEx(1));
+					System.out.println("MCSN adding to " +denEx.getSubEx(1).report() + " in "+denEx.master.report() +"  and "+  numEx.getSubEx(1).report() +"in"+numEx.master.report() +" ex " + ce.report()); 
+					denEx.getSubEx(1).add(ce.copy());
+					numEx.getSubEx(1).add(ce.copy());
+//					addy.crunch(denEx.getSubEx(1));
+//					addy.crunch(numEx.getSubEx(1));
 					done = true;
 					}
 				}
@@ -95,8 +103,8 @@ public int crunch(Ex targetEx){
 		}
 	
 	targetEx.wipe();
-	targetEx.multi(readyDiv.getSubEx(0));
-	targetEx.div(readyDiv.getSubEx(1));
+	targetEx.multi(num);
+	targetEx.div(den);
 	return 1;
 	}
 

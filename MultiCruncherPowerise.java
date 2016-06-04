@@ -42,7 +42,7 @@ public int crunch(Ex targetEx){
 		result.multi(pw);
 		}
 
-	System.out.println("MCP " +result.report());
+	System.out.println("MCP res " +result.report());
 	targetEx.wipe();
 	targetEx.multi(result.getSubExList());
 	return 1;
