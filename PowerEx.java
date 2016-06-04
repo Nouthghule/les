@@ -3,8 +3,13 @@ public class PowerEx extends Ex{
 
 public PowerEx(){
 	reportSeparator = '^';
-	exList.add(new VoidEx());
-	exList.add(new VoidEx());
+	Ex a = new VoidEx();
+	Ex b = new VoidEx();
+	a.master = this;
+	b.master = this;
+	exList.add(a);
+	exList.add(b);
+	updatePoses();
 	}
 
 public PowerEx(Ex e){
@@ -14,6 +19,7 @@ public PowerEx(Ex e){
 	Ex uno = new PlainEx(1);
 	uno.master = this;
 	exList.add(uno);
+	updatePoses();
 	}
 
 public PowerEx(Ex e, Ex p){
@@ -22,11 +28,13 @@ public PowerEx(Ex e, Ex p){
 	exList.add(e);
 	p.master = this;
 	exList.add(p);
+	updatePoses();
 	}
 @Override
 public Ex toPower(Ex e){
 	if(getSubEx(1) instanceof VoidEx){
 		replaceTarget(1, e);
+		e.master = this;
 		return this;
 		}
 	if((e instanceof PlainEx)&&(((PlainEx)e).value==1)){
@@ -51,8 +59,8 @@ public ArrayList<Alterator> suggestAlterators(){
 
 @Override
 public Ex processCopy(Ex theCopy){
-	Ex base = exList.get(0);
-	Ex power = exList.get(1);
+	Ex base = exList.get(0).copy();
+	Ex power = exList.get(1).copy();
 	theCopy.replaceTarget(0, base);
 	theCopy.replaceTarget(1, power);
 	return theCopy;

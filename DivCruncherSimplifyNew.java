@@ -10,7 +10,7 @@ public int crunch(Ex targetEx){
 
 	Cruncher cr = new PowerCruncherExpand();
 	MultiCruncherPowerise pw = new MultiCruncherPowerise();
-//	pw.curbTriv = false;
+	pw.curbTriv = false;
 	
 	ArrayList<Ex> num=new ArrayList<Ex>();
 	ArrayList<Ex> den=new ArrayList<Ex>();
@@ -23,7 +23,8 @@ public int crunch(Ex targetEx){
 		if(pro instanceof MultiEx){
 			cr.execute(pro);
 			pro.polish();
-			pw.execute(pro);
+			ArrayList<Ex> arr = pro.getSubExList();
+			pw.crunch(pro);
 			System.out.println("DCSN list is subexlist of " + pro.report());
 			list = pro.getSubExList(); 
 			}
@@ -61,6 +62,7 @@ public int crunch(Ex targetEx){
 			//TODO add condition to breakout and stop pointless loops once exhausted
 			System.out.println("DCSN new den " + denEx.report());
 			if(denEx.getSubEx(0).report().equals(baseRep)){
+				System.out.println("DCSN new den matches");
 				int c = 0;
 				Ex ce;
 				if((denEx.getSubEx(1) instanceof PlainEx)&&(numEx.getSubEx(1) instanceof PlainEx)){
@@ -92,8 +94,10 @@ public int crunch(Ex targetEx){
 					System.out.println("MCSN adding to " +denEx.getSubEx(1).report() + " in "+denEx.master.report() +"  and "+  numEx.getSubEx(1).report() +"in"+numEx.master.report() +" ex " + ce.report()); 
 					denEx.getSubEx(1).add(ce.copy());
 					numEx.getSubEx(1).add(ce.copy());
-//					addy.crunch(denEx.getSubEx(1));
-//					addy.crunch(numEx.getSubEx(1));
+					addy.crunch(denEx.getSubEx(1));
+					addy.crunch(numEx.getSubEx(1));
+					denEx.polish();
+					numEx.polish();
 					done = true;
 					}
 				}
