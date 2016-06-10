@@ -31,9 +31,11 @@ State papa = foundState;
 LinkedList<String> as = new LinkedList<String>();
 while(true){
 	as.add((papa.stateEx.report()));
+	as.add((papa.stateEx.reportForTex()));
 	papa = papa.parent;
 	if(papa == startState){
 	as.add((papa.stateEx.report()));
+	as.add((papa.stateEx.reportForTex()));
 		break;
 		}
 	}

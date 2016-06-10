@@ -63,6 +63,29 @@ public void sort(){
 	getSubEx(1).sort();
 	}
 
+public String reportForTex(){
+	String statement = "\\frac{";
+	if(!getSubEx(0).silent){
+		statement += getSubEx(0).reportForTex();
+		}
+	statement += "}{";
+	if(!getSubEx(1).silent){
+		statement += getSubEx(1).reportForTex();
+		}
+	statement += "}";
+	return statement;
+	}
+		
+			
+			
+
+	 
+
+ 
+
+
+
+
 /*
 @Override
 public String report(){

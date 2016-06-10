@@ -38,6 +38,15 @@ public Ex multi(ArrayList<Ex> argExList){
 	}
 
 @Override
+public boolean requireBrackets(Ex e){
+	if(e instanceof AddEx){
+		return true;
+		}
+	return false;
+	}
+
+
+@Override
 public void unwrap(){
         boolean isNull = false;
 	if(this.size()==1){

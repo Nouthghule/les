@@ -90,6 +90,11 @@ public String report(){
 	return statement;
 }
 
-
+@Override
+public String reportForTex(){
+	String statement = "";
+	statement += value;
+	return statement;
+	}
 
 }

@@ -99,6 +99,8 @@ public String report(){
 	return statement;
 }
 
-
+public String reportForTex(){
+	return unit;
+	}
 
 }
