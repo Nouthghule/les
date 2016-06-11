@@ -96,22 +96,64 @@ public String reportForTex(){
 		return "";
 		}
 	String statement = "";
-	Ex child = getSubEx(0);
-	if(requireBrackets(child)){
-		statement += "(";
-		}
-	statement += child.reportForTex();
-	if(requireBrackets(child)){
-		statement += ")";
-		}
-	
-	statement += "^{";
 
-	child = getSubEx(1);
-	statement += child.reportForTex();
-	statement += "}";
+	if(isRoot()){
+		
+		Ex den = getSubEx(1).getSubEx(1);
+		Ex num = getSubEx(1).getSubEx(0);
+		
+		statement += "\\sqrt";
+
+		if(den.reportForTex().equals("2")){
+			statement += "{";
+			}
+		else{
+			statement += "[";
+			statement += den.reportForTex();
+			statement += "]{";
+			}
+		Ex actor = getSubEx(0).copy();
+		actor.toPower(num.copy());
+
+		statement += actor.reportForTex();
+		statement += "}";
+		}
+	else{
+		Ex child = getSubEx(0);
+		if(requireBrackets(child)){
+			statement += "(";
+			}
+		statement += child.reportForTex();
+		if(requireBrackets(child)){
+			statement += ")";
+			}
+		
+		statement += "^{";
+
+		child = getSubEx(1);
+		statement += child.reportForTex();
+		statement += "}";
+	}
 	return statement;
 
 
 	}
+
+public boolean isRoot(){
+	Ex power = getSubEx(1);
+	
+	if(!(power instanceof DivEx)){
+		return false;
+		}
+	
+	Ex den = power.getSubEx(1); 
+
+	if((den instanceof PlainEx)&&((((PlainEx)den).value==0)||(((PlainEx)den).value==1))){
+		return false;
+		}
+
+	return true;
+	
+	}
+
 }
