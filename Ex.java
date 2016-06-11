@@ -368,20 +368,20 @@ public abstract class Ex implements Comparable<Ex> {
 			for(i=0;i<exList.size();i++){
 				Ex child = exList.get(i);
 
-				if(requireBrackets(child)){
-					statement += "(";
-				}	
 
 				if(!child.silent){
+					if(requireBrackets(child)){
+						statement += "(";
+					}	
 					statement += child.reportForTex();
+					if(requireBrackets(child)){
+						statement += ")";
+					}	
 					if(i+1!=exList.size()){
 						statement += this.reportSeparator;
 					}
 				}
 
-				if(requireBrackets(child)){
-					statement += ")";
-				}	
 
 			}
 			statement += "";

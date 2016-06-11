@@ -112,4 +112,48 @@ public ArrayList<Alterator> suggestAlterators(){
                 }
 	return l;
 	}
+
+@Override
+public String reportForTex(){
+	String statement = "";
+	int i;
+	if(silent){
+		return statement;
+		}
+	Ex child;
+			for(i = 0;i<this.size();i++){
+				child = getSubEx(i);
+				if(!child.silent){
+					if((child instanceof MultiEx)&&(child.getSubEx(0) instanceof PlainEx)&&(((PlainEx)child.getSubEx(0)).value<0)){
+						if(((PlainEx)child.getSubEx(0)).value == -1){
+							statement += "-";
+							boolean state = child.getSubEx(0).silent;
+							child.getSubEx(0).silent = true;
+							statement += child.reportForTex();
+							child.getSubEx(0).silent = state;
+							}
+						else{
+							statement += "-";
+							Ex first = child.getSubEx(0);
+							first.replaceSelf(new PlainEx(-((PlainEx)first).value));
+							statement += child.reportForTex();
+							child.replaceTarget(0,first);
+							}
+						}
+					else{
+						if(!statement.equals("")){
+							statement += "+";
+							}
+						statement += child.reportForTex();
+						}
+
+				}
+
+
+			}	
+	
+	return statement;
+	}
+
+
 }

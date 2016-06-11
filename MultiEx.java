@@ -42,6 +42,9 @@ public boolean requireBrackets(Ex e){
 	if(e instanceof AddEx){
 		return true;
 		}
+	if((e instanceof PlainEx)&&(((PlainEx)e).value < 0)){
+		return true;
+		}
 	return false;
 	}
 

@@ -75,4 +75,43 @@ public Ex processCopy(Ex theCopy){
 public void sort(){
 	
 	}
+
+@Override
+public boolean requireBrackets(Ex e){
+	if((e instanceof PlainEx)&&(((PlainEx)e).value<0)){
+		return true;
+		}
+	if(e instanceof PowerEx){
+		return true;
+		}
+	if(e instanceof MultiEx){
+		return true;
+		}
+	return false;
+	}
+
+@Override
+public String reportForTex(){
+	if(silent){
+		return "";
+		}
+	String statement = "";
+	Ex child = getSubEx(0);
+	if(requireBrackets(child)){
+		statement += "(";
+		}
+	statement += child.reportForTex();
+	if(requireBrackets(child)){
+		statement += ")";
+		}
+	
+	statement += "^{";
+
+	child = getSubEx(1);
+	statement += child.reportForTex();
+	statement += "}";
+	return statement;
+
+
+	}
 }
