@@ -1,3 +1,4 @@
+package nouth.les;
 import java.util.*;
 public class Outputter{ 
 	TexParser t = new TexParser();

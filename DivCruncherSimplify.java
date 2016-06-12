@@ -1,3 +1,4 @@
+package nouth.les;
 import java.util.*;
 import static java.lang.Math.abs;
 

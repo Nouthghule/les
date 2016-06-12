@@ -1,3 +1,4 @@
+package nouth.les;
 import java.util.*;
 
 public abstract class Cruncher extends Operator{

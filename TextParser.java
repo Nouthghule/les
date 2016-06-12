@@ -1,8 +1,11 @@
+package nouth.les;
 
 import java.util.*;
 
 public class TextParser{
-
+/*My apologies to anyone unfortunate enough to try to extend / otherwise fiddle with
+this project after the fact. It might have been better to name this and TexParser something
+more distinct from each other, but oh well.*/
 public Ex parse(String inputString){
 
 int depth = 0;

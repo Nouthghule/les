@@ -1,80 +1,128 @@
-><><><><><><><><><><>
-DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (6)
-Ex.multi returning ((6)*((3)+(g)))
-Ex.multi returning ((24)*(v))
-BossExpression : [((0)+((((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v)))]
-Ex (((3)+(g)))/((20)) contains g !
-Ex (((3)+(g)))/((20)) contains g !
-Ex (((6)*((3)+(g))))/((20)) contains g !
-Ex ((24)*(v)) contains v !
-Ex (v) contains v !
-
-
-€€ unwrap speaking : gonna replace self [(g)] with (g)
-€€ unwrap speaking : gonna replace self [(g)] with (g)
-€€ unwrap speaking : gonna replace self [(g)] with (g)
-€€ unwrap speaking : gonna replace self [(v)] with (v)
-€€ unwrap speaking : gonna replace self [(v)] with (v)
-Gonna crunch ((0)+(((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v))up real bad now.
-Ex.multi returning ((0)*(1))
-ŦŦŦ now going to add ((0)) to the list
-DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
-Ex.multi returning ((1)*((3)+(g)))
-ŦŦŦ now going to add (((1)*((3)+(g))))/((20)) to the list
-comparing() to ()/((20))
-DivEx multi speaking. gonna multi my numerator ((3)+(g)) by (1)
-Ex.multi returning ((1)*((3)+(g)))
-ŦŦŦ now going to add (((1)*((3)+(g))))/((20)) to the list
-comparing() to ()/((20))
-comparing()/((20)) to ()/((20))
-ŦŦŦ found it's equal without first : (((1)*((3)+(g))))/((20))
-ŦŦŦ created a target to crunch up : (((1)*((3)+(g)))+((1)*((3)+(g))))
-ŦŦŦ now going to add ((1)*((3)+(g))) to the list
-ŦŦŦ now going to add ((1)*((3)+(g))) to the list
-comparing(((3)+(g))) to (((3)+(g)))
-ŦŦŦ found it's equal without first : ((1)*((3)+(g)))
-Replacing (1) by (2)
-€€ unwrap speaking : gonna replace self [(g)] with (g)
-DivEx multi speaking. gonna multi my numerator ((6)*((3)+(g))) by (1)
-ŦŦŦ now going to add (((6)*((3)+(g))))/((20)) to the list
-comparing() to ()/((20))
-comparing()/((20)) to ()/((20))
-ŦŦŦ found it's equal without first : (((2)*((3)+(g))))/((20))
-ŦŦŦ created a target to crunch up : (((2)*((3)+(g)))+((6)*((3)+(g))))
-ŦŦŦ now going to add ((2)*((3)+(g))) to the list
-ŦŦŦ now going to add ((6)*((3)+(g))) to the list
-comparing(((3)+(g))) to (((3)+(g)))
-ŦŦŦ found it's equal without first : ((2)*((3)+(g)))
-Replacing (2) by (8)
-€€ unwrap speaking : gonna replace self [(g)] with (g)
-ŦŦŦ now going to add ((24)*(v)) to the list
-comparing() to ((v))
-comparing()/((20)) to ((v))
-Ex.multi returning ((1)*(v))
-ŦŦŦ now going to add ((1)*(v)) to the list
-comparing() to ((v))
-comparing()/((20)) to ((v))
-comparing((v)) to ((v))
-ŦŦŦ found it's equal without first : ((24)*(v))
-ŦŦŦ created a target to crunch up : ((1)+(24))
-Ex.multi returning ((1)*(1))
-ŦŦŦ now going to add ((1)) to the list
-Ex.multi returning ((1)*(24))
-ŦŦŦ now going to add ((24)) to the list
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default x
+TP: end of ex of x
+TP:default ^
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default r
+TP: end of ex of r
+TP:default +
+TP:Start of new ex.
+TP:default 2
+TP: end of ex of 2
+TP: end of ex of 
+TP: end of ex of 
+TP: end of ex of 
+TP:default /
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default x
+TP: end of ex of x
+TP:default ^
+TP:Start of new ex.
+TP:default 5
+TP: end of ex of 5
+TP: end of ex of 
+TP:default *
+TP:Start of new ex.
+TP:default r
+TP: end of ex of r
+TP: end of ex of 
+TP: end of ex of 
+Negating ()
+EX:  I'm (()+()) in (()^(()+())) and I'm replacing subEx at 1 by ()
+EX:  I'm (()^(()+((-1)*()))) in ((()^(()+((-1)*())))) and I'm replacing subEx at 0 by (x)
+DE replaceself x
+EX:  I'm (()+((-1)*())) in ((x)^(()+((-1)*()))) and I'm replacing subEx at 0 by (r)
+DE replaceself r
+EX:  I'm ((-1)*()) in ((r)+((-1)*())) and I'm replacing subEx at 1 by (2)
+DE replaceself numeric 2
+DE Blank value with rs of +
+EX:  I'm ((x)^((r)+((-1)*(2)))) in (((x)^((r)+((-1)*(2))))) and I'm replacing subEx at 1 by (((-1)*(2))+(r))
+DE Blank value with rs of ^
+EX:  I'm ((x)^(1)), an orphan,  and I'm replacing subEx at 1 by (((-1)*(2))+(r))
+EX:  I'm (((x)^(((-1)*(2))+(r)))) in ((((x)^(((-1)*(2))+(r))))/((()^())*())) and I'm replacing subEx at 0 by ((x)^(((-1)*(2))+(r)))
+DE Blank value with rs of $
+EX:  I'm ((((x)^(((-1)*(2))+(r))))/((()^())*())) in (((((x)^(((-1)*(2))+(r))))/((()^())*()))) and I'm replacing subEx at 0 by ((x)^(((-1)*(2))+(r)))
+DE replacing self with only child!
+EX:  I'm (()^()) in ((()^())*()) and I'm replacing subEx at 0 by (x)
+DE replaceself x
+EX:  I'm ((x)^()) in (((x)^())*()) and I'm replacing subEx at 1 by (5)
+DE replaceself numeric 5
+DE Blank value with rs of ^
+EX:  I'm ((x)^(1)), an orphan,  and I'm replacing subEx at 1 by (5)
+EX:  I'm (((x)^(5))*()) in (((x)^(((-1)*(2))+(r)))/(((x)^(5))*())) and I'm replacing subEx at 0 by ((x)^(5))
+EX:  I'm (((x)^(5))*()) in (((x)^(((-1)*(2))+(r)))/(((x)^(5))*())) and I'm replacing subEx at 1 by (r)
+DE replaceself r
+DE Blank value with rs of *
+EX:  I'm (((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r))) in ((((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r)))) and I'm replacing subEx at 1 by (((x)^(5))*(r))
+DE Blank value with rs of /
+EX:  I'm ((((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r)))) in (((((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r))))) and I'm replacing subEx at 0 by (((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r)))
+DE Blank value with rs of $
+EX:  I'm (((((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r))))), an orphan,  and I'm replacing subEx at 0 by (((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r)))
+DE replacing self with only child!
+EX:  I'm (#VOID#^#VOID#), an orphan,  and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)^#VOID#), an orphan,  and I'm replacing subEx at 1 by (((-1)*(2))+(r))
+DCSN listadd((x)^(((-1)*(2))+(r)))
+EX:  I'm (#VOID#^#VOID#), an orphan,  and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)^#VOID#), an orphan,  and I'm replacing subEx at 1 by (5)
+EX:  I'm (((x)^(5))*(r)), an orphan,  and I'm replacing subEx at 0 by ((x)*(x)*(x)*(x)*(x))
+EX:  I'm ((x)*(x)*(x)*(x)*(x)) in (((x)*(x)*(x)*(x)*(x))*(r)) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)*(x)*(x)*(x)*(x)) in (((x)*(x)*(x)*(x)*(x))*(r)) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((x)*(x)*(x)*(x)*(x)) in (((x)*(x)*(x)*(x)*(x))*(r)) and I'm replacing subEx at 2 by (x)
+EX:  I'm ((x)*(x)*(x)*(x)*(x)) in (((x)*(x)*(x)*(x)*(x))*(r)) and I'm replacing subEx at 3 by (x)
+EX:  I'm ((x)*(x)*(x)*(x)*(x)) in (((x)*(x)*(x)*(x)*(x))*(r)) and I'm replacing subEx at 4 by (x)
+EX:  I'm (((x)*(x)*(x)*(x)*(x))*(r)), an orphan,  and I'm replacing subEx at 1 by (r)
+MCP adding (r)
+MCP adding (x)
+EX:  I'm ((r)^(1)), an orphan,  and I'm replacing subEx at 1 by (1)
+EX:  I'm ((x)^(1)), an orphan,  and I'm replacing subEx at 1 by (5)
+MCP res (((r)^(1))*((x)^(5)))
+DCSN list is subexlist of (((r)^(1))*((x)^(5)))
+DCSN new num ((x)^(((-1)*(2))+(r)))
+DCSN new den ((r)^(1))
+DCSN new den ((x)^(5))
+DCSN new den matches
+MCSN adding to (5) in (((r)^(1))*((x)^(5)))  and (((-1)*(2))+(r))in(((x)^(((-1)*(2))+(r)))) ex (-5)
+EX:  I'm ((x)^(5)) in (((r)^(1))*((x)^(5))) and I'm replacing subEx at 1 by (#VOID#)
+((-5)+(5))
+((-5)+((-1)*(2))+(r))
+EX:  I'm ((-5)+(5)) in ((x)^((-5)+(5))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-5))+(5)) in ((x)^(((-5))+(5))) and I'm replacing subEx at 1 by ()
 comparing() to ()
-ŦŦŦ found it's equal without first : ((1))
-Replacing (1) by (25)
-€€ unwrap speaking : gonna replace self [((25))] with (25)
-BossExpression : [((0)+((((3)+(g)))/((20))+(((3)+(g)))/((20))+(((6)*((3)+(g))))/((20))+((24)*(v))+(v)))]
-=====================
-BossExpression : [((((8)*((3)+(g))))/((20))+((0))+((25)*(v)))]
-Ex (((8)*((3)+(g))))/((20)) contains g !
-Ex (((1)*((3)+(g))))/((20)) contains g !
-Ex (((6)*((3)+(g))))/((20)) contains g !
-Ex ((25)*(v)) contains v !
-Ex (v) contains v !
-Nest contains following variables :
-g
-v
-
-
+EX:  I'm ((-5)) in (((-5))+((5))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-5)+(5)) in (((-5)+(5))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-5))+(5)) in ((((-5))+(5))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-5)) in (((-5))+((5))) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))) in ((((0)))) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))) in ((((0)))+((5))) and I'm replacing subEx at 0 by (0)
+EX:  I'm ((-5)+((-1)*(2))+(r)) in ((x)^((-5)+((-1)*(2))+(r))) and I'm replacing subEx at 0 by ()
+comparing() to ()
+EX:  I'm ((-5)) in (((-5))+((-2))+(r)) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-2)+(-5)) in (((-2)+(-5))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-2))+(-5)) in ((((-2))+(-5))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-2)) in (((-2))+((-5))) and I'm replacing subEx at 0 by (-7)
+EX:  I'm (((-7))) in ((((-7)))) and I'm replacing subEx at 0 by (-7)
+EX:  I'm (((-7))) in ((((-7)))+((-2))+(r)) and I'm replacing subEx at 0 by (-7)
+EX:  I'm (((-7))+((-2))+(r)) in ((x)^(((-7))+((-2))+(r))) and I'm replacing subEx at 2 by ()
+comparing() to ((r))
+EX:  I'm (((x)^(((-7))+((1)*(r))))/((r)^(1))) in ((((x)^(((-7))+((1)*(r))))/((r)^(1)))) and I'm replacing subEx at 1 by ()
+EX:  I'm ((x)^(((-7))+((1)*(r)))) in (((x)^(((-7))+((1)*(r))))/(((r)^(1))*((x)^(((0)))))) and I'm replacing subEx at 0 by (x)
+EX:  I'm (((-7))+((1)*(r))) in ((x)^(((-7))+((1)*(r)))) and I'm replacing subEx at 0 by (-7)
+EX:  I'm ((1)*(r)) in ((-7)+((1)*(r))) and I'm replacing subEx at 1 by (r)
+EX:  I'm ((-7)+((r))) in ((x)^((-7)+((r)))) and I'm replacing subEx at 1 by (r)
+EX:  I'm ((r)^(1)) in (((r)^(1))*((x)^(((0))))) and I'm replacing subEx at 0 by (r)
+EX:  I'm ((x)^(((0)))) in (((r)^(1))*((x)^(((0))))) and I'm replacing subEx at 0 by (x)
+EX:  I'm (((0))) in ((x)^(((0)))) and I'm replacing subEx at 0 by (0)
+EX:  I'm ((x)^((0))) in (((r)^(1))*((x)^((0)))) and I'm replacing subEx at 1 by (0)
+-------
+1
+(((x)^(((-1)*(2))+(r)))/(((x)^(5))*(r)))
+(((x)^(((-7))+((1)*(r))))/(((r)^(1))*((x)^(((0))))))
+(((x)^((-7)+(r)))/(((r)^(1))*((x)^(0))))

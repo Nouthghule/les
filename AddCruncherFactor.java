@@ -1,3 +1,5 @@
+package nouth.les;
+
 import java.util.*;
 
 public class AddCruncherFactor extends Cruncher{

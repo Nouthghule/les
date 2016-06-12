@@ -1,3 +1,4 @@
+package nouth.les;
 
 public class VoidEx extends TinyEx{
 
