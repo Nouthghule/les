@@ -64,7 +64,7 @@ public void sort(){
 	}
 
 public String reportForTex(){
-	String statement = "\\frac{";
+	String statement = "\\\\\\frac{";
 	if(!getSubEx(0).silent){
 		statement += getSubEx(0).reportForTex();
 		}
@@ -242,7 +242,7 @@ public void wipe(){
 @Override
 public ArrayList<Operator> suggestCrunchers(){
         ArrayList<Operator> l = new ArrayList<Operator>();
-        l.add(new DivCruncherSimplify());
+        l.add(new DivCruncherSimplifyNew());
         l.add(new DivCruncherEmergeDivs());
         return l;
         }

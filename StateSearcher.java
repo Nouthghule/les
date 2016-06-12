@@ -28,6 +28,8 @@ public State find(String str){
 	targetString = str;
 
 	if(!startingState.stateEx.varContains(targetString)){
+		System.out.println("starting state : " + startingState.stateEx.report());
+		System.out.println("starting state does not contain variable " + targetString);
 		return startingState;
 		}
 	
@@ -44,9 +46,6 @@ public State find(String str){
 				break;
 				}
 			gen ++;
-			if(gen==12){
-				return currState;
-				}
 			genState = genState.parent;
 			}
 

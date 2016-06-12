@@ -11,8 +11,10 @@ public String getOutput(String in, String var){
 	String res = "";	
 
 	State papa = foundState;
+	System.out.println("outputer found " + foundState.stateEx.report());
 	LinkedList<String> as = new LinkedList<String>();
 	while(true){
+		
 		as.add((papa.stateEx.reportForTex()));
 		papa = papa.parent;
 		if(papa == startState){
@@ -22,7 +24,11 @@ public String getOutput(String in, String var){
 		}
 	int i;
 	for(i=as.size()-1;i>=0;i--){
-	res += as.get(i) + "\n";	
+	res += as.get(i);
+	if(i>0){
+		res+= "\\\\\\\\";
+		}
+	res += "\n";
 	}
 
 	return res;

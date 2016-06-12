@@ -25,6 +25,7 @@ public TexParser(){
 
 
 public Ex parse(String input){
+	lastOp="";
 	String s = texToNorm(input);
 	s = normToRPN(s);
 	System.out.println(s);
@@ -56,6 +57,8 @@ public String texToNorm(String s){
 			before = s;
 			s = s.replaceAll("([^=+\\-\\(/*^])\\s([^\\-+\\)=/*^])","$1 * $2");
 			}
+		before = "";
+			s = s.replaceAll("([0-9]+)([^0-9^+\\-\\(\\)/* ])","$1 * $2");
 		//s = s.replaceAll("([^\\-+=\\)/*^])\\s([^\\-+=\\)\\(/*^])","$1 * $2");
 	return s;
 	}
@@ -153,6 +156,7 @@ public void opAdded(){
 		if(next.equals("(")||hold.equals("(")){
 			operators.add(next);
 			operators.add(hold);
+			lastOp = operators.peek();
 			System.out.println("operators undo last two pops. ");
 			return;
 			}

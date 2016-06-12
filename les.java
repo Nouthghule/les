@@ -28,25 +28,37 @@ public class les{
 			return;
 			}
 
-		Pattern p = Pattern.compile("%les ([^;]+);(([^;]);)?");
+		Pattern p = Pattern.compile("%les ([^;]+);(([^;]))?;?");
 		
 		Matcher m = p.matcher(content);
 		
 		Outputter o = new Outputter();
+		StringBuffer sb = new StringBuffer();
 
 		while(m.find()){
 			String input = m.group(1);
-			String var;
-			try{
-				var = m.group(2);
-				}
-			catch(Exception e){
-				var = "x";
-				}
-			
-			String output = o.getOutput(input, var);
-			System.out.println("LES " +output);
+			String var = "x";
+			if(m.group(2)!=null&&m.group(2).trim().length()>0){
+			var = m.group(2);
 			}
+				
+			String output = o.getOutput(input, var);
+			
+			m.appendReplacement(sb,input +"\\\\\\\\"+ "\n" + output);
+			
+			}
+		m.appendTail(sb);
+		String ultima = sb.toString();
+		PrintWriter pw;
+		try{
+			pw = new PrintWriter(f);
+			pw.print(ultima);
+			pw.close();
 		}
+		catch(Exception e){
+		e.printStackTrace();
 
+		}
+		return;
+		} 
 	}
