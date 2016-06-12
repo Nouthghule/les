@@ -5,6 +5,8 @@ Map<String, Integer> ops;
 Stack<String> operators;
 Stack<String> members;
 String lastOp;
+boolean negateNext = false;
+boolean negateable = false;
 
 
 public TexParser(){
@@ -27,13 +29,18 @@ public Ex parse(String input){
 	s = normToRPN(s);
 	System.out.println(s);
 	s = RPNToBrackets(s);
-	return new AddEx();
+	System.out.println("Parsing ex from " + s);
+	TextParser tp = new TextParser();
+	Ex e = tp.parse(s);
+	System.out.println("Parsed ex as : " + e.report());
+	return e;
 	}
 
 public String texToNorm(String s){
 //(2+(3)s+s^2) x(s)+(2+s)y(s) =&(4+2)+(3+2)s+(3)s^2+s^3
-
+		System.out.println(s);
 		s = s.replaceAll("\\\\frac\\{([^}]*)\\}\\{([^}]*)\\}","($1)/($2)");
+		System.out.println(s);
 		s = s.replaceAll("\\\\sqrt\\{([^}]*)\\}","($1)^(1/2)");
 		s = s.replaceAll("\\\\sqrt\\[([^]]*)\\]\\{([^}]*)\\}","(($2)^(1/$1))");
 		s = s.replaceAll("&","");
@@ -47,7 +54,7 @@ public String texToNorm(String s){
 		before = "";
 		while(!s.equals(before)){
 			before = s;
-			s = s.replaceAll("([^+\\-\\(/*^])\\s([^\\-+\\)=/*^])","$1 * $2");
+			s = s.replaceAll("([^=+\\-\\(/*^])\\s([^\\-+\\)=/*^])","$1 * $2");
 			}
 		//s = s.replaceAll("([^\\-+=\\)/*^])\\s([^\\-+=\\)\\(/*^])","$1 * $2");
 	return s;
@@ -71,12 +78,22 @@ public String normToRPN(String s){
 		
 		if((read.equals(" "))&&(!str.equals(""))){
 			if(ops.containsKey(str)){
+				if(str.equals("(")){
+					negateable = true;
+					}
+				if(str.equals(")")){
+					negateable = false;
+					}
 				operators.push(str);
-				operators.peek();
 				System.out.println("operators push " + str);
 				opAdded();
 				}
 			else{
+				negateable = false;
+				if(negateNext){
+					negateNext = false;
+					str = "-"+str;
+					}
 				members.add(str);
 				System.out.println("members push " + str);
 				}
@@ -111,6 +128,12 @@ public void opAdded(){
 	String newOp;
 	newOp = operators.peek();
 
+	if(negateable&&lastOp.equals("(")&&newOp.equals("-")){
+		negateNext = true;
+		operators.pop();
+		return;
+		}
+
 	if(newOp.equals(")")){
 		operators.pop();
 		System.out.println("operators pop ");
@@ -136,6 +159,8 @@ public void opAdded(){
 		executeMember(next);
 		operators.add(hold);
 		System.out.println("operators undo pop before the last pop.");
+		lastOp = operators.peek();
+		opAdded();
 		}
 	lastOp = operators.peek();
 	}
@@ -159,12 +184,15 @@ public String RPNToBrackets(String s){
 		if(read.equals(" ")){
 			//do nothing
 			}
+		else if(read.equals("-")&&s.charAt(i+1)!=' '){
+			//do nothing cause it's an unary operator
+			}
 		else if(ops.containsKey(read)){
 			//no need to worry about parentheses, they don't appear in RPN.
 
 			int a = i-1;
 			
-			a--;
+			
 			//found first member before.
 			
 			s = s.substring(0,i-1) + "))" + s.substring(i+1);
@@ -188,7 +216,7 @@ public String RPNToBrackets(String s){
 			}
 			i++;
 		}
-		return "";
+		return s;
 		}
 	
 

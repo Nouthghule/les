@@ -57,7 +57,7 @@ for(i=0;i<inputString.length();i++){
 	minusOne.value = "-1";
 	for(Ex e : toBeNegated){
 	/*	System.out.println(e.master.report());
-		Ex negated = new DirtyEx();
+	/*	Ex negated = new DirtyEx();
 		negated.reportSeparator = '*';
 		negated.add(e.copy());
 		negated.add(minusOne.copy());
