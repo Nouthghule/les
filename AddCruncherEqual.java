@@ -82,7 +82,7 @@ public void addToList(Ex rlEx){
 		
 		System.out.println("comparing" + residentReport + " to " + argReport);
 		
-		if(residentReport.equals(argReport)){
+		if(residentReport.equals(argReport)&&rlEx.getClass().equals(resident.getClass())){
 			workDone = true;
 			//The Exes are equal, ignoring PlainEx
 //			System.out.println("ŦŦŦ found it's equal without first : " + resident.report());
@@ -121,6 +121,7 @@ public String getReportWithoutFirst(Ex rlEx){
 		rlEx.getSubEx(0).silent = true;
 		String report = rlEx.report();
 		rlEx.getSubEx(0).silent = false;
+		System.out.println("ACE rwif " +report);
 		return report;
 	}
 

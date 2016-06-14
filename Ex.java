@@ -29,10 +29,10 @@ public abstract class Ex implements Comparable<Ex> {
 		argEx.master = this;
 		argEx.posInMaster = pos;
 		if(master == null){
-			System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
+//			System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 		else{
-			System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
+//			System.out.println("EX:  I'm " + this.report() + " in "+ master.report()+ " and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}
 		exList.set(pos, argEx);
 	}
