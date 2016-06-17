@@ -1,0 +1,974 @@
+-1/x + 6 - 3 = 2x
+-1/x + 6 - 3 = 2x
+ready S : ( - 1 / x + 6 - 3 = 2 * x ) 
+operators push (
+operators push -
+members push -1
+operators push /
+new op / vs last op (
+members push x
+operators push +
+new op + vs last op /
+operators pop 
+operators pop 
+operators undo pop before the last pop.
+new op + vs last op +
+operators pop 
+operators pop 
+operators undo last two pops. 
+members push 6
+operators push -
+new op - vs last op +
+operators pop 
+operators pop 
+operators undo pop before the last pop.
+new op - vs last op -
+operators pop 
+operators pop 
+operators undo last two pops. 
+members push 3
+operators push =
+new op = vs last op -
+operators pop 
+operators pop 
+operators undo pop before the last pop.
+new op = vs last op =
+operators pop 
+operators pop 
+operators undo last two pops. 
+members push 2
+operators push *
+new op * vs last op =
+members push x
+operators push )
+operators pop 
+operators pop 
+-1 x / 6 + 3 - 2 x * =
+ ((-1)/(x)) 6 + 3 - 2 x * = 
+ ((((-1)/(x)))+(6)) 3 - 2 x * = 
+ ((((((-1)/(x)))+(6)))-(3)) 2 x * = 
+ ((((((-1)/(x)))+(6)))-(3)) ((2)*(x)) = 
+ ((((((((-1)/(x)))+(6)))-(3)))=(((2)*(x)))) 
+Parsing ex from  ((((((((-1)/(x)))+(6)))-(3)))=(((2)*(x)))) 
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default -
+TP:default 1
+TP: end of ex of -1
+TP:default /
+TP:Start of new ex.
+TP:default x
+TP: end of ex of x
+TP: end of ex of 
+TP: end of ex of 
+TP:default +
+TP:Start of new ex.
+TP:default 6
+TP: end of ex of 6
+TP: end of ex of 
+TP: end of ex of 
+TP:default +
+TP:Start of new ex.
+TP:default 3
+TP: end of ex of 3
+TP: end of ex of 
+TP: end of ex of 
+TP:default =
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default 2
+TP: end of ex of 2
+TP:default *
+TP:Start of new ex.
+TP:default x
+TP: end of ex of x
+TP: end of ex of 
+TP: end of ex of 
+TP: end of ex of 
+Negating ()
+EX:  I'm (((((()/()))+()))+()) in ((((((()/()))+()))+())) and I'm replacing subEx at 1 by ()
+EX:  I'm (()/()) in ((()/())) and I'm replacing subEx at 0 by (-1)
+DE replaceself numeric -1
+EX:  I'm ((-1)/()) in (((-1)/())) and I'm replacing subEx at 1 by (x)
+DE replaceself x
+DE Blank value with rs of /
+EX:  I'm (((-1)/(x))) in ((((-1)/(x)))+()) and I'm replacing subEx at 0 by ((-1)/(x))
+DE Blank value with rs of $
+EX:  I'm ((((-1)/(x)))+()) in (((((-1)/(x)))+())) and I'm replacing subEx at 0 by ((-1)/(x))
+DE replacing self with only child!
+EX:  I'm (((-1)/(x))+()) in ((((-1)/(x))+())) and I'm replacing subEx at 1 by (6)
+DE replaceself numeric 6
+DE Blank value with rs of +
+EX:  I'm ((((-1)/(x))+(6))) in (((((-1)/(x))+(6)))+((-1)*())) and I'm replacing subEx at 0 by ((6)+((-1)/(x)))
+DE Blank value with rs of $
+EX:  I'm ((((6)+((-1)/(x))))+((-1)*())) in (((((6)+((-1)/(x))))+((-1)*()))) and I'm replacing subEx at 0 by ((6)+((-1)/(x)))
+DE replacing self with only child!
+EX:  I'm ((-1)*()) in (((6)+((-1)/(x)))+((-1)*())) and I'm replacing subEx at 1 by (3)
+DE replaceself numeric 3
+DE Blank value with rs of +
+EX:  I'm ((((6)+((-1)/(x)))+((-1)*(3)))) in (((((6)+((-1)/(x)))+((-1)*(3))))=((()*()))) and I'm replacing subEx at 0 by (((-1)*(3))+((6)+((-1)/(x))))
+DE Blank value with rs of $
+EX:  I'm (((((-1)*(3))+((6)+((-1)/(x)))))=((()*()))) in ((((((-1)*(3))+((6)+((-1)/(x)))))=((()*())))) and I'm replacing subEx at 0 by (((-1)*(3))+((6)+((-1)/(x))))
+DE replacing self with only child!
+EX:  I'm (()*()) in ((()*())) and I'm replacing subEx at 0 by (2)
+DE replaceself numeric 2
+EX:  I'm ((2)*()) in (((2)*())) and I'm replacing subEx at 1 by (x)
+DE replaceself x
+DE Blank value with rs of *
+EX:  I'm (((2)*(x))) in ((((-1)*(3))+((6)+((-1)/(x))))=(((2)*(x)))) and I'm replacing subEx at 0 by ((2)*(x))
+DE Blank value with rs of $
+EX:  I'm ((((-1)*(3))+((6)+((-1)/(x))))=(((2)*(x)))) in (((((-1)*(3))+((6)+((-1)/(x))))=(((2)*(x))))) and I'm replacing subEx at 1 by ((2)*(x))
+DE replacing self with only child!
+DE Blank value with rs of =
+EX:  I'm (((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))) in ((((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))))) and I'm replacing subEx at 0 by ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+DE Blank value with rs of $
+EX:  I'm ((((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))))), an orphan,  and I'm replacing subEx at 0 by ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+DE replacing self with only child!
+Parsed ex as : ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+=====================================STATE 1 , generation 0
+CurrState is ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+It's hf is 3013
+It's parent's operator is : nouth.les.DefOperator@5451c3a8
+It's operator is : nouth.les.DefOperator@5451c3a8
+I'm ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))) and I'm about to propagate.
+EqEx : (((-1)*(3))+((6)+((-1)/(x)))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((6)+((-1)/(x)))
+nouth.les.AlteratorAdd@f6f4d33
+adding it.
+nouth.les.AlteratorAdd@23fc625e
+adding it.
+EqEx : ((2)*(x)) is suggesting alterators now.
+MultiEx suggestAlts : ((2)*(x)) suggesting now.
+ME sA checking (2)
+ME sA multied by (2) into ((2))
+ME sA checking (x)
+EX:  I'm (((2))), an orphan,  and I'm replacing subEx at 0 by (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((2))
+nouth.les.AlteratorDiv@3a71f4dd
+adding it.
+nouth.les.MultiCruncherPlain@7adf9f5f is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+into val 1
+nouth.les.MultiCruncherPlain@7adf9f5f has brought me a new dirty child : ((((-3))+((6)+((-1)/(x))))=((2)*(x)))
+State polishing child : ((((-3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm (((-3))+((6)+((-1)/(x)))) in ((((-3))+((6)+((-1)/(x))))=((2)*(x))) and I'm replacing subEx at 0 by (-3)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((-3)+(6)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.MultiCruncherExpand@85ede7b is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@65b54208 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+mcd worklist (-1)
+mcd worklist (3)
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@1be6f5c3 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+into val 0
+nouth.les.MultiCruncherPowerise@6b884d57 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+MCP adding (-1)
+MCP adding (3)
+MCP res ((-1)*(3))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 2
+nouth.les.MultiCruncherPowerise@6b884d57 has brought me a new dirty child : ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+State polishing child : ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((6)+((-1)*(3))+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.DivCruncherSimplifyNew@77459877 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((-1)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)^#VOID#) in (((-1)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((-1)^(1))
+EX:  I'm ((x)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)^#VOID#) in (((x)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((x)^(1))
+DCSN new num ((-1)^(1))
+DCSN new den ((x)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@77459877 has brought me a new dirty child : ((((-1)*(3))+((6)+(((-1)^(1))/((x)^(1)))))=((2)*(x)))
+State polishing child : ((((-1)*(3))+((6)+(((-1)^(1))/((x)^(1)))))=((2)*(x)))
+EX:  I'm ((x)^(1)) in (((-1)^(1))/((x)^(1))) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((2)*(x)) in (((6)+(((-1)^(1))/((x)^(1)))+((-1)*(3)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.DivCruncherEmergeDivs@5b2133b1 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+into val 0
+nouth.les.AddCruncherEqual@72ea2f77 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((6)+((-1)/(x))) in (((-1)*(3))+((6)+((-1)/(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)/(x)) in (((6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+EX:  I'm (((-3))+(((6))+(((-1))/(x)))) in ((((-3))+(((6))+(((-1))/(x))))=((2)*(x))) and I'm replacing subEx at 1 by ()
+comparing() to ((((6))+(((-1))/(x))))
+into val 0
+nouth.les.AddCruncherSingleDenominator@3af49f1c is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+ACSD 0 not addex (-1)
+ACSD 0 not addex (3)
+ACSD 0 not addex ((-1)*(3))
+ACSD 0 not addex (6)
+ACSD 0 not addex (-1)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((-1)/(x))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+EX:  I'm ((1)*(x)) in (((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))), an orphan,  and I'm replacing subEx at 0 by (x)
+ACSD polished unide is (x)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (6)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+DCS start ((x)/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+EX:  I'm (((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(1))
+EX:  I'm (((1))), an orphan,  and I'm replacing subEx at 0 by (1)
+ACSD : holderEx polished is (1)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)*(3))+((6)+((-1)/(x)))) in ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))) and I'm replacing subEx at 1 by ((((-1)*(1))+((6)*(x)))/(x))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+EX:  I'm ((1)*(x)) in (((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))), an orphan,  and I'm replacing subEx at 0 by (x)
+ACSD polished unide is (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+DCS start ((x)/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+EX:  I'm (((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(1))
+EX:  I'm (((1))), an orphan,  and I'm replacing subEx at 0 by (1)
+ACSD : holderEx polished is (1)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)*(3)*(x)) in (((-1)*(3)*(x))+((1)*(((-1)*(1))+((6)*(x))))) and I'm replacing subEx at 2 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)*(3)*(x))+((((-1)*(1))+((6)*(x))))) in ((((-1)*(3)*(x))+((((-1)*(1))+((6)*(x)))))/(x)) and I'm replacing subEx at 1 by (((-1)*(1))+((6)*(x)))
+EX:  I'm ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(3))+((((-1)*(1))+((6)*(x)))/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 0 by ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+into val 2
+nouth.les.AddCruncherSingleDenominator@3af49f1c has brought me a new dirty child : (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+State polishing child : (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+EX:  I'm ((-1)*(3)*(x)) in (((-1)*(1))+((-1)*(3)*(x))+((6)*(x))) and I'm replacing subEx at 2 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((-1)*(3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x)) in (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AddCruncherEqual@19469ea2 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((6)+((-1)/(x))) in (((-1)*(3))+((6)+((-1)/(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)/(x)) in (((6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+EX:  I'm (((-3))+(((6))+(((-1))/(x)))) in ((((-3))+(((6))+(((-1))/(x))))=((2)*(x))) and I'm replacing subEx at 1 by ()
+comparing() to ((((6))+(((-1))/(x))))
+into val 0
+nouth.les.AddCruncherSingleDenominator@13221655 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+ACSD 0 not addex (-1)
+ACSD 0 not addex (3)
+ACSD 0 not addex ((-1)*(3))
+ACSD 0 not addex (6)
+ACSD 0 not addex (-1)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((-1)/(x))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+EX:  I'm ((1)*(x)) in (((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))), an orphan,  and I'm replacing subEx at 0 by (x)
+ACSD polished unide is (x)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (6)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+DCS start ((x)/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+EX:  I'm (((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(1))
+EX:  I'm (((1))), an orphan,  and I'm replacing subEx at 0 by (1)
+ACSD : holderEx polished is (1)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)*(3))+((6)+((-1)/(x)))) in ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))) and I'm replacing subEx at 1 by ((((-1)*(1))+((6)*(x)))/(x))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+EX:  I'm ((1)*(x)) in (((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))), an orphan,  and I'm replacing subEx at 0 by (x)
+ACSD polished unide is (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+DCS start ((x)/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+EX:  I'm (((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(1))
+EX:  I'm (((1))), an orphan,  and I'm replacing subEx at 0 by (1)
+ACSD : holderEx polished is (1)
+EX:  I'm ((((-1)*(1))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)*(3)*(x)) in (((-1)*(3)*(x))+((1)*(((-1)*(1))+((6)*(x))))) and I'm replacing subEx at 2 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)*(3)*(x))+((((-1)*(1))+((6)*(x))))) in ((((-1)*(3)*(x))+((((-1)*(1))+((6)*(x)))))/(x)) and I'm replacing subEx at 1 by (((-1)*(1))+((6)*(x)))
+EX:  I'm ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(3))+((((-1)*(1))+((6)*(x)))/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 0 by ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+into val 2
+nouth.les.AddCruncherSingleDenominator@13221655 has brought me a new dirty child : (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+State polishing child : (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+EX:  I'm ((-1)*(3)*(x)) in (((-1)*(1))+((-1)*(3)*(x))+((6)*(x))) and I'm replacing subEx at 2 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((-1)*(3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x)) in (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.MultiCruncherPlain@31befd9f is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+into val 1
+nouth.les.MultiCruncherPlain@31befd9f has brought me a new dirty child : ((((-3))+((6)+((-1)/(x))))=((2)*(x)))
+State polishing child : ((((-3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm (((-3))+((6)+((-1)/(x)))) in ((((-3))+((6)+((-1)/(x))))=((2)*(x))) and I'm replacing subEx at 0 by (-3)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((-3)+(6)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.MultiCruncherExpand@1c20c684 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@1fb3ebeb is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+mcd worklist (-1)
+mcd worklist (3)
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@548c4f57 is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+into val 0
+nouth.les.MultiCruncherPowerise@1218025c is messing around now.
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+MCP adding (-1)
+MCP adding (3)
+MCP res ((-1)*(3))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 2
+nouth.les.MultiCruncherPowerise@1218025c has brought me a new dirty child : ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+State polishing child : ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((6)+((-1)*(3))+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorAdd@f6f4d33 is messing around now.
+It's altEx is (((-1)*((6)+((-1)/(x)))))
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm (((((-1)*((6)+((-1)/(x)))))+((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*((6)+((-1)/(x)))))+((-1)*(3))+((6)+((-1)/(x)))) in (((((-1)*((6)+((-1)/(x)))))+((-1)*(3))+((6)+((-1)/(x))))=((((-1)*((6)+((-1)/(x)))))+((2)*(x)))) and I'm replacing subEx at 0 by ((-1)*((6)+((-1)/(x))))
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*((6)+((-1)/(x)))))+((2)*(x))) in (((6)+((-1)*((6)+((-1)/(x))))+((-1)*(3))+((-1)/(x)))=((((-1)*((6)+((-1)/(x)))))+((2)*(x)))) and I'm replacing subEx at 0 by ((-1)*((6)+((-1)/(x))))
+EX:  I'm ((2)*(x)) in (((-1)*((6)+((-1)/(x))))+((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((6)+((-1)/(x))) in ((-1)*((6)+((-1)/(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)/(x)) in (((6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+EX:  I'm ((6)+((-1)*(((6))+(((-1))/(x))))+((-1)*(3))+((-1)/(x))) in (((6)+((-1)*(((6))+(((-1))/(x))))+((-1)*(3))+((-1)/(x)))=(((-1)*((6)+((-1)/(x))))+((2)*(x)))) and I'm replacing subEx at 0 by ()
+comparing() to ((((6))+(((-1))/(x))))
+comparing() to ()
+EX:  I'm ((6)) in (((6))+((-1)*(((6))+(((-1))/(x))))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-3)+(6)) in (((-3)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)) in ((((-3))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))+((-1)*(((6))+(((-1))/(x))))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((-1)/(x)) in (((3))+((-1)*(((6))+(((-1))/(x))))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+comparing((((6))+(((-1))/(x)))) to ((x))
+EX:  I'm ((6)+((-1)/(x))) in ((-1)*((6)+((-1)/(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm ((-1)/(x)) in (((6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+comparing((((6))+(((-1))/(x)))) to ((x))
+into val 1
+nouth.les.AlteratorAdd@f6f4d33 has brought me a new dirty child : (((((-1))/(x))+((-1)*(((6))+(((-1))/(x))))+((3)))=(((-1)*(((6))+(((-1))/(x))))+((2)*(x))))
+State polishing child : (((((-1))/(x))+((-1)*(((6))+(((-1))/(x))))+((3)))=(((-1)*(((6))+(((-1))/(x))))+((2)*(x))))
+EX:  I'm (((-1))/(x)) in ((((-1))/(x))+((-1)*(((6))+(((-1))/(x))))+((3))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in (((-1)/(x))+((-1)*(((6))+(((-1))/(x))))+((3))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((6))+(((-1))/(x))) in ((-1)*(((6))+(((-1))/(x)))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((-1))/(x)) in ((6)+(((-1))/(x))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)/(x))+((-1)*((6)+((-1)/(x))))+((3))) in ((((-1)/(x))+((-1)*((6)+((-1)/(x))))+((3)))=(((-1)*(((6))+(((-1))/(x))))+((2)*(x)))) and I'm replacing subEx at 2 by (3)
+EX:  I'm (((6))+(((-1))/(x))) in ((-1)*(((6))+(((-1))/(x)))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((-1))/(x)) in ((6)+(((-1))/(x))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((-1)*((6)+((-1)/(x))))+((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorAdd@23fc625e is messing around now.
+It's altEx is (((-1)*(-1)*(3)))
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm (((((-1)*(-1)*(3)))+((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#)
+EX:  I'm (((3))) in ((((3)))+((-1)*(3))+((6)+((-1)/(x)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))+((-1)*(3))+((6)+((-1)/(x)))) in ((((3))+((-1)*(3))+((6)+((-1)/(x))))=((((-1)*(-1)*(3)))+((2)*(x)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((3))) in ((((3)))+((2)*(x))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))+((2)*(x))) in (((3)+(6)+((-1)*(3))+((-1)/(x)))=(((3))+((2)*(x)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((2)*(x)) in ((3)+((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((3)+(6)+((-1)*(3))+((-1)/(x))) in (((3)+(6)+((-1)*(3))+((-1)/(x)))=((3)+((2)*(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((3))+(6)+((-1)*(3))+((-1)/(x))) in ((((3))+(6)+((-1)*(3))+((-1)/(x)))=((3)+((2)*(x)))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((3)) in (((3))+((6))+((-1)*(3))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((3)+(6)) in (((3)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((3))+(6)) in ((((3))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((3)) in (((3))+((6))) and I'm replacing subEx at 0 by (9)
+EX:  I'm (((9))) in ((((9)))) and I'm replacing subEx at 0 by (9)
+EX:  I'm (((9))) in ((((9)))+((6))+((-1)*(3))+((-1)/(x))) and I'm replacing subEx at 0 by (9)
+comparing() to ()
+EX:  I'm ((9)) in (((9))+((6))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-3)+(9)) in (((-3)+(9))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(9)) in ((((-3))+(9))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((9))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((6))) in ((((6)))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((6))) in ((((6)))+((6))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by (6)
+EX:  I'm ((-1)/(x)) in (((6))+((6))+((-3))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+EX:  I'm ((3)+((2)*(x))) in (((((-1))/(x))+((6)))=((3)+((2)*(x)))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+into val 1
+nouth.les.AlteratorAdd@23fc625e has brought me a new dirty child : (((((-1))/(x))+((6)))=(((3))+((2)*(x))))
+State polishing child : (((((-1))/(x))+((6)))=(((3))+((2)*(x))))
+EX:  I'm (((-1))/(x)) in ((((-1))/(x))+((6))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in (((-1)/(x))+((6))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)/(x))+((6))) in ((((-1)/(x))+((6)))=(((3))+((2)*(x)))) and I'm replacing subEx at 1 by (6)
+EX:  I'm (((3))+((2)*(x))) in (((6)+((-1)/(x)))=(((3))+((2)*(x)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((2)*(x)) in ((3)+((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorDiv@3a71f4dd is messing around now.
+It's altEx is (2)
+on child ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x)))
+EX:  I'm ((((-1)*(3))+((6)+((-1)/(x))))=((2)*(x))), an orphan,  and I'm replacing subEx at 0 by (#VOID#/#VOID#)
+EX:  I'm (((((-1)*(3))+((6)+((-1)/(x))))/(2))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#/#VOID#)
+AD polishing (((((-1)*(3))+((6)+((-1)/(x))))/(2))=(((2)*(x))/(2)))
+EX:  I'm ((-1)/(x)) in ((6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((2)*(x))/(2)) and I'm replacing subEx at 1 by (x)
+AD polished into ((((6)+((-1)*(3))+((-1)/(x)))/(2))=(((2)*(x))/(2)))
+DCS start ((-1)/(x))
+DCS after crossout before single plain :((-1)) / ((x))
+DCS single plain :((-1)) / ((x))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((-1)/(x))
+DCS start (((6)+((-1)*(3))+((-1)/(x)))/(2))
+DCS after crossout before single plain :(((6)+((-1)*(3))+((-1)/(x)))) / ((2))
+DCS single plain :(((6)+((-1)*(3))+((-1)/(x)))) / ((2))
+DCS computing gcd from 1 and 2 = 1
+DCS ZERO return resulting (((6)+((-1)*(3))+((-1)/(x)))/(2))
+DCS start (((2)*(x))/(2))
+DCS crossing out (2)
+DCS after crossout before single plain :((1)*(x)) / ((1))
+DCS single plain :((1)*(x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+EX:  I'm ((1)/#VOID#) in ((((6)+((-1)*(3))+((-1)/(x)))/(2))=((1)/#VOID#)) and I'm replacing subEx at 0 by ()
+DCS resulting (((1)*(x))/(1))
+into val 1
+nouth.les.AlteratorDiv@3a71f4dd has brought me a new dirty child : ((((6)+((-1)*(3))+((-1)/(x)))/(2))=(((1)*(x))/(1)))
+State polishing child : ((((6)+((-1)*(3))+((-1)/(x)))/(2))=(((1)*(x))/(1)))
+EX:  I'm ((-1)/(x)) in ((6)+((-1)*(3))+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((1)*(x)) in (((1)*(x))/(1)) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))/(1)) in ((((6)+((-1)*(3))+((-1)/(x)))/(2))=(((x))/(1))) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((((6)+((-1)*(3))+((-1)/(x)))/(2))=((x)/(1))), an orphan,  and I'm replacing subEx at 1 by ((1)*(x))
+EX:  I'm ((1)*(x)) in ((((6)+((-1)*(3))+((-1)/(x)))/(2))=((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((6)+((-1)*(3))+((-1)/(x)))/(2))=((x))), an orphan,  and I'm replacing subEx at 1 by (x)
+It just propagated.
+New unique children : <(((-3)+(6)+((-1)/(x)))=((2)*(x))) ; (((6)+((-1)*(3))+((-1)/(x)))=((2)*(x))) ; (((6)+(((-1)^(1))/((x)^(1)))+((-1)*(3)))=((2)*(x))) ; (((((-1)*(1))+((-1)*(3)*(x))+((6)*(x)))/(x))=((2)*(x))) ; (((3)+((-1)*((6)+((-1)/(x))))+((-1)/(x)))=(((-1)*((6)+((-1)/(x))))+((2)*(x)))) ; (((6)+((-1)/(x)))=((3)+((2)*(x)))) ; ((((6)+((-1)*(3))+((-1)/(x)))/(2))=(x)) ; >
+Children hfs : <2010 ; 2012 ; 3016 ; 3017 ; 4024 ; 2011 ; 3012 ; >
+Children ops : <nouth.les.MultiCruncherPlain@7adf9f5fnouth.les.MultiCruncherPowerise@6b884d57nouth.les.DivCruncherSimplifyNew@77459877nouth.les.AddCruncherSingleDenominator@3af49f1cnouth.les.AlteratorAdd@f6f4d33nouth.les.AlteratorAdd@23fc625enouth.les.AlteratorDiv@3a71f4dd>
+=====================================STATE 2 , generation 1
+CurrState is (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+It's hf is 2010
+It's parent's operator is : nouth.les.DefOperator@5451c3a8
+It's operator is : nouth.les.MultiCruncherPlain@7adf9f5f
+I'm (((-3)+(6)+((-1)/(x)))=((2)*(x))) and I'm about to propagate.
+EqEx : ((-3)+(6)+((-1)/(x))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (-3)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (6)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+nouth.les.AlteratorAdd@816f27d
+adding it.
+nouth.les.AlteratorAdd@87aac27
+adding it.
+EqEx : ((2)*(x)) is suggesting alterators now.
+MultiEx suggestAlts : ((2)*(x)) suggesting now.
+ME sA checking (2)
+ME sA multied by (2) into ((2))
+ME sA checking (x)
+EX:  I'm (((2))), an orphan,  and I'm replacing subEx at 0 by (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((2))
+nouth.les.AlteratorDiv@3e3abc88
+adding it.
+nouth.les.DivCruncherSimplifyNew@6ce253f1 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm ((-1)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)^#VOID#) in (((-1)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((-1)^(1))
+EX:  I'm ((x)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)^#VOID#) in (((x)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((x)^(1))
+DCSN new num ((-1)^(1))
+DCSN new den ((x)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@6ce253f1 has brought me a new dirty child : (((-3)+(6)+(((-1)^(1))/((x)^(1))))=((2)*(x)))
+State polishing child : (((-3)+(6)+(((-1)^(1))/((x)^(1))))=((2)*(x)))
+EX:  I'm ((x)^(1)) in (((-1)^(1))/((x)^(1))) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((2)*(x)) in (((-3)+(6)+(((-1)^(1))/((x)^(1))))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.DivCruncherEmergeDivs@53d8d10a is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+into val 0
+nouth.les.AddCruncherEqual@e9e54c2 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm ((-3)+(6)+((-1)/(x))) in (((-3)+(6)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)+((-1)/(x))) in ((((-3))+(6)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-3)+(6)) in (((-3)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)) in ((((-3))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))+((6))+((-1)/(x))) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((-1)/(x)) in (((3))+((6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+into val 1
+nouth.les.AddCruncherEqual@e9e54c2 has brought me a new dirty child : (((((-1))/(x))+((3)))=((2)*(x)))
+State polishing child : (((((-1))/(x))+((3)))=((2)*(x)))
+EX:  I'm (((-1))/(x)) in ((((-1))/(x))+((3))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in (((-1)/(x))+((3))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)/(x))+((3))) in ((((-1)/(x))+((3)))=((2)*(x))) and I'm replacing subEx at 1 by (3)
+EX:  I'm ((2)*(x)) in (((3)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AddCruncherSingleDenominator@65ab7765 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+ACSD 0 not addex (-3)
+ACSD 0 not addex (6)
+ACSD 0 not addex (-1)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((-1)/(x))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+DCS start ((x)/(1))
+DCS after crossout before single plain :((x)) / ((1))
+DCS single plain :((x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((x)/(1))
+EX:  I'm ((1)*(1)*(x)) in (((1)*(1)*(x))) and I'm replacing subEx at 2 by (x)
+EX:  I'm (((x))), an orphan,  and I'm replacing subEx at 0 by (x)
+ACSD polished unide is (x)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (-3)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (6)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+DCS start ((x)/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+EX:  I'm (((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(1))
+EX:  I'm (((1))), an orphan,  and I'm replacing subEx at 0 by (1)
+ACSD : holderEx polished is (1)
+EX:  I'm ((-1)/(x)), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((-3)*(x)) in (((-1)*(1))+((-3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((-3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x)), an orphan,  and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-3)+(6)+((-1)/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 0 by ((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+into val 1
+nouth.les.AddCruncherSingleDenominator@65ab7765 has brought me a new dirty child : (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+State polishing child : (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x)))
+EX:  I'm ((-3)*(x)) in (((-1)*(1))+((-3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((6)*(x)) in (((-1)*(1))+((-3)*(x))+((6)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x)) in (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.MultiCruncherPlain@1b28cdfa is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+into val 0
+nouth.les.MultiCruncherExpand@eed1f14 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@7229724f is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@4c873330 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+into val 0
+nouth.les.MultiCruncherPowerise@119d7047 is messing around now.
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@119d7047 has brought me a new dirty child : (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+State polishing child : (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm ((-1)/(x)) in ((-3)+(6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((-3)+(6)+((-1)/(x)))=((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorAdd@816f27d is messing around now.
+It's altEx is ((((-1)*(-1))/(x)))
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm (((-3)+(6)+((((-1)*(-1))/(x)))+((-1)/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#)
+EX:  I'm (((-1)*(-1))/(x)) in ((((-1)*(-1))/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((-3)+(6)+((((-1)*(-1))/(x)))+((-1)/(x))) in (((-3)+(6)+((((-1)*(-1))/(x)))+((-1)/(x)))=(((((-1)*(-1))/(x)))+((2)*(x)))) and I'm replacing subEx at 2 by (((-1)*(-1))/(x))
+EX:  I'm ((-1)/(x)) in ((-3)+(6)+(((-1)*(-1))/(x))+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)*(-1))/(x)) in ((((-1)*(-1))/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((((-1)*(-1))/(x)))+((2)*(x))) in (((-3)+(6)+(((-1)*(-1))/(x))+((-1)/(x)))=(((((-1)*(-1))/(x)))+((2)*(x)))) and I'm replacing subEx at 0 by (((-1)*(-1))/(x))
+EX:  I'm ((2)*(x)) in ((((-1)*(-1))/(x))+((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((-3)+(6)+(((-1)*(-1))/(x))+((-1)/(x))) in (((-3)+(6)+(((-1)*(-1))/(x))+((-1)/(x)))=((((-1)*(-1))/(x))+((2)*(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)+(((-1)*(-1))/(x))+((-1)/(x))) in ((((-3))+(6)+(((-1)*(-1))/(x))+((-1)/(x)))=((((-1)*(-1))/(x))+((2)*(x)))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))+(((-1)*(-1))/(x))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-3)+(6)) in (((-3)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)) in ((((-3))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))+((6))+(((-1)*(-1))/(x))+((-1)/(x))) and I'm replacing subEx at 0 by (3)
+comparing() to ((x))
+EX:  I'm ((-1)/(x)) in (((3))+((6))+(((1))/(x))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+comparing((x)) to ((x))
+EX:  I'm (((1))/(x)) in (((3))+((6))+(((1))/(x))+(((-1))/(x))) and I'm replacing subEx at 0 by (#VOID#)
+comparing() to ()
+EX:  I'm ((-1)) in (((-1))+((1))) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))) in ((((0)))/(x)) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))/(x)) in (((3))+((6))+(((0))/(x))+(((0))/(x))) and I'm replacing subEx at 0 by (0)
+comparing((x)) to ((x))
+EX:  I'm (((1))/(x)) in ((((1))/(x))+((2)*(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((2)+((1))) in (((2)+((1)))/(x)) and I'm replacing subEx at 0 by ()
+comparing() to ()
+EX:  I'm ((2)) in (((2))+((1))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))/(x)) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))/(x)) in ((((3))/(x))+((2)*(x))) and I'm replacing subEx at 0 by (3)
+into val 1
+nouth.les.AlteratorAdd@816f27d has brought me a new dirty child : ((((0)/(x))+((3)))=(((3)/(x))))
+State polishing child : ((((0)/(x))+((3)))=(((3)/(x))))
+EX:  I'm ((0)/(x)) in (((0)/(x))+((3))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((0)/(x))+((3))) in ((((0)/(x))+((3)))=(((3)/(x)))) and I'm replacing subEx at 0 by (0)
+EX:  I'm ((0)+((3))) in (((0)+((3)))=(((3)/(x)))) and I'm replacing subEx at 1 by (3)
+EX:  I'm (((3))=(((3)/(x)))), an orphan,  and I'm replacing subEx at 0 by (3)
+EX:  I'm ((3)/(x)) in (((3)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((3)=(((3)/(x)))), an orphan,  and I'm replacing subEx at 1 by ((3)/(x))
+nouth.les.AlteratorAdd@87aac27 is messing around now.
+It's altEx is (((-1)*(-3))+((-1)*(6)))
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm (((-3)+(6)+(((-1)*(-3))+((-1)*(6)))+((-1)/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#)
+EX:  I'm ((-1)/(x)) in ((-3)+(6)+(((-1)*(-3))+((-1)*(6)))+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in ((((-1)*(-3))+((-1)*(6)))+((2)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((-3)+(6)+((-1)*(-3))+((-1)*(6))+((-1)/(x))) in (((-3)+(6)+((-1)*(-3))+((-1)*(6))+((-1)/(x)))=(((-1)*(-3))+((-1)*(6))+((2)*(x)))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)+((-1)*(-3))+((-1)*(6))+((-1)/(x))) in ((((-3))+(6)+((-1)*(-3))+((-1)*(6))+((-1)/(x)))=(((-1)*(-3))+((-1)*(6))+((2)*(x)))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))+((-1)*(-3))+((-1)*(6))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-3)+(6)) in (((-3)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-3))+(6)) in ((((-3))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-3)) in (((-3))+((6))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))) and I'm replacing subEx at 0 by (3)
+EX:  I'm (((3))) in ((((3)))+((6))+((-1)*(-3))+((-1)*(6))+((-1)/(x))) and I'm replacing subEx at 0 by (3)
+comparing() to ()
+EX:  I'm ((3)) in (((3))+((6))+((3))+((-1)*(6))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((3)+(3)) in (((3)+(3))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((3))+(3)) in ((((3))+(3))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((3)) in (((3))+((3))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((6))) in ((((6)))) and I'm replacing subEx at 0 by (6)
+EX:  I'm (((6))) in ((((6)))+((6))+((3))+((-1)*(6))+((-1)/(x))) and I'm replacing subEx at 0 by (6)
+comparing() to ()
+EX:  I'm ((6)) in (((6))+((6))+((3))+((-6))+((-1)/(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-6)+(6)) in (((-6)+(6))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-6))+(6)) in ((((-6))+(6))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-6)) in (((-6))+((6))) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))) in ((((0)))) and I'm replacing subEx at 0 by (0)
+EX:  I'm (((0))) in ((((0)))+((6))+((3))+((-6))+((-1)/(x))) and I'm replacing subEx at 0 by (0)
+EX:  I'm ((-1)/(x)) in (((0))+((6))+((3))+((-6))+((-1)/(x))) and I'm replacing subEx at 0 by ()
+comparing() to ((x))
+comparing() to ()
+EX:  I'm ((3)) in (((3))+((-6))+((2)*(x))) and I'm replacing subEx at 0 by (#VOID#)
+EX:  I'm ((-6)+(3)) in (((-6)+(3))) and I'm replacing subEx at 0 by ()
+EX:  I'm (((-6))+(3)) in ((((-6))+(3))) and I'm replacing subEx at 1 by ()
+comparing() to ()
+EX:  I'm ((-6)) in (((-6))+((3))) and I'm replacing subEx at 0 by (-3)
+EX:  I'm (((-3))) in ((((-3)))) and I'm replacing subEx at 0 by (-3)
+EX:  I'm (((-3))) in ((((-3)))+((-6))+((2)*(x))) and I'm replacing subEx at 0 by (-3)
+comparing() to ((x))
+into val 1
+nouth.les.AlteratorAdd@87aac27 has brought me a new dirty child : (((((-1))/(x))+((0)))=(((-3))+((2)*(x))))
+State polishing child : (((((-1))/(x))+((0)))=(((-3))+((2)*(x))))
+EX:  I'm (((-1))/(x)) in ((((-1))/(x))+((0))) and I'm replacing subEx at 0 by (-1)
+EX:  I'm ((-1)/(x)) in (((-1)/(x))+((0))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((-1)/(x))+((0))) in ((((-1)/(x))+((0)))=(((-3))+((2)*(x)))) and I'm replacing subEx at 1 by (0)
+EX:  I'm ((((-1)/(x)))=(((-3))+((2)*(x)))), an orphan,  and I'm replacing subEx at 0 by ((-1)/(x))
+EX:  I'm (((-3))+((2)*(x))) in (((-1)/(x))=(((-3))+((2)*(x)))) and I'm replacing subEx at 0 by (-3)
+EX:  I'm ((2)*(x)) in ((-3)+((2)*(x))) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorDiv@3e3abc88 is messing around now.
+It's altEx is (2)
+on child (((-3)+(6)+((-1)/(x)))=((2)*(x)))
+EX:  I'm (((-3)+(6)+((-1)/(x)))=((2)*(x))), an orphan,  and I'm replacing subEx at 0 by (#VOID#/#VOID#)
+EX:  I'm ((((-3)+(6)+((-1)/(x)))/(2))=((2)*(x))), an orphan,  and I'm replacing subEx at 1 by (#VOID#/#VOID#)
+AD polishing ((((-3)+(6)+((-1)/(x)))/(2))=(((2)*(x))/(2)))
+EX:  I'm ((-1)/(x)) in ((-3)+(6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((2)*(x)) in (((2)*(x))/(2)) and I'm replacing subEx at 1 by (x)
+AD polished into ((((-3)+(6)+((-1)/(x)))/(2))=(((2)*(x))/(2)))
+DCS start ((-1)/(x))
+DCS after crossout before single plain :((-1)) / ((x))
+DCS single plain :((-1)) / ((x))
+DCS computing gcd from 1 and 1 = 1
+DCS ZERO return resulting ((-1)/(x))
+DCS start (((-3)+(6)+((-1)/(x)))/(2))
+DCS after crossout before single plain :(((-3)+(6)+((-1)/(x)))) / ((2))
+DCS single plain :(((-3)+(6)+((-1)/(x)))) / ((2))
+DCS computing gcd from 1 and 2 = 1
+DCS ZERO return resulting (((-3)+(6)+((-1)/(x)))/(2))
+DCS start (((2)*(x))/(2))
+DCS crossing out (2)
+DCS after crossout before single plain :((1)*(x)) / ((1))
+DCS single plain :((1)*(x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+EX:  I'm ((1)/#VOID#) in ((((-3)+(6)+((-1)/(x)))/(2))=((1)/#VOID#)) and I'm replacing subEx at 0 by ()
+DCS resulting (((1)*(x))/(1))
+into val 1
+nouth.les.AlteratorDiv@3e3abc88 has brought me a new dirty child : ((((-3)+(6)+((-1)/(x)))/(2))=(((1)*(x))/(1)))
+State polishing child : ((((-3)+(6)+((-1)/(x)))/(2))=(((1)*(x))/(1)))
+EX:  I'm ((-1)/(x)) in ((-3)+(6)+((-1)/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((1)*(x)) in (((1)*(x))/(1)) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))/(1)) in ((((-3)+(6)+((-1)/(x)))/(2))=(((x))/(1))) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((((-3)+(6)+((-1)/(x)))/(2))=((x)/(1))), an orphan,  and I'm replacing subEx at 1 by ((1)*(x))
+EX:  I'm ((1)*(x)) in ((((-3)+(6)+((-1)/(x)))/(2))=((1)*(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((((-3)+(6)+((-1)/(x)))/(2))=((x))), an orphan,  and I'm replacing subEx at 1 by (x)
+It just propagated.
+New unique children : <(((-3)+(6)+(((-1)^(1))/((x)^(1))))=((2)*(x))) ; (((3)+((-1)/(x)))=((2)*(x))) ; (((((-1)*(1))+((-3)*(x))+((6)*(x)))/(x))=((2)*(x))) ; ((3)=((3)/(x))) ; (((-1)/(x))=((-3)+((2)*(x)))) ; ((((-3)+(6)+((-1)/(x)))/(2))=(x)) ; >
+Children hfs : <3014 ; 2009 ; 3016 ; 1005 ; 2009 ; 3010 ; >
+Children ops : <nouth.les.DivCruncherSimplifyNew@6ce253f1nouth.les.AddCruncherEqual@e9e54c2nouth.les.AddCruncherSingleDenominator@65ab7765nouth.les.AlteratorAdd@816f27dnouth.les.AlteratorAdd@87aac27nouth.les.AlteratorDiv@3e3abc88>
+=====================================STATE 3 , generation 2
+CurrState is ((3)=((3)/(x)))
+It's hf is 1005
+It's parent's operator is : nouth.les.MultiCruncherPlain@7adf9f5f
+It's operator is : nouth.les.AlteratorAdd@816f27d
+I'm ((3)=((3)/(x))) and I'm about to propagate.
+EqEx : (3) is suggesting alterators now.
+EqEx : ((3)/(x)) is suggesting alterators now.
+nouth.les.AlteratorMulti@3b07d329
+adding it.
+nouth.les.DivCruncherSimplifyNew@41629346 is messing around now.
+on child ((3)=((3)/(x)))
+EX:  I'm ((3)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (3)
+EX:  I'm ((3)^#VOID#) in (((3)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((3)^(1))
+EX:  I'm ((x)), an orphan,  and I'm replacing subEx at 0 by (#VOID#^#VOID#)
+EX:  I'm (#VOID#^#VOID#) in ((#VOID#^#VOID#)) and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)^#VOID#) in (((x)^#VOID#)) and I'm replacing subEx at 1 by (1)
+DCSN listadd((x)^(1))
+DCSN new num ((3)^(1))
+DCSN new den ((x)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@41629346 has brought me a new dirty child : ((3)=(((3)^(1))/((x)^(1))))
+State polishing child : ((3)=(((3)^(1))/((x)^(1))))
+EX:  I'm ((x)^(1)) in (((3)^(1))/((x)^(1))) and I'm replacing subEx at 0 by (x)
+nouth.les.DivCruncherEmergeDivs@404b9385 is messing around now.
+on child ((3)=((3)/(x)))
+into val 0
+nouth.les.AlteratorMulti@3b07d329 is messing around now.
+It's altEx is (x)
+on child ((3)=((3)/(x)))
+EX:  I'm ((3)=((3)/(x))), an orphan,  and I'm replacing subEx at 0 by ()
+EX:  I'm ((3)/(x)) in (((3)*(x))=((3)/(x))) and I'm replacing subEx at 0 by ()
+AM 1/4: (((3)*(x))=(((3)*(x))/(x)))
+EX:  I'm ((3)*(x)) in (((3)*(x))=(((3)*(x))/(x))) and I'm replacing subEx at 1 by (x)
+EX:  I'm ((3)*(x)) in (((3)*(x))/(x)) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((3)*(x))/(x)) in (((3)*(x))=(((3)*(x))/(x))) and I'm replacing subEx at 1 by (x)
+AM 1/4: (((3)*(x))=(((3)*(x))/(x)))
+AM 1/4: (((3)*(x))=(((3)*(x))/(x)))
+DCS start (((3)*(x))/(x))
+DCS crossing out (x)
+DCS after crossout before single plain :((1)*(3)) / ((1))
+DCS single plain :((3)) / ((1))
+DCS computing gcd from 3 and 1 = 1
+DCS resulting ((3)/(1))
+AM 1/4: (((3)*(x))=((3)/(1)))
+into val 1
+nouth.les.AlteratorMulti@3b07d329 has brought me a new dirty child : (((3)*(x))=((3)/(1)))
+State polishing child : (((3)*(x))=((3)/(1)))
+EX:  I'm ((3)*(x)) in (((3)*(x))=((3)/(1))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((3)*(x))=((3)/(1))), an orphan,  and I'm replacing subEx at 1 by ((1)*(3))
+EX:  I'm (((3)*(x))=((3))), an orphan,  and I'm replacing subEx at 1 by (3)
+It just propagated.
+New unique children : <((3)=(((3)^(1))/((x)^(1)))) ; (((3)*(x))=(3)) ; >
+Children hfs : <2009 ; 1005 ; >
+Children ops : <nouth.les.DivCruncherSimplifyNew@41629346nouth.les.AlteratorMulti@3b07d329>
+=====================================STATE 4 , generation 3
+CurrState is (((3)*(x))=(3))
+It's hf is 1005
+It's parent's operator is : nouth.les.AlteratorAdd@816f27d
+It's operator is : nouth.les.AlteratorMulti@3b07d329
+I'm (((3)*(x))=(3)) and I'm about to propagate.
+EqEx : ((3)*(x)) is suggesting alterators now.
+MultiEx suggestAlts : ((3)*(x)) suggesting now.
+ME sA checking (3)
+ME sA multied by (3) into ((3))
+ME sA checking (x)
+EX:  I'm (((3))), an orphan,  and I'm replacing subEx at 0 by (3)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((3))
+nouth.les.AlteratorDiv@6d311334
+adding it.
+EqEx : (3) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@682a0b20 is messing around now.
+on child (((3)*(x))=(3))
+into val 0
+nouth.les.MultiCruncherExpand@3d075dc0 is messing around now.
+on child (((3)*(x))=(3))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@214c265e is messing around now.
+on child (((3)*(x))=(3))
+mcd worklist (3)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@448139f0 is messing around now.
+on child (((3)*(x))=(3))
+into val 0
+nouth.les.MultiCruncherPowerise@7cca494b is messing around now.
+on child (((3)*(x))=(3))
+MCP adding (3)
+MCP adding (x)
+MCP res ((3)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@7cca494b has brought me a new dirty child : (((3)*(x))=(3))
+State polishing child : (((3)*(x))=(3))
+EX:  I'm ((3)*(x)) in (((3)*(x))=(3)) and I'm replacing subEx at 1 by (x)
+nouth.les.AlteratorDiv@6d311334 is messing around now.
+It's altEx is (3)
+on child (((3)*(x))=(3))
+EX:  I'm (((3)*(x))=(3)), an orphan,  and I'm replacing subEx at 0 by (#VOID#/#VOID#)
+EX:  I'm ((((3)*(x))/(3))=(3)), an orphan,  and I'm replacing subEx at 1 by (#VOID#/#VOID#)
+AD polishing ((((3)*(x))/(3))=((3)/(3)))
+EX:  I'm ((3)*(x)) in (((3)*(x))/(3)) and I'm replacing subEx at 1 by (x)
+AD polished into ((((3)*(x))/(3))=((3)/(3)))
+DCS start (((3)*(x))/(3))
+DCS crossing out (3)
+DCS after crossout before single plain :((1)*(x)) / ((1))
+DCS single plain :((1)*(x)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+EX:  I'm ((1)/#VOID#) in (((1)/#VOID#)=((3)/(3))) and I'm replacing subEx at 0 by ()
+DCS resulting (((1)*(x))/(1))
+DCS start ((3)/(3))
+DCS crossing out (3)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+into val 1
+nouth.les.AlteratorDiv@6d311334 has brought me a new dirty child : ((((1)*(x))/(1))=((1)/(1)))
+State polishing child : ((((1)*(x))/(1))=((1)/(1)))
+EX:  I'm ((1)*(x)) in (((1)*(x))/(1)) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))/(1)) in ((((x))/(1))=((1)/(1))) and I'm replacing subEx at 0 by (x)
+EX:  I'm (((x)/(1))=((1)/(1))), an orphan,  and I'm replacing subEx at 0 by ((1)*(x))
+EX:  I'm ((1)*(x)) in (((1)*(x))=((1)/(1))) and I'm replacing subEx at 1 by (x)
+EX:  I'm (((x))=((1)/(1))), an orphan,  and I'm replacing subEx at 0 by (x)
+EX:  I'm ((x)=((1)/(1))), an orphan,  and I'm replacing subEx at 1 by ((1)*(1))
+EX:  I'm ((x)=((1))), an orphan,  and I'm replacing subEx at 1 by (1)
+It just propagated.
+Result found in children !
+it's ((x)=(1))
+EX:  I'm ((x)=(1)), an orphan,  and I'm replacing subEx at 0 by (x)
+cleaned up : ((x)=(1))
+outputer found ((x)=(1))
