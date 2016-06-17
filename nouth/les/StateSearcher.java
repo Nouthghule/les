@@ -50,6 +50,10 @@ public State find(String str){
 			genState = genState.parent;
 			}
 
+		if( stateNum > 30){
+			break;
+			}
+
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
 		System.out.println("CurrState is " + currState.stateEx.report());
 		System.out.println("It's hf is " + hf(currState));
