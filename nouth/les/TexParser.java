@@ -124,6 +124,10 @@ public String normToRPN(String s){
 
 	}
 
+public void doPop(){
+	System.out.println("operators pop : " + operators.pop());
+	}
+
 public void opAdded(){
 	if(lastOp.equals("")){
 		lastOp = operators.peek();
@@ -134,31 +138,36 @@ public void opAdded(){
 
 	if(negateable&&lastOp.equals("(")&&newOp.equals("-")){
 		negateNext = true;
-		operators.pop();
+		doPop();
 		return;
 		}
 
 	if(newOp.equals(")")){
-		operators.pop();
-		System.out.println("operators pop ");
+		doPop();
 		while(!operators.peek().equals("(")){
 			executeMember(operators.pop());
+			System.out.println("operators pop into execute");
 			}
-		operators.pop(); //kill the other bracket.
-		System.out.println("operators pop ");
+		doPop();
+		try{
+			lastOp = operators.peek();
+			}
+		catch(Exception e){
+			lastOp = "";
+			}
 		return;
 		}
 	System.out.println("new op " +newOp+ " vs last op " +lastOp);
 	if(ops.get(newOp).intValue()<=ops.get(lastOp).intValue()){
 		String hold = operators.pop();
-		System.out.println("operators pop ");
+		System.out.println("operators pop " + hold);
 		String next = operators.pop();
-		System.out.println("operators pop ");
+		System.out.println("operators pop " + next);
 		if(next.equals("(")||hold.equals("(")){
 			operators.add(next);
 			operators.add(hold);
 			lastOp = operators.peek();
-			System.out.println("operators undo last two pops. ");
+			System.out.println("operators return back :  " +next + " " + hold);
 			return;
 			}
 		executeMember(next);

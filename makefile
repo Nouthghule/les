@@ -5,7 +5,7 @@ CLASSES := $(shell cd build/;find -name *.class)
 all: release/les.jar
 	
 release/les.jar: $(CLASSESFULL)
-	cd build/;jar -cfm ../release/les.jar ../Manifest.txt $(CLASSES);cd ../
+	echo Makefile going for jar!;cd build/;jar -cfm ../release/les.jar ../Manifest.txt $(CLASSES);cd ../
 
 build/nouth/les/%.class: nouth/les/%.java
 	javac -d build/ $< 
