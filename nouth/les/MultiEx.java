@@ -163,6 +163,19 @@ public ArrayList<Alterator> suggestAlterators(){
 	return l;
         }
 
+public String reportForTex(){
+	String s = "";
+	int i = 0;
+	for(Ex e : exList){
+		s += e.reportForTex();
+		if((i!=(this.size()-1))){
+			s+= "\\\\\\cdot ";
+			}
+		i++;
+		}
+	return s;
+	}
+
 }
 
 
