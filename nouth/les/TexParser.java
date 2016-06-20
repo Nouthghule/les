@@ -43,6 +43,7 @@ public String texToNorm(String s){
 		System.out.println(s);
 		s = s.replaceAll("\\\\frac\\{([^}]*)\\}\\{([^}]*)\\}","($1)/($2)");
 		System.out.println(s);
+		s = s.replaceAll("\\\\cdot","\\*");
 		s = s.replaceAll("\\\\sqrt\\{([^}]*)\\}","($1)^(1/2)");
 		s = s.replaceAll("\\\\sqrt\\[([^]]*)\\]\\{([^}]*)\\}","(($2)^(1/$1))");
 		s = s.replaceAll("&","");
@@ -61,7 +62,6 @@ public String texToNorm(String s){
 		before = "";
 			s = s.replaceAll("([0-9]+)([^0-9^+\\-\\(\\)/* ])","$1 * $2");
 			System.out.println("tparser " + s);
-			s = s.replaceAll("\\\\cdot","\\*");
 			System.out.println("tparser " + s);
 		//s = s.replaceAll("([^\\-+=\\)/*^])\\s([^\\-+=\\)\\(/*^])","$1 * $2");
 	return s;

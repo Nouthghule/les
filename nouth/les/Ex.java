@@ -97,9 +97,10 @@ public abstract class Ex implements Comparable<Ex> {
 			}
 			this.unwrap();
 			this.sort();
-			if(this.report().equals(s)||true){
+			if(this.report().equals(s)){
 				break;
 				}
+			s = this.report();
 		}
 	}
 
