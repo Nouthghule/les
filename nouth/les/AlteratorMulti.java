@@ -16,8 +16,8 @@ public int alter(Ex targetEx){
 	Cruncher cr = new MultiCruncherPlain();
 	cr.execute(over);
 	System.out.println("AM 1/4: " + over.report()); 
-	cr = new DivCruncherSimplify();
-	cr.execute(over);
+//	cr = new DivCruncherSimplify();
+//	cr.execute(over);
 	System.out.println("AM 1/4: " + over.report()); 
 
 	return 1;

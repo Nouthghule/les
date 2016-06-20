@@ -14,8 +14,8 @@ public int alter(Ex targetEx){
 	System.out.println("AD polishing " + over.report());
 	over.polish();
 	System.out.println("AD polished into " + over.report());
-	Cruncher cr = new DivCruncherSimplify();
-	cr.execute(over);
+//	Cruncher cr = new DivCruncherSimplify();
+//	cr.execute(over);
 
 	return 1;
 	}
