@@ -1,5 +1,7 @@
 \frac{10}{5}-5x+y=0
 (10)/(5)-5x+y=0
+tparser ( ( 10 ) / ( 5 ) - 5 * x + y = 0 )
+tparser ( ( 10 ) / ( 5 ) - 5 * x + y = 0 )
 ready S : ( ( 10 ) / ( 5 ) - 5 * x + y = 0 ) 
 operators push (
 operators push (

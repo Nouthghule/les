@@ -45,7 +45,7 @@ public class Les{
 				
 			String output = o.getOutput(input, var);
 			
-			m.appendReplacement(sb,input +"\\\\\\\\"+ "\n" + output);
+			m.appendReplacement(sb,output);
 			
 			}
 		m.appendTail(sb);

@@ -60,6 +60,9 @@ public String texToNorm(String s){
 			}
 		before = "";
 			s = s.replaceAll("([0-9]+)([^0-9^+\\-\\(\\)/* ])","$1 * $2");
+			System.out.println("tparser " + s);
+			s = s.replaceAll("\\\\cdot","\\*");
+			System.out.println("tparser " + s);
 		//s = s.replaceAll("([^\\-+=\\)/*^])\\s([^\\-+=\\)\\(/*^])","$1 * $2");
 	return s;
 	}

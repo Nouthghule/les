@@ -91,13 +91,16 @@ public abstract class Ex implements Comparable<Ex> {
 
 	public final void polish(){
 		String s = this.report();
-		//	System.out.println("ex polishing : " +s);
-		for(Ex e : exList){
-			e.polish();
+		while(true){
+			for(Ex e : exList){
+				e.polish();
+			}
+			this.unwrap();
+			this.sort();
+			if(this.report().equals(s)||true){
+				break;
+				}
 		}
-		this.unwrap();
-		this.sort();
-		//	System.out.println(s + " polished into " + this.report());
 	}
 
 	//////////////////////////////////

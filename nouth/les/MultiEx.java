@@ -168,10 +168,10 @@ public String reportForTex(){
 	int i = 0;
 	for(Ex e : exList){
 		if(!e.silent){
-			s += e.reportForTex();
-			if((i!=(this.size()-1))){
+			if((i!=0)){
 				s+= "\\\\\\cdot ";
 				}
+			s += e.reportForTex();
 			i++;
 		}
 		}
