@@ -35,9 +35,9 @@ public class Les{
 		
 		Outputter o = new Outputter();
 		StringBuffer sb = new StringBuffer();
-
+		String input="";
 		while(m.find()){
-			String input = m.group(1);
+			input = m.group(1);
 			String var = "x";
 			if(m.group(2)!=null&&m.group(2).trim().length()>0){
 			var = m.group(2);
@@ -49,7 +49,7 @@ public class Les{
 			
 			}
 		m.appendTail(sb);
-		String ultima = sb.toString();
+		String ultima = input+ "\\\\\n" + sb.toString();
 		PrintWriter pw;
 		try{
 			pw = new PrintWriter(f);

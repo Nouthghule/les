@@ -51,7 +51,7 @@ public State find(String str){
 			}
 
 		if( stateNum > 30){
-		//	break;
+			break;
 			}
 
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
@@ -150,12 +150,10 @@ public int hf(State argState){
 		ancestry++;
 		s=s.parent;
 		}
-	if(ancestry>4){
-		ancestry=ancestry*1000;
-		}
-	else{
-		ancestry=ancestry*0;
-		}
+	ancestry=ancestry*1000;
+
+
+
 	
 	int complexity = argState.stateEx.subExTotal();
 	if(complexity>999){

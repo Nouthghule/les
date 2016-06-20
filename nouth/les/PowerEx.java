@@ -32,7 +32,12 @@ public PowerEx(Ex e, Ex p){
 public void unwrap(){
 	if(((getSubEx(1) instanceof PlainEx)&&(((PlainEx)getSubEx(1)).value==0))||((getSubEx(0) instanceof PlainEx)&&(((PlainEx)getSubEx(0)).value==1))){
 		this.replaceSelf(new PlainEx(1));
+		return;
 		}
+	if(((getSubEx(1) instanceof PlainEx)&&(((PlainEx)getSubEx(1)).value==1))){
+		this.replaceSelf(getSubEx(0));
+		return;
+	}
 	}
 
 

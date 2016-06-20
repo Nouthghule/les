@@ -24,9 +24,6 @@ public String getOutput(String in, String var){
 			}
 		}
 	int i;
-	res += in;
-	res+= "\\\\\\\\";
-	res += "\n";
 
 	for(i=as.size()-2;i>=0;i--){
 	res += as.get(i);
