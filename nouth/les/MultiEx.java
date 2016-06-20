@@ -167,11 +167,13 @@ public String reportForTex(){
 	String s = "";
 	int i = 0;
 	for(Ex e : exList){
-		s += e.reportForTex();
-		if((i!=(this.size()-1))){
-			s+= "\\\\\\cdot ";
-			}
-		i++;
+		if(!e.silent){
+			s += e.reportForTex();
+			if((i!=(this.size()-1))){
+				s+= "\\\\\\cdot ";
+				}
+			i++;
+		}
 		}
 	return s;
 	}
