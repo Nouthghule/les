@@ -134,11 +134,19 @@ public String reportForTex(){
 			statement += ")";
 			}
 		
-		statement += "^{";
+		statement += "^";
+		
+		int len = getSubEx(1).reportForTex().length();
+
+		if(len>1){
+			statement+="{";
+			}
 
 		child = getSubEx(1);
 		statement += child.reportForTex();
-		statement += "}";
+		if(len>1){
+			statement += "}";
+			}
 	}
 	return statement;
 

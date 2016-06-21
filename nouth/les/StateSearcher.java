@@ -51,7 +51,7 @@ public State find(String str){
 			}
 
 		if( stateNum > 30){
-			break;
+//			break;
 			}
 
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;

@@ -41,11 +41,14 @@ public Ex parse(String input){
 public String texToNorm(String s){
 //(2+(3)s+s^2) x(s)+(2+s)y(s) =&(4+2)+(3+2)s+(3)s^2+s^3
 		System.out.println(s);
+		s = s.replaceAll("\\^\\{([^}]+)\\}","^($1)");
+		System.out.println(s);
 		s = s.replaceAll("\\\\frac\\{([^}]*)\\}\\{([^}]*)\\}","($1)/($2)");
 		System.out.println(s);
 		s = s.replaceAll("\\\\cdot","\\*");
 		s = s.replaceAll("\\\\sqrt\\{([^}]*)\\}","($1)^(1/2)");
 		s = s.replaceAll("\\\\sqrt\\[([^]]*)\\]\\{([^}]*)\\}","(($2)^(1/$1))");
+		System.out.println(s);
 		s = s.replaceAll("&","");
 		s = "( " + s + " )";
 		String before = "";
