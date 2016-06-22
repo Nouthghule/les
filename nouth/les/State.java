@@ -13,6 +13,8 @@ public Operator stateOp;
 
 public int hfVal;
 
+public boolean allowAlterators = true;
+
 public State(Ex theEx){
 	stateEx = theEx;
 	children = new ArrayList<State>();
@@ -25,6 +27,9 @@ public int propagate(){
 	ArrayList<Operator> suggestions = stateEx.suggest();
 	int fullOp = 0;
 	for(Operator o : suggestions){
+	if((!allowAlterators)&&(o instanceof Alterator)){
+		continue;
+		}
 	System.out.println(o + " is messing around now.");
 		if(o instanceof Alterator){
 			System.out.println("It's altEx is " + ((Alterator)o).altEx.report());
@@ -54,6 +59,7 @@ public int propagate(){
 	//		System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);
 			childState.stateOp = o;
+			childState.allowAlterators = this.allowAlterators;
 			childState.parent = this;
 			children.add(childState);
 			fullOp = fullOp + opVal;

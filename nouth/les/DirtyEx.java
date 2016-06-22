@@ -15,6 +15,9 @@ public Ex add(Ex e){
 	}
 
 @Override
+public void sort(){}
+
+@Override
 public void unwrap(){
 	if(!value.equals("")){
 		if(isNumeric(value)){
@@ -28,10 +31,10 @@ public void unwrap(){
 		return;
 		}
 	else{
-		System.out.println("DE Blank value with rs of " + reportSeparator);
+		System.out.println("DE Blank value with rs of " + reportSeparator + " and val of " + this.report());
 		if((reportSeparator == '$')&&(this.size()==1)){
+			System.out.println("DE replacing self with only child! : " + this.getSubEx(0).report());
 			this.replaceSelf(this.getSubEx(0));
-			System.out.println("DE replacing self with only child!");
 			return;
 			}
 		Ex ne = new VoidEx(); //wonder if this will work.

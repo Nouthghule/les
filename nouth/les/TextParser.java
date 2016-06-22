@@ -80,6 +80,7 @@ for(i=0;i<inputString.length();i++){
 
 	grandseer.getSubEx(0).polish();
 	Ex result = grandseer.getSubEx(0);
+	System.out.println("TextParser returning : " +result.report());
 	return result;
 }
 
