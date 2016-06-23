@@ -16,10 +16,12 @@ public String getOutput(String in, String var){
 	System.out.println("outputer found " + foundState.stateEx.report());
 	LinkedList<String> as = new LinkedList<String>();
 
+	String ugly = foundState.stateEx.report();
 	Simplifier wakko = new Simplifier();
 	Ex simple = wakko.simplify(foundState.stateEx);
-	as.add(simple.reportForTex());
-
+	if(!simple.report().equals(ugly)){
+		as.add(simple.reportForTex());
+		}
 	while(true){
 		
 		as.add((papa.stateEx.reportForTex()));
