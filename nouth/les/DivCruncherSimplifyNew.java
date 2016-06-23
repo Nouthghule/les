@@ -8,7 +8,11 @@ public int crunch(Ex targetEx){
 	if(!(targetEx instanceof DivEx)){
 		return 0;
 		}
+	
+	//First things first : deal with PlainExes.
 
+	dealWithPlainEx(targetEx);
+	
 	Cruncher cr = new PowerCruncherExpand();
 	MultiCruncherPowerise pw = new MultiCruncherPowerise();
 	pw.curbTriv = false;
@@ -114,5 +118,41 @@ public int crunch(Ex targetEx){
 	return 1;
 	}
 
+public void dealWithPlainEx(Ex targetEx){
+	Cruncher c = new MultiCruncherPlain();
+	c.crunch(targetEx.getSubEx(0));
+	c.crunch(targetEx.getSubEx(1));
+	targetEx.polish();
+	System.out.println("DCSN dealing with : " + targetEx.report());
+	Ex uno;
+	Ex duo;
+	try{
+		uno = targetEx.getSubEx(0).getSubEx(0);
+	}
+	catch(Exception e){
+		uno = targetEx.getSubEx(0);
+		}
+
+	try{
+		duo = targetEx.getSubEx(1).getSubEx(0);
+	}
+	catch(Exception e){
+		duo = targetEx.getSubEx(1);
+		}
+	if(!((uno instanceof PlainEx)&&(duo instanceof PlainEx))){
+		return;	
+		}
+	int a = ((PlainEx)uno).value;
+	int b = ((PlainEx)duo).value;
+	int g = gcd(a,b);
+	
+	a = a/g;
+	b = b/g;
+
+	uno.replaceSelf(new PlainEx(a));
+	duo.replaceSelf(new PlainEx(b));
+
+	targetEx.polish();
+	}
 
 }

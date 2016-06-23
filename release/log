@@ -1,10 +1,10 @@
-\frac{10*2}{5}-5x+y=0
-\frac{10*2}{5}-5x+y=0
-(10*2)/(5)-5x+y=0
-(10*2)/(5)-5x+y=0
-tparser ( ( 10 * 2 ) / ( 5 ) - 5 * x + y = 0 )
-tparser ( ( 10 * 2 ) / ( 5 ) - 5 * x + y = 0 )
-ready S : ( ( 10 * 2 ) / ( 5 ) - 5 * x + y = 0 ) 
+\frac{10*(2^5)}{5}-5x+y=0
+\frac{10*(2^5)}{5}-5x+y=0
+(10*(2^5))/(5)-5x+y=0
+(10*(2^5))/(5)-5x+y=0
+tparser ( ( 10 * ( 2 ^ 5 ) ) / ( 5 ) - 5 * x + y = 0 )
+tparser ( ( 10 * ( 2 ^ 5 ) ) / ( 5 ) - 5 * x + y = 0 )
+ready S : ( ( 10 * ( 2 ^ 5 ) ) / ( 5 ) - 5 * x + y = 0 ) 
 operators push (
 operators push (
 new op ( vs last op (
@@ -14,7 +14,19 @@ operators return back :  ( (
 members push 10
 operators push *
 new op * vs last op (
+operators push (
+new op ( vs last op *
+operators pop (
+operators pop *
+operators return back :  * (
 members push 2
+operators push ^
+new op ^ vs last op (
+members push 5
+operators push )
+operators pop : )
+operators pop into execute
+operators pop : (
 operators push )
 operators pop : )
 operators pop into execute
@@ -71,14 +83,15 @@ operators push )
 operators pop : )
 operators pop into execute
 operators pop : (
-10 2 * 5 / 5 x * - y + 0 =
- ((10)*(2)) 5 / 5 x * - y + 0 = 
- ((((10)*(2)))/(5)) 5 x * - y + 0 = 
- ((((10)*(2)))/(5)) ((5)*(x)) - y + 0 = 
- ((((((10)*(2)))/(5)))-(((5)*(x)))) y + 0 = 
- ((((((((10)*(2)))/(5)))-(((5)*(x)))))+(y)) 0 = 
- ((((((((((10)*(2)))/(5)))-(((5)*(x)))))+(y)))=(0)) 
-Parsing ex from  ((((((((((10)*(2)))/(5)))-(((5)*(x)))))+(y)))=(0)) 
+10 2 5 ^ * 5 / 5 x * - y + 0 =
+ 10 ((2)^(5)) * 5 / 5 x * - y + 0 = 
+ ((10)*(((2)^(5)))) 5 / 5 x * - y + 0 = 
+ ((((10)*(((2)^(5)))))/(5)) 5 x * - y + 0 = 
+ ((((10)*(((2)^(5)))))/(5)) ((5)*(x)) - y + 0 = 
+ ((((((10)*(((2)^(5)))))/(5)))-(((5)*(x)))) y + 0 = 
+ ((((((((10)*(((2)^(5)))))/(5)))-(((5)*(x)))))+(y)) 0 = 
+ ((((((((((10)*(((2)^(5)))))/(5)))-(((5)*(x)))))+(y)))=(0)) 
+Parsing ex from  ((((((((((10)*(((2)^(5)))))/(5)))-(((5)*(x)))))+(y)))=(0)) 
 TP:Start of new ex.
 TP:Start of new ex.
 TP:Start of new ex.
@@ -94,8 +107,16 @@ TP:default 0
 TP: end of ex of 10
 TP:default *
 TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
 TP:default 2
 TP: end of ex of 2
+TP:default ^
+TP:Start of new ex.
+TP:default 5
+TP: end of ex of 5
+TP: end of ex of 
+TP: end of ex of 
 TP: end of ex of 
 TP: end of ex of 
 TP:default /
@@ -132,19 +153,26 @@ TP: end of ex of
 Negating ((()*()))
 DE replaceself numeric 10
 DE replaceself numeric 2
-DE Blank value with rs of * and val of ((10)*(2))
-DE Blank value with rs of * and val of ((10)*(2))
-DE Blank value with rs of $ and val of (((10)*(2)))
-DE replacing self with only child! : ((10)*(2))
-DE Blank value with rs of $ and val of (((10)*(2)))
-DE replacing self with only child! : ((10)*(2))
 DE replaceself numeric 5
-DE Blank value with rs of / and val of (((10)*(2))/(5))
-DE Blank value with rs of / and val of (((10)*(2))/(5))
-DE Blank value with rs of $ and val of ((((10)*(2))/(5)))
-DE replacing self with only child! : (((10)*(2))/(5))
-DE Blank value with rs of $ and val of ((((10)*(2))/(5)))
-DE replacing self with only child! : (((10)*(2))/(5))
+DE Blank value with rs of ^ and val of ((2)^(5))
+DE Blank value with rs of ^ and val of ((2)^(5))
+DE Blank value with rs of $ and val of (((2)^(5)))
+DE replacing self with only child! : ((2)^(5))
+DE Blank value with rs of $ and val of (((2)^(5)))
+DE replacing self with only child! : ((2)^(5))
+DE Blank value with rs of * and val of ((10)*((2)^(5)))
+DE Blank value with rs of * and val of ((10)*((2)^(5)))
+DE Blank value with rs of $ and val of (((10)*((2)^(5))))
+DE replacing self with only child! : ((10)*((2)^(5)))
+DE Blank value with rs of $ and val of (((10)*((2)^(5))))
+DE replacing self with only child! : ((10)*((2)^(5)))
+DE replaceself numeric 5
+DE Blank value with rs of / and val of (((10)*((2)^(5)))/(5))
+DE Blank value with rs of / and val of (((10)*((2)^(5)))/(5))
+DE Blank value with rs of $ and val of ((((10)*((2)^(5)))/(5)))
+DE replacing self with only child! : (((10)*((2)^(5)))/(5))
+DE Blank value with rs of $ and val of ((((10)*((2)^(5)))/(5)))
+DE replacing self with only child! : (((10)*((2)^(5)))/(5))
 DE replaceself numeric 5
 DE replaceself x
 DE Blank value with rs of * and val of ((5)*(x))
@@ -153,37 +181,37 @@ DE Blank value with rs of $ and val of (((5)*(x)))
 DE replacing self with only child! : ((5)*(x))
 DE Blank value with rs of $ and val of (((5)*(x)))
 DE replacing self with only child! : ((5)*(x))
-DE Blank value with rs of + and val of ((((10)*(2))/(5))+((-1)*(5)*(x)))
-DE Blank value with rs of + and val of ((((10)*(2))/(5))+((-1)*(5)*(x)))
-DE Blank value with rs of $ and val of (((((10)*(2))/(5))+((-1)*(5)*(x))))
-DE replacing self with only child! : ((((10)*(2))/(5))+((-1)*(5)*(x)))
-DE Blank value with rs of $ and val of (((((10)*(2))/(5))+((-1)*(5)*(x))))
-DE replacing self with only child! : ((((10)*(2))/(5))+((-1)*(5)*(x)))
+DE Blank value with rs of + and val of ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))
+DE Blank value with rs of + and val of ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))
+DE Blank value with rs of $ and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))))
+DE replacing self with only child! : ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))
+DE Blank value with rs of $ and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))))
+DE replacing self with only child! : ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))
 DE replaceself y
-DE Blank value with rs of + and val of (((((10)*(2))/(5))+((-1)*(5)*(x)))+(y))
-DE Blank value with rs of + and val of (((((10)*(2))/(5))+((-1)*(5)*(x)))+(y))
-DE Blank value with rs of $ and val of ((((((10)*(2))/(5))+((-1)*(5)*(x)))+(y)))
-DE replacing self with only child! : (((((10)*(2))/(5))+((-1)*(5)*(x)))+(y))
-DE Blank value with rs of $ and val of (((((10)*(2))/(5))+((-1)*(5)*(x))+(y)))
-DE replacing self with only child! : ((((10)*(2))/(5))+((-1)*(5)*(x))+(y))
-DE Blank value with rs of $ and val of (((((10)*(2))/(5))+((-1)*(5)*(x))+(y)))
-DE replacing self with only child! : ((((10)*(2))/(5))+((-1)*(5)*(x))+(y))
+DE Blank value with rs of + and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))+(y))
+DE Blank value with rs of + and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))+(y))
+DE Blank value with rs of $ and val of ((((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))+(y)))
+DE replacing self with only child! : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x)))+(y))
+DE Blank value with rs of $ and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y)))
+DE replacing self with only child! : ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))
+DE Blank value with rs of $ and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y)))
+DE replacing self with only child! : ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))
 DE replaceself numeric 0
-DE Blank value with rs of = and val of (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-DE Blank value with rs of = and val of (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-DE Blank value with rs of $ and val of ((((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0)))
-DE replacing self with only child! : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-DE Blank value with rs of $ and val of ((((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0)))
-DE replacing self with only child! : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-TextParser returning : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-Parsed ex as : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+DE Blank value with rs of = and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+DE Blank value with rs of = and val of (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+DE Blank value with rs of $ and val of ((((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0)))
+DE replacing self with only child! : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+DE Blank value with rs of $ and val of ((((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0)))
+DE replacing self with only child! : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+TextParser returning : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+Parsed ex as : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 =====================================STATE 1 , generation 0
-CurrState is (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-It's hf is 20013
+CurrState is (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+It's hf is 20015
 It's parent's operator is : nouth.les.DefOperator@5451c3a8
 It's operator is : nouth.les.DefOperator@5451c3a8
-I'm (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0)) and I'm about to propagate.
-EqEx : ((((10)*(2))/(5))+((-1)*(5)*(x))+(y)) is suggesting alterators now.
+I'm (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0)) and I'm about to propagate.
+EqEx : ((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y)) is suggesting alterators now.
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
 nouth.les.AlteratorAdd@f6f4d33
@@ -195,78 +223,18 @@ adding it.
 nouth.les.AlteratorAdd@4f023edb
 adding it.
 EqEx : (0) is suggesting alterators now.
-nouth.les.MultiCruncherPlain@3a71f4dd is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-into val 2
-nouth.les.MultiCruncherPlain@3a71f4dd has brought me a new dirty child : (((((20))/(5))+((-5)*(x))+(y))=(0))
-State polishing child : (((((20))/(5))+((-5)*(x))+(y))=(0))
-nouth.les.MultiCruncherExpand@5674cd4d is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-into val 0
-nouth.les.MultiCruncherDivs@63961c42 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-mcd worklist (10)
-mcd worklist (2)
-mcd worklist (-1)
-mcd worklist (5)
-mcd worklist (x)
-into val 0
-nouth.les.MultiCruncherNumerator@65b54208 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-into val 0
-nouth.les.MultiCruncherPowerise@1be6f5c3 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-MCP adding (10)
-MCP adding (2)
-MCP res ((10)*(2))
-MCP adding (-1)
-MCP adding (5)
-MCP adding (x)
-MCP res ((-1)*(5)*(x))
-into val 2
-nouth.les.MultiCruncherPowerise@1be6f5c3 has brought me a new dirty child : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-State polishing child : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-nouth.les.DivCruncherSimplifyNew@38af3868 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-MCP adding (10)
-MCP adding (2)
-MCP res (((10)^(1))*((2)^(1)))
-DCSN list is subexlist of (((10)^(1))*((2)^(1)))
-DCSN listadd((5)^(1))
-DCSN new num ((10)^(1))
-DCSN new den ((5)^(1))
-DCSN new num ((2)^(1))
-DCSN new den ((5)^(1))
+nouth.les.PowerCruncherExpand@3a71f4dd is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 into val 1
-nouth.les.DivCruncherSimplifyNew@38af3868 has brought me a new dirty child : ((((((10)^(1))*((2)^(1)))/((5)^(1)))+((-1)*(5)*(x))+(y))=(0))
-State polishing child : ((((((10)^(1))*((2)^(1)))/((5)^(1)))+((-1)*(5)*(x))+(y))=(0))
-nouth.les.DivCruncherEmergeDivs@5b2133b1 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-into val 0
-nouth.les.MultiCruncherPlain@72ea2f77 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-into val 2
-nouth.les.MultiCruncherPlain@72ea2f77 has brought me a new dirty child : (((((20))/(5))+((-5)*(x))+(y))=(0))
-State polishing child : (((((20))/(5))+((-5)*(x))+(y))=(0))
-nouth.les.MultiCruncherExpand@33c7353a is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
+nouth.les.PowerCruncherExpand@3a71f4dd has brought me a new dirty child : (((((10)*((2)*(2)*(2)*(2)*(2)))/(5))+((-1)*(5)*(x))+(y))=(0))
+State polishing child : (((((10)*((2)*(2)*(2)*(2)*(2)))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.MultiCruncherPlain@5674cd4d is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+into val 1
+nouth.les.MultiCruncherPlain@5674cd4d has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=(0))
+State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=(0))
+nouth.les.MultiCruncherExpand@63961c42 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 MCE target not multiex 0
 MCE target not multiex 0
 MCE target not multiex 0
@@ -276,32 +244,99 @@ MCE target not multiex 0
 MCE target not multiex 0
 MCE target not multiex 0
 MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
 into val 0
-nouth.les.MultiCruncherDivs@681a9515 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.MultiCruncherDivs@65b54208 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 mcd worklist (10)
-mcd worklist (2)
+mcd worklist ((2)^(5))
 mcd worklist (-1)
 mcd worklist (5)
 mcd worklist (x)
 into val 0
-nouth.les.MultiCruncherNumerator@3af49f1c is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.MultiCruncherNumerator@1be6f5c3 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 into val 0
-nouth.les.MultiCruncherPowerise@19469ea2 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.MultiCruncherPowerise@77459877 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 MCP adding (10)
-MCP adding (2)
-MCP res ((10)*(2))
+MCP adding ((2)^(5))
+MCP res ((10)*((2)^(5)))
 MCP adding (-1)
 MCP adding (5)
 MCP adding (x)
 MCP res ((-1)*(5)*(x))
 into val 2
-nouth.les.MultiCruncherPowerise@19469ea2 has brought me a new dirty child : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-State polishing child : (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
-nouth.les.AddCruncherEqual@13221655 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.MultiCruncherPowerise@77459877 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+State polishing child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.DivCruncherSimplifyNew@5b2133b1 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+DCSN dealing with : (((10)*((2)^(5)))/(5))
+MCP adding (2)
+MCP res (((2)^(6)))
+DCSN list is subexlist of (((2)^(6)))
+DCSN listadd((1)^(1))
+DCSN new num ((2)^(6))
+DCSN new den ((1)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@5b2133b1 has brought me a new dirty child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(0))
+State polishing child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.DivCruncherEmergeDivs@33c7353a is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+into val 0
+nouth.les.MultiCruncherPlain@681a9515 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+into val 1
+nouth.les.MultiCruncherPlain@681a9515 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=(0))
+State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=(0))
+nouth.les.MultiCruncherExpand@3af49f1c is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@19469ea2 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+mcd worklist (10)
+mcd worklist ((2)^(5))
+mcd worklist (-1)
+mcd worklist (5)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@13221655 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+into val 0
+nouth.les.MultiCruncherPowerise@2f2c9b19 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+MCP adding (10)
+MCP adding ((2)^(5))
+MCP res ((10)*((2)^(5)))
+MCP adding (-1)
+MCP adding (5)
+MCP adding (x)
+MCP res ((-1)*(5)*(x))
+into val 2
+nouth.les.MultiCruncherPowerise@2f2c9b19 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+State polishing child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.AddCruncherEqual@31befd9f is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACE rwif ((5))
 ACE rwif ((x))
 ACE rwif ((5))
@@ -312,13 +347,15 @@ comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
 into val 0
-nouth.les.AddCruncherSingleDenominator@2f2c9b19 is messing around now.
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+nouth.les.AddCruncherSingleDenominator@1fb3ebeb is messing around now.
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACSD 0 not addex (10)
 ACSD 0 not addex (2)
-ACSD 0 not addex ((10)*(2))
 ACSD 0 not addex (5)
-ACSD 0 not addex (((10)*(2))/(5))
+ACSD 0 not addex ((2)^(5))
+ACSD 0 not addex ((10)*((2)^(5)))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((10)*((2)^(5)))/(5))
 ACSD 0 not addex (-1)
 ACSD 0 not addex (5)
 ACSD 0 not addex (x)
@@ -352,13 +389,13 @@ ACSD : holderEx polished is (1)
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
 ACSD 0 not addex (0)
-ACSD 0 not addex (((((-1)*(5)*(5)*(x))+((10)*(2))+((5)*(y)))/(5))=(0))
+ACSD 0 not addex (((((-1)*(5)*(5)*(x))+((10)*((2)^(5)))+((5)*(y)))/(5))=(0))
 into val 1
-nouth.les.AddCruncherSingleDenominator@2f2c9b19 has brought me a new dirty child : (((((-1)*(5)*(5)*(x))+((10)*(2))+((5)*(y)))/(5))=(0))
-State polishing child : (((((-1)*(5)*(5)*(x))+((10)*(2))+((5)*(y)))/(5))=(0))
+nouth.les.AddCruncherSingleDenominator@1fb3ebeb has brought me a new dirty child : (((((-1)*(5)*(5)*(x))+((10)*((2)^(5)))+((5)*(y)))/(5))=(0))
+State polishing child : (((((-1)*(5)*(5)*(x))+((10)*((2)^(5)))+((5)*(y)))/(5))=(0))
 nouth.les.AlteratorAdd@f6f4d33 is messing around now.
 It's altEx is (((-1)*(-1)*(5)*(x)))
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACE rwif ((5))
 ACE rwif ((x))
 ACE rwif ((5))
@@ -378,19 +415,19 @@ comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
 into val 1
-nouth.les.AlteratorAdd@f6f4d33 has brought me a new dirty child : (((((20))/(5))+((0)*(x))+((1)*(y)))=((5)*(x)))
-State polishing child : (((((20))/(5))+((0)*(x))+((1)*(y)))=((5)*(x)))
+nouth.les.AlteratorAdd@f6f4d33 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((0)*(x))+((1)*(y)))=((5)*(x)))
+State polishing child : (((((10)*((2)^(5)))/(5))+((0)*(x))+((1)*(y)))=((5)*(x)))
 nouth.les.AlteratorAdd@23fc625e is messing around now.
-It's altEx is ((((-1)*(10)*(2))/(5))+((-1)*(y)))
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+It's altEx is ((((-1)*(10)*((2)^(5)))/(5))+((-1)*(y)))
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACE rwif ((5))
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+comparing(((2)^(5))) to (((2)^(5)))
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
@@ -415,11 +452,11 @@ ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 into val 1
-nouth.les.AlteratorAdd@23fc625e has brought me a new dirty child : ((((-5)*(x))+((0)*(y))+((0)/(5)))=((((-20))/(5))+((-1)*(y))))
-State polishing child : ((((-5)*(x))+((0)*(y))+((0)/(5)))=((((-20))/(5))+((-1)*(y))))
+nouth.les.AlteratorAdd@23fc625e has brought me a new dirty child : ((((-5)*(x))+((0)*(y))+((0)/(5)))=((((-10)*((2)^(5)))/(5))+((-1)*(y))))
+State polishing child : ((((-5)*(x))+((0)*(y))+((0)/(5)))=((((-10)*((2)^(5)))/(5))+((-1)*(y))))
 nouth.les.AlteratorAdd@3f99bd52 is messing around now.
 It's altEx is (((-1)*(y)))
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACE rwif ((5))
 ACE rwif ((x))
 ACE rwif ((5))
@@ -441,19 +478,19 @@ ACE rwif ()
 ACE rwif ()
 comparing() to ()
 into val 1
-nouth.les.AlteratorAdd@3f99bd52 has brought me a new dirty child : (((((20))/(5))+((-5)*(x))+((0)*(y)))=((-1)*(y)))
-State polishing child : (((((20))/(5))+((-5)*(x))+((0)*(y)))=((-1)*(y)))
+nouth.les.AlteratorAdd@3f99bd52 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+((0)*(y)))=((-1)*(y)))
+State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+((0)*(y)))=((-1)*(y)))
 nouth.les.AlteratorAdd@4f023edb is messing around now.
-It's altEx is ((((-1)*(10)*(2))/(5))+((-1)*(-1)*(5)*(x)))
-on child (((((10)*(2))/(5))+((-1)*(5)*(x))+(y))=(0))
+It's altEx is ((((-1)*(10)*((2)^(5)))/(5))+((-1)*(-1)*(5)*(x)))
+on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=(0))
 ACE rwif ((5))
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+comparing(((2)^(5))) to (((2)^(5)))
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
@@ -476,23 +513,23 @@ ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
 into val 1
-nouth.les.AlteratorAdd@4f023edb has brought me a new dirty child : ((((0)*(x))+((0)/(5))+((1)*(y)))=((((-20))/(5))+((5)*(x))))
-State polishing child : ((((0)*(x))+((0)/(5))+((1)*(y)))=((((-20))/(5))+((5)*(x))))
+nouth.les.AlteratorAdd@4f023edb has brought me a new dirty child : ((((0)*(x))+((0)/(5))+((1)*(y)))=((((-10)*((2)^(5)))/(5))+((5)*(x))))
+State polishing child : ((((0)*(x))+((0)/(5))+((1)*(y)))=((((-10)*((2)^(5)))/(5))+((5)*(x))))
 It just propagated.
-New unique children : <((((-5)*(x))+((20)/(5))+(y))=(0)) ; (((((-1)*(5)*(5)*(x))+((10)*(2))+((5)*(y)))/(5))=(0)) ; ((((20)/(5))+(y))=((5)*(x))) ; (((-5)*(x))=(((-1)*(y))+((-20)/(5)))) ; ((((-5)*(x))+((20)/(5)))=((-1)*(y))) ; ((y)=(((-20)/(5))+((5)*(x)))) ; >
-Children hfs : <21010 ; 31016 ; 11009 ; 11011 ; 21011 ; 21009 ; >
-Children ops : <nouth.les.MultiCruncherPlain@3a71f4ddnouth.les.AddCruncherSingleDenominator@2f2c9b19nouth.les.AlteratorAdd@f6f4d33nouth.les.AlteratorAdd@23fc625enouth.les.AlteratorAdd@3f99bd52nouth.les.AlteratorAdd@4f023edb>
+New unique children : <(((((10)*(2)*(2)*(2)*(2)*(2))/(5))+((-1)*(5)*(x))+(y))=(0)) ; (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=(0)) ; ((((-1)*(5)*(x))+((2)*((2)^(5)))+(y))=(0)) ; (((((-1)*(5)*(5)*(x))+((10)*((2)^(5)))+((5)*(y)))/(5))=(0)) ; (((((10)*((2)^(5)))/(5))+(y))=((5)*(x))) ; (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y)))) ; (((((10)*((2)^(5)))/(5))+((-5)*(x)))=((-1)*(y))) ; ((y)=((((-10)*((2)^(5)))/(5))+((5)*(x)))) ; >
+Children hfs : <21017 ; 21014 ; 21013 ; 31018 ; 11013 ; 11015 ; 21015 ; 21013 ; >
+Children ops : <nouth.les.PowerCruncherExpand@3a71f4ddnouth.les.MultiCruncherPlain@5674cd4dnouth.les.DivCruncherSimplifyNew@5b2133b1nouth.les.AddCruncherSingleDenominator@1fb3ebebnouth.les.AlteratorAdd@f6f4d33nouth.les.AlteratorAdd@23fc625enouth.les.AlteratorAdd@3f99bd52nouth.les.AlteratorAdd@4f023edb>
 =====================================STATE 2 , generation 1
-CurrState is ((((20)/(5))+(y))=((5)*(x)))
-It's hf is 11009
+CurrState is (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+It's hf is 11013
 It's parent's operator is : nouth.les.DefOperator@5451c3a8
 It's operator is : nouth.les.AlteratorAdd@f6f4d33
-I'm ((((20)/(5))+(y))=((5)*(x))) and I'm about to propagate.
-EqEx : (((20)/(5))+(y)) is suggesting alterators now.
+I'm (((((10)*((2)^(5)))/(5))+(y))=((5)*(x))) and I'm about to propagate.
+EqEx : ((((10)*((2)^(5)))/(5))+(y)) is suggesting alterators now.
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
-nouth.les.AlteratorAdd@1fb3ebeb
+nouth.les.AlteratorAdd@1218025c
 adding it.
-nouth.les.AlteratorAdd@548c4f57
+nouth.les.AlteratorAdd@816f27d
 adding it.
 EqEx : ((5)*(x)) is suggesting alterators now.
 MultiEx suggestAlts : ((5)*(x)) suggesting now.
@@ -501,32 +538,84 @@ ME sA multied by (5) into ((5))
 ME sA checking (x)
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((5))
 Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((5))
-nouth.les.AlteratorDiv@87aac27
+nouth.les.AlteratorDiv@6ce253f1
 adding it.
-nouth.les.DivCruncherSimplifyNew@3e3abc88 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
-DCSN listadd((20)^(1))
-DCSN listadd((5)^(1))
-DCSN new num ((20)^(1))
-DCSN new den ((5)^(1))
+nouth.les.PowerCruncherExpand@53d8d10a is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 into val 1
-nouth.les.DivCruncherSimplifyNew@3e3abc88 has brought me a new dirty child : (((((20)^(1))/((5)^(1)))+(y))=((5)*(x)))
-State polishing child : (((((20)^(1))/((5)^(1)))+(y))=((5)*(x)))
-nouth.les.DivCruncherEmergeDivs@6ce253f1 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.PowerCruncherExpand@53d8d10a has brought me a new dirty child : (((((10)*((2)*(2)*(2)*(2)*(2)))/(5))+(y))=((5)*(x)))
+State polishing child : (((((10)*((2)*(2)*(2)*(2)*(2)))/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherPlain@e9e54c2 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 into val 0
-nouth.les.AddCruncherEqual@53d8d10a is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherExpand@65ab7765 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@1b28cdfa is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+mcd worklist (10)
+mcd worklist ((2)^(5))
+mcd worklist (5)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@eed1f14 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+into val 0
+nouth.les.MultiCruncherPowerise@7229724f is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+MCP adding (10)
+MCP adding ((2)^(5))
+MCP res ((10)*((2)^(5)))
+MCP adding (5)
+MCP adding (x)
+MCP res ((5)*(x))
+into val 2
+nouth.les.MultiCruncherPowerise@7229724f has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+State polishing child : (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+nouth.les.DivCruncherSimplifyNew@4c873330 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+DCSN dealing with : (((10)*((2)^(5)))/(5))
+MCP adding (2)
+MCP res (((2)^(6)))
+DCSN list is subexlist of (((2)^(6)))
+DCSN listadd((1)^(1))
+DCSN new num ((2)^(6))
+DCSN new den ((1)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@4c873330 has brought me a new dirty child : ((((2)*((2)^(5)))+(y))=((5)*(x)))
+State polishing child : ((((2)*((2)^(5)))+(y))=((5)*(x)))
+nouth.les.DivCruncherEmergeDivs@119d7047 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+into val 0
+nouth.les.AddCruncherEqual@776ec8df is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 ACE rwif ((5))
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 into val 0
-nouth.les.AddCruncherSingleDenominator@e9e54c2 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
-ACSD 0 not addex (20)
+nouth.les.AddCruncherSingleDenominator@4eec7777 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+ACSD 0 not addex (10)
+ACSD 0 not addex (2)
 ACSD 0 not addex (5)
-ACSD 0 not addex ((20)/(5))
+ACSD 0 not addex ((2)^(5))
+ACSD 0 not addex ((10)*((2)^(5)))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((10)*((2)^(5)))/(5))
 ACSD 0 not addex (y)
 DCS start ((1)/(5))
 DCS after crossout before single plain :((1)) / ((5))
@@ -547,16 +636,20 @@ Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (y)
 ACSD 0 not addex (5)
 ACSD 0 not addex (x)
 ACSD 0 not addex ((5)*(x))
-ACSD 0 not addex ((((20)+((5)*(y)))/(5))=((5)*(x)))
+ACSD 0 not addex (((((10)*((2)^(5)))+((5)*(y)))/(5))=((5)*(x)))
 into val 1
-nouth.les.AddCruncherSingleDenominator@e9e54c2 has brought me a new dirty child : ((((20)+((5)*(y)))/(5))=((5)*(x)))
-State polishing child : ((((20)+((5)*(y)))/(5))=((5)*(x)))
-nouth.les.MultiCruncherPlain@65ab7765 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.AddCruncherSingleDenominator@4eec7777 has brought me a new dirty child : (((((10)*((2)^(5)))+((5)*(y)))/(5))=((5)*(x)))
+State polishing child : (((((10)*((2)^(5)))+((5)*(y)))/(5))=((5)*(x)))
+nouth.les.MultiCruncherPlain@3b07d329 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 into val 0
-nouth.les.MultiCruncherExpand@1b28cdfa is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherExpand@41629346 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
 MCE target not multiex 0
 MCE target not multiex 0
 MCE target not multiex 0
@@ -566,30 +659,37 @@ MCE target not multiex 0
 MCE addlist size 0
 MCE target not multiex 0
 into val 0
-nouth.les.MultiCruncherDivs@eed1f14 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherDivs@404b9385 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+mcd worklist (10)
+mcd worklist ((2)^(5))
 mcd worklist (5)
 mcd worklist (x)
 into val 0
-nouth.les.MultiCruncherNumerator@7229724f is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherNumerator@6d311334 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 into val 0
-nouth.les.MultiCruncherPowerise@4c873330 is messing around now.
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.MultiCruncherPowerise@682a0b20 is messing around now.
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+MCP adding (10)
+MCP adding ((2)^(5))
+MCP res ((10)*((2)^(5)))
 MCP adding (5)
 MCP adding (x)
 MCP res ((5)*(x))
-into val 1
-nouth.les.MultiCruncherPowerise@4c873330 has brought me a new dirty child : ((((20)/(5))+(y))=((5)*(x)))
-State polishing child : ((((20)/(5))+(y))=((5)*(x)))
-nouth.les.AlteratorAdd@1fb3ebeb is messing around now.
+into val 2
+nouth.les.MultiCruncherPowerise@682a0b20 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+State polishing child : (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+nouth.les.AlteratorAdd@1218025c is messing around now.
 It's altEx is (((-1)*(y)))
-on child ((((20)/(5))+(y))=((5)*(x)))
-ACE rwif ((y))
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 ACE rwif ((5))
 ACE rwif ((y))
-comparing((y)) to ((5))
+ACE rwif ((5))
+comparing((5)) to ((y))
 ACE rwif ((y))
+ACE rwif ((5))
+comparing((5)) to ((y))
 ACE rwif ((y))
 comparing((y)) to ((y))
 ACE rwif ()
@@ -601,19 +701,19 @@ ACE rwif ((x))
 ACE rwif ((y))
 comparing((y)) to ((x))
 into val 1
-nouth.les.AlteratorAdd@1fb3ebeb has brought me a new dirty child : (((((20))/(5))+((0)*(y)))=(((-1)*(y))+((5)*(x))))
-State polishing child : (((((20))/(5))+((0)*(y)))=(((-1)*(y))+((5)*(x))))
-nouth.les.AlteratorAdd@548c4f57 is messing around now.
-It's altEx is ((((-1)*(20))/(5)))
-on child ((((20)/(5))+(y))=((5)*(x)))
+nouth.les.AlteratorAdd@1218025c has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((0)*(y)))=(((-1)*(y))+((5)*(x))))
+State polishing child : (((((10)*((2)^(5)))/(5))+((0)*(y)))=(((-1)*(y))+((5)*(x))))
+nouth.les.AlteratorAdd@816f27d is messing around now.
+It's altEx is ((((-1)*(10)*((2)^(5)))/(5)))
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
 ACE rwif ((5))
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+ACE rwif (((2)^(5)))
+comparing(((2)^(5))) to (((2)^(5)))
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
@@ -622,71 +722,45 @@ ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
 into val 1
-nouth.les.AlteratorAdd@548c4f57 has brought me a new dirty child : ((((0)/(5))+((1)*(y)))=((((-20))/(5))+((5)*(x))))
-State polishing child : ((((0)/(5))+((1)*(y)))=((((-20))/(5))+((5)*(x))))
-nouth.les.AlteratorDiv@87aac27 is messing around now.
+nouth.les.AlteratorAdd@816f27d has brought me a new dirty child : ((((0)/(5))+((1)*(y)))=((((-10)*((2)^(5)))/(5))+((5)*(x))))
+State polishing child : ((((0)/(5))+((1)*(y)))=((((-10)*((2)^(5)))/(5))+((5)*(x))))
+nouth.les.AlteratorDiv@6ce253f1 is messing around now.
 It's altEx is (5)
-on child ((((20)/(5))+(y))=((5)*(x)))
-AD polishing (((((20)/(5))+(y))/(5))=(((5)*(x))/(5)))
-AD polished into (((((20)/(5))+(y))/(5))=(((5)*(x))/(5)))
-DCSN listadd((20)^(1))
+on child (((((10)*((2)^(5)))/(5))+(y))=((5)*(x)))
+AD polishing ((((((10)*((2)^(5)))/(5))+(y))/(5))=(((5)*(x))/(5)))
+AD polished into ((((((10)*((2)^(5)))/(5))+(y))/(5))=(((5)*(x))/(5)))
+DCSN dealing with : (((10)*((2)^(5)))/(5))
+MCP adding (2)
+MCP res (((2)^(6)))
+DCSN list is subexlist of (((2)^(6)))
+DCSN listadd((1)^(1))
+DCSN new num ((2)^(6))
+DCSN new den ((1)^(1))
+DCSN dealing with : ((((2)*((2)^(5)))+(y))/(5))
+DCSN listadd((((2)*((2)^(5)))+(y))^(1))
 DCSN listadd((5)^(1))
-DCSN new num ((20)^(1))
+DCSN new num ((((2)*((2)^(5)))+(y))^(1))
 DCSN new den ((5)^(1))
-DCSN listadd(((((20)^(1))/((5)^(1)))+(y))^(1))
-DCSN listadd((5)^(1))
-DCSN new num (((((20)^(1))/((5)^(1)))+(y))^(1))
-DCSN new den ((5)^(1))
-MCP adding (5)
-MCP adding (x)
-MCP res (((5)^(1))*((x)^(1)))
-DCSN list is subexlist of (((5)^(1))*((x)^(1)))
-DCSN listadd((5)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((5)^(1))
-DCSN new den matches
-MCSN adding to (1) in (((5)^(1)))  and (1)in(((5)^(1))*((x)^(1))) ex (-1)
-((-1)+(1))
-((-1)+(1))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
+DCSN dealing with : (((5)*(x))/(5))
+DCSN listadd((x)^(1))
+DCSN listadd((1)^(1))
 DCSN new num ((x)^(1))
-DCSN new den ((5)^(((0))))
+DCSN new den ((1)^(1))
 into val 1
-nouth.les.AlteratorDiv@87aac27 has brought me a new dirty child : (((((((20)^(1))/((5)^(1)))+(y))^(1))/((5)^(1)))=((((5)^(((0))))*((x)^(1)))/((5)^(((0))))))
-State polishing child : (((((((20)^(1))/((5)^(1)))+(y))^(1))/((5)^(1)))=((((5)^(((0))))*((x)^(1)))/((5)^(((0))))))
+nouth.les.AlteratorDiv@6ce253f1 has brought me a new dirty child : ((((((2)*((2)^(5)))+(y))^(1))/((5)^(1)))=(x))
+State polishing child : ((((((2)*((2)^(5)))+(y))^(1))/((5)^(1)))=(x))
 It just propagated.
 Result found in children !
-it's (((((20)/(5))+(y))/(5))=(x))
-cleaned up : (((((20)/(5))+(y))/(5))=(x))
-outputer found (((((20)/(5))+(y))/(5))=(x))
-DCSN listadd((20)^(1))
+it's (((((2)*((2)^(5)))+(y))/(5))=(x))
+cleaned up : (((((2)*((2)^(5)))+(y))/(5))=(x))
+outputer found (((((2)*((2)^(5)))+(y))/(5))=(x))
+DCSN dealing with : ((((2)*((2)^(5)))+(y))/(5))
+DCSN listadd((((2)*((2)^(5)))+(y))^(1))
 DCSN listadd((5)^(1))
-DCSN new num ((20)^(1))
+DCSN new num ((((2)*((2)^(5)))+(y))^(1))
 DCSN new den ((5)^(1))
-DCSN listadd(((((20)^(1))/((5)^(1)))+(y))^(1))
+DCSN dealing with : ((((2)*((2)^(5)))+(y))/(5))
+DCSN listadd((((2)*((2)^(5)))+(y))^(1))
 DCSN listadd((5)^(1))
-DCSN new num (((((20)^(1))/((5)^(1)))+(y))^(1))
-DCSN new den ((5)^(1))
-DCSN listadd((20)^(1))
-DCSN listadd((5)^(1))
-DCSN new num ((20)^(1))
-DCSN new den ((5)^(1))
-DCSN listadd(((((20)^(1))/((5)^(1)))+(y))^(1))
-DCSN listadd((5)^(1))
-DCSN new num (((((20)^(1))/((5)^(1)))+(y))^(1))
+DCSN new num ((((2)*((2)^(5)))+(y))^(1))
 DCSN new den ((5)^(1))
