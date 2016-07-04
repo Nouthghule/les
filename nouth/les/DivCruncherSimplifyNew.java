@@ -119,19 +119,21 @@ public int crunch(Ex targetEx){
 	}
 
 public void dealWithPlainEx(Ex targetEx){
+	System.out.println("DCSN dealing with : " + targetEx.report());
 	Cruncher c = new MultiCruncherPlain();
 	c.crunch(targetEx.getSubEx(0));
 	c.crunch(targetEx.getSubEx(1));
 	targetEx.polish();
-	System.out.println("DCSN dealing with : " + targetEx.report());
 	Ex uno;
 	Ex duo;
+	System.out.println("tic");
 	try{
 		uno = targetEx.getSubEx(0).getSubEx(0);
 	}
 	catch(Exception e){
 		uno = targetEx.getSubEx(0);
 		}
+	System.out.println("tic");
 
 	try{
 		duo = targetEx.getSubEx(1).getSubEx(0);
@@ -139,20 +141,27 @@ public void dealWithPlainEx(Ex targetEx){
 	catch(Exception e){
 		duo = targetEx.getSubEx(1);
 		}
+	System.out.println("tic");
 	if(!((uno instanceof PlainEx)&&(duo instanceof PlainEx))){
 		return;	
 		}
+	System.out.println("tic");
 	int a = ((PlainEx)uno).value;
 	int b = ((PlainEx)duo).value;
+	System.out.println("tic"+a+" "+b);
 	int g = gcd(a,b);
+	System.out.println("tic");
 	
 	a = a/g;
 	b = b/g;
 
 	uno.replaceSelf(new PlainEx(a));
+	System.out.println("tic");
 	duo.replaceSelf(new PlainEx(b));
+	System.out.println("tic");
 
 	targetEx.polish();
+	System.out.println("DCSN dealt with it.");
 	}
 
 }
