@@ -266,25 +266,6 @@ nouth.les.PowerCruncherExpand@5674cd4d has brought me a new dirty child : (((((1
 State polishing child : (((((10)*((2)*(2)*(2)*(2)*(2)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
 nouth.les.MultiCruncherPlain@1be6f5c3 is messing around now.
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 into val 1
 nouth.les.MultiCruncherPlain@1be6f5c3 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=((10)/(2)))
 State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=((10)/(2)))
@@ -333,41 +314,16 @@ nouth.les.MultiCruncherPowerise@33c7353a has brought me a new dirty child : ((((
 State polishing child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
 nouth.les.DivCruncherSimplifyNew@681a9515 is messing around now.
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-DCSN dealing with : (((10)*((2)^(5)))/(5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 5
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : (((10)*((2)^(5)))/(5))
+DCSN dealt : (((2)*((2)^(5)))/(1))
 MCP adding (2)
 MCP res (((2)^(6)))
 DCSN list is subexlist of (((2)^(6)))
 DCSN listadd((1)^(1))
-DCSN new num ((2)^(6))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((10)/(2))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 2
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : ((10)/(2))
+DCSN dealt : ((5)/(1))
 DCSN listadd((5)^(1))
 DCSN listadd((1)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((1)^(1))
 into val 2
 nouth.les.DivCruncherSimplifyNew@681a9515 has brought me a new dirty child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(5))
 State polishing child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(5))
@@ -376,25 +332,6 @@ on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
 into val 0
 nouth.les.MultiCruncherPlain@2f2c9b19 is messing around now.
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 into val 1
 nouth.les.MultiCruncherPlain@2f2c9b19 has brought me a new dirty child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=((10)/(2)))
 State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+(y))=((10)/(2)))
@@ -443,18 +380,10 @@ nouth.les.MultiCruncherPowerise@548c4f57 has brought me a new dirty child : ((((
 State polishing child : (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
 nouth.les.AddCruncherEqual@1218025c is messing around now.
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
@@ -477,29 +406,17 @@ ACSD 0 not addex ((-1)*(5)*(x))
 ACSD 0 not addex (y)
 DCS start ((1)/(5))
 DCS after crossout before single plain :((1)) / ((5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((1)) / ((5))
 DCS computing gcd from 1 and 5 = 1
 DCS ZERO return resulting ((1)/(5))
 DCS start ((1)/(5))
 DCS after crossout before single plain :((1)) / ((5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((1)) / ((5))
 DCS computing gcd from 1 and 5 = 1
 DCS ZERO return resulting ((1)/(5))
 DCS start ((1)/(1))
 DCS crossing out (1)
 DCS after crossout before single plain :((1)) / ((1))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((1)) / ((1))
 DCS computing gcd from 1 and 1 = 1
 DCS resulting ((1)/(1))
@@ -507,10 +424,6 @@ ACSD polished unide is (5)
 DCS start ((5)/(5))
 DCS crossing out (5)
 DCS after crossout before single plain :((1)) / ((1))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((1)) / ((1))
 DCS computing gcd from 1 and 1 = 1
 DCS resulting ((1)/(1))
@@ -527,41 +440,16 @@ nouth.les.AddCruncherSingleDenominator@816f27d has brought me a new dirty child 
 State polishing child : (((((-1)*(5)*(5)*(x))+((10)*((2)^(5)))+((5)*(y)))/(5))=((10)/(2)))
 nouth.les.DivCruncherSimplifyNew@87aac27 is messing around now.
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-DCSN dealing with : (((10)*((2)^(5)))/(5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 5
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : (((10)*((2)^(5)))/(5))
+DCSN dealt : (((2)*((2)^(5)))/(1))
 MCP adding (2)
 MCP res (((2)^(6)))
 DCSN list is subexlist of (((2)^(6)))
 DCSN listadd((1)^(1))
-DCSN new num ((2)^(6))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((10)/(2))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 2
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : ((10)/(2))
+DCSN dealt : ((5)/(1))
 DCSN listadd((5)^(1))
 DCSN listadd((1)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((1)^(1))
 into val 2
 nouth.les.DivCruncherSimplifyNew@87aac27 has brought me a new dirty child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(5))
 State polishing child : ((((2)*((2)^(5)))+((-1)*(5)*(x))+(y))=(5))
@@ -571,44 +459,25 @@ into val 0
 nouth.les.AlteratorAdd@f6f4d33 is messing around now.
 It's altEx is (((-1)*(-1)*(5)*(x)))
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
 ACE rwif ((x))
 comparing((x)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((2))
 comparing((2)) to ((x))
@@ -618,39 +487,22 @@ State polishing child : (((((10)*((2)^(5)))/(5))+((0)*(x))+((1)*(y)))=((((10))/(
 nouth.les.AlteratorAdd@23fc625e is messing around now.
 It's altEx is ((((-1)*(10)*((2)^(5)))/(5))+((-1)*(y)))
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
 ACE rwif (((2)^(5)))
 comparing(((2)^(5))) to (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
@@ -658,26 +510,14 @@ ACE rwif ((x))
 comparing((x)) to ((y))
 ACE rwif ((y))
 comparing((y)) to ((y))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
@@ -689,25 +529,15 @@ State polishing child : ((((-5)*(x))+((0)*(y))+((0)/(5)))=((((-10)*((2)^(5)))/(5
 nouth.les.AlteratorAdd@3f99bd52 is messing around now.
 It's altEx is (((-1)*(y)))
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
@@ -715,20 +545,11 @@ ACE rwif ((x))
 comparing((x)) to ((y))
 ACE rwif ((y))
 comparing((y)) to ((y))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((y))
 comparing((y)) to ((2))
@@ -738,64 +559,35 @@ State polishing child : (((((10)*((2)^(5)))/(5))+((-5)*(x))+((0)*(y)))=(((-1)*(y
 nouth.les.AlteratorAdd@4f023edb is messing around now.
 It's altEx is ((((-1)*(10)*((2)^(5)))/(5))+((-1)*(-1)*(5)*(x)))
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
 ACE rwif (((2)^(5)))
 comparing(((2)^(5))) to (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
 ACE rwif ((x))
 comparing((x)) to ((x))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
@@ -809,31 +601,6 @@ It's altEx is (2)
 on child (((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y))=((10)/(2)))
 AM 1/4: (((2)*((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y)))=(((10)*(2))/(2)))
 AM 1/4: (((2)*((((10)*((2)^(5)))/(5))+((-1)*(5)*(x))+(y)))=(((10)*(2))/(2)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 AM 1/4: (((2)*((((10)*((2)^(5)))/(5))+((-5)*(x))+(y)))=(((20))/(2)))
 AM 1/4: (((2)*((((10)*((2)^(5)))/(5))+((-5)*(x))+(y)))=(((20))/(2)))
 into val 1
@@ -865,27 +632,6 @@ nouth.les.AlteratorAdd@eed1f14
 adding it.
 nouth.les.MultiCruncherPlain@7229724f is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 into val 0
 nouth.les.MultiCruncherExpand@4c873330 is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
@@ -941,27 +687,6 @@ nouth.les.PowerCruncherExpand@3b07d329 has brought me a new dirty child : (((-5)
 State polishing child : (((-5)*(x))=((((-10)*((2)*(2)*(2)*(2)*(2)))/(5))+((-1)*(y))+((10)/(2))))
 nouth.les.MultiCruncherPlain@41629346 is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 into val 0
 nouth.les.MultiCruncherExpand@404b9385 is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
@@ -1012,44 +737,17 @@ nouth.les.MultiCruncherPowerise@3d075dc0 has brought me a new dirty child : (((-
 State polishing child : (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
 nouth.les.DivCruncherSimplifyNew@214c265e is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-DCSN dealing with : (((-10)*((2)^(5)))/(5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic-10 5
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : (((-10)*((2)^(5)))/(5))
+DCSN dealt : (((-2)*((2)^(5)))/(1))
 MCP adding (-2)
 MCP adding (2)
 MCP res (((-2)^(1))*((2)^(5)))
 DCSN list is subexlist of (((-2)^(1))*((2)^(5)))
 DCSN listadd((1)^(1))
-DCSN new num ((-2)^(1))
-DCSN new den ((1)^(1))
-DCSN new num ((2)^(5))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((10)/(2))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 2
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : ((10)/(2))
+DCSN dealt : ((5)/(1))
 DCSN listadd((5)^(1))
 DCSN listadd((1)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((1)^(1))
 into val 2
 nouth.les.DivCruncherSimplifyNew@214c265e has brought me a new dirty child : (((-5)*(x))=(((-2)*((2)^(5)))+((-1)*(y))+(5)))
 State polishing child : (((-5)*(x))=(((-2)*((2)^(5)))+((-1)*(y))+(5)))
@@ -1058,27 +756,6 @@ on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
 into val 0
 nouth.les.MultiCruncherPlain@7cca494b is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
 into val 0
 nouth.les.MultiCruncherExpand@7ba4f24f is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
@@ -1129,44 +806,17 @@ nouth.les.MultiCruncherPowerise@58372a00 has brought me a new dirty child : (((-
 State polishing child : (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
 nouth.les.DivCruncherSimplifyNew@4dd8dc3 is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-DCSN dealing with : (((-10)*((2)^(5)))/(5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic-10 5
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : (((-10)*((2)^(5)))/(5))
+DCSN dealt : (((-2)*((2)^(5)))/(1))
 MCP adding (-2)
 MCP adding (2)
 MCP res (((-2)^(1))*((2)^(5)))
 DCSN list is subexlist of (((-2)^(1))*((2)^(5)))
 DCSN listadd((1)^(1))
-DCSN new num ((-2)^(1))
-DCSN new den ((1)^(1))
-DCSN new num ((2)^(5))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((10)/(2))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 2
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : ((10)/(2))
+DCSN dealt : ((5)/(1))
 DCSN listadd((5)^(1))
 DCSN listadd((1)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((1)^(1))
 into val 2
 nouth.les.DivCruncherSimplifyNew@4dd8dc3 has brought me a new dirty child : (((-5)*(x))=(((-2)*((2)^(5)))+((-1)*(y))+(5)))
 State polishing child : (((-5)*(x))=(((-2)*((2)^(5)))+((-1)*(y))+(5)))
@@ -1175,18 +825,10 @@ on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
 into val 0
 nouth.les.AddCruncherEqual@568db2f2 is messing around now.
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
@@ -1213,28 +855,16 @@ ACSD 0 not addex (2)
 ACSD 0 not addex ((10)/(2))
 DCS start ((1)/(5))
 DCS after crossout before single plain :((1)) / ((5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((1)) / ((5))
 DCS computing gcd from 1 and 5 = 1
 DCS ZERO return resulting ((1)/(5))
 DCS start ((2)/(5))
 DCS after crossout before single plain :((2)) / ((5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((2)) / ((5))
 DCS computing gcd from 2 and 5 = 1
 DCS ZERO return resulting ((2)/(5))
 DCS start ((2)/(1))
 DCS after crossout before single plain :((2)) / ((1))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((2)) / ((1))
 DCS computing gcd from 2 and 1 = 1
 DCS ZERO return resulting ((2)/(1))
@@ -1242,10 +872,6 @@ ACSD polished unide is ((2)*(5))
 DCS start (((2)*(5))/(5))
 DCS crossing out (5)
 DCS after crossout before single plain :((1)*(2)) / ((1))
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((2)) / ((1))
 DCS computing gcd from 2 and 1 = 1
 DCS resulting ((2)/(1))
@@ -1254,10 +880,6 @@ ACSD : holderEx polished is (2)
 DCS start (((2)*(5))/(2))
 DCS crossing out (2)
 DCS after crossout before single plain :((1)*(5)) / ((1))
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : END noworkdone<<
 DCS single plain :((5)) / ((1))
 DCS computing gcd from 5 and 1 = 1
 DCS resulting ((5)/(1))
@@ -1270,165 +892,75 @@ State polishing child : (((-5)*(x))=((((-1)*(2)*(5)*(y))+((-10)*(2)*((2)^(5)))+(
 nouth.les.AlteratorDiv@65ab7765 is messing around now.
 It's altEx is (-5)
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-AD polishing ((((-5)*(x))/(-5))=(((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2)))/(-5)))
-AD polished into ((((-5)*(x))/(-5))=(((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2)))/(-5)))
-DCSN dealing with : (((-5)*(x))/(-5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic-5 -5
-tic
-tic
-tic
-DCSN dealt with it.
+AD pre(((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
+AD prep((((-5)*(x))/(-5))=(((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2)))/(-5)))
+AD presimp((((-5)*(x))/(-5))=(((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2)))/(-5)))
+DCSN in : (((-5)*(x))/(-5))
+DCSN dealt : (((-1)*(x))/(-1))
 MCP adding (-1)
 MCP adding (x)
 MCP res (((-1)^(1))*((x)^(1)))
 DCSN list is subexlist of (((-1)^(1))*((x)^(1)))
 DCSN listadd((-1)^(1))
-DCSN new num ((-1)^(1))
-DCSN new den ((-1)^(1))
-DCSN new den matches
-MCSN adding to (1) in (((-1)^(1)))  and (1)in(((-1)^(1))*((x)^(1))) ex (-1)
 ((-1)+(1))
 ((-1)+(1))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
-DCSN new num ((x)^(1))
-DCSN new den ((-1)^(((0))))
-DCSN dealing with : (((-10)*((2)^(5)))/(5))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic-10 5
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : (((-10)*((2)^(5)))/(5))
+DCSN dealt : (((-2)*((2)^(5)))/(1))
 MCP adding (-2)
 MCP adding (2)
 MCP res (((-2)^(1))*((2)^(5)))
 DCSN list is subexlist of (((-2)^(1))*((2)^(5)))
 DCSN listadd((1)^(1))
-DCSN new num ((-2)^(1))
-DCSN new den ((1)^(1))
-DCSN new num ((2)^(5))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((10)/(2))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic10 2
-tic
-tic
-tic
-DCSN dealt with it.
+DCSN in : ((10)/(2))
+DCSN dealt : ((5)/(1))
 DCSN listadd((5)^(1))
 DCSN listadd((1)^(1))
-DCSN new num ((5)^(1))
-DCSN new den ((1)^(1))
-DCSN dealing with : ((((-2)*((2)^(5)))+((-1)*(y))+(5))/(-5))
-MCPlain : START crunch
-MCPlain : START crunch
-tic
-tic
-tic
-tic
-tic5 -5
-tic
-tic
-tic
-DCSN dealt with it.
-DCSN listadd(((1)+((-1)*(y))+((-2)*((2)^(5))))^(1))
-DCSN listadd((-1)^(1))
-DCSN new num (((1)+((-1)*(y))+((-2)*((2)^(5))))^(1))
-DCSN new den ((-1)^(1))
+DCSN in : ((((-2)*((2)^(5)))+((-1)*(y))+(5))/(-5))
+DCSN dealt : ((((-2)*((2)^(5)))+((-1)*(y))+(5))/(-5))
+DCSN listadd(((5)+((-1)*(y))+((-2)*((2)^(5))))^(1))
+DCSN listadd((-5)^(1))
+AD post((x)=((((5)+((-1)*(y))+((-2)*((2)^(5))))^(1))/((-5)^(1))))
 into val 1
-nouth.les.AlteratorDiv@65ab7765 has brought me a new dirty child : ((x)=((-1)*((1)+((-1)*(y))+((-2)*((2)^(5))))))
-State polishing child : ((x)=((-1)*((1)+((-1)*(y))+((-2)*((2)^(5))))))
+nouth.les.AlteratorDiv@65ab7765 has brought me a new dirty child : ((x)=((((5)+((-1)*(y))+((-2)*((2)^(5))))^(1))/((-5)^(1))))
+State polishing child : ((x)=((((5)+((-1)*(y))+((-2)*((2)^(5))))^(1))/((-5)^(1))))
 nouth.les.AlteratorAdd@1b28cdfa is messing around now.
 It's altEx is (((-1)*(-1)*(y)))
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((x))
 comparing((x)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
 ACE rwif ((y))
 comparing((y)) to ((2))
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((y))
 comparing((y)) to ((y))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
@@ -1438,67 +970,37 @@ State polishing child : ((((-5)*(x))+((1)*(y)))=((((-10)*((2)^(5)))/(5))+(((10))
 nouth.les.AlteratorAdd@eed1f14 is messing around now.
 It's altEx is ((((-1)*(-10)*((2)^(5)))/(5))+(((-1)*(10))/(2)))
 on child (((-5)*(x))=((((-10)*((2)^(5)))/(5))+((-1)*(y))+((10)/(2))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((x))
 ACE rwif ((5))
 comparing((5)) to ((x))
 ACE rwif ((2))
 comparing((2)) to ((x))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((5))
 ACE rwif ((5))
 comparing((5)) to ((5))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif (((2)^(5)))
 ACE rwif (((2)^(5)))
 comparing(((2)^(5))) to (((2)^(5)))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((y))
 ACE rwif ((5))
 comparing((5)) to ((y))
 ACE rwif ((2))
 comparing((2)) to ((y))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ((2))
 ACE rwif ((5))
 comparing((5)) to ((2))
 ACE rwif ((2))
 comparing((2)) to ((2))
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
-MCPlain : START crunch
-MCPlain : END<<
 ACE rwif ()
 ACE rwif ()
 comparing() to ()
@@ -1507,120 +1009,8 @@ nouth.les.AlteratorAdd@eed1f14 has brought me a new dirty child : (((((10)*((2)^
 State polishing child : (((((10)*((2)^(5)))/(5))+(((-10))/(2))+((-5)*(x)))=(((-1)*(y))+((0)/(2))+((0)/(5))))
 It just propagated.
 Result found in children !
-it's ((x)=((-1)*((1)+((-1)*(y))+((-2)*((2)^(5))))))
-cleaned up : ((x)=((-1)*((1)+((-1)*(y))+((-2)*((2)^(5))))))
-outputer found ((x)=((-1)*((1)+((-1)*(y))+((-2)*((2)^(5))))))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-{{{starting result = ((1)+((-1)*(y))+((-2)*((2)^(5))))
-{{{((-1)*(1)) (multied by) (-1)
-{{{((-1)*(-1)*(y)) (multied by) (-1)
-{{{((-1)*(-2)*((2)^(5))) (multied by) (-1)
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y)))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y)))
-((((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y))) is the result.
-mcd worklist (-1)
-mcd worklist (-2)
-mcd worklist ((2)^(5))
-mcd worklist (-1)
-mcd worklist (1)
-mcd worklist (((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y))
-MCP adding (-1)
-MCP adding (-2)
-MCP adding ((2)^(5))
-MCP res ((-1)*(-2)*((2)^(5)))
-MCP adding (-1)
-MCP adding (1)
-MCP res ((-1)*(1))
-MCP adding (((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y))
-MCP res ((((-1)*(-2)*((2)^(5)))+((-1)*(1))+(y)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-{{{starting result = (((-1))+((2)*((2)^(5)))+(y))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((-1)+((2)*((2)^(5)))+(y)))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((-1)+((2)*((2)^(5)))+(y)))
-(((-1)+((2)*((2)^(5)))+(y))) is the result.
-mcd worklist (2)
-mcd worklist ((2)^(5))
-mcd worklist ((-1)+((2)*((2)^(5)))+(y))
-MCP adding (2)
-MCP adding ((2)^(5))
-MCP res ((2)*((2)^(5)))
-MCP adding ((-1)+((2)*((2)^(5)))+(y))
-MCP res (((-1)+((2)*((2)^(5)))+(y)))
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : START crunch
-MCPlain : END noworkdone<<
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-{{{starting result = ((-1)+((2)*((2)^(5)))+(y))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((-1)+((2)*((2)^(5)))+(y)))
-(((-1)+((2)*((2)^(5)))+(y))) is the result.
-mcd worklist (2)
-mcd worklist ((2)^(5))
-mcd worklist ((-1)+((2)*((2)^(5)))+(y))
-MCP adding (2)
-MCP adding ((2)^(5))
-MCP res ((2)*((2)^(5)))
-MCP adding ((-1)+((2)*((2)^(5)))+(y))
-MCP res (((-1)+((2)*((2)^(5)))+(y)))
+it's ((x)=(((5)+((-1)*(y))+((-2)*((2)^(5))))/(-5)))
+It's parent's operator is : nouth.les.AlteratorAdd@23fc625e
+It's operator is : nouth.les.AlteratorDiv@65ab7765
+cleaned up : ((x)=(((5)+((-1)*(y))+((-2)*((2)^(5))))/(-5)))
+outputer found ((x)=(((5)+((-1)*(y))+((-2)*((2)^(5))))/(-5)))

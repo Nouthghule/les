@@ -17,11 +17,12 @@ public String getOutput(String in, String var){
 	LinkedList<String> as = new LinkedList<String>();
 
 	String ugly = foundState.stateEx.report();
-	Simplifier wakko = new Simplifier();
+/*	Simplifier wakko = new Simplifier();
 	Ex simple = wakko.simplify(foundState.stateEx);
 	if(!simple.report().equals(ugly)){
 		as.add(simple.reportForTex());
 		}
+*/
 	while(true){
 		
 		as.add((papa.stateEx.reportForTex()));

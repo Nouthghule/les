@@ -10,7 +10,6 @@ public MultiCruncherPlain(){
 
 public int crunch(Ex targetEx){
 	boolean workDone = false;	
-	System.out.println("MCPlain : START crunch"); 	
 	
 	if(!(targetEx instanceof MultiEx)){
 //		System.out.println(">>MCPlain : it ain't a MultiEx ! Returning 0."); 	
@@ -57,11 +56,9 @@ public int crunch(Ex targetEx){
 	if(workDone){	
 		targetEx.wipe();
 		targetEx.multi(workList); //This is a multiEx. Were it not, it'd return a zero at line 16
-		System.out.println("MCPlain : END<<");
 		return 1;
 	}
 	else{
-		System.out.println("MCPlain : END noworkdone<<");
 	return 0;
 	}
 

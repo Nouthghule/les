@@ -75,6 +75,8 @@ public State find(String str){
 				if(s.hfVal==0){
 					System.out.println("Result found in children !");
 					System.out.println("it's " + s.stateEx.report());
+					System.out.println("It's parent's operator is : " +s.parent.stateOp);
+					System.out.println("It's operator is : " +s.stateOp);
 					s.stateEx.polish();
 					System.out.println("cleaned up : " + s.stateEx.report());
 					return s;

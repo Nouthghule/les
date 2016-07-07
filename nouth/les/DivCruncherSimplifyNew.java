@@ -8,10 +8,11 @@ public int crunch(Ex targetEx){
 	if(!(targetEx instanceof DivEx)){
 		return 0;
 		}
-	
+	System.out.println("DCSN in : " + targetEx.report());
 	//First things first : deal with PlainExes.
 
 	dealWithPlainEx(targetEx);
+	System.out.println("DCSN dealt : " + targetEx.report());
 	
 	Cruncher cr = new PowerCruncherExpand();
 	MultiCruncherPowerise pw = new MultiCruncherPowerise();
@@ -20,6 +21,8 @@ public int crunch(Ex targetEx){
 	ArrayList<Ex> num=new ArrayList<Ex>();
 	ArrayList<Ex> den=new ArrayList<Ex>();
 	
+	String as = "";
+
 	int i=0;
 	while(i<=1){
 		Ex pro = targetEx.getSubEx(i).copy();
@@ -61,14 +64,14 @@ public int crunch(Ex targetEx){
 	//Cruncher multi = new MultiCruncherPlain();
 
 	for(Ex numEx : num){
-		System.out.println("DCSN new num " + numEx.report());
+//		System.out.println("DCSN new num " + numEx.report());
 		String baseRep = numEx.getSubEx(0).report();
 		
 		for(Ex denEx : den){
 			//TODO add condition to breakout and stop pointless loops once exhausted
-			System.out.println("DCSN new den " + denEx.report());
+//			System.out.println("DCSN new den " + denEx.report());
 			if(denEx.getSubEx(0).report().equals(baseRep)){
-				System.out.println("DCSN new den matches");
+//				System.out.println("DCSN new den matches");
 				int c = 0;
 				Ex ce;
 				if((denEx.getSubEx(1) instanceof PlainEx)&&(numEx.getSubEx(1) instanceof PlainEx)){
@@ -97,7 +100,7 @@ public int crunch(Ex targetEx){
 					ce.multi(new PlainEx(-1));
 					}
 				if(c!=0){
-					System.out.println("MCSN adding to " +denEx.getSubEx(1).report() + " in "+denEx.master.report() +"  and "+  numEx.getSubEx(1).report() +"in"+numEx.master.report() +" ex " + ce.report()); 
+//					System.out.println("MCSN adding to " +denEx.getSubEx(1).report() + " in "+denEx.master.report() +"  and "+  numEx.getSubEx(1).report() +"in"+numEx.master.report() +" ex " + ce.report()); 
 					System.out.println(denEx.getSubEx(1).add(ce.copy()).report());
 					System.out.println(numEx.getSubEx(1).add(ce.copy()).report());
 					addy.crunch(denEx.getSubEx(1));
@@ -119,21 +122,24 @@ public int crunch(Ex targetEx){
 	}
 
 public void dealWithPlainEx(Ex targetEx){
-	System.out.println("DCSN dealing with : " + targetEx.report());
+//	System.out.println("DCSN dealing with : " + targetEx.report());
+	Ex a = targetEx.getSubEx(0);
+	Ex b = targetEx.getSubEx(1);
+	if(!(((a instanceof TinyEx)||(a instanceof MultiEx))&&((b instanceof TinyEx)||(b instanceof MultiEx)))){
+		return;
+		}
 	Cruncher c = new MultiCruncherPlain();
-	c.crunch(targetEx.getSubEx(0));
-	c.crunch(targetEx.getSubEx(1));
+	c.crunch(a);
+	c.crunch(b);
 	targetEx.polish();
 	Ex uno;
 	Ex duo;
-	System.out.println("tic");
 	try{
 		uno = targetEx.getSubEx(0).getSubEx(0);
 	}
 	catch(Exception e){
 		uno = targetEx.getSubEx(0);
 		}
-	System.out.println("tic");
 
 	try{
 		duo = targetEx.getSubEx(1).getSubEx(0);
@@ -141,27 +147,21 @@ public void dealWithPlainEx(Ex targetEx){
 	catch(Exception e){
 		duo = targetEx.getSubEx(1);
 		}
-	System.out.println("tic");
 	if(!((uno instanceof PlainEx)&&(duo instanceof PlainEx))){
 		return;	
 		}
-	System.out.println("tic");
-	int a = ((PlainEx)uno).value;
-	int b = ((PlainEx)duo).value;
-	System.out.println("tic"+a+" "+b);
-	int g = gcd(a,b);
-	System.out.println("tic");
+	int e = ((PlainEx)uno).value;
+	int f = ((PlainEx)duo).value;
+	int g = gcd(e,f);
 	
-	a = a/g;
-	b = b/g;
+	e = e/g;
+	f = f/g;
 
-	uno.replaceSelf(new PlainEx(a));
-	System.out.println("tic");
-	duo.replaceSelf(new PlainEx(b));
-	System.out.println("tic");
+	uno.replaceSelf(new PlainEx(e));
+	duo.replaceSelf(new PlainEx(f));
 
 	targetEx.polish();
-	System.out.println("DCSN dealt with it.");
+//	System.out.println("DCSN dealt with it.");
 	}
 
 }
