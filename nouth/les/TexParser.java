@@ -177,9 +177,9 @@ public void opAdded(){
 			return;
 			}
 		executeMember(next);
+		lastOp = operators.peek();
 		operators.add(hold);
 		System.out.println("operators undo pop before the last pop.");
-		lastOp = operators.peek();
 		opAdded();
 		}
 	lastOp = operators.peek();
