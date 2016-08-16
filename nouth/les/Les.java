@@ -29,7 +29,7 @@ public class Les{
 			return;
 			}
 
-		Pattern p = Pattern.compile("%les ([^;]+);(([^;]))?;?");
+		Pattern p = Pattern.compile("%les ([^;]+);(([^;]+))?;?");
 		
 		Matcher m = p.matcher(content);
 		
