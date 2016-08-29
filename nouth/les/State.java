@@ -41,18 +41,6 @@ public int propagate(){
 		if(opVal>0){
 			System.out.println(o + " has brought me a new dirty child : " + child.report());
 			
-			String ancestry = "<< ";
-			int c;
-			State praetor = this.parent;
-			for(c=0;true;c++){
-				ancestry += praetor.stateEx.report();
-				ancestry += praetor.stateOp;
-				ancestry += "<< ";
-				if(praetor == praetor.parent){
-					break;
-					}
-				praetor = praetor.parent;
-				}
 	//		System.out.println("It's ancestry is : " + ancestry);
 			System.out.println("State polishing child : " + child.report());
 			child.polish();

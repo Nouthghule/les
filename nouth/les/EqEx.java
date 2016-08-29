@@ -51,7 +51,7 @@ return new ArrayList<Alterator>();
 }
 
 @Override
-public ArrayList<Operator> suggestCrunchers(){
+public ArrayList<Operator> suggestCrunchers(){ //fuck this method, wtf was I thinking
 ArrayList<Alterator> altList = new ArrayList<Alterator>();
 
 ArrayList<Alterator> a;

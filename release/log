@@ -1,22 +1,69 @@
-5+3*poník=2
-5+3*poník=2
-5+3*poník=2
-5+3*poník=2
-tparser ( 5 + 3 * poník = 2 )
-tparser ( 5 + 3 * poník = 2 )
-ready S : ( 5 + 3 * poník = 2 ) 
+(10+2)/6-12+35*8+2x/5 = 1
+(10+2)/6-12+35*8+2x/5 = 1
+(10+2)/6-12+35*8+2x/5 = 1
+(10+2)/6-12+35*8+2x/5 = 1
+tparser ( ( 10 + 2 ) / 6 - 12 + 35 * 8 + 2 * x / 5 = 1 )
+tparser ( ( 10 + 2 ) / 6 - 12 + 35 * 8 + 2 * x / 5 = 1 )
+ready S : ( ( 10 + 2 ) / 6 - 12 + 35 * 8 + 2 * x / 5 = 1 ) 
 operators push (
-members push 5
+operators push (
+new op ( vs last op (
+operators pop (
+operators pop (
+operators return back :  ( (
+members push 10
 operators push +
 new op + vs last op (
-members push 3
+members push 2
+operators push )
+operators pop : )
+operators pop into execute
+operators pop : (
+operators push /
+new op / vs last op (
+members push 6
+operators push -
+new op - vs last op /
+operators pop -
+operators pop /
+operators undo pop before the last pop.
+new op - vs last op (
+members push 12
+operators push +
+new op + vs last op -
+operators pop +
+operators pop -
+operators undo pop before the last pop.
+new op + vs last op (
+members push 35
 operators push *
 new op * vs last op +
-members push poník
-operators push =
-new op = vs last op *
-operators pop =
+members push 8
+operators push +
+new op + vs last op *
+operators pop +
 operators pop *
+operators undo pop before the last pop.
+new op + vs last op +
+operators pop +
+operators pop +
+operators undo pop before the last pop.
+new op + vs last op (
+members push 2
+operators push *
+new op * vs last op +
+members push x
+operators push /
+new op / vs last op *
+operators pop /
+operators pop *
+operators undo pop before the last pop.
+new op / vs last op +
+members push 5
+operators push =
+new op = vs last op /
+operators pop =
+operators pop /
 operators undo pop before the last pop.
 new op = vs last op +
 operators pop =
@@ -26,124 +73,216 @@ new op = vs last op (
 operators pop =
 operators pop (
 operators return back :  ( =
-members push 2
+members push 1
 operators push )
 operators pop : )
 operators pop into execute
 operators pop : (
-5 3 poník * + 2 =
- 5 ((3)*(poník)) + 2 = 
- ((5)+(((3)*(poník)))) 2 = 
- ((((5)+(((3)*(poník)))))=(2)) 
-Parsing ex from  ((((5)+(((3)*(poník)))))=(2)) 
+10 2 + 6 / 12 - 35 8 * + 2 x * 5 / + 1 =
+ ((10)+(2)) 6 / 12 - 35 8 * + 2 x * 5 / + 1 = 
+ ((((10)+(2)))/(6)) 12 - 35 8 * + 2 x * 5 / + 1 = 
+ ((((((10)+(2)))/(6)))-(12)) 35 8 * + 2 x * 5 / + 1 = 
+ ((((((10)+(2)))/(6)))-(12)) ((35)*(8)) + 2 x * 5 / + 1 = 
+ ((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))) 2 x * 5 / + 1 = 
+ ((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))) ((2)*(x)) 5 / + 1 = 
+ ((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))) ((((2)*(x)))/(5)) + 1 = 
+ ((((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))))+(((((2)*(x)))/(5)))) 1 = 
+ ((((((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))))+(((((2)*(x)))/(5)))))=(1)) 
+Parsing ex from  ((((((((((((10)+(2)))/(6)))-(12)))+(((35)*(8)))))+(((((2)*(x)))/(5)))))=(1)) 
 TP:Start of new ex.
 TP:Start of new ex.
 TP:Start of new ex.
 TP:Start of new ex.
-TP:default 5
-TP: end of ex of 5
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default 1
+TP:default 0
+TP: end of ex of 10
+TP:default +
+TP:Start of new ex.
+TP:default 2
+TP: end of ex of 2
+TP: end of ex of 
+TP: end of ex of 
+TP:default /
+TP:Start of new ex.
+TP:default 6
+TP: end of ex of 6
+TP: end of ex of 
+TP: end of ex of 
+TP:default +
+TP:Start of new ex.
+TP:default 1
+TP:default 2
+TP: end of ex of 12
+TP: end of ex of 
+TP: end of ex of 
 TP:default +
 TP:Start of new ex.
 TP:Start of new ex.
 TP:Start of new ex.
 TP:default 3
-TP: end of ex of 3
+TP:default 5
+TP: end of ex of 35
 TP:default *
 TP:Start of new ex.
-TP:default p
-TP:default o
-TP:default n
-TP:default í
-TP:default k
-TP: end of ex of poník
+TP:default 8
+TP: end of ex of 8
+TP: end of ex of 
+TP: end of ex of 
+TP: end of ex of 
+TP: end of ex of 
+TP:default +
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:Start of new ex.
+TP:default 2
+TP: end of ex of 2
+TP:default *
+TP:Start of new ex.
+TP:default x
+TP: end of ex of x
+TP: end of ex of 
+TP: end of ex of 
+TP:default /
+TP:Start of new ex.
+TP:default 5
+TP: end of ex of 5
 TP: end of ex of 
 TP: end of ex of 
 TP: end of ex of 
 TP: end of ex of 
 TP:default =
 TP:Start of new ex.
-TP:default 2
-TP: end of ex of 2
+TP:default 1
+TP: end of ex of 1
 TP: end of ex of 
-DE replaceself numeric 5
-DE replaceself numeric 3
-DE replaceself poník
-DE Blank value with rs of * and val of ((3)*(poník))
-DE Blank value with rs of * and val of ((3)*(poník))
-DE Blank value with rs of $ and val of (((3)*(poník)))
-DE replacing self with only child! : ((3)*(poník))
-DE Blank value with rs of $ and val of (((3)*(poník)))
-DE replacing self with only child! : ((3)*(poník))
-DE Blank value with rs of + and val of ((5)+((3)*(poník)))
-DE Blank value with rs of + and val of ((5)+((3)*(poník)))
-DE Blank value with rs of $ and val of (((5)+((3)*(poník))))
-DE replacing self with only child! : ((5)+((3)*(poník)))
-DE Blank value with rs of $ and val of (((5)+((3)*(poník))))
-DE replacing self with only child! : ((5)+((3)*(poník)))
+Negating ()
+DE replaceself numeric 10
 DE replaceself numeric 2
-DE Blank value with rs of = and val of (((5)+((3)*(poník)))=(2))
-DE Blank value with rs of = and val of (((5)+((3)*(poník)))=(2))
-DE Blank value with rs of $ and val of ((((5)+((3)*(poník)))=(2)))
-DE replacing self with only child! : (((5)+((3)*(poník)))=(2))
-DE Blank value with rs of $ and val of ((((5)+((3)*(poník)))=(2)))
-DE replacing self with only child! : (((5)+((3)*(poník)))=(2))
-TextParser returning : (((5)+((3)*(poník)))=(2))
-Parsed ex as : (((5)+((3)*(poník)))=(2))
-=====================================STATE 1 , generation 0
-CurrState is (((5)+((3)*(poník)))=(2))
-It's hf is 20007
-It's parent's operator is : nouth.les.DefOperator@5451c3a8
-It's operator is : nouth.les.DefOperator@5451c3a8
-I'm (((5)+((3)*(poník)))=(2)) and I'm about to propagate.
-EqEx : ((5)+((3)*(poník))) is suggesting alterators now.
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (5)
-nouth.les.AlteratorAdd@8efb846
+DE Blank value with rs of + and val of ((10)+(2))
+DE Blank value with rs of + and val of ((10)+(2))
+DE Blank value with rs of $ and val of (((10)+(2)))
+DE replacing self with only child! : ((10)+(2))
+DE Blank value with rs of $ and val of (((10)+(2)))
+DE replacing self with only child! : ((10)+(2))
+DE replaceself numeric 6
+DE Blank value with rs of / and val of (((10)+(2))/(6))
+DE Blank value with rs of / and val of (((10)+(2))/(6))
+DE Blank value with rs of $ and val of ((((10)+(2))/(6)))
+DE replacing self with only child! : (((10)+(2))/(6))
+DE Blank value with rs of $ and val of ((((10)+(2))/(6)))
+DE replacing self with only child! : (((10)+(2))/(6))
+DE replaceself numeric 12
+DE Blank value with rs of + and val of ((((10)+(2))/(6))+((-1)*(12)))
+DE Blank value with rs of + and val of ((((10)+(2))/(6))+((-1)*(12)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+((-1)*(12))))
+DE replacing self with only child! : ((((10)+(2))/(6))+((-1)*(12)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+((-1)*(12))))
+DE replacing self with only child! : ((((10)+(2))/(6))+((-1)*(12)))
+DE replaceself numeric 35
+DE replaceself numeric 8
+DE Blank value with rs of * and val of ((35)*(8))
+DE Blank value with rs of * and val of ((35)*(8))
+DE Blank value with rs of $ and val of (((35)*(8)))
+DE replacing self with only child! : ((35)*(8))
+DE Blank value with rs of $ and val of (((35)*(8)))
+DE replacing self with only child! : ((35)*(8))
+DE Blank value with rs of + and val of (((((10)+(2))/(6))+((-1)*(12)))+((35)*(8)))
+DE Blank value with rs of + and val of (((((10)+(2))/(6))+((-1)*(12)))+((35)*(8)))
+DE Blank value with rs of $ and val of ((((((10)+(2))/(6))+((-1)*(12)))+((35)*(8))))
+DE replacing self with only child! : (((((10)+(2))/(6))+((-1)*(12)))+((35)*(8)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+((-1)*(12))+((35)*(8))))
+DE replacing self with only child! : ((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+((-1)*(12))+((35)*(8))))
+DE replacing self with only child! : ((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))
+DE replaceself numeric 2
+DE replaceself x
+DE Blank value with rs of * and val of ((2)*(x))
+DE Blank value with rs of * and val of ((2)*(x))
+DE Blank value with rs of $ and val of (((2)*(x)))
+DE replacing self with only child! : ((2)*(x))
+DE Blank value with rs of $ and val of (((2)*(x)))
+DE replacing self with only child! : ((2)*(x))
+DE replaceself numeric 5
+DE Blank value with rs of / and val of (((2)*(x))/(5))
+DE Blank value with rs of / and val of (((2)*(x))/(5))
+DE Blank value with rs of $ and val of ((((2)*(x))/(5)))
+DE replacing self with only child! : (((2)*(x))/(5))
+DE Blank value with rs of $ and val of ((((2)*(x))/(5)))
+DE replacing self with only child! : (((2)*(x))/(5))
+DE Blank value with rs of + and val of (((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))+(((2)*(x))/(5)))
+DE Blank value with rs of + and val of (((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))+(((2)*(x))/(5)))
+DE Blank value with rs of $ and val of ((((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))+(((2)*(x))/(5))))
+DE replacing self with only child! : (((((10)+(2))/(6))+((-1)*(12))+((35)*(8)))+(((2)*(x))/(5)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8))))
+DE replacing self with only child! : ((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))
+DE Blank value with rs of $ and val of (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8))))
+DE replacing self with only child! : ((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))
+DE replaceself numeric 1
+DE Blank value with rs of = and val of (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+DE Blank value with rs of = and val of (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+DE Blank value with rs of $ and val of ((((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1)))
+DE replacing self with only child! : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+DE Blank value with rs of $ and val of ((((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1)))
+DE replacing self with only child! : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+TextParser returning : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+Parsed ex as : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+outputter foundState prior to searcher : \\\frac{10+2}{6}+\\\frac{2\\\cdot x}{5}-12+35\\\cdot 8=1
+ComputeSearcher loop 1 start ,bestHf 19 bestChildHf -1 open size 1 closed size 0
+State \\\frac{10+2}{6}+\\\frac{2\\\cdot x}{5}-12+35\\\cdot 8=1 propagating
+I'm (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1)) and I'm about to propagate.
+EqEx : ((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8))) is suggesting alterators now.
+nouth.les.AlteratorAdd@4a574795
 adding it.
-nouth.les.AlteratorAdd@2a84aee7
+nouth.les.AlteratorAdd@f6f4d33
 adding it.
-EqEx : (2) is suggesting alterators now.
-nouth.les.MultiCruncherPlain@a09ee92 is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-into val 0
-nouth.les.MultiCruncherExpand@30f39991 is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE addlist size 0
-MCE target not multiex 0
-MCE target not multiex 0
-MCE target not multiex 0
-into val 0
-nouth.les.MultiCruncherDivs@452b3a41 is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-mcd worklist (3)
-mcd worklist (poník)
-into val 0
-nouth.les.MultiCruncherNumerator@4a574795 is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-into val 0
-nouth.les.MultiCruncherPowerise@3f99bd52 is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-MCP adding (3)
-MCP adding (poník)
-MCP res ((3)*(poník))
-into val 1
-nouth.les.MultiCruncherPowerise@3f99bd52 has brought me a new dirty child : (((5)+((3)*(poník)))=(2))
-State polishing child : (((5)+((3)*(poník)))=(2))
-nouth.les.AddCruncherEqual@4f023edb is messing around now.
-on child (((5)+((3)*(poník)))=(2))
+EqEx : (1) is suggesting alterators now.
+nouth.les.AddCruncherEqual@23fc625e is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
 ACE rwif ()
-ACE rwif ((poník))
 ACE rwif ()
-comparing() to ((poník))
-into val 0
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((6))
+ACE rwif ((5))
+ACE rwif ((6))
+comparing((6)) to ((5))
+ACE rwif ()
+ACE rwif ((6))
+comparing((6)) to ()
+ACE rwif ((5))
+comparing((5)) to ()
+ACE rwif ()
+ACE rwif ((6))
+comparing((6)) to ()
+ACE rwif ((5))
+comparing((5)) to ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+into val 2
+nouth.les.AddCruncherEqual@23fc625e has brought me a new dirty child : (((((1)*(((12))))/(6))+(((2)*(x))/(5))+((268)))=(1))
+State polishing child : (((((1)*(((12))))/(6))+(((2)*(x))/(5))+((268)))=(1))
 nouth.les.AddCruncherSingleDenominator@3a71f4dd is messing around now.
-on child (((5)+((3)*(poník)))=(2))
-ACSD 0 not addex (5)
-ACSD 0 not addex (3)
-ACSD 0 not addex (poník)
-ACSD 0 not addex ((3)*(poník))
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+ACSD 0 not addex (10)
+ACSD 0 not addex (2)
 DCS start ((1)/(1))
 DCS crossing out (1)
 DCS after crossout before single plain :((1)) / ((1))
@@ -151,134 +290,1503 @@ DCS single plain :((1)) / ((1))
 DCS computing gcd from 1 and 1 = 1
 DCS resulting ((1)/(1))
 ACSD polished unide is (1)
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (5)
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník)))/(1))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník))))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník))))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník)))/(1))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník))))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((5)+((3)*(poník))))
-ACSD 0 deno is 1 of ((5)+((3)*(poník)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (10)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2))/(1))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2))/(1))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+ACSD 0 deno is 1 of ((10)+(2))
+ACSD 0 not addex (6)
+ACSD 0 not addex (((10)+(2))/(6))
 ACSD 0 not addex (2)
-ACSD 0 not addex (((5)+((3)*(poník)))=(2))
-into val 0
-nouth.les.AlteratorAdd@8efb846 is messing around now.
-It's altEx is (((-1)*(3)*(poník)))
-on child (((5)+((3)*(poník)))=(2))
-ACE rwif ()
-ACE rwif ((poník))
-ACE rwif ()
-comparing() to ((poník))
-ACE rwif ((poník))
-ACE rwif ()
-comparing() to ((poník))
-ACE rwif ((poník))
-comparing((poník)) to ((poník))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ((poník))
-ACE rwif ()
-comparing() to ((poník))
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+ACSD 0 not addex (-1)
+ACSD 0 not addex (12)
+ACSD 0 not addex ((-1)*(12))
+ACSD 0 not addex (35)
+ACSD 0 not addex (8)
+ACSD 0 not addex ((35)*(8))
+DCS start ((5)/(6))
+DCS after crossout before single plain :((5)) / ((6))
+DCS single plain :((5)) / ((6))
+DCS computing gcd from 5 and 6 = 1
+DCS ZERO return resulting ((5)/(6))
+DCS start ((1)/(6))
+DCS after crossout before single plain :((1)) / ((6))
+DCS single plain :((1)) / ((6))
+DCS computing gcd from 1 and 6 = 1
+DCS ZERO return resulting ((1)/(6))
+DCS start ((1)/(5))
+DCS after crossout before single plain :((1)) / ((5))
+DCS single plain :((1)) / ((5))
+DCS computing gcd from 1 and 5 = 1
+DCS ZERO return resulting ((1)/(5))
+DCS start ((1)/(6))
+DCS after crossout before single plain :((1)) / ((6))
+DCS single plain :((1)) / ((6))
+DCS computing gcd from 1 and 6 = 1
+DCS ZERO return resulting ((1)/(6))
+DCS start ((1)/(5))
+DCS after crossout before single plain :((1)) / ((5))
+DCS single plain :((1)) / ((5))
+DCS computing gcd from 1 and 5 = 1
+DCS ZERO return resulting ((1)/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD polished unide is ((5)*(6))
+DCS start (((5)*(6))/(6))
+DCS crossing out (6)
+DCS after crossout before single plain :((1)*(5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS resulting ((5)/(1))
+ACSD : holderEx past crunch is ((5)/(1))
+ACSD : holderEx polished is (5)
+DCS start (((5)*(6))/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)*(6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS resulting ((6)/(1))
+ACSD : holderEx past crunch is ((6)/(1))
+ACSD : holderEx polished is (6)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
 into val 1
-nouth.les.AlteratorAdd@8efb846 has brought me a new dirty child : ((((0)*(poník))+((5)))=(((2))+((-3)*(poník))))
-State polishing child : ((((0)*(poník))+((5)))=(((2))+((-3)*(poník))))
-nouth.les.AlteratorAdd@2a84aee7 is messing around now.
-It's altEx is (((-1)*(5)))
-on child (((5)+((3)*(poník)))=(2))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ((poník))
-ACE rwif ()
-comparing() to ((poník))
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-ACE rwif ()
-ACE rwif ()
-ACE rwif ()
-comparing() to ()
-into val 1
-nouth.les.AlteratorAdd@2a84aee7 has brought me a new dirty child : ((((0))+((3)*(poník)))=(((-3))))
-State polishing child : ((((0))+((3)*(poník)))=(((-3))))
-It just propagated.
-New unique children : <((5)=((2)+((-3)*(poník)))) ; (((3)*(poník))=(-3)) ; >
-Children hfs : <21007 ; 11005 ; >
-Children ops : <nouth.les.AlteratorAdd@8efb846nouth.les.AlteratorAdd@2a84aee7>
-=====================================STATE 2 , generation 1
-CurrState is (((3)*(poník))=(-3))
-It's hf is 11005
-It's parent's operator is : nouth.les.DefOperator@5451c3a8
-It's operator is : nouth.les.AlteratorAdd@2a84aee7
-I'm (((3)*(poník))=(-3)) and I'm about to propagate.
-EqEx : ((3)*(poník)) is suggesting alterators now.
-MultiEx suggestAlts : ((3)*(poník)) suggesting now.
-ME sA checking (3)
-ME sA multied by (3) into ((3))
-ME sA checking (poník)
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((3))
-Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : ((3))
-nouth.les.AlteratorDiv@6b884d57
-adding it.
-EqEx : (-3) is suggesting alterators now.
-nouth.les.MultiCruncherPlain@38af3868 is messing around now.
-on child (((3)*(poník))=(-3))
+nouth.les.AddCruncherSingleDenominator@3a71f4dd has brought me a new dirty child : (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
+State polishing child : (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
+nouth.les.DivCruncherSimplifyNew@85ede7b is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+DCSN in : (((10)+(2))/(6))
+DCSN dealt : (((10)+(2))/(6))
+DCSN listadd(((10)+(2))^(1))
+DCSN listadd((6)^(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@85ede7b has brought me a new dirty child : ((((((10)+(2))^(1))/((6)^(1)))+((((2)^(1))*((x)^(1)))/((5)^(1)))+((-1)*(12))+((35)*(8)))=(1))
+State polishing child : ((((((10)+(2))^(1))/((6)^(1)))+((((2)^(1))*((x)^(1)))/((5)^(1)))+((-1)*(12))+((35)*(8)))=(1))
+nouth.les.DivCruncherEmergeDivs@5674cd4d is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
 into val 0
-nouth.les.MultiCruncherExpand@77459877 is messing around now.
-on child (((3)*(poník))=(-3))
+nouth.les.MultiCruncherPlain@63961c42 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 2
+nouth.les.MultiCruncherPlain@63961c42 has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+nouth.les.MultiCruncherExpand@65b54208 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
 MCE target not multiex 0
 MCE target not multiex 0
 MCE addlist size 0
 MCE target not multiex 0
 MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
 into val 0
-nouth.les.MultiCruncherDivs@5b2133b1 is messing around now.
-on child (((3)*(poník))=(-3))
-mcd worklist (3)
-mcd worklist (poník)
+nouth.les.MultiCruncherDivs@6b884d57 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+mcd worklist (-1)
+mcd worklist (12)
+mcd worklist (35)
+mcd worklist (8)
 into val 0
-nouth.les.MultiCruncherNumerator@72ea2f77 is messing around now.
-on child (((3)*(poník))=(-3))
+nouth.les.MultiCruncherNumerator@5b2133b1 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
 into val 0
-nouth.les.MultiCruncherPowerise@33c7353a is messing around now.
-on child (((3)*(poník))=(-3))
-MCP adding (3)
-MCP adding (poník)
-MCP res ((3)*(poník))
+nouth.les.MultiCruncherPowerise@72ea2f77 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+MCP adding (-1)
+MCP adding (12)
+MCP res ((-1)*(12))
+MCP adding (35)
+MCP adding (8)
+MCP res ((35)*(8))
+into val 3
+nouth.les.MultiCruncherPowerise@72ea2f77 has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+nouth.les.DivCruncherSimplifyNew@33c7353a is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+DCSN in : (((10)+(2))/(6))
+DCSN dealt : (((10)+(2))/(6))
+DCSN listadd(((10)+(2))^(1))
+DCSN listadd((6)^(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@33c7353a has brought me a new dirty child : ((((((10)+(2))^(1))/((6)^(1)))+((((2)^(1))*((x)^(1)))/((5)^(1)))+((-1)*(12))+((35)*(8)))=(1))
+State polishing child : ((((((10)+(2))^(1))/((6)^(1)))+((((2)^(1))*((x)^(1)))/((5)^(1)))+((-1)*(12))+((35)*(8)))=(1))
+nouth.les.DivCruncherEmergeDivs@681a9515 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 0
+nouth.les.MultiCruncherPlain@3af49f1c is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 2
+nouth.les.MultiCruncherPlain@3af49f1c has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+nouth.les.MultiCruncherExpand@19469ea2 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@13221655 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+mcd worklist (-1)
+mcd worklist (12)
+mcd worklist (35)
+mcd worklist (8)
+into val 0
+nouth.les.MultiCruncherNumerator@2f2c9b19 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@31befd9f is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+MCP adding (-1)
+MCP adding (12)
+MCP res ((-1)*(12))
+MCP adding (35)
+MCP adding (8)
+MCP res ((35)*(8))
+into val 3
+nouth.les.MultiCruncherPowerise@31befd9f has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+nouth.les.MultiCruncherPlain@1c20c684 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 2
+nouth.les.MultiCruncherPlain@1c20c684 has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-12))+((280)))=(1))
+nouth.les.MultiCruncherExpand@1fb3ebeb is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@548c4f57 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+mcd worklist (-1)
+mcd worklist (12)
+mcd worklist (35)
+mcd worklist (8)
+into val 0
+nouth.les.MultiCruncherNumerator@1218025c is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@816f27d is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+MCP adding (-1)
+MCP adding (12)
+MCP res ((-1)*(12))
+MCP adding (35)
+MCP adding (8)
+MCP res ((35)*(8))
+into val 3
+nouth.les.MultiCruncherPowerise@816f27d has brought me a new dirty child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+State polishing child : (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+nouth.les.AddCruncherEqual@87aac27 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((6))
+ACE rwif ((5))
+ACE rwif ((6))
+comparing((6)) to ((5))
+ACE rwif ()
+ACE rwif ((6))
+comparing((6)) to ()
+ACE rwif ((5))
+comparing((5)) to ()
+ACE rwif ()
+ACE rwif ((6))
+comparing((6)) to ()
+ACE rwif ((5))
+comparing((5)) to ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+into val 2
+nouth.les.AddCruncherEqual@87aac27 has brought me a new dirty child : (((((1)*(((12))))/(6))+(((2)*(x))/(5))+((268)))=(1))
+State polishing child : (((((1)*(((12))))/(6))+(((2)*(x))/(5))+((268)))=(1))
+nouth.les.AddCruncherSingleDenominator@3e3abc88 is messing around now.
+on child (((((10)+(2))/(6))+(((2)*(x))/(5))+((-1)*(12))+((35)*(8)))=(1))
+ACSD 0 not addex (10)
+ACSD 0 not addex (2)
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD polished unide is (1)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (10)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2))/(1))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2))/(1))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (((10)+(2)))
+ACSD 0 deno is 1 of ((10)+(2))
+ACSD 0 not addex (6)
+ACSD 0 not addex (((10)+(2))/(6))
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+ACSD 0 not addex (-1)
+ACSD 0 not addex (12)
+ACSD 0 not addex ((-1)*(12))
+ACSD 0 not addex (35)
+ACSD 0 not addex (8)
+ACSD 0 not addex ((35)*(8))
+DCS start ((5)/(6))
+DCS after crossout before single plain :((5)) / ((6))
+DCS single plain :((5)) / ((6))
+DCS computing gcd from 5 and 6 = 1
+DCS ZERO return resulting ((5)/(6))
+DCS start ((1)/(6))
+DCS after crossout before single plain :((1)) / ((6))
+DCS single plain :((1)) / ((6))
+DCS computing gcd from 1 and 6 = 1
+DCS ZERO return resulting ((1)/(6))
+DCS start ((1)/(5))
+DCS after crossout before single plain :((1)) / ((5))
+DCS single plain :((1)) / ((5))
+DCS computing gcd from 1 and 5 = 1
+DCS ZERO return resulting ((1)/(5))
+DCS start ((1)/(6))
+DCS after crossout before single plain :((1)) / ((6))
+DCS single plain :((1)) / ((6))
+DCS computing gcd from 1 and 6 = 1
+DCS ZERO return resulting ((1)/(6))
+DCS start ((1)/(5))
+DCS after crossout before single plain :((1)) / ((5))
+DCS single plain :((1)) / ((5))
+DCS computing gcd from 1 and 5 = 1
+DCS ZERO return resulting ((1)/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD polished unide is ((5)*(6))
+DCS start (((5)*(6))/(6))
+DCS crossing out (6)
+DCS after crossout before single plain :((1)*(5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS resulting ((5)/(1))
+ACSD : holderEx past crunch is ((5)/(1))
+ACSD : holderEx polished is (5)
+DCS start (((5)*(6))/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)*(6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS resulting ((6)/(1))
+ACSD : holderEx past crunch is ((6)/(1))
+ACSD : holderEx polished is (6)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
 into val 1
-nouth.les.MultiCruncherPowerise@33c7353a has brought me a new dirty child : (((3)*(poník))=(-3))
-State polishing child : (((3)*(poník))=(-3))
-nouth.les.AlteratorDiv@6b884d57 is messing around now.
-It's altEx is (3)
-on child (((3)*(poník))=(-3))
-AD pre(((3)*(poník))=(-3))
-AD prep((((3)*(poník))/(3))=((-3)/(3)))
-AD presimp((((3)*(poník))/(3))=((-3)/(3)))
-DCSN in : (((3)*(poník))/(3))
-DCSN dealt : ((poník)/(1))
-DCSN listadd((poník)^(1))
-DCSN listadd((1)^(1))
-DCSN in : ((-3)/(3))
-DCSN dealt : ((-1)/(1))
-DCSN listadd((-1)^(1))
-DCSN listadd((1)^(1))
-AD post((poník)=((-1)*(1)))
+nouth.les.AddCruncherSingleDenominator@3e3abc88 has brought me a new dirty child : (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
+State polishing child : (((((-1)*(12)*(5)*(6))+((2)*(6)*(x))+((35)*(5)*(6)*(8))+((5)*((10)+(2))))/((5)*(6)))=(1))
+ComputeSearcher loop 1 end bestHf 19 bestChildHf 12 open size 1 closed size 0
+ComputeSearcher loop 2 start ,bestHf 12 bestChildHf -1 open size 2 closed size 0
+State 268+\\\frac{2\\\cdot x}{5}+\\\frac{12}{6}=1 propagating
+I'm (((268)+(((2)*(x))/(5))+((12)/(6)))=(1)) and I'm about to propagate.
+EqEx : ((268)+(((2)*(x))/(5))+((12)/(6))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@6ce253f1
+adding it.
+nouth.les.AlteratorAdd@53d8d10a
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@e9e54c2 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@65ab7765 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@1b28cdfa is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@eed1f14 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@7229724f is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
 into val 1
-nouth.les.AlteratorDiv@6b884d57 has brought me a new dirty child : ((poník)=((-1)*(1)))
-State polishing child : ((poník)=((-1)*(1)))
-It just propagated.
-Result found in children !
-it's ((poník)=((-1)*(1)))
-It's parent's operator is : nouth.les.AlteratorAdd@2a84aee7
-It's operator is : nouth.les.AlteratorDiv@6b884d57
-cleaned up : ((poník)=((-1)*(1)))
-outputer found ((poník)=((-1)*(1)))
+nouth.les.MultiCruncherPowerise@7229724f has brought me a new dirty child : (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+State polishing child : (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+nouth.les.DivCruncherSimplifyNew@4c873330 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+DCSN in : ((12)/(6))
+DCSN dealt : ((2)/(1))
+DCSN listadd((2)^(1))
+DCSN listadd((1)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@4c873330 has brought me a new dirty child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+State polishing child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+nouth.les.DivCruncherEmergeDivs@119d7047 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.DivCruncherSimplifyNew@776ec8df is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+DCSN in : ((12)/(6))
+DCSN dealt : ((2)/(1))
+DCSN listadd((2)^(1))
+DCSN listadd((1)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@776ec8df has brought me a new dirty child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+State polishing child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+nouth.les.DivCruncherEmergeDivs@4eec7777 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@3b07d329 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+ACE rwif ((6))
+ACE rwif ()
+comparing() to ((6))
+ACE rwif ((5))
+comparing((5)) to ((6))
+into val 0
+nouth.les.AddCruncherSingleDenominator@41629346 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+ACSD 0 not addex (12)
+ACSD 0 not addex (6)
+ACSD 0 not addex ((12)/(6))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((6)/(1))
+DCS after crossout before single plain :((6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS ZERO return resulting ((6)/(1))
+DCS start ((6)/(5))
+DCS after crossout before single plain :((6)) / ((5))
+DCS single plain :((6)) / ((5))
+DCS computing gcd from 6 and 5 = 1
+DCS ZERO return resulting ((6)/(5))
+ACSD polished unide is ((5)*(6))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start (((5)*(6))/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)*(6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS resulting ((6)/(1))
+ACSD : holderEx past crunch is ((6)/(1))
+ACSD : holderEx polished is (6)
+DCS start (((5)*(6))/(6))
+DCS crossing out (6)
+DCS after crossout before single plain :((1)*(5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS resulting ((5)/(1))
+ACSD : holderEx past crunch is ((5)/(1))
+ACSD : holderEx polished is (5)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@41629346 has brought me a new dirty child : (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+State polishing child : (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+State 268+\\\frac{2\\\cdot x}{5}+\\\frac{12}{6}=1 propagating
+I'm (((268)+(((2)*(x))/(5))+((12)/(6)))=(1)) and I'm about to propagate.
+EqEx : ((268)+(((2)*(x))/(5))+((12)/(6))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@404b9385
+adding it.
+nouth.les.AlteratorAdd@6d311334
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@682a0b20 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@3d075dc0 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@214c265e is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@448139f0 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@7cca494b is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@7cca494b has brought me a new dirty child : (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+State polishing child : (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+nouth.les.DivCruncherSimplifyNew@7ba4f24f is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+DCSN in : ((12)/(6))
+DCSN dealt : ((2)/(1))
+DCSN listadd((2)^(1))
+DCSN listadd((1)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@7ba4f24f has brought me a new dirty child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+State polishing child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+nouth.les.DivCruncherEmergeDivs@3b9a45b3 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.DivCruncherSimplifyNew@7699a589 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+DCSN in : ((12)/(6))
+DCSN dealt : ((2)/(1))
+DCSN listadd((2)^(1))
+DCSN listadd((1)^(1))
+into val 2
+nouth.les.DivCruncherSimplifyNew@7699a589 has brought me a new dirty child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+State polishing child : (((268)+((((2)^(1))*((x)^(1)))/((5)^(1)))+(2))=(1))
+nouth.les.DivCruncherEmergeDivs@58372a00 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@4dd8dc3 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+ACE rwif ((6))
+ACE rwif ()
+comparing() to ((6))
+ACE rwif ((5))
+comparing((5)) to ((6))
+into val 0
+nouth.les.AddCruncherSingleDenominator@6d03e736 is messing around now.
+on child (((268)+(((2)*(x))/(5))+((12)/(6)))=(1))
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+ACSD 0 not addex (12)
+ACSD 0 not addex (6)
+ACSD 0 not addex ((12)/(6))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((6)/(1))
+DCS after crossout before single plain :((6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS ZERO return resulting ((6)/(1))
+DCS start ((6)/(5))
+DCS after crossout before single plain :((6)) / ((5))
+DCS single plain :((6)) / ((5))
+DCS computing gcd from 6 and 5 = 1
+DCS ZERO return resulting ((6)/(5))
+ACSD polished unide is ((5)*(6))
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start (((5)*(6))/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)*(6)) / ((1))
+DCS single plain :((6)) / ((1))
+DCS computing gcd from 6 and 1 = 1
+DCS resulting ((6)/(1))
+ACSD : holderEx past crunch is ((6)/(1))
+ACSD : holderEx polished is (6)
+DCS start (((5)*(6))/(6))
+DCS crossing out (6)
+DCS after crossout before single plain :((1)*(5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS resulting ((5)/(1))
+ACSD : holderEx past crunch is ((5)/(1))
+ACSD : holderEx polished is (5)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@6d03e736 has brought me a new dirty child : (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+State polishing child : (((((12)*(5))+((2)*(6)*(x))+((268)*(5)*(6)))/((5)*(6)))=(1))
+ComputeSearcher loop 2 end bestHf 12 bestChildHf 10 open size 2 closed size 0
+ComputeSearcher loop 3 start ,bestHf 10 bestChildHf -1 open size 4 closed size 0
+State 2+268+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((2)+(268)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((2)+(268)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@568db2f2
+adding it.
+nouth.les.AlteratorAdd@378bf509
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@5fd0d5ae is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@2d98a335 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@16b98e56 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@7ef20235 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@27d6c5e0 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@27d6c5e0 has brought me a new dirty child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+State polishing child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@4f3f5b24 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@4f3f5b24 has brought me a new dirty child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@15aeb7ab is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@7b23ec81 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 1
+nouth.les.AddCruncherEqual@7b23ec81 has brought me a new dirty child : (((((2)*(x))/(5))+((270)))=(1))
+State polishing child : (((((2)*(x))/(5))+((270)))=(1))
+nouth.les.AddCruncherSingleDenominator@6acbcfc0 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (2)
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@6acbcfc0 has brought me a new dirty child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State polishing child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State 2+268+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((2)+(268)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((2)+(268)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@5f184fc6
+adding it.
+nouth.les.AlteratorAdd@3feba861
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@5b480cf9 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@6f496d9f is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@723279cf is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@10f87f48 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@b4c966a is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@b4c966a has brought me a new dirty child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+State polishing child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@2f4d3709 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@2f4d3709 has brought me a new dirty child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@4e50df2e is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@1d81eb93 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 1
+nouth.les.AddCruncherEqual@1d81eb93 has brought me a new dirty child : (((((2)*(x))/(5))+((270)))=(1))
+State polishing child : (((((2)*(x))/(5))+((270)))=(1))
+nouth.les.AddCruncherSingleDenominator@7291c18f is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (2)
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@7291c18f has brought me a new dirty child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State polishing child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State 2+268+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((2)+(268)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((2)+(268)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@34a245ab
+adding it.
+nouth.les.AlteratorAdd@7cc355be
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@6e8cf4c6 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@12edcd21 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@34c45dca is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@52cc8049 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@5b6f7412 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@5b6f7412 has brought me a new dirty child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+State polishing child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@27973e9b is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@27973e9b has brought me a new dirty child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@312b1dae is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@7530d0a is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 1
+nouth.les.AddCruncherEqual@7530d0a has brought me a new dirty child : (((((2)*(x))/(5))+((270)))=(1))
+State polishing child : (((((2)*(x))/(5))+((270)))=(1))
+nouth.les.AddCruncherSingleDenominator@27bc2616 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (2)
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@27bc2616 has brought me a new dirty child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State polishing child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State 2+268+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((2)+(268)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((2)+(268)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+nouth.les.AlteratorAdd@3941a79c
+adding it.
+nouth.les.AlteratorAdd@506e1b77
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@4fca772d is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@9807454 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@3d494fbf is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@1ddc4ec2 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@133314b is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@133314b has brought me a new dirty child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+State polishing child : (((2)+(268)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@b1bc7ed is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@b1bc7ed has brought me a new dirty child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((2)+(268)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@7cd84586 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@30dae81 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ()
+ACE rwif ()
+ACE rwif ()
+comparing() to ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 1
+nouth.les.AddCruncherEqual@30dae81 has brought me a new dirty child : (((((2)*(x))/(5))+((270)))=(1))
+State polishing child : (((((2)*(x))/(5))+((270)))=(1))
+nouth.les.AddCruncherSingleDenominator@1b2c6ec2 is messing around now.
+on child (((2)+(268)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (2)
+ACSD 0 not addex (268)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((1)/(1))
+DCS crossing out (1)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (2)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (268)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@1b2c6ec2 has brought me a new dirty child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+State polishing child : (((((2)*(5))+((2)*(x))+((268)*(5)))/(5))=(1))
+ComputeSearcher loop 3 end bestHf 10 bestChildHf 9 open size 4 closed size 0
+ComputeSearcher loop 4 start ,bestHf 9 bestChildHf -1 open size 4 closed size 0
+State 270+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((270)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((270)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+nouth.les.AlteratorAdd@4edde6e5
+adding it.
+nouth.les.AlteratorAdd@70177ecd
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@1e80bfe8 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@66a29884 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@4769b07b is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@cc34f4d is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@17a7cec2 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@17a7cec2 has brought me a new dirty child : (((270)+(((2)*(x))/(5)))=(1))
+State polishing child : (((270)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@65b3120a is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@65b3120a has brought me a new dirty child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@6f539caf is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@79fc0f2f is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 0
+nouth.les.AddCruncherSingleDenominator@50040f0c is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (270)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(x))+((270)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@50040f0c has brought me a new dirty child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State polishing child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State 270+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((270)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((270)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+nouth.les.AlteratorAdd@2dda6444
+adding it.
+nouth.les.AlteratorAdd@5e9f23b4
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@4783da3f is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@378fd1ac is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@49097b5d is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@6e2c634b is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@37a71e93 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@37a71e93 has brought me a new dirty child : (((270)+(((2)*(x))/(5)))=(1))
+State polishing child : (((270)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@7e6cbb7a is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@7e6cbb7a has brought me a new dirty child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@7c3df479 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@7106e68e is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 0
+nouth.les.AddCruncherSingleDenominator@7eda2dbb is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (270)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(x))+((270)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@7eda2dbb has brought me a new dirty child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State polishing child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State 270+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((270)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((270)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+nouth.les.AlteratorAdd@6576fe71
+adding it.
+nouth.les.AlteratorAdd@76fb509a
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@300ffa5d is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@1f17ae12 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@4d405ef7 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@6193b845 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@2e817b38 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@2e817b38 has brought me a new dirty child : (((270)+(((2)*(x))/(5)))=(1))
+State polishing child : (((270)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@c4437c4 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@c4437c4 has brought me a new dirty child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@433c675d is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@3f91beef is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 0
+nouth.les.AddCruncherSingleDenominator@1a6c5a9e is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (270)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(x))+((270)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@1a6c5a9e has brought me a new dirty child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State polishing child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State 270+\\\frac{2\\\cdot x}{5}=1 propagating
+I'm (((270)+(((2)*(x))/(5)))=(1)) and I'm about to propagate.
+EqEx : ((270)+(((2)*(x))/(5))) is suggesting alterators now.
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+nouth.les.AlteratorAdd@37bba400
+adding it.
+nouth.les.AlteratorAdd@179d3b25
+adding it.
+EqEx : (1) is suggesting alterators now.
+nouth.les.MultiCruncherPlain@254989ff is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherExpand@5d099f62 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE addlist size 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+MCE target not multiex 0
+into val 0
+nouth.les.MultiCruncherDivs@37f8bb67 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+mcd worklist (2)
+mcd worklist (x)
+into val 0
+nouth.les.MultiCruncherNumerator@49c2faae is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.MultiCruncherPowerise@20ad9418 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+MCP adding (2)
+MCP adding (x)
+MCP res ((2)*(x))
+into val 1
+nouth.les.MultiCruncherPowerise@20ad9418 has brought me a new dirty child : (((270)+(((2)*(x))/(5)))=(1))
+State polishing child : (((270)+(((2)*(x))/(5)))=(1))
+nouth.les.DivCruncherSimplifyNew@31cefde0 is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+DCSN in : (((2)*(x))/(5))
+DCSN dealt : (((2)*(x))/(5))
+MCP adding (2)
+MCP adding (x)
+MCP res (((2)^(1))*((x)^(1)))
+DCSN list is subexlist of (((2)^(1))*((x)^(1)))
+DCSN listadd((5)^(1))
+into val 1
+nouth.les.DivCruncherSimplifyNew@31cefde0 has brought me a new dirty child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+State polishing child : (((270)+((((2)^(1))*((x)^(1)))/((5)^(1))))=(1))
+nouth.les.DivCruncherEmergeDivs@439f5b3d is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+into val 0
+nouth.les.AddCruncherEqual@1d56ce6a is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACE rwif ()
+ACE rwif ((5))
+ACE rwif ()
+comparing() to ((5))
+into val 0
+nouth.les.AddCruncherSingleDenominator@5197848c is messing around now.
+on child (((270)+(((2)*(x))/(5)))=(1))
+ACSD 0 not addex (270)
+ACSD 0 not addex (2)
+ACSD 0 not addex (x)
+ACSD 0 not addex ((2)*(x))
+ACSD 0 not addex (5)
+ACSD 0 not addex (((2)*(x))/(5))
+DCS start ((5)/(1))
+DCS after crossout before single plain :((5)) / ((1))
+DCS single plain :((5)) / ((1))
+DCS computing gcd from 5 and 1 = 1
+DCS ZERO return resulting ((5)/(1))
+ACSD polished unide is (5)
+Warning ! Replaceself attempt on an orphan Ex. Ignoring. I am : (270)
+DCS start ((5)/(5))
+DCS crossing out (5)
+DCS after crossout before single plain :((1)) / ((1))
+DCS single plain :((1)) / ((1))
+DCS computing gcd from 1 and 1 = 1
+DCS resulting ((1)/(1))
+ACSD : holderEx past crunch is ((1)/(1))
+ACSD : holderEx polished is (1)
+ACSD 0 not addex (1)
+ACSD 0 not addex (((((2)*(x))+((270)*(5)))/(5))=(1))
+into val 1
+nouth.les.AddCruncherSingleDenominator@5197848c has brought me a new dirty child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+State polishing child : (((((2)*(x))+((270)*(5)))/(5))=(1))
+ComputeSearcher loop 4 end bestHf 9 bestChildHf 9 open size 4 closed size 0
+No more children
+outputer found (((270)+(((2)*(x))/(5)))=(1))

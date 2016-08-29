@@ -7,8 +7,13 @@ public class Outputter{
 public String getOutput(String in, String var){
 	Ex e = t.parse(in);
 	State startState = new State(e);
-	StateSearcher searchie = new StateSearcher(startState);
-	State foundState = searchie.find(var);
+//	StateSearcher searchie = new StateSearcher(startState);
+//	State foundState = searchie.find(var);
+	State foundState = new State(e); //TODO REMOVE
+	
+	System.out.println("outputter foundState prior to searcher : " + foundState.stateEx.reportForTex());
+	ComputeSearcher cs = new ComputeSearcher();
+	foundState = cs.search(foundState);
 
 	String res = "";	
 

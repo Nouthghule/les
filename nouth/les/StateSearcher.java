@@ -89,7 +89,7 @@ public State find(String str){
 		String heb = "Children hfs : <";
 		String opb = "Children ops : <";
 		for(State s : newChildren){
-			if(s.hfVal>-10){
+			if(s.hfVal>-10){ //wtf
 				deb+= s.stateEx.report() + " ; ";
 				heb+= s.hfVal + " ; ";
 				opb+= s.stateOp;
