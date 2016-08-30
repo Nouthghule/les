@@ -1604,9 +1604,9 @@ it's ((x)=(((5)*((-2)+(-267)))/(2)))
 It's parent's operator is : nouth.les.DivCruncherSimplifyNew@34a245ab
 It's operator is : nouth.les.AlteratorDiv@4fca772d
 cleaned up : ((x)=(((5)*((-2)+(-267)))/(2)))
-outputter foundState prior to searcher : x=\\\frac{5\\\cdot -2+-267}{2}
+outputter foundState prior to searcher : x=\\\frac{5\\\cdot (-2+-267)}{2}
 ComputeSearcher loop 1 start ,bestHf 9 bestChildHf -1 open size 1 closed size 0
-State x=\\\frac{5\\\cdot -2+-267}{2} propagating
+State x=\\\frac{5\\\cdot (-2+-267)}{2} propagating
 I'm ((x)=(((5)*((-2)+(-267)))/(2))) and I'm about to propagate.
 EqEx : (x) is suggesting alterators now.
 EqEx : (((5)*((-2)+(-267)))/(2)) is suggesting alterators now.
@@ -1705,7 +1705,7 @@ on child ((x)=(((5)*((-2)+(-267)))/(2)))
 into val 0
 ComputeSearcher loop 1 end bestHf 9 bestChildHf 7 open size 1 closed size 0
 ComputeSearcher loop 2 start ,bestHf 7 bestChildHf -1 open size 1 closed size 0
-State x=\\\frac{-269\\\cdot 5}{2} propagating
+State x=\\\frac{-269)\\\cdot 5}{2} propagating
 I'm ((x)=(((-269)*(5))/(2))) and I'm about to propagate.
 EqEx : (x) is suggesting alterators now.
 EqEx : (((-269)*(5))/(2)) is suggesting alterators now.

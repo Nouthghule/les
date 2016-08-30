@@ -163,6 +163,7 @@ public ArrayList<Alterator> suggestAlterators(){
 	return l;
         }
 
+@Override
 public String reportForTex(){
 	String s = "";
 	int i = 0;
@@ -170,8 +171,14 @@ public String reportForTex(){
 		if(!e.silent){
 			if((i!=0)){
 				s+= "\\\\\\cdot ";
+				if(requireBrackets(e)){
+					s+="(";
+					}
 				}
 			s += e.reportForTex();
+			if(requireBrackets(e)){
+				s+=")";
+				}
 			i++;
 		}
 		}
