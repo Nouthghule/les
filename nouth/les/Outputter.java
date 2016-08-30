@@ -7,9 +7,8 @@ public class Outputter{
 public String getOutput(String in, String var){
 	Ex e = t.parse(in);
 	State startState = new State(e);
-//	StateSearcher searchie = new StateSearcher(startState);
-//	State foundState = searchie.find(var);
-	State foundState = new State(e); //TODO REMOVE
+	StateSearcher searchie = new StateSearcher(startState);
+	State foundState = searchie.find(var);
 	
 	System.out.println("outputter foundState prior to searcher : " + foundState.stateEx.reportForTex());
 	ComputeSearcher cs = new ComputeSearcher();
@@ -30,7 +29,7 @@ public String getOutput(String in, String var){
 */
 	while(true){
 		
-		as.add((papa.stateEx.reportForTex()));
+		as.add((papa.stateEx.reportForTex())); 
 		papa = papa.parent;
 		if(papa == startState){
 		as.add((papa.stateEx.reportForTex()));
