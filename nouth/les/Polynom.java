@@ -18,22 +18,31 @@ public static Integer rankOf(Ex e, String var){
 
 	ArrayList<Ex> withVar = new ArrayList<Ex>();
 
-
-	ArrayList<Ex> noVar = new ArrayList<Ex>();
-
 	for(Ex sub : add.getSubExList()){
 		if(sub.varContains(var)){
 			withVar.add(sub);
 			}	
-		else{	
-			noVar.add(sub);
+		}
+	
+	Integer highestExponent = -1;
+	Ex currExponent;
+
+	for(Ex member : withVar){
+		currExponent = exponentOfMember(member,var);
+		if(currExponent == null){
+			return null;//exponent of one of members couldn't be determined
+			}
+		if(!(currExponent instanceof PlainEx)){
+			return null;//exponent contains something else than integer (eg for x^(1/2) or x^(y))
+			}
+		Integer ce = ((PlainEx) currExponent).value;
+
+		if(ce>highestExponent){
+			highestExponent = ce;
 			}
 		}
 	
-	
-	return null;
-
-
+	return highestExponent;
 	}
 
 public static Ex exponentOfMember(Ex e, String var){
@@ -71,7 +80,7 @@ public static Ex exponentOfMember(Ex e, String var){
 					}
 				
 				if(sub instanceof PowerEx){
-					//careful here - this will let x^x through. check for variable in exponent* needs to occur elsewhere as it might someday
+					//careful here - this will let x^x etc through. check for variable in exponent* needs to occur elsewhere as it might someday
 					//desirable to find the case of var in exponent.
 					// * - eg for purposes of solving quadratic equations
 					if(sub.getSubEx(0).varContains(var)){
@@ -100,13 +109,37 @@ public static Ex exponentOfMember(Ex e, String var){
 	return null;
 	}
 
-public static Ex constantOfMember(Ex e, String var){
+public static Ex constantOfMember(Ex member, String var){
+	// warning, this method does not deal with multiple occurences of variable in member. It'll just remove the first one it comes across and return the rest.
+	Ex e = member.copy();
 	if(!e.varContains(var)){
-		return e.copy();
+		return e;
 		}
 	
+	Ex scope = e;
 
-	return new VoidEx();
+	if(scope instanceof DivEx){
+		scope = scope.getSubEx(0);
+		}
+	
+	if(scope instanceof MultiEx){
+		for(Ex subScope : scope.getSubExList()){
+			if((subScope.varContains(var))&&(((subScope instanceof PowerEx)&&(subScope.getSubEx(0).varContains(var)))||(subScope instanceof VarEx))){
+				subScope.replaceSelf(new PlainEx(1));
+				}
+			}
+		}
+	
+	if(scope instanceof VarEx){
+		scope.replaceSelf(new PlainEx(1));
+		}
+		
+	if((scope instanceof PowerEx)&&(scope.getSubEx(0).varContains(var))){
+		scope.replaceSelf(new PlainEx(1));
+		}
+	
+	return e;
+
 	}
 
 }
