@@ -22,11 +22,12 @@ public State find(String str){
 	int stateNum = 0;
 	open.clear();
 	closed.clear();
+	targetString = str;
 	startingState.children.clear();
 	startingState.hfVal = hf(startingState);
+	System.out.println("startingstate hfval is " +startingState.hfVal);
 	open.add(startingState);
 	ArrayList<State> temp = new ArrayList<State>();
-	targetString = str;
 
 	if(!startingState.stateEx.varContains(targetString)){
 		System.out.println("starting state : " + startingState.stateEx.report());
@@ -56,7 +57,7 @@ public State find(String str){
 
 		System.out.println("=====================================STATE " + stateNum + " , generation " + gen) ;
 		System.out.println("CurrState is " + currState.stateEx.report());
-		System.out.println("It's hf is " + hf(currState));
+		System.out.println("It's hf is " + currState.hfVal);
 		System.out.println("It's parent's operator is : " + currState.parent.stateOp);
 		System.out.println("It's operator is : " + currState.stateOp);
 		if(!currState.stateEx.varContains(targetString)){ //TODO REMOVE
@@ -66,13 +67,19 @@ public State find(String str){
 			return currState;
 			}
 
+		if(currState.hfVal==0){
+			System.out.println("Result found !");
+			currState.stateEx.polish();
+			return currState;
+			}
+
 		currState.propagate();
 		System.out.println("It just propagated.");
 		ArrayList<State> newChildren = currState.children;
 		for(State s : newChildren){
 			if(isNew(s)){
 				s.hfVal = hf(s);
-				if(s.hfVal==0){
+			/*	if(s.hfVal==0){
 					System.out.println("Result found in children !");
 					System.out.println("it's " + s.stateEx.report());
 					System.out.println("It's parent's operator is : " +s.parent.stateOp);
@@ -80,7 +87,7 @@ public State find(String str){
 					s.stateEx.polish();
 					System.out.println("cleaned up : " + s.stateEx.report());
 					return s;
-					}
+					}*/
 				open.add(s);
 				}
 			}
@@ -136,7 +143,27 @@ public boolean isNew(State x){
 	}
 
 public int hf(State argState){
-	int d = argState.stateEx.varDepth(targetString);
+	Ex stateEx = argState.stateEx;
+
+	if(stateEx instanceof EqEx){
+		if((stateEx.getSubEx(0) instanceof PlainEx)&&(((PlainEx)stateEx.getSubEx(0)).value==0)){
+			Integer rank = Polynom.rankOf(stateEx.getSubEx(1),targetString);
+			if(!(rank==null)){
+				return 0;
+				}
+			}
+		}
+	
+	if(stateEx instanceof EqEx){
+		if((stateEx.getSubEx(1) instanceof PlainEx)&&(((PlainEx)stateEx.getSubEx(1)).value==0)){
+			Integer rank = Polynom.rankOf(stateEx.getSubEx(0),targetString);
+			if(!(rank==null)){
+				return 0;
+				}
+			}
+		}
+
+	int d = stateEx.varDepth(targetString);
 	d --;
 	if(d==0){
 		return 0;
@@ -161,8 +188,11 @@ public int hf(State argState){
 	if(complexity>999){
 		complexity = 999;
 		}
+	System.out.println("#hf " + d);
 	d += complexity;
+	System.out.println("#hf " + d);
 	d += ancestry;
+	System.out.println("#hf " + d);
 	return d;
 	}
 
