@@ -45,6 +45,18 @@ public static Integer rankOf(Ex e, String var){
 	return highestExponent;
 	}
 
+public static Integer rankOfEq(Ex e, String var){
+	if(e instanceof EqEx){
+		if((e.getSubEx(0) instanceof PlainEx)&&(((PlainEx)e.getSubEx(0)).value==0)){
+			return rankOf(e.getSubEx(1),var);
+			}
+		if((e.getSubEx(1) instanceof PlainEx)&&(((PlainEx)e.getSubEx(1)).value==0)){
+			return rankOf(e.getSubEx(0),var);
+			}
+		}
+	return null;
+	}
+
 public static Ex exponentOfMember(Ex e, String var){
 	if(!e.varContains(var)){
 		return null;
@@ -116,7 +128,9 @@ public static Ex constantOfMember(Ex member, String var){
 		return e;
 		}
 	
+	Ex holder = new AddEx();
 	Ex scope = e;
+	holder.add(scope);
 
 	if(scope instanceof DivEx){
 		scope = scope.getSubEx(0);
@@ -138,6 +152,7 @@ public static Ex constantOfMember(Ex member, String var){
 		scope.replaceSelf(new PlainEx(1));
 		}
 	
+	e = holder.getSubEx(0);
 	return e;
 
 	}

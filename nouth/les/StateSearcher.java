@@ -144,23 +144,10 @@ public boolean isNew(State x){
 
 public int hf(State argState){
 	Ex stateEx = argState.stateEx;
-
-	if(stateEx instanceof EqEx){
-		if((stateEx.getSubEx(0) instanceof PlainEx)&&(((PlainEx)stateEx.getSubEx(0)).value==0)){
-			Integer rank = Polynom.rankOf(stateEx.getSubEx(1),targetString);
-			if(!(rank==null)){
-				return 0;
-				}
-			}
-		}
 	
-	if(stateEx instanceof EqEx){
-		if((stateEx.getSubEx(1) instanceof PlainEx)&&(((PlainEx)stateEx.getSubEx(1)).value==0)){
-			Integer rank = Polynom.rankOf(stateEx.getSubEx(0),targetString);
-			if(!(rank==null)){
-				return 0;
-				}
-			}
+	Integer rank =Polynom.rankOfEq(stateEx, targetString);
+	if(rank!=null){
+		return 0;
 		}
 
 	int d = stateEx.varDepth(targetString);

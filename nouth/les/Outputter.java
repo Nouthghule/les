@@ -5,28 +5,23 @@ public class Outputter{
 	TexParser t = new TexParser();
 
 public String getOutput(String in, String var){
+	
 	Ex e = t.parse(in);
 	State startState = new State(e);
-	StateSearcher searchie = new StateSearcher(startState);
-	State foundState = searchie.find(var);
+
+	SolutionMaker sm = new SolutionMaker();
+	Solution solution = sm.solve(startState,var);
 	
-	System.out.println("outputter foundState prior to searcher : " + foundState.stateEx.reportForTex());
-	ComputeSearcher cs = new ComputeSearcher();
-	foundState = cs.search(foundState);
-
-	String res = "";	
-
-	State papa = foundState;
-	System.out.println("outputer found " + foundState.stateEx.report());
+	State papa = solution.foundState;
+	System.out.println("outputer found " +papa.stateEx.report());
 	LinkedList<String> as = new LinkedList<String>();
 
-	String ugly = foundState.stateEx.report();
-/*	Simplifier wakko = new Simplifier();
-	Ex simple = wakko.simplify(foundState.stateEx);
-	if(!simple.report().equals(ugly)){
-		as.add(simple.reportForTex());
+	for(State s : solution.legitValuesStates){	
+//		System.out.println("adding after line "+s.stateEx.reportForTex());
+		as.add(s.stateEx.reportForTex());
 		}
-*/
+	as.add("-----------");
+
 	while(true){
 		
 		as.add((papa.stateEx.reportForTex())); 
@@ -36,8 +31,9 @@ public String getOutput(String in, String var){
 			break;
 			}
 		}
-
 	
+
+	String res = "";
 	int i;
 	for(i=as.size()-2;i>=0;i--){
 	res += as.get(i);
