@@ -5,7 +5,6 @@ public class ComputeSearcher{
 
 private ArrayList<State> open = new ArrayList<State>();
 private ArrayList<State> closed = new ArrayList<State>();
-private ArrayList<State> children = new ArrayList<State>();
 private int bestHf = 0;
 
 public State search(State startingState){
@@ -27,73 +26,61 @@ public State search(State startingState){
 	}
 
 private State find(){
-	closed.clear();
-	int i = 0;
-	int childBestHf;
 	while(true){
-		i++;
-		ArrayList<State> roughChildren = new ArrayList<State>();
-		children.clear();
-		childBestHf = -1;
-
-		System.out.println("ComputeSearcher loop " + i + " start ,bestHf " + bestHf + " bestChildHf " + childBestHf + " open size " + open.size() + " closed size " + closed.size());
-		for(State openState : open){
-			System.out.println("State " + openState.stateEx.reportForTex() + " propagating");
-			openState.propagate();
-			for(State child : openState.children){
-				roughChildren.add(child);
-				if(childBestHf ==-1){
-					childBestHf = hf(child);
-					}
+		State curr = findBest(open);
+		curr.propagate();
+	
+		ArrayList<State> children = curr.children;
+		if(children.size() == 0){
+			//do nothing
+			}
+		else{	
+			int best = hf(children.get(0));
+			for(State child : children){
 				child.hfVal = hf(child);
-				if(child.hfVal<=childBestHf){
-					childBestHf = child.hfVal;
+				if(child.hfVal<best){
+					best = child.hfVal;
 					}
 				}
-			}
-		
-		for(State ch : roughChildren){
-			if((ch.hfVal==childBestHf)&&(isNew(ch))){
-				children.add(ch);
+			ArrayList<State> elite = new ArrayList<State>();
+			for(State child : children){
+				if(child.hfVal==best){
+					elite.add(child);
+					}
 				}
-			}
-
-		System.out.println("ComputeSearcher loop " + i + " end bestHf " + bestHf + " bestChildHf " + childBestHf + " open size " + open.size() + " closed size " + closed.size());
-
-		if(children.size()==0){ //no more children
-			System.out.println("No more children");
-			return(finish());	
-			}
-
-		if(childBestHf > bestHf){ //only worse children
-			System.out.println("only worse children");
-			return(finish());
-			}
 			
-		if(childBestHf == bestHf){
-			System.out.println("bestchild val is equal to best.");
-			closed.addAll(open);
-			}
-
-		if(childBestHf< bestHf){ //only better children will be added -> no need to check closed
-			System.out.println("bestchild val is below best.");
-			closed.clear();
-			}
-		
-		bestHf = childBestHf;
-
-		open = children;
+			if(best>curr.hfVal){
+				//elite is worse than father, just discard it. 
 				}
+			else if(best<curr.hfVal){
+				//elite is better than father, let it become new open.
+				open = elite;
+				}
+			else if(best==curr.hfVal){
+				//elite is equal to father, add new members of elite to open.
+				for(State child : children){
+					if(isNew(child)){
+						open.add(child);
+						}
+					}
+				}
+			}	
+
+			open.remove(curr);
+			closed.add(curr);
+			
+			if(open.size()==0){
+				return findBest(closed);
+				}
+
+			
+
 		}
+	}
 	
 
 private boolean isNew(State s){
 	String str = s.stateEx.report();
-	for(State yxtate : children){
-		if(yxtate.stateEx.report().equals(str)){
-			return false;
-			}
-		}
 	for(State state : open){
 		System.out.println("Comsearcher checkagainst : " +state.stateEx.report());
 		if(state.stateEx.report().equals(str)){
@@ -111,6 +98,19 @@ private boolean isNew(State s){
 
 private State finish(){
 	return open.get(0);
+	}
+
+private State findBest(ArrayList<State> arr){
+	if(arr.size()==0){
+		return null;
+		}
+	State ret = arr.get(0);
+	for(State s : arr){
+		if(s.hfVal< ret.hfVal){
+			ret = s;
+			}
+		}
+	return ret;
 	}
 
 int hf(State s){

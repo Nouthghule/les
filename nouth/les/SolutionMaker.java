@@ -87,6 +87,7 @@ private ArrayList<State> solveQuadratic(State state, String var){
 	abc.add(b);
 	abc.add(c);
 	ArrayList<Ex> postAbc = new ArrayList<Ex>();
+	System.out.println("solveQuadratic ready for abc");
 	
 	ComputeSearcher cs = new ComputeSearcher();
 	for(Ex joe : abc){
@@ -95,13 +96,13 @@ private ArrayList<State> solveQuadratic(State state, String var){
 		postAbc.add(ns.stateEx);
 		}
 
-	System.out.println("sq abc : " + a.report() + "_" + b.report() + "_" + c.report());
+	System.out.println("solveQuadratic abc : " + a.report() + "_" + b.report() + "_" + c.report());
 
 	a = postAbc.get(0);
 	b = postAbc.get(1);
 	c = postAbc.get(2);
 
-	System.out.println("sq abc : " + a.report() + "_" + b.report() + "_" + c.report());
+	System.out.println("solveQuadratic abc : " + a.report() + "_" + b.report() + "_" + c.report());
 
 	Ex underSqRt = new AddEx();
 	underSqRt.add(b.copy().toPower(new PlainEx(2)));
