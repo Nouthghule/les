@@ -27,7 +27,7 @@ public abstract class Ex implements Comparable<Ex> {
 
 	public void replaceTarget(int pos, Ex argEx){
 		argEx.master = this;
-		argEx.posInMaster = pos;
+		argEx.posInMaster = pos; //-> no need to call updatePoses();
 		if(master == null){
 //			System.out.println("EX:  I'm " + this.report() + ", an orphan,  and I'm replacing subEx at " + pos + " by " + argEx.report());
 		}

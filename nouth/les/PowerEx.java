@@ -59,6 +59,10 @@ public Ex toPower(Ex e){
 public ArrayList<Operator> suggestCrunchers(){
 	ArrayList<Operator> crs = new ArrayList<Operator>();
 	crs.add(new PowerCruncherExpand());
+	crs.add(new PowerCruncherConsolide());
+	crs.add(new PowerCruncherProcessRaise());
+	crs.add(new PowerCruncherSplitDen());
+	crs.add(new PowerCruncherSplitNum());
 	return crs;
 	}
 
@@ -108,7 +112,7 @@ public String reportForTex(){
 		Ex den = getSubEx(1).getSubEx(1);
 		Ex num = getSubEx(1).getSubEx(0);
 		
-		statement += "\\sqrt";
+		statement += "\\\\\\sqrt";
 
 		if(den.reportForTex().equals("2")){
 			statement += "{";

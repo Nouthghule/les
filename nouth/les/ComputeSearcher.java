@@ -5,6 +5,7 @@ public class ComputeSearcher{
 
 private ArrayList<State> open = new ArrayList<State>();
 private ArrayList<State> closed = new ArrayList<State>();
+private ArrayList<State> children = new ArrayList<State>();
 private int bestHf = 0;
 
 public State search(State startingState){
@@ -31,8 +32,8 @@ private State find(){
 	int childBestHf;
 	while(true){
 		i++;
-		ArrayList<State> children = new ArrayList<State>();
 		ArrayList<State> roughChildren = new ArrayList<State>();
+		children.clear();
 		childBestHf = -1;
 
 		System.out.println("ComputeSearcher loop " + i + " start ,bestHf " + bestHf + " bestChildHf " + childBestHf + " open size " + open.size() + " closed size " + closed.size());
@@ -70,10 +71,12 @@ private State find(){
 			}
 			
 		if(childBestHf == bestHf){
+			System.out.println("bestchild val is equal to best.");
 			closed.addAll(open);
 			}
 
 		if(childBestHf< bestHf){ //only better children will be added -> no need to check closed
+			System.out.println("bestchild val is below best.");
 			closed.clear();
 			}
 		
@@ -86,7 +89,13 @@ private State find(){
 
 private boolean isNew(State s){
 	String str = s.stateEx.report();
+	for(State yxtate : children){
+		if(yxtate.stateEx.report().equals(str)){
+			return false;
+			}
+		}
 	for(State state : open){
+		System.out.println("Comsearcher checkagainst : " +state.stateEx.report());
 		if(state.stateEx.report().equals(str)){
 			return false;
 			}//MINDNOTE: Cursor position
@@ -96,6 +105,7 @@ private boolean isNew(State s){
 			return false;
 			}
 		}
+	System.out.println("Comsearcher is new : " + str);
 	return true;
 	}
 

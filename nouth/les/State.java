@@ -42,9 +42,9 @@ public int propagate(){
 			System.out.println(o + " has brought me a new dirty child : " + child.report());
 			
 	//		System.out.println("It's ancestry is : " + ancestry);
-			System.out.println("State polishing child : " + child.report());
+//j			System.out.println("State polishing child : " + child.report());
 			child.polish();
-	//		System.out.println("I've polished the child and now it looks like this : " + child.report());
+			System.out.println("I've polished the child and now it looks like this : " + child.report());
 			State childState = new State(child);
 			childState.stateOp = o;
 			childState.allowAlterators = this.allowAlterators;
