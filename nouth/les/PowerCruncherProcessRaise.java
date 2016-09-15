@@ -15,22 +15,24 @@ public int crunch(Ex e){
 		}
 	//now we know that both exponent and base are integers
 
-	double base = (double)((PlainEx)e.getSubEx(0)).value;
-	double exponent = (double)((PlainEx)e.getSubEx(1)).value;
-
-	double result = Math.pow(base, exponent);
-
-	if ((result == Math.floor(result)) && !Double.isInfinite(result)) {
-		int rlt = (int) result;
-		e.replaceTarget(0, new PlainEx(rlt));
-		e.replaceTarget(1, new PlainEx(1));
-		e.polish();
-		return 1;
-		}
-	else{
+	int base = ((PlainEx)e.getSubEx(0)).value;
+	int exponent = ((PlainEx)e.getSubEx(1)).value;
+	int result = 1;
+	
+	if(exponent<0){
 		return 0;
 		}
+	
+	for(;exponent>0;exponent--){
+		result = result*base;	
+		}
+
+	e.replaceTarget(0, new PlainEx(result));
+	e.replaceTarget(1, new PlainEx(1));
+	e.polish();
+	return 1;
+	}
 
 	}
 
-}
+

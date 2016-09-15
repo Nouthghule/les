@@ -61,6 +61,7 @@ public ArrayList<Operator> suggestCrunchers(){
 	crs.add(new PowerCruncherExpand());
 	crs.add(new PowerCruncherConsolide());
 	crs.add(new PowerCruncherProcessRaise());
+	crs.add(new PowerCruncherProcessRoot());
 	crs.add(new PowerCruncherSplitDen());
 	crs.add(new PowerCruncherSplitNum());
 	return crs;
