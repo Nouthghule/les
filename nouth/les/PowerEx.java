@@ -58,7 +58,7 @@ public Ex toPower(Ex e){
 @Override
 public ArrayList<Operator> suggestCrunchers(){
 	ArrayList<Operator> crs = new ArrayList<Operator>();
-	crs.add(new PowerCruncherExpand());
+	//crs.add(new PowerCruncherExpand());
 	crs.add(new PowerCruncherConsolide());
 	crs.add(new PowerCruncherProcessRaise());
 	crs.add(new PowerCruncherProcessRoot());
